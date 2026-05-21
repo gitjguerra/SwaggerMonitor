@@ -556,38 +556,6 @@ function loadEvents() {
         });
 }
 
-//======================================================
-//✅ GRÁFICA PLUGIN
-//======================================================
-const backgroundZonesPlugin = {
-    id: 'backgroundZones',
-    beforeDraw: (chart) => {
-
-        const {ctx, chartArea, scales} = chart;
-
-        if (!chartArea) return;
-
-        let {top, bottom, left, right} = chartArea;
-        let y = scales.y;
-
-        ctx.save();
-
-        // 🟢 zona normal (0–1000)
-        ctx.fillStyle = 'rgba(40, 167, 69, 0.1)';
-        ctx.fillRect(left, y.getPixelForValue(1000), right - left, bottom - y.getPixelForValue(1000));
-
-        // 🟡 zona lenta (1000–2000)
-        ctx.fillStyle = 'rgba(250, 204, 21, 0.15)';
-        ctx.fillRect(left, y.getPixelForValue(2000), right - left, y.getPixelForValue(1000) - y.getPixelForValue(2000));
-
-        // 🔴 zona crítica (>2000)
-        ctx.fillStyle = 'rgba(220, 53, 69, 0.15)';
-        ctx.fillRect(left, top, right - left, y.getPixelForValue(2000) - top);
-
-        ctx.restore();
-    }
-};
-
 // ======================================================
 // ✅ GRÁFICA MULTI SERVIDOR
 // ======================================================
@@ -607,10 +575,8 @@ function loadChartMulti() {
     )
     .then(results => {
 
-        console.log("RESULTS:", results); // debug
-
-        if (!results || results.length === 0 || !results[0].labels) {
-            console.log("No hay datos para graficar");
+        if (!results || results.length === 0) {
+            console.log("No hay datos");
             return;
         }
 
@@ -618,53 +584,67 @@ function loadChartMulti() {
 
         if (chart) chart.destroy();
 
-        let colors = ['#0b4ea2', '#28a745', '#dc3545', '#facc15', '#6f42c1'];
+        // ✅ X = SERVIDORES
+        let labels = selectedOptions;
 
-        let datasets = results.map((data, i) => {
-
-            let values = (data.values || []).map((v, idx) => {
-                let isUp = (data.status && data.status[idx]) ?? true;
-                return isUp ? v : null;
-            });
-
-            let pointColors = values.map(v => {
-                if (v == null) return "gray";
-                if (v > 2000) return "red";
-                if (v > 1000) return "#facc15";
-                return "#28a745";
-            });
-
-
-            return {
-                label: selectedOptions[i],
-                data: values,
-                backgroundColor: pointColors, // ✅ ESTE ES EL CAMBIO
-                borderColor: colors[i % colors.length],
-                borderWidth: 1
-            };
+        // ✅ Y = ÚLTIMO VALOR DE CADA SERVIDOR
+        let values = results.map(r => {
+            if (!r.values || r.values.length === 0) return 0;
+            return r.values[r.values.length - 1];
         });
 
-        datasets.push({
-            label: 'Límite crítico (1000 ms)',
-            data: Array(results[0].labels.length).fill(1000),
-            borderColor: 'red',
-            borderDash: [5, 5],
-            fill: false,
-            pointRadius: 0
+        // ✅ COLORES SEMÁFORO
+        let colors = values.map(v => {
+            if (v > 2000) return "#ef4444"; // 🔴 crítico
+            if (v > 1000) return "#eab308"; // 🟡 lento
+            return "#22c55e";               // 🟢 normal
         });
 
-        // ✅ 🔥 AQUÍ ESTABA FALTANDO
+        let combined = labels.map((l, i) => ({
+            name: l,
+            value: values[i],
+            color: colors[i]
+        }));
+
+        combined.sort((a, b) => b.value - a.value);
+
+        labels = combined.map(c => c.name);
+        values = combined.map(c => c.value);
+        colors = combined.map(c => c.color);
+
+        // ✅ CREAR GRÁFICA
         chart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: results[0].labels,
-                datasets: datasets
+                labels: labels,
+                datasets: [{
+                    label: 'Tiempo de respuesta (ms)',
+                    data: values,
+                    backgroundColor: colors,
+                    borderRadius: 6,
+                    barThickness: 40
+                }]
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false
-            },
-            plugins: [backgroundZonesPlugin]
+                maintainAspectRatio: false,
+
+                scales: {
+                    y: {
+                        min: 0,
+                        max: 2500,
+                        ticks: {
+                            callback: value => value + " ms"
+                        }
+                    }
+                },
+
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                }
+            }
         });
 
     });
@@ -724,45 +704,46 @@ document.addEventListener("DOMContentLoaded", function () {
 //======================================================
 //✅ SWAGGER
 //======================================================
-function loadSwagger(name, host, port) {
-
-    const url = `http://${host}:${port}/swagger-ui/index.html`;
-
-    console.log("Cargando Swagger:", url);
-
-    document.getElementById("swaggerFrame").src = url;
-}
-
 function handleSwaggerClick(event, btn) {
 
-    event.stopPropagation(); // ✅ evita abrir modal
+    event.stopPropagation();
 
-    const name = btn.getAttribute("data-name");
     const host = btn.getAttribute("data-host");
     const port = btn.getAttribute("data-port");
 
-    // ✅ cargar swagger
-    loadSwagger(name, host, port);
+    const base = `http://${host}:${port}`;
 
-    const panel = document.getElementById("swaggerPanel");
+    // ✅ SOLO contextos válidos
+    const contexts = ["", "/tarjeta"];
 
-    // ✅ scroll suave
-    panel.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-
-    // ✅ highlight visual
-    panel.classList.add("highlight");
-
-    setTimeout(() => {
-        panel.classList.remove("highlight");
-    }, 1000);
+    loadSwagger(base, contexts, 0);
 }
 
-function toggleSwagger() {
-    let frame = document.getElementById("swaggerFrame");
-    frame.style.display = (frame.style.display === 'none') ? 'block' : 'none';
+// ========================================
+// ✅ CARGA REAL CON IFRAME
+// ========================================
+
+function handleSwaggerClick(event, btn) {
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    const host = btn.getAttribute("data-host");
+    const port = btn.getAttribute("data-port");
+
+    const url = `http://${host}:${port}/tarjeta/swagger-ui.html#/`;
+
+    console.log("👉 Cargando Swagger:", url);
+
+    const iframe = document.getElementById("swaggerFrame");
+    iframe.src = url;
+
+    // ✅ UX
+    const panel = document.getElementById("swaggerPanel");
+    panel.scrollIntoView({ behavior: "smooth" });
+
+    panel.classList.add("highlight");
+    setTimeout(() => panel.classList.remove("highlight"), 1000);
 }
 
 </script>

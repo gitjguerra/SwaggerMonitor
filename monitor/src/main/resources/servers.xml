@@ -20,6 +20,7 @@
 
     <environment name="QA">
         <server name="AppQA" host="127.0.0.1" port="8081" monitoring="false"/>
+        <server name="GUERRA" host="127.0.0.1" port="8091" monitoring="false"/>
     </environment>
 
 </servers>
