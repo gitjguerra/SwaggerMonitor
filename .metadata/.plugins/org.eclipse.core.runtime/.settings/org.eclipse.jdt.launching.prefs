@@ -1,3 +1,0 @@
-eclipse.preferences.version=1
-org.eclipse.jdt.launching.PREF_DEFAULT_ENVIRONMENTS_XML=
-org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType29,C\:\\Program Files\\Java\\jdk-1.8" defaultVMConnector\="">\r\n    <vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\r\n        <vm id\="1769096664503" name\="jre" path\="C\:\\DevEnvironment\\eclipse\\plugins\\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\\jre"/>\r\n        <vm id\="C\:\\Program Files\\Java\\jdk-1.8" name\="jdk-1.8" path\="C\:\\Program Files\\Java\\jdk-1.8"/>\r\n    </vmType>\r\n</vmSettings>\r\n

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy element &apos;ServiceContingence.java&apos; to &apos;api-tarjeta/src/main/java/com.mercantilbanco.osba.config&apos;&#x0D;&#x0A;- Original project: &apos;api-safe&apos;&#x0D;&#x0A;- Destination element: &apos;api-tarjeta/src/main/java/com.mercantilbanco.osba.config&apos;&#x0D;&#x0A;- Original element: &apos;com.mercantilbanco.osba.config.ServiceContingence.java&apos;" description="Copy compilation unit" destination="=api-tarjeta/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.mercantilbanco.osba.config" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.mercantilbanco.osba.config{ServiceContingence.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1770211064501" units="1" version="1.0"/>
-</session>
