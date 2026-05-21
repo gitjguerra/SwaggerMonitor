@@ -1,0 +1,708 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>Monitor</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>        
+		body {
+					background-color: #f4f6f9;
+				}
+
+        /* HEADER */
+        .header {
+            background-color: #0b4ea2;
+            color: white;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            height: 60px;
+        }
+
+        .header img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .header h5 {
+            margin: 0;
+        }
+
+        /* CARD */        
+		.card {
+		    margin: 5px 0;
+		    border-radius: 10px;
+		    border: none;
+		    background: white;
+		    box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+		    padding: 8px;        /* ⬅️ menos padding */
+		    transition: 0.2s;
+		    font-size: 12px;     /* ⬅️ texto más pequeño */
+		}
+
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ESTADO */
+        .status-up {
+            color: #28a745;
+            font-size: 22px;
+        }
+
+        .status-down {
+            color: #dc3545;
+            font-size: 22px;
+        }
+
+        .env-title {
+            color: #0b4ea2;
+            font-weight: 600;
+            margin-top: 25px;
+        }
+        
+		.small-text {
+		    font-size: 10px;
+		}
+		
+		.status-label {
+		    font-size: 11px;
+		}
+
+        /* ALERTA VISUAL SI CAE */
+        .down-alert {
+            border: 2px solid #dc3545;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% { background: #fff; }
+            50% { background: #ffe5e5; }
+            100% { background: #fff; }
+        }
+		
+		/* BADGES */
+		.badge {
+		    font-size: 13px;
+		}
+		
+		/* TABLA HISTORICA */
+		.table {
+		    color: #e5e7eb;
+		}
+		
+		.status-warning {
+		    color: #facc15;
+		    font-size: 26px;
+		}
+		
+		.card-warning {
+		    border-left: 4px solid #facc15;
+		}			
+		
+		/* DASHBOARD GRID */		
+		.dashboard {
+		    display: grid;
+		    grid-template-columns: 1fr 1fr;
+		    grid-auto-rows: minmax(250px, auto); /* 🔥 clave */
+		    gap: 10px;
+		    padding: 10px;
+		}
+
+		/* PANEL */				
+		.panel {
+		    height: 100%;
+		}
+		
+		/* TITULO */
+		.panel-title {
+		    font-weight: 600;
+		    color: #0b4ea2;
+		    margin-bottom: 10px;
+		}
+		
+		/* TIMELINE */
+		.timeline {
+		    position: relative;
+		    padding-left: 30px;
+		}
+				
+		.dashboard {
+		    display: grid;
+		    grid-template-columns: 1fr 1fr;
+		
+		    /* 🔥 configuración CORRECTA */
+		    grid-template-rows: 1fr 1fr;
+		
+		    gap: 10px;
+		    padding: 10px;
+		
+		    height: calc(100vh - 60px); /* importante */
+		}
+				
+		.timeline::before {
+		    content: '';
+		    position: absolute;
+		    left: 10px;
+		    top: 0;
+		    bottom: 0;
+		    width: 2px;
+		    background: #d1d5db;
+		}
+		
+		/* ITEM */		
+		.timeline-item {
+		    animation: fadeIn 0.3s ease;
+		}
+		
+		@keyframes fadeIn {
+		    from { opacity: 0; transform: translateY(5px); }
+		    to { opacity: 1; transform: translateY(0); }
+		}
+		
+		/* DOT */
+		.timeline-dot {
+		    position: absolute;
+		    left: -1px;
+		    top: 5px;
+		    width: 20px;
+		    height: 20px;
+		    border-radius: 50%;
+		}
+		
+		/* COLORS */
+		.dot-danger { background: #dc3545; }   /* rojo */
+		.dot-warning { background: #facc15; }  /* amarillo */
+		.dot-success { background: #28a745; }  /* verde */
+		
+		/* CONTENIDO */
+		.timeline-content {
+		    padding-left: 15px;
+		}
+						
+		canvas {
+		    max-height: 250px;
+		}		
+				
+		.server-grid {
+		    display: grid;
+		    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+		    gap: 8px;
+		}		
+		
+		/* SERVIDORES (arriba izquierda) */
+		.panel-servers {
+		    grid-column: 1;
+		    grid-row: 1;
+		}
+		
+		/* GRÁFICA (arriba derecha) */
+		.panel:nth-of-type(2) {
+		    grid-column: 2;
+		    grid-row: 1;
+		}
+		
+		/* LOGS (abajo izquierda) */
+		.panel:nth-of-type(3) {
+		    grid-column: 1;
+		    grid-row: 2;
+		}
+		
+		/* ALERTAS (abajo derecha) */
+		.panel:nth-of-type(4) {
+		    grid-column: 2;
+		    grid-row: 2;
+		}
+				
+										
+    </style>
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header d-flex align-items-center px-3" style="background:#0b4ea2; color:white; height:60px;">
+	<img th:src="@{/images/mercantil.png}" alt="Servidores" style="height:40px;"/>         
+	<h5>SERVIDORES MERCANTIL </h5>
+</div>
+
+
+<div class="dashboard">
+
+    <!-- ✅ IZQUIERDA -->
+    <div class="panel panel-servers">
+        <h5 class="panel-title">Servidores</h5>
+
+        <div class="container-fluid">
+
+            <div th:each="env : ${data}">
+                <h6 class="env-title" th:text="${env.key}"></h6>
+
+                <div class="server-grid">
+
+                    <div th:each="srv : ${env.value}">
+                        
+						<div class="card text-center"
+						     th:attr="onclick=|showDetails('${srv.name}', '${srv.host}', '${srv.port}', '${srv.up}', '${srv.responseTime}', '${srv.error}')|"
+						     th:classappend="
+						         ${srv.up} ? 
+						             (${srv.responseTime > 1000} ? ' card-warning' : ' card-up')
+						             : ' card-down'
+						     "
+						     style="cursor:pointer;">
+						
+						    <h6 th:text="${srv.name}"></h6>
+						
+						    <p class="small-text"
+						       th:text="${srv.host} + ':' + ${srv.port}">
+						    </p>
+						
+						    <div th:classappend="
+						        ${srv.up} ? 
+						            (${srv.responseTime > 1000} ? 'status-warning' : 'status-up')
+						            : 'status-down'
+						    ">
+						        <span th:text="
+						            ${srv.up} ? 
+						                (${srv.responseTime > 1000} ? '🟡' : '🟢') 
+						                : '🔴'
+						        "></span>
+						    </div>
+						
+						    <div class="status-label mt-1"
+						         th:text="
+						             ${srv.up} ? 
+						                 (${srv.responseTime > 1000} ? 'LENTO' : 'UP')
+						                 : 'DOWN'
+						         ">
+						    </div>
+						
+						    <div class="small-text"
+						         th:text="'Tiempo: ' + ${srv.responseTime} + ' ms'">
+						    </div>
+						
+						</div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div> <!-- ✅ cerrar -->
+    </div>
+
+    <!-- ✅ DERECHA ARRIBA -->
+    <div class="panel">
+        <h5 class="panel-title">Gráficas</h5>
+        <div class="mb-2">
+            <select id="serverSelect" class="form-select form-select-sm" multiple></select>
+        </div>
+        <canvas id="responseChart"></canvas>
+    </div>
+
+    <!-- ✅ DERECHA MEDIO -->
+    <div class="panel">
+        <h5 class="panel-title">Logs / Eventos</h5>
+        <div id="eventsContainer" class="timeline"></div>
+    </div>
+
+    <!-- ✅ DERECHA ABAJO -->
+    <div class="panel">
+        <h5 class="panel-title">Alertas</h5>
+        <div id="alertsContainer"></div>
+    </div>
+
+</div>
+
+
+<!-- MODAL -->
+<div class="modal fade" id="detailModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 id="modalName">Servidor</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <p><strong>Host:</strong> <span id="modalHost"></span></p>
+        <p><strong>Puerto:</strong> <span id="modalPort"></span></p>
+		<p><strong>Estado:</strong> 
+		   <span id="modalStatus" class="badge"></span>
+		</p>
+        <p><strong>Tiempo:</strong> <span id="modalTime"></span> ms</p>
+
+        <hr>
+
+        <p><strong>Uptime:</strong> <span id="modalUptime"></span></p>
+        <p><strong>Tiempo caído:</strong> <span id="modalDownTime"></span></p>
+		<p><strong>Error:</strong> <span id="modalError"></span></p>
+
+        <hr>
+
+        <h6>Histórico</h6>
+
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Hora</th>
+                    <th>Estado</th>
+                    <th>Tiempo</th>
+                </tr>
+            </thead>
+            <tbody id="historyTable"></tbody>
+        </table>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- JS -->
+<script>
+
+// ======================================================
+// ✅ MODAL DETALLE SERVIDOR
+// ======================================================
+window.showDetails = function(name, host, port, up, time, error) {
+
+    document.getElementById("modalName").innerText = name;
+    document.getElementById("modalHost").innerText = host;
+    document.getElementById("modalPort").innerText = port;
+    document.getElementById("modalTime").innerText = time;
+    document.getElementById("modalError").innerText = error ? error : "Sin error";
+
+    let statusElement = document.getElementById("modalStatus");
+
+    if (up === 'true') {
+        if (time > 1000) {
+            statusElement.innerText = 'LENTO';
+            statusElement.className = 'badge bg-warning';
+        } else {
+            statusElement.innerText = 'ACTIVO';
+            statusElement.className = 'badge bg-success';
+        }
+    } else {
+        statusElement.innerText = 'INACTIVO';
+        statusElement.className = 'badge bg-danger';
+    }
+
+    // ✅ MÉTRICAS
+    fetch('/api/metrics/' + name)
+        .then(res => res.json())
+        .then(data => {
+            if (data.uptime >= 99.9) {
+                document.getElementById("modalUptime").innerText = "100% (estable)";
+            } else if (data.uptime === 0) {
+                document.getElementById("modalUptime").innerText = "0% (caído)";
+            } else {
+                document.getElementById("modalUptime").innerText =
+                    data.uptime.toFixed(2) + "%";
+            }
+
+            document.getElementById("modalDownTime").innerText = data.downtime;
+        });
+
+    // ✅ HISTÓRICO
+    fetch('/api/history/' + name)
+        .then(res => res.json())
+        .then(data => {
+
+            let table = document.getElementById("historyTable");
+            table.innerHTML = "";
+
+            data.slice(-10).reverse().forEach(h => {
+
+                let d = new Date(h.timestamp);
+                let time = isNaN(d) ? h.timestamp : d.toLocaleTimeString();
+
+                table.innerHTML += `
+                    <tr>
+                        <td>${time}</td>
+                        <td>
+                            <span class="badge ${h.up ? 'bg-success' : 'bg-danger'}">
+                                ${h.up ? 'UP' : 'DOWN'}
+                            </span>
+                        </td>
+                        <td>${h.responseTime} ms</td>
+                    </tr>
+                `;
+            });
+        });
+
+    new bootstrap.Modal(document.getElementById('detailModal')).show();
+};
+
+// ======================================================
+// ✅ ALERTAS
+// ======================================================
+function loadAlerts() {
+
+    fetch('/api/alerts')
+        .then(res => res.json())
+        .then(data => {
+
+            let container = document.getElementById("alertsContainer");
+            container.innerHTML = "";
+
+            if (data.length === 0) {
+                container.innerHTML = "<p class='text-success'>✅ Sin alertas</p>";
+                return;
+            }
+
+            data.forEach(alert => {
+
+                let color = "secondary";
+                if (alert.level === "DOWN") color = "danger";
+                if (alert.level === "SLOW") color = "warning";
+                if (alert.level === "ERROR") color = "dark";
+
+                let time = new Date(alert.timestamp).toLocaleTimeString();
+
+                container.innerHTML += `
+                    <div class="card mb-2 border-${color}">
+                        <div class="card-body p-2">
+                            <strong>${alert.server}</strong>
+                            <span class="badge bg-${color}">${alert.level}</span>
+                            <div class="small-text">${alert.message}</div>
+                            <div class="small-text">${time}</div>
+                        </div>
+                    </div>
+                `;
+            });
+        });
+}
+
+// ======================================================
+// ✅ EVENTOS (TIMELINE)
+// ======================================================
+function loadEvents() {
+
+    fetch('/api/events')
+        .then(res => res.json())
+        .then(data => {
+
+            let container = document.getElementById("eventsContainer");
+            container.innerHTML = "";
+
+            if (data.length === 0) {
+                container.innerHTML = "<p>Sin eventos</p>";
+                return;
+            }
+
+            data.slice(-15).reverse().forEach(e => {
+
+                let colorClass = "dot-secondary";
+                let icon = "ℹ️";
+
+                if (e.type === "DOWN") {
+                    colorClass = "dot-danger";
+                    icon = "🔴";
+                } else if (e.type === "SLOW") {
+                    colorClass = "dot-warning";
+                    icon = "🟡";
+                } else if (e.type === "RECOVER") {
+                    colorClass = "dot-success";
+                    icon = "✅";
+                }
+
+                let time = new Date(e.time).toLocaleTimeString();
+
+                container.innerHTML += `
+                    <div class="timeline-item">
+                        <div class="timeline-dot ${colorClass}"></div>
+                        <div class="timeline-content">
+                            <strong>${icon} ${e.server}</strong>
+                            <div class="small-text">${e.message}</div>
+                            <div class="small-text">${time}</div>
+                        </div>
+                    </div>
+                `;
+            });
+        });
+}
+
+//======================================================
+//✅ GRÁFICA PLUGIN
+//======================================================
+const backgroundZonesPlugin = {
+    id: 'backgroundZones',
+    beforeDraw: (chart) => {
+
+        const {ctx, chartArea, scales} = chart;
+
+        if (!chartArea) return;
+
+        let {top, bottom, left, right} = chartArea;
+        let y = scales.y;
+
+        ctx.save();
+
+        // 🟢 zona normal (0–1000)
+        ctx.fillStyle = 'rgba(40, 167, 69, 0.1)';
+        ctx.fillRect(left, y.getPixelForValue(1000), right - left, bottom - y.getPixelForValue(1000));
+
+        // 🟡 zona lenta (1000–2000)
+        ctx.fillStyle = 'rgba(250, 204, 21, 0.15)';
+        ctx.fillRect(left, y.getPixelForValue(2000), right - left, y.getPixelForValue(1000) - y.getPixelForValue(2000));
+
+        // 🔴 zona crítica (>2000)
+        ctx.fillStyle = 'rgba(220, 53, 69, 0.15)';
+        ctx.fillRect(left, top, right - left, y.getPixelForValue(2000) - top);
+
+        ctx.restore();
+    }
+};
+
+// ======================================================
+// ✅ GRÁFICA MULTI SERVIDOR
+// ======================================================
+let chart;
+
+function loadChartMulti() {
+
+    let select = document.getElementById("serverSelect");
+    let selectedOptions = Array.from(select.selectedOptions).map(o => o.value);
+
+    if (selectedOptions.length === 0) return;
+
+    Promise.all(
+        selectedOptions.map(name =>
+            fetch('/api/chart/' + name).then(res => res.json())
+        )
+    )
+    .then(results => {
+
+        console.log("RESULTS:", results); // debug
+
+        if (!results || results.length === 0 || !results[0].labels) {
+            console.log("No hay datos para graficar");
+            return;
+        }
+
+        const ctx = document.getElementById('responseChart');
+
+        if (chart) chart.destroy();
+
+        let colors = ['#0b4ea2', '#28a745', '#dc3545', '#facc15', '#6f42c1'];
+
+        let datasets = results.map((data, i) => {
+
+            let values = (data.values || []).map((v, idx) => {
+                let isUp = (data.status && data.status[idx]) ?? true;
+                return isUp ? v : null;
+            });
+
+            let pointColors = values.map(v => {
+                if (v == null) return "gray";
+                if (v > 2000) return "red";
+                if (v > 1000) return "#facc15";
+                return "#28a745";
+            });
+
+            return {
+                label: selectedOptions[i],
+                data: values,
+                borderColor: colors[i % colors.length],
+                pointBackgroundColor: pointColors,
+                pointBorderColor: pointColors,
+                fill: false,
+                spanGaps: false
+            };
+        });
+
+        datasets.push({
+            label: 'Límite crítico (1000 ms)',
+            data: Array(results[0].labels.length).fill(1000),
+            borderColor: 'red',
+            borderDash: [5, 5],
+            fill: false,
+            pointRadius: 0
+        });
+
+        // ✅ 🔥 AQUÍ ESTABA FALTANDO
+        chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: results[0].labels,
+                datasets: datasets
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            },
+            plugins: [backgroundZonesPlugin]
+        });
+
+    });
+}
+
+// ======================================================
+// ✅ SELECTOR SERVIDORES
+// ======================================================
+function loadServerSelector() {
+
+    fetch('/api/servers')
+        .then(res => res.json())
+        .then(data => {
+
+            let select = document.getElementById("serverSelect");
+            select.innerHTML = "";
+
+            data.forEach(name => {
+                let option = document.createElement("option");
+                option.value = name;
+                option.textContent = name;
+                select.appendChild(option);
+            });
+
+            // seleccionar por defecto
+            for (let i = 0; i < Math.min(2, select.options.length); i++) {
+                select.options[i].selected = true;
+            }
+
+            loadChartMulti();
+        });
+}
+
+// ======================================================
+// ✅ DASHBOARD REFRESH
+// ======================================================
+function refreshDashboard() {
+    loadAlerts();
+    loadEvents();
+    loadChartMulti();
+}
+
+// ======================================================
+// ✅ INIT (UNICO Y LIMPIO)
+// ======================================================
+document.addEventListener("DOMContentLoaded", function () {
+
+    loadServerSelector();
+
+    document.getElementById("serverSelect")
+        .addEventListener("change", loadChartMulti);
+
+    setInterval(refreshDashboard, 5000);
+    refreshDashboard();
+});
+
+</script>
+
+
+</body>
+</html>

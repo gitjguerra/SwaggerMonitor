@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="hasShownOverlayPopupBefore" value="true"/>
+	<item key="replaceBarOpen" value="true"/>
+	<list key="replacehistory">
+		<item value="Alert"/>
+	</list>
+	<list key="searchhistory">
+		<item value="AlertDTO"/>
+	</list>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value="let values = data.values;"/>
+		<item key="wrap" value="true"/>
+		<item key="incremental" value="false"/>
+		<list key="findhistory">
+			<item value="let values = data.values;"/>
+			<item value="panel"/>
+			<item value="chart = new Chart(ctx, {"/>
+			<item value="&lt;div class=&quot;server-grid&quot;&gt;"/>
+			<item value="&lt;div th:each=&quot;env : ${data}&quot;&gt;"/>
+			<item value="  &lt;div class=&quot;col-md-2 col-lg-2 col-xl-2&quot; th:each=&quot;srv : ${env.value}&quot;&gt;"/>
+			<item value="server-grid"/>
+			<item value="scroll"/>
+		</list>
+		<list key="replacehistory">
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="58"/>
+		<item key="DIALOG_Y_ORIGIN" value="242"/>
+		<item key="DIALOG_WIDTH" value="322"/>
+		<item key="DIALOG_HEIGHT" value="391"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

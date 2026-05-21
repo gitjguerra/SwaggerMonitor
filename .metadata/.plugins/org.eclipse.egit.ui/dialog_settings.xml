@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="EGit.KnownHosts">
+		<item value="git.eclipse.org"/>
+		<item value="github.com"/>
+		<item value="bitbucket.org"/>
+	</list>
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://us-south.git.cloud.ibm.com/mercantil-banco/osba/bm_integrations/bm-security.git"/>
+	</list>
+	<section name="GitImportWizard">
+		<section name="GitImportWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="429"/>
+			<item key="DIALOG_Y_ORIGIN" value="29"/>
+			<item key="DIALOG_WIDTH" value="858"/>
+			<item key="DIALOG_HEIGHT" value="550"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.pull.PullResultDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="375"/>
+		<item key="DIALOG_Y_ORIGIN" value="102"/>
+		<item key="DIALOG_WIDTH" value="632"/>
+		<item key="DIALOG_HEIGHT" value="400"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

@@ -1,0 +1,24 @@
+1770054887512	Copy compilation units
+1770054909584	Rename type 'BodyEntradaSaldoTarjetaLca'
+1770054918193	Rename type 'BodySalidaSaldoTarjetaLca'
+1770054926193	Rename type 'RequestSaldoTarjetaLca'
+1770054933822	Rename type 'ResponseSaldoTarjetaLca'
+1770056133743	Delete element
+1770057046237	Copy compilation unit
+1770061869536	Rename package 'com.mercantilbanco.osba.beans.consultar.lotetarjetalca'
+1770061887615	Rename type 'BodyEntradaLoteTarjetaLca'
+1770061897562	Rename type 'RequestLoteTarjetaLca'
+1770061908603	Rename type 'ResponseLoteTarjetaLca'
+1770062293708	Rename type 'Test_I_ConsultarLoteTarjetaLca'
+1770152755269	Copy package
+1770152766843	Delete element
+1770152805909	Copy compilation units
+1770152815476	Delete element
+1770152849899	Move compilation units
+1770154890783	Rename type 'Test_I_ConsultarAceptaTarjetaLca'
+1770211142545	Rename type 'BeanSafe'
+1770314335426	Copy compilation units
+1770314358183	Rename type 'BodyEntradaAceptaTarjetaLca'
+1770314375709	Rename type 'RequestAceptaTarjetaLca'
+1770314383038	Rename type 'ResponseAceptaTarjetaLca'
+1770315528244	Copy compilation unit

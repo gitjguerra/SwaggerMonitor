@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: Monitor
+  cache:
+    type: caffeine
+
+server:
+  port: 8080
+
+monitor:
+  refresh: 10
+  servers:
+     file: servers.xml
+
+slack:
+  enabled: false
+  webhook:
+    url: https://hooks.slack.com/services/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

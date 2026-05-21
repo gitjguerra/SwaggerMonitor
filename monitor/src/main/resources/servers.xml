@@ -1,0 +1,25 @@
+<servers>
+
+    <environment name="DEV">
+        <server name="App1" host="127.0.0.1" port="8080" monitoring="true"/>
+        <server name="DB1" host="127.0.0.1" port="3306" monitoring="true"/>
+
+        <!-- Nuevos servidores -->
+        <server name="Service1" host="10.7.0.123" port="20001" monitoring="false"/>
+        <server name="Service2" host="10.7.0.123" port="20002" monitoring="false"/>
+        <server name="Service3" host="10.7.0.123" port="30101" monitoring="false"/>
+        <server name="Service4" host="10.7.0.123" port="30102" monitoring="false"/>
+        <server name="Service5" host="10.0.4.10" port="7080" monitoring="false"/>
+        <server name="Service6" host="10.0.1.59" port="7090" monitoring="false"/>
+
+        <!-- URLs externas (cloud) -->
+        <server name="CloudService1" host="osba-base-services-1-test.desqa-ve-ocp-m3c-8x64-2a9350942ee55c9d16ed89a864995080-0000.us-south.containers.appdomain.cloud" port="443" monitoring="false"/>
+        <server name="CloudService2" host="osba-base-services-2-test.desqa-ve-ocp-m3c-8x64-2a9350942ee55c9d16ed89a864995080-0000.us-south.containers.appdomain.cloud" port="443" monitoring="false"/>
+
+    </environment>
+
+    <environment name="QA">
+        <server name="AppQA" host="127.0.0.1" port="8081" monitoring="false"/>
+    </environment>
+
+</servers>

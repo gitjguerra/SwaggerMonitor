@@ -1,0 +1,32 @@
+# --- Java Core ---
+*.class
+*.log
+*.jar
+*.war
+*.ear
+/target/
+/bin/
+/build/
+
+# --- Eclipse IDE ---
+.metadata
+.project
+.classpath
+.settings/
+.loadpath
+/factorypath
+.recommenders/
+
+# --- Thymeleaf & Web Development ---
+# Usually, Thymeleaf templates (HTML) are NOT ignored.
+# However, ignore any temporary generated static assets or cache.
+/src/main/resources/static/cache/
+*.tmp
+*.bak
+
+# --- Build Tools (Maven/Gradle) ---
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.next
+release.properties
+.gradle/
