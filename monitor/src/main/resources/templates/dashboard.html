@@ -8,10 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>        
-		body {
-					background-color: #f4f6f9;
-				}
-
         /* HEADER */
         .header {
             background-color: #0b4ea2;
@@ -21,15 +17,17 @@
             align-items: center;
             height: 60px;
         }
-
         .header img {
             height: 40px;
             margin-right: 10px;
         }
-
         .header h5 {
             margin: 0;
         }
+
+		body {
+		    background-color: #eef2f7;
+		}
 
         /* CARD */        
 		.card {
@@ -42,22 +40,35 @@
 		    transition: 0.2s;
 		    font-size: 12px;     /* ⬅️ texto más pequeño */
 		}
-
         .card:hover {
             transform: translateY(-2px);
         }
+		.card-warning {
+		    border-left: 4px solid #facc15;
+		}			
+				
+		.card button {
+		    pointer-events: auto;
+		    z-index: 2;
+		}
 
         /* ESTADO */
         .status-up {
             color: #28a745;
             font-size: 22px;
         }
-
         .status-down {
             color: #dc3545;
             font-size: 22px;
         }
-
+		.status-label {
+		    font-size: 11px;
+		}
+		.status-warning {
+		    color: #facc15;
+		    font-size: 26px;
+		}
+						        
         .env-title {
             color: #0b4ea2;
             font-weight: 600;
@@ -68,10 +79,6 @@
 		    font-size: 10px;
 		}
 		
-		.status-label {
-		    font-size: 11px;
-		}
-
         /* ALERTA VISUAL SI CAE */
         .down-alert {
             border: 2px solid #dc3545;
@@ -94,20 +101,11 @@
 		    color: #e5e7eb;
 		}
 		
-		.status-warning {
-		    color: #facc15;
-		    font-size: 26px;
-		}
-		
-		.card-warning {
-		    border-left: 4px solid #facc15;
-		}			
-		
-		/* DASHBOARD GRID */		
+		/* DASHBOARD GRID */				
 		.dashboard {
 		    display: grid;
 		    grid-template-columns: 1fr 1fr;
-		    grid-auto-rows: minmax(250px, auto); /* 🔥 clave */
+		    grid-auto-rows: minmax(250px, auto);
 		    gap: 10px;
 		    padding: 10px;
 		}
@@ -124,10 +122,7 @@
 		
 		    overflow-y: auto;
 		    overflow-x: hidden;
-		
-		    height: 100%;
-		}
-		
+		}		
 		/* TITULO */		
 		.panel-title {
 		    font-weight: bold;
@@ -136,26 +131,33 @@
 		    padding-bottom: 5px;
 		    margin-bottom: 10px;
 		}
+				.panel-servers {
+		    grid-column: 1;
+		    grid-row: 1;
+		}
 		
+		/* GRÁFICA (arriba derecha) */
+		.panel:nth-of-type(2) {
+		    grid-column: 2;
+		    grid-row: 1;
+		}		
+		/* LOGS (abajo izquierda) */
+		.panel:nth-of-type(3) {
+		    grid-column: 1;
+		    grid-row: 2;
+		}		
+		/* ALERTAS (abajo derecha) */
+		.panel:nth-of-type(4) {
+		    grid-column: 2;
+		    grid-row: 2;
+		}
+				
 		/* TIMELINE */
 		.timeline {
 		    position: relative;
 		    padding-left: 30px;
 		}
-				
-		.dashboard {
-		    display: grid;
-		    grid-template-columns: 1fr 1fr;
-		
-		    /* 🔥 configuración CORRECTA */
-		    grid-template-rows: 1fr 1fr;
-		
-		    gap: 10px;
-		    padding: 10px;
-		
-		    height: calc(100vh - 60px); /* importante */
-		}
-				
+					
 		.timeline::before {
 		    content: '';
 		    position: absolute;
@@ -205,32 +207,20 @@
 		    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
 		    gap: 8px;
 		}		
-		
-		/* SERVIDORES (arriba izquierda) */
-		.panel-servers {
-		    grid-column: 1;
-		    grid-row: 1;
+									
+		#swaggerFrame {
+		    height: 400px;
+		}
+					
+		.highlight {
+		    animation: highlightFlash 1s ease;
 		}
 		
-		/* GRÁFICA (arriba derecha) */
-		.panel:nth-of-type(2) {
-		    grid-column: 2;
-		    grid-row: 1;
+		@keyframes highlightFlash {
+		    0%   { background-color: #fff3cd; }
+		    100% { background-color: white; }
 		}
-		
-		/* LOGS (abajo izquierda) */
-		.panel:nth-of-type(3) {
-		    grid-column: 1;
-		    grid-row: 2;
-		}
-		
-		/* ALERTAS (abajo derecha) */
-		.panel:nth-of-type(4) {
-		    grid-column: 2;
-		    grid-row: 2;
-		}
-				
-										
+													
     </style>
 
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -298,8 +288,14 @@
 						
 						    <div class="small-text"
 						         th:text="'Tiempo: ' + ${srv.responseTime} + ' ms'">
-						    </div>
-						
+						    </div>						
+																											
+							<button class="btn btn-sm btn-outline-primary mt-1"
+							        th:attr="data-name=${srv.name}, data-host=${srv.host}, data-port=${srv.port}"
+							        onclick="handleSwaggerClick(event, this)">
+							    🔗 Swagger API
+							</button>
+													
 						</div>
 
                     </div>
@@ -332,6 +328,18 @@
     </div>
 
 </div>
+
+
+<!-- ✅ Swagger -->
+<div id="swaggerPanel" class="panel" style="margin: 10px;">
+    <h5 class="panel-title">🔎 API Explorer</h5>
+
+    <iframe id="swaggerFrame"
+            style="width:100%; height:500px; border:none; border-radius:10px;">
+    </iframe>
+
+</div>
+
 
 
 <!-- MODAL -->
@@ -626,14 +634,13 @@ function loadChartMulti() {
                 return "#28a745";
             });
 
+
             return {
                 label: selectedOptions[i],
                 data: values,
+                backgroundColor: pointColors, // ✅ ESTE ES EL CAMBIO
                 borderColor: colors[i % colors.length],
-                pointBackgroundColor: pointColors,
-                pointBorderColor: pointColors,
-                fill: false,
-                spanGaps: false
+                borderWidth: 1
             };
         });
 
@@ -648,7 +655,7 @@ function loadChartMulti() {
 
         // ✅ 🔥 AQUÍ ESTABA FALTANDO
         chart = new Chart(ctx, {
-            type: 'line',
+            type: 'bar',
             data: {
                 labels: results[0].labels,
                 datasets: datasets
@@ -701,7 +708,7 @@ function refreshDashboard() {
 }
 
 // ======================================================
-// ✅ INIT (UNICO Y LIMPIO)
+// ✅ INIT
 // ======================================================
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -713,6 +720,50 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(refreshDashboard, 5000);
     refreshDashboard();
 });
+
+//======================================================
+//✅ SWAGGER
+//======================================================
+function loadSwagger(name, host, port) {
+
+    const url = `http://${host}:${port}/swagger-ui/index.html`;
+
+    console.log("Cargando Swagger:", url);
+
+    document.getElementById("swaggerFrame").src = url;
+}
+
+function handleSwaggerClick(event, btn) {
+
+    event.stopPropagation(); // ✅ evita abrir modal
+
+    const name = btn.getAttribute("data-name");
+    const host = btn.getAttribute("data-host");
+    const port = btn.getAttribute("data-port");
+
+    // ✅ cargar swagger
+    loadSwagger(name, host, port);
+
+    const panel = document.getElementById("swaggerPanel");
+
+    // ✅ scroll suave
+    panel.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+    // ✅ highlight visual
+    panel.classList.add("highlight");
+
+    setTimeout(() => {
+        panel.classList.remove("highlight");
+    }, 1000);
+}
+
+function toggleSwagger() {
+    let frame = document.getElementById("swaggerFrame");
+    frame.style.display = (frame.style.display === 'none') ? 'block' : 'none';
+}
 
 </script>
 
