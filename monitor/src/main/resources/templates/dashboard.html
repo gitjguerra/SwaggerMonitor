@@ -230,9 +230,17 @@
 <body>
 
 <!-- HEADER -->
-<div class="header d-flex align-items-center px-3" style="background:#0b4ea2; color:white; height:60px;">
-	<img th:src="@{/images/mercantil.png}" alt="Servidores" style="height:40px;"/>         
-	<h5>SERVIDORES MERCANTIL </h5>
+
+<div class="header d-flex align-items-center px-3">
+
+    <img th:src="@{/images/mercantil.png}" alt="Servidores" style="height:40px;"/>
+
+    <!-- ✅ NUEVO -->
+    <button class="btn btn-light btn-sm"
+            onclick="openSwaggerPanel()">
+        📘 Ver documentación de los Microservicios Zconnect
+    </button>
+
 </div>
 
 
@@ -289,13 +297,6 @@
 						    <div class="small-text"
 						         th:text="'Tiempo: ' + ${srv.responseTime} + ' ms'">
 						    </div>						
-																											
-							<button class="btn btn-sm btn-outline-primary mt-1"
-							        th:attr="data-name=${srv.name}, data-host=${srv.host}, data-port=${srv.port}"
-							        onclick="handleSwaggerClick(event, this)">
-							    🔗 Swagger API
-							</button>
-													
 						</div>
 
                     </div>
@@ -331,14 +332,16 @@
 
 
 <!-- ✅ Swagger -->
-<div id="swaggerPanel" class="panel" style="margin: 10px;">
-    <h5 class="panel-title">🔎 API Explorer</h5>
+<div id="swaggerPanel" class="panel" style="margin:10px; display:none;">
 
-    <iframe id="swaggerFrame"
-            style="width:100%; height:500px; border:none; border-radius:10px;">
-    </iframe>
+    <h5 class="panel-title">📘 API Explorer</h5>
+
+    <select id="apiSelect" class="form-select mb-2"></select>
+
+    <div id="swaggerUI" style="height:600px;"></div>
 
 </div>
+
 
 
 
@@ -394,6 +397,13 @@
 
 <!-- JS -->
 <script>
+
+
+const swaggerApis = [
+    "tarjeta",
+    "pagos"
+];
+
 
 // ======================================================
 // ✅ MODAL DETALLE SERVIDOR
@@ -697,9 +707,16 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("serverSelect")
         .addEventListener("change", loadChartMulti);
 
+    // ✅ NUEVO SWAGGER SELECTOR
+    document.getElementById("apiSelect")
+        .addEventListener("change", function () {
+            loadSwaggerUI(this.value);
+        });
+
     setInterval(refreshDashboard, 5000);
     refreshDashboard();
 });
+
 
 //======================================================
 //✅ SWAGGER
@@ -746,8 +763,51 @@ function handleSwaggerClick(event, btn) {
     setTimeout(() => panel.classList.remove("highlight"), 1000);
 }
 
+function openSwaggerPanel() {
+	const panel = document.getElementById("swaggerPanel");
+    panel.style.display = "block";
+
+    let select = document.getElementById("apiSelect");
+    select.innerHTML = "";
+
+    swaggerApis.forEach(api => {
+        let opt = document.createElement("option");
+        opt.value = api;
+        opt.textContent = api.toUpperCase();
+        select.appendChild(opt);
+    });
+
+    // ✅ aquí agregas el listener seguro
+    select.onchange = function () {
+        loadSwaggerUI(this.value);
+    };
+
+    if (swaggerApis.length > 0) {
+        loadSwaggerUI(swaggerApis[0]);
+    }
+
+    panel.scrollIntoView({ behavior: "smooth" });
+}
+
+function loadSwaggerUI(apiName) {
+
+    document.getElementById("swaggerUI").innerHTML = "";
+
+    SwaggerUIBundle({
+        url: `/swagger/${apiName}.json`,  // 🔥 directo desde static
+        dom_id: '#swaggerUI',
+
+        deepLinking: true,
+        docExpansion: "list",
+        tryItOutEnabled: true
+    });
+}
+
 </script>
 
+<link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css">
+
+<script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
 
 </body>
 </html>
