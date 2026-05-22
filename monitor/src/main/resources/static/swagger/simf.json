@@ -1,0 +1,800 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "API simf",
+    "version" : "1.0",
+    "description" : "Generado dinámicamente"
+  },
+  "servers" : [ {
+    "url" : "/simf"
+  } ],
+  "tags" : [ {
+    "name" : "Consultar Root",
+    "description" : "Operaciones Consultar Root"
+  }, {
+    "name" : "Registrar Root",
+    "description" : "Operaciones Registrar Root"
+  }, {
+    "name" : "Validar Root",
+    "description" : "Operaciones Validar Root"
+  } ],
+  "paths" : {
+    "/consultar/transferencias-simf" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "consultarTransferenciasSimf",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseConsultarTransferenciasSimf"
+                },
+                "example" : {
+                  "bodySalidaConsultarTransferenciasSimf" : {
+                    "resulValid" : 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/tabla-banco" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "consultarTablaBanco",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseConsultarTablaBanco"
+                },
+                "example" : { }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/tabla-banco-ampliada" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "consultarTablaBancoAmpliada",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseConsultarTablaBancoAmpliada"
+                },
+                "example" : {
+                  "bodySalidaConsultarTablaBancoAmpliada" : {
+                    "cantReg" : 100.5,
+                    "paginacion" : { },
+                    "bancos" : [ { } ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/registrar/banco-compra-divisa" : {
+      "post" : {
+        "tags" : [ "Registrar Root" ],
+        "summary" : "registrarBancoCompraDivisas",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseRegistrarBancoCompraDivisas"
+                },
+                "example" : {
+                  "bodySalidaRegistrarBancoCompraDivisas" : {
+                    "nroConsecMbu" : 100.5,
+                    "idMoviBcv" : "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/registrar/banco-vende-divisa" : {
+      "post" : {
+        "tags" : [ "Registrar Root" ],
+        "summary" : "registrarBancoVendeDivisas",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseRegistrarBancoVendeDivisas"
+                },
+                "example" : {
+                  "bodySalidaRegistrarBancoVendeDivisas" : {
+                    "nroConsecMbu" : 100.5,
+                    "idMovBcv" : "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/registrar/referencia-debito-inmediato" : {
+      "post" : {
+        "tags" : [ "Registrar Root" ],
+        "summary" : "registrarRefenciasDebitoInmediato",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseRegistrarReferenciasDebitoInmediato"
+                },
+                "example" : { }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/validar/cliente-compra-venta-divisas" : {
+      "post" : {
+        "tags" : [ "Validar Root" ],
+        "summary" : "validarClienteCompraVentaDivisas",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseValidarClienteCompraVentaDivisas"
+                },
+                "example" : {
+                  "bodySalidaValidarClienteCompraVentaDivisas" : {
+                    "factorCambioDolar" : 100.5,
+                    "mtoMaxSeg" : 100.5,
+                    "descSegOrd" : "string",
+                    "indCupoDisp" : "string",
+                    "tipoCambioDivMenudeo" : "string",
+                    "mtoMaxAno" : 100.5,
+                    "mtoMaxMes" : 100.5,
+                    "porcComis" : 100.5
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "BodyEntradaConsultarTablaBanco" : {
+        "type" : "object",
+        "properties" : {
+          "codBco" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "BodySalidaConsultarTablaBanco" : {
+        "type" : "object",
+        "properties" : {
+          "paisBco" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "codBco" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer"
+            }
+          },
+          "nomBco" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "FormatBodyResponse" : { },
+      "RequestConsultarTablaBanco" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaConsultarTablaBanco"
+          }
+        }
+      },
+      "ResponseConsultarTablaBanco" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ConstructorRequired"
+        }, {
+          "type" : "object",
+          "properties" : { }
+        } ]
+      },
+      "BeanAreaPaginacion" : { },
+      "BeanDataSalida" : { },
+      "BeanVectorPaginacion" : { },
+      "BodyBancoCleaner" : {
+        "type" : "object",
+        "properties" : { },
+        "additionalProperties" : true
+      },
+      "BodyEntradaConsultarTablaBancoAmpliada" : {
+        "type" : "object",
+        "properties" : {
+          "codSudeban" : {
+            "type" : "integer"
+          },
+          "codAba" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "bcoPignora" : {
+            "type" : "string"
+          },
+          "indBusqIndice" : {
+            "type" : "string"
+          },
+          "sitBco" : {
+            "type" : "string"
+          },
+          "codSuc" : {
+            "type" : "string"
+          },
+          "codSwift" : {
+            "type" : "string",
+            "pattern" : "^$|[A-Z]+"
+          }
+        }
+      },
+      "BodySalidaConsultarTablaBancoAmpliada" : {
+        "type" : "object",
+        "properties" : {
+          "cantReg" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "paginacion" : {
+            "$ref" : "#/components/schemas/BeanAreaPaginacion"
+          },
+          "bancos" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanDataSalida"
+            }
+          }
+        }
+      },
+      "RequestConsultarTablaBancoAmpliada" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaConsultarTablaBancoAmpliada"
+          }
+        }
+      },
+      "ResponseConsultarTablaBancoAmpliada" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ConstructorRequired"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "bodySalidaConsultarTablaBancoAmpliada" : {
+              "$ref" : "#/components/schemas/BodySalidaConsultarTablaBancoAmpliada"
+            }
+          }
+        } ]
+      },
+      "BodyEntradaConsultarTransferenciasSimf" : {
+        "type" : "object",
+        "properties" : {
+          "codigoMonedaEnt" : {
+            "type" : "string"
+          },
+          "numeroCuentaEnt" : {
+            "type" : "number",
+            "format" : "double",
+            "minimum" : 1000000000
+          },
+          "nacIdOrdenanteEnt" : {
+            "type" : "string"
+          },
+          "nroIdOrdenanteEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "fecIniBqdaOperEnt" : {
+            "type" : "number",
+            "format" : "double",
+            "minimum" : 10000000
+          },
+          "fecFinBqdaOperEnt" : {
+            "type" : "number",
+            "format" : "double",
+            "minimum" : 10000000
+          },
+          "tipoOperacionEnt" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BodySalidaConsultarTransferenciasSimf" : {
+        "type" : "object",
+        "properties" : {
+          "resulValid" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "RequestConsultarTransferenciasSimf" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaConsultarTransferenciasSimf"
+          }
+        }
+      },
+      "ResponseConsultarTransferenciasSimf" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ConstructorRequired"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "bodySalidaConsultarTransferenciasSimf" : {
+              "$ref" : "#/components/schemas/BodySalidaConsultarTransferenciasSimf"
+            }
+          }
+        } ]
+      },
+      "BodyEntradaRegistrarBancoCompraDivisas" : {
+        "type" : "object",
+        "properties" : {
+          "codSubCanalEnt" : {
+            "type" : "integer"
+          },
+          "codigoMonedaEnt" : {
+            "type" : "string"
+          },
+          "numeroPersonaEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nacIdOrdenanteEnt" : {
+            "type" : "string"
+          },
+          "nroIdOrdenanteEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nombreClienteEnt" : {
+            "type" : "string"
+          },
+          "nroCtaMonedaNacionalEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nroCtaMeEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "codigoMotivoOperacionEnt" : {
+            "type" : "integer"
+          },
+          "codigoOrigenDestinoFdoEnt" : {
+            "type" : "integer"
+          },
+          "numeroTelefonoClienteEnt" : {
+            "type" : "string"
+          },
+          "emailClienteEnt" : {
+            "type" : "string"
+          },
+          "montoOperDivisaEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "montoOperMonNacEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "montoComisOperEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "tipoCambioDivMenudeoEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "factorCambioDolarEnt" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "BodySalidaRegistrarBancoCompraDivisas" : {
+        "type" : "object",
+        "properties" : {
+          "nroConsecMbu" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "idMoviBcv" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RequestRegistrarBancoCompraDivisas" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaRegistrarBancoCompraDivisas"
+          }
+        }
+      },
+      "ResponseRegistrarBancoCompraDivisas" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ConstructorRequired"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "bodySalidaRegistrarBancoCompraDivisas" : {
+              "$ref" : "#/components/schemas/BodySalidaRegistrarBancoCompraDivisas"
+            }
+          }
+        } ]
+      },
+      "BodyEntradaRegistrarBancoVendeDivisas" : {
+        "type" : "object",
+        "properties" : {
+          "codSubCanalEnt" : {
+            "type" : "integer"
+          },
+          "codigoMonedaEnt" : {
+            "type" : "string"
+          },
+          "numeroPersonaEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nacIdOrdenanteEnt" : {
+            "type" : "string"
+          },
+          "nroIdOrdenanteEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nombreClienteEnt" : {
+            "type" : "string"
+          },
+          "nroCtaMonedaNacionalEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nroCtaMonedaExtranjeraEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "codigoMotivoOperacionEnt" : {
+            "type" : "integer"
+          },
+          "codigoOrigenDestinoFdoEnt" : {
+            "type" : "integer"
+          },
+          "numeroTelefonoClienteEnt" : {
+            "type" : "string"
+          },
+          "emailClienteEnt" : {
+            "type" : "string"
+          },
+          "montoOperDivisaEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "montoOperMonNacEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "montoComisOperEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "tipoCambioDivMenudeoEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "factorCambioDolarEnt" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "BodySalidaRegistrarBancoVendeDivisas" : {
+        "type" : "object",
+        "properties" : {
+          "nroConsecMbu" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "idMovBcv" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RequestRegistrarBancoVendeDivisas" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaRegistrarBancoVendeDivisas"
+          }
+        }
+      },
+      "ResponseRegistrarBancoVendeDivisas" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ConstructorRequired"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "bodySalidaRegistrarBancoVendeDivisas" : {
+              "$ref" : "#/components/schemas/BodySalidaRegistrarBancoVendeDivisas"
+            }
+          }
+        } ]
+      },
+      "BeanIdComercio" : { },
+      "BodyEntradaRegistrarReferenciasDebitoInmediato" : {
+        "type" : "object",
+        "properties" : {
+          "refNro" : {
+            "type" : "integer"
+          },
+          "nroPer" : {
+            "type" : "integer"
+          },
+          "codInteg" : {
+            "type" : "integer"
+          },
+          "factNro" : {
+            "type" : "string"
+          },
+          "dbtoRef" : {
+            "type" : "string"
+          },
+          "origenRef" : {
+            "type" : "integer"
+          },
+          "idComerc" : {
+            "$ref" : "#/components/schemas/BeanIdComercio"
+          }
+        }
+      },
+      "RequestRegistrarReferenciasDebitoInmediato" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaRegistrarReferenciasDebitoInmediato"
+          }
+        }
+      },
+      "ResponseRegistrarReferenciasDebitoInmediato" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ConstructorRequired"
+        }, {
+          "type" : "object",
+          "properties" : { }
+        } ]
+      },
+      "BodyEntradaValidarClienteCompraVentaDivisas" : {
+        "type" : "object",
+        "properties" : {
+          "codSubCanalEnt" : {
+            "type" : "integer"
+          },
+          "tipoOperEnt" : {
+            "type" : "string"
+          },
+          "codMonedaEnt" : {
+            "type" : "string"
+          },
+          "nroPerEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nacIdOrdEnt" : {
+            "type" : "string"
+          },
+          "nroIdOrdEnt" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "BodySalidaValidarClienteCompraVentaDivisas" : {
+        "type" : "object",
+        "properties" : {
+          "factorCambioDolar" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "mtoMaxSeg" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "descSegOrd" : {
+            "type" : "string"
+          },
+          "indCupoDisp" : {
+            "type" : "string"
+          },
+          "tipoCambioDivMenudeo" : {
+            "type" : "string"
+          },
+          "mtoMaxAno" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "mtoMaxMes" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "porcComis" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "RequestValidarClienteCompraVentaDivisas" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaValidarClienteCompraVentaDivisas"
+          }
+        }
+      },
+      "ResponseValidarClienteCompraVentaDivisas" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ConstructorRequired"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "bodySalidaValidarClienteCompraVentaDivisas" : {
+              "$ref" : "#/components/schemas/BodySalidaValidarClienteCompraVentaDivisas"
+            }
+          }
+        } ]
+      },
+      "Consultar" : { },
+      "Registrar" : { },
+      "Validar" : { },
+      "InitEnviroment" : { },
+      "ConsultarInterface" : { },
+      "RegistrarInterface" : { },
+      "ValidateInterface" : { },
+      "HeaderEntrada" : {
+        "type" : "object",
+        "properties" : {
+          "identificadorUnicoGlobal" : {
+            "type" : "string"
+          },
+          "identificacionCanal" : {
+            "type" : "string"
+          },
+          "identificacionSubCanal" : {
+            "type" : "string"
+          },
+          "siglaAplicacion" : {
+            "maxLength" : 4,
+            "type" : "string",
+            "minLength" : 1
+          },
+          "identificacionUsuario" : {
+            "type" : "string"
+          },
+          "direccionIpConsumidor" : {
+            "type" : "string"
+          },
+          "direccionIpCliente" : {
+            "type" : "string"
+          },
+          "fechaEnvioMensaje" : {
+            "type" : "string"
+          },
+          "horaEnvioMensaje" : {
+            "type" : "string"
+          },
+          "atributoPagineo" : {
+            "type" : "string"
+          },
+          "claveBusqueda" : {
+            "type" : "string"
+          },
+          "cantidadRegistros" : {
+            "type" : "integer"
+          }
+        },
+        "required" : [ "identificadorUnicoGlobal", "identificacionCanal", "identificacionSubCanal", "siglaAplicacion", "direccionIpConsumidor", "direccionIpCliente", "fechaEnvioMensaje", "horaEnvioMensaje" ]
+      },
+      "HeaderSalida" : {
+        "type" : "object",
+        "properties" : {
+          "tipoMensaje" : {
+            "example" : "F",
+            "type" : "string"
+          },
+          "mensajeProgramadorSistema" : {
+            "type" : "string"
+          },
+          "codigoMensajeProgramador" : {
+            "type" : "string"
+          },
+          "mensajeUsuario" : {
+            "example" : "EN ESTE MOMENTO NO PODEMOS PROCESAR SU OPERACION",
+            "type" : "string"
+          },
+          "codigoMensajeUsuario" : {
+            "type" : "string"
+          },
+          "fechaSalidaMensaje" : {
+            "type" : "string"
+          },
+          "horaSalidaMensaje" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "securitySchemes" : {
+      "bearerAuth" : {
+        "type" : "http",
+        "scheme" : "bearer",
+        "bearerFormat" : "JWT"
+      }
+    }
+  },
+  "security" : [ {
+    "bearerAuth" : [ ]
+  } ]
+}

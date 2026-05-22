@@ -1,2188 +1,1429 @@
 {
-  "openapi": "3.0.1",
-  "info": {
-    "title": "API security",
-    "version": "1.0",
-    "description": "Generado dinámicamente"
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "API security",
+    "version" : "1.0",
+    "description" : "Generado dinámicamente"
   },
-  "servers": [
-    {
-      "url": "null/security"
-    }
-  ],
-  "tags": [
-    {
-      "name": "Clave Telefonica Root",
-      "description": "CLASE ENCARGADA DE PUBLICAR LOS SERVICIOS REST DE CLAVE TELEFONICA."
+  "servers" : [ {
+    "url" : "/security"
+  } ],
+  "tags" : [ {
+    "name" : "Clave Telefonica Root",
+    "description" : "Operaciones Clave Telefonica Root"
+  }, {
+    "name" : "Jumio Root",
+    "description" : "Operaciones Jumio Root"
+  }, {
+    "name" : "JWTRoot",
+    "description" : "Operaciones JWTRoot"
+  }, {
+    "name" : "QRRoot",
+    "description" : "Operaciones QRRoot"
+  } ],
+  "paths" : {
+    "/clave-telefonica/autenticar" : {
+      "post" : {
+        "tags" : [ "Clave Telefonica Root" ],
+        "summary" : "autenticarClaveTelefonica",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseAutenticarClaveTelefonica"
+                },
+                "example" : { }
+              }
+            }
+          }
+        }
+      }
     },
-    {
-      "name": "Jumio Root",
-      "description": "CLASE ENCARGADA DE PUBLICAR LOS SERVICIOS REST DE SEGURIDAD PARA JUMIO."
+    "/clave-telefonica/cambiar" : {
+      "post" : {
+        "tags" : [ "Clave Telefonica Root" ],
+        "summary" : "cambiarClaveTelefonica",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseCambClaveTelefonica"
+                },
+                "example" : { }
+              }
+            }
+          }
+        }
+      }
     },
-    {
-      "name": "JWTRoot",
-      "description": "CLASE ENCARGADA DE PUBLICAR LOS SERVICIOS REST DE SEGURIDAD."
+    "/clave-telefonica/restablecer" : {
+      "post" : {
+        "tags" : [ "Clave Telefonica Root" ],
+        "summary" : "restablecerClaveTelefonica",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseRestablecerClaveTelefonica"
+                },
+                "example" : { }
+              }
+            }
+          }
+        }
+      }
     },
-    {
-      "name": "QRRoot",
-      "description": "CLASE ENCARGADA DE PUBLICAR LOS SERVICIOS REST DE SEGURIDAD PARA CODIGOS QUICK RESPONSE (QR)."
-    }
-  ],
-  "paths": {
-    "/clave-telefonica/autenticar": {
-      "post": {
-        "tags": [
-          "Clave Telefonica Root"
-        ],
-        "summary": "Autenticar Clave Telefonica",
-        "description": "METODO ENCAGADO DE IMPLEMENTAR autenticarClaveTelefonica DE LA INTERFAZ ClaveTelefonicaImpl.",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseAutenticarClaveTelefonica\u003E"
+    "/clave-telefonica/registrar" : {
+      "post" : {
+        "tags" : [ "Clave Telefonica Root" ],
+        "summary" : "registrarClaveTelefonica",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseRegistrarClaveTelefonica"
+                },
+                "example" : { }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/clave-telefonica/consultar" : {
+      "post" : {
+        "tags" : [ "Clave Telefonica Root" ],
+        "summary" : "consultarClaveTelefonica",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseConsultarClaveTelefonica"
+                },
+                "example" : {
+                  "bodySalidaConsultarClaveTelefonica" : {
+                    "nroPersona" : 1,
+                    "intentosDisponibles" : 0,
+                    "fechaUltimoIngreso" : "string",
+                    "fechaVencimiento" : "string"
+                  }
                 }
               }
-            },
-            "description": "OK"
+            }
           }
         }
       }
     },
-    "/clave-telefonica/cambiar": {
-      "post": {
-        "tags": [
-          "Clave Telefonica Root"
-        ],
-        "summary": "Cambiar Clave Telefonica",
-        "description": "METODO ENCAGADO DE IMPLEMENTAR cambiarClaveTelefonica DE LA INTERFAZ ClaveTelefonicaImpl.",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseCambClaveTelefonica\u003E"
+    "/jumio/autenticar" : {
+      "post" : {
+        "tags" : [ "Jumio Root" ],
+        "summary" : "autenticar",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseAuthJumio"
+                },
+                "example" : {
+                  "bodySalidaAuthJumio" : {
+                    "accToken" : "string",
+                    "expir" : 1,
+                    "tipoToken" : "string"
+                  },
+                  "errorJumio" : { }
                 }
               }
-            },
-            "description": "OK"
+            }
           }
         }
       }
     },
-    "/clave-telefonica/restablecer": {
-      "post": {
-        "tags": [
-          "Clave Telefonica Root"
-        ],
-        "summary": "Restablecer Clave Telefonica",
-        "description": "METODO ENCAGADO DE IMPLEMENTAR restablecerClaveTelefonica DE LA INTERFAZ ClaveTelefonicaImpl.",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseRestablecerClaveTelefonica\u003E"
+    "/jumio/crear-cuenta" : {
+      "post" : {
+        "tags" : [ "Jumio Root" ],
+        "summary" : "crearCuenta",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseCrearCuenta"
+                },
+                "example" : {
+                  "bodySalidaCrearCuenta" : {
+                    "timestamp" : "string",
+                    "account" : { },
+                    "web" : { },
+                    "sdk" : { },
+                    "workflowExecution" : { }
+                  },
+                  "errorJumio" : { }
                 }
               }
-            },
-            "description": "OK"
+            }
           }
         }
       }
     },
-    "/clave-telefonica/registrar": {
-      "post": {
-        "tags": [
-          "Clave Telefonica Root"
-        ],
-        "summary": "Registrar Clave Telefonica",
-        "description": "METODO ENCAGADO DE IMPLEMENTAR registrarClaveTelefonica DE LA INTERFAZ ClaveTelefonicaImpl",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseRegistrarClaveTelefonica\u003E"
+    "/jumio/recuperar-detalles-id" : {
+      "post" : {
+        "tags" : [ "Jumio Root" ],
+        "summary" : "recuperarDetallesId",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseRecuperarDetallesId"
+                },
+                "example" : {
+                  "bodySalidaRecuperarDetallesId" : {
+                    "workflow" : { },
+                    "account" : { },
+                    "decision" : { },
+                    "credentials" : [ { } ],
+                    "capabilities" : { },
+                    "steps" : { },
+                    "createdAt" : "string",
+                    "startedAt" : "string",
+                    "completedAt" : "string",
+                    "wipedOutAt" : "string"
+                  },
+                  "errorJumio" : { }
                 }
               }
-            },
-            "description": "OK"
+            }
           }
         }
       }
     },
-    "/clave-telefonica/consultar": {
-      "post": {
-        "tags": [
-          "Clave Telefonica Root"
-        ],
-        "summary": "Consultar Clave Telefonica",
-        "description": "METODO ENCAGADO DE IMPLEMENTAR consultarClaveTelefonica DE LA INTERFAZ ClaveTelefonicaImpl",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseConsultarClaveTelefonica\u003E"
+    "/jumio/recuperar-imagen" : {
+      "post" : {
+        "tags" : [ "Jumio Root" ],
+        "summary" : "recuperarImagen",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseRecuperarImagen"
+                },
+                "example" : {
+                  "bodySalidaRecuperarImagen" : {
+                    "imagen" : "base64-string"
+                  },
+                  "errorJumio" : { }
                 }
               }
-            },
-            "description": "OK"
+            }
           }
         }
       }
     },
-    "/jumio/autenticar": {
-      "post": {
-        "tags": [
-          "Jumio Root"
-        ],
-        "summary": "Autenticar",
-        "description": "METODO ENCARGADO DE IMPLEMENTAR autenticacion DE LA INTERFAZ JumioImpl",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseAuthJumio\u003E"
+    "/jumio/actualizar-cuenta" : {
+      "post" : {
+        "tags" : [ "Jumio Root" ],
+        "summary" : "actualizarCuenta",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseActualizarCuenta"
+                },
+                "example" : {
+                  "bodySalidaActualizarCuenta" : {
+                    "timestamp" : "string",
+                    "account" : { },
+                    "web" : { },
+                    "sdk" : { },
+                    "workflowExecution" : { }
+                  },
+                  "errorJumio" : { }
                 }
               }
-            },
-            "description": "OK"
+            }
           }
         }
       }
     },
-    "/jumio/crear-cuenta": {
-      "post": {
-        "tags": [
-          "Jumio Root"
-        ],
-        "summary": "Crear Cuenta",
-        "description": "METODO ENCARGADO DE IMPLEMENTAR crearCuenta DE LA INTERFAZ JumioImpl",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseCrearCuenta\u003E"
+    "/jwt/create" : {
+      "post" : {
+        "tags" : [ "JWTRoot" ],
+        "summary" : "create",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseCreateJWT"
+                },
+                "example" : {
+                  "bodySalidaCreateJWT" : {
+                    "createResponseToken" : { }
+                  }
                 }
               }
-            },
-            "description": "OK"
+            }
           }
         }
       }
     },
-    "/jumio/recuperar-detalles-id": {
-      "post": {
-        "tags": [
-          "Jumio Root"
-        ],
-        "summary": "Recuperar Detalles Id",
-        "description": "METODO ENCARGADO DE IMPLEMENTAR recuperarDetallesFlujo DE LA INTERFAZ JumioImpl.",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseRecuperarDetallesId\u003E"
+    "/jwt/validate" : {
+      "post" : {
+        "tags" : [ "JWTRoot" ],
+        "summary" : "validate",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseValidateJWT"
+                },
+                "example" : {
+                  "bodySalidaValidateJWT" : {
+                    "createResponseToken" : { }
+                  }
                 }
               }
-            },
-            "description": "OK"
+            }
           }
         }
       }
     },
-    "/jumio/recuperar-imagen": {
-      "post": {
-        "tags": [
-          "Jumio Root"
-        ],
-        "summary": "Recuperar Imagen",
-        "description": "METODO ENCARGADO DE IMPLEMENTAR RECUPERAR IMAGEN DE LA INTERFAZ JumioImpl.",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseRecuperarImagen\u003E"
+    "/qr/decrypt" : {
+      "post" : {
+        "tags" : [ "QRRoot" ],
+        "summary" : "leerQR",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseDecryptQR"
+                },
+                "example" : {
+                  "bodySalidaDecryptQR" : {
+                    "id" : "string",
+                    "phone" : "string",
+                    "bank" : "string",
+                    "amount" : "string",
+                    "name" : "string",
+                    "totp" : "string"
+                  }
                 }
               }
-            },
-            "description": "OK"
+            }
           }
         }
       }
     },
-    "/jumio/actualizar-cuenta": {
-      "post": {
-        "tags": [
-          "Jumio Root"
-        ],
-        "summary": "Actualizar Cuenta",
-        "description": "METODO ENCARGADO DE IMPLEMENTAR recuperarDetallesFlujo DE LA INTERFAZ JumioImpl.",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseActualizarCuenta\u003E"
+    "/qr/encrypt-aes" : {
+      "post" : {
+        "tags" : [ "QRRoot" ],
+        "summary" : "generarQrAes",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseGenerateQR"
+                },
+                "example" : {
+                  "bodySalidaEncryptQR" : {
+                    "qr" : "string"
+                  }
                 }
               }
-            },
-            "description": "OK"
+            }
           }
         }
       }
     },
-    "/jwt/create": {
-      "post": {
-        "tags": [
-          "JWTRoot"
-        ],
-        "summary": "Create",
-        "description": "METODO ENCAGADO DE IMPLEMENTAR create DE LA INTERFAZ JsonWebToken",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseCreateJWT\u003E"
+    "/qr/encrypt-rsa" : {
+      "post" : {
+        "tags" : [ "QRRoot" ],
+        "summary" : "generarQrRsa",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseGenerateQR"
+                },
+                "example" : {
+                  "bodySalidaEncryptQR" : {
+                    "qr" : "string"
+                  }
                 }
               }
-            },
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/jwt/validate": {
-      "post": {
-        "tags": [
-          "JWTRoot"
-        ],
-        "summary": "Validate",
-        "description": "METODO ENCAGADO DE IMPLEMENTAR validate DE LA INTERFAZ JsonWebToken",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseValidateJWT\u003E"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/qr/decrypt": {
-      "post": {
-        "tags": [
-          "QRRoot"
-        ],
-        "summary": "Leer QR",
-        "description": "METODO ENCAGADO DE IMPLEMENTAR leerQR DE LA INTERFAZ QuickResponse.",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseDecryptQR\u003E"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/qr/encrypt-aes": {
-      "post": {
-        "tags": [
-          "QRRoot"
-        ],
-        "summary": "Generar Qr Aes",
-        "description": "METODO ENCAGADO DE IMPLEMENTAR generarQR DE LA INTERFAZ QuickResponse.",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseGenerateQR\u003E"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/qr/encrypt-rsa": {
-      "post": {
-        "tags": [
-          "QRRoot"
-        ],
-        "summary": "Generar Qr Rsa",
-        "description": "METODO ENCAGADO DE IMPLEMENTAR generarQR DE LA INTERFAZ QuickResponse.",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseGenerateQR\u003E"
-                }
-              }
-            },
-            "description": "OK"
-          }
-        }
-      }
-    }
-  },
-  "components": {
-    "schemas": {
-      "BodySalidaAuthJumio": {
-        "type": "object",
-        "properties": {
-          "token": {
-            "type": "string"
-          },
-          "expiracion": {
-            "type": "integer"
-          },
-          "tipoToken": {
-            "type": "string"
-          }
-        }
-      },
-      "RequestAuthJumio": {
-        "type": "object",
-        "properties": {
-          "headerEntrada": {
-            "$ref": "#/components/schemas/HeaderEntrada"
-          }
-        }
-      },
-      "ResponseAuthJumio": {
-        "type": "object",
-        "properties": {
-          "bodySalidaAuthJumio": {
-            "$ref": "#/components/schemas/BodySalidaAuthJumio"
-          },
-          "errorJumio": {
-            "$ref": "#/components/schemas/ErrorJumio"
-          }
-        }
-      },
-      "TokenInfo": {
-        "type": "object",
-        "properties": {
-          "serialVersionUID": {
-            "type": "integer"
-          },
-          "token": {
-            "type": "string"
-          },
-          "expiracion": {
-            "type": "integer"
-          },
-          "tipoToken": {
-            "type": "string"
-          },
-          "creacion": {
-            "type": "integer"
-          }
-        }
-      },
-      "AccountInfo": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          }
-        }
-      },
-      "Api": {
-        "type": "object",
-        "properties": {
-          "token": {
-            "type": "string"
-          },
-          "partes": {
-            "$ref": "#/components/schemas/Parts"
-          },
-          "flujoTrabajo": {
-            "type": "string"
-          }
-        }
-      },
-      "BodyEntradaActualizarCuenta": {
-        "type": "object",
-        "properties": {
-          "accToken": {
-            "type": "string"
-          },
-          "accountId": {
-            "type": "string"
-          },
-          "customerInternalReference": {
-            "type": "string"
-          },
-          "userReference": {
-            "type": "string"
-          },
-          "workflowDefinition": {
-            "$ref": "#/components/schemas/WorkflowDefinition"
-          }
-        }
-      },
-      "BodySalidaActualizarCuenta": {
-        "type": "object",
-        "properties": {
-          "timestamp": {
-            "type": "string"
-          },
-          "account": {
-            "$ref": "#/components/schemas/AccountInfo"
-          },
-          "web": {
-            "$ref": "#/components/schemas/WebResponse"
-          },
-          "sdk": {
-            "$ref": "#/components/schemas/SDK"
-          },
-          "workflowExecution": {
-            "$ref": "#/components/schemas/WorkflowExecutionInfo"
-          }
-        }
-      },
-      "Country": {
-        "type": "object",
-        "properties": {
-          "tipoPred": {
-            "type": "string"
-          },
-          "valores": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/String"
             }
           }
         }
-      },
-      "Credential": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "etiqueta": {
-            "type": "string"
-          },
-          "categ": {
-            "type": "string"
-          },
-          "pais": {
-            "$ref": "#/components/schemas/Country"
-          },
-          "tipo": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "canalesPermit": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/String"
-            }
-          },
-          "api": {
-            "$ref": "#/components/schemas/Api"
-          }
-        }
-      },
-      "Parts": {
-        "type": "object",
-        "properties": {
-          "frontal": {
-            "type": "string"
-          },
-          "reverso": {
-            "type": "string"
-          },
-          "rostro": {
-            "type": "string"
-          },
-          "biometria": {
-            "type": "string"
-          },
-          "dataPreparada": {
-            "type": "string"
-          },
-          "dispositivoRiesgo": {
-            "type": "string"
-          },
-          "documento": {
-            "type": "string"
-          }
-        }
-      },
-      "RequestActualizarCuenta": {
-        "type": "object",
-        "properties": {
-          "headerEntrada": {
-            "$ref": "#/components/schemas/HeaderEntrada"
-          },
-          "bodyEntrada": {
-            "$ref": "#/components/schemas/BodyEntradaActualizarCuenta"
-          }
-        }
-      },
-      "ResponseActualizarCuenta": {
-        "type": "object",
-        "properties": {
-          "bodySalidaActualizarCuenta": {
-            "$ref": "#/components/schemas/BodySalidaActualizarCuenta"
-          },
-          "errorJumio": {
-            "$ref": "#/components/schemas/ErrorJumio"
-          }
-        }
-      },
-      "Type": {
-        "type": "object",
-        "properties": {
-          "tipoPred": {
-            "type": "string"
-          },
-          "valores": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/String"
-            }
-          }
-        }
-      },
-      "WorkflowExecution": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "credenciales": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Credential"
-            }
-          }
-        }
-      },
-      "ConsentDetail": {
-        "type": "object",
-        "properties": {
-          "obtained": {
-            "type": "string"
-          },
-          "obtainedAt": {
-            "type": "string"
-          }
-        }
-      },
-      "BodyEntradaCrearCuenta": {
-        "type": "object",
-        "properties": {
-          "accToken": {
-            "type": "string"
-          },
-          "customerInternalReference": {
-            "type": "string"
-          },
-          "userReference": {
-            "type": "string"
-          },
-          "reportingCriteria": {
-            "type": "string"
-          },
-          "callbackUrl": {
-            "type": "string"
-          },
-          "workflowDefinition": {
-            "$ref": "#/components/schemas/WorkflowDefinition"
-          }
-        }
-      },
-      "BodySalidaCrearCuenta": {
-        "type": "object",
-        "properties": {
-          "timestamp": {
-            "type": "string"
-          },
-          "account": {
-            "$ref": "#/components/schemas/AccountInfo"
-          },
-          "web": {
-            "$ref": "#/components/schemas/WebResponse"
-          },
-          "sdk": {
-            "$ref": "#/components/schemas/SDK"
-          },
-          "workflowExecution": {
-            "$ref": "#/components/schemas/WorkflowExecutionInfo"
-          }
-        }
-      },
-      "CredentialDefinition": {
-        "type": "object",
-        "properties": {
-          "category": {
-            "type": "string"
-          },
-          "type": {
-            "$ref": "#/components/schemas/CredentialType"
-          }
-        }
-      },
-      "CredentialType": {
-        "type": "object",
-        "properties": {
-          "values": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/String"
-            }
-          }
-        }
-      },
-      "RequestCrearCuenta": {
-        "type": "object",
-        "properties": {
-          "headerEntrada": {
-            "$ref": "#/components/schemas/HeaderEntrada"
-          },
-          "bodyEntrada": {
-            "$ref": "#/components/schemas/BodyEntradaCrearCuenta"
-          }
-        }
-      },
-      "ResponseCrearCuenta": {
-        "type": "object",
-        "properties": {
-          "bodySalidaCrearCuenta": {
-            "$ref": "#/components/schemas/BodySalidaCrearCuenta"
-          },
-          "errorJumio": {
-            "$ref": "#/components/schemas/ErrorJumio"
-          }
-        }
-      },
-      "CredentialApiInfo": {
-        "type": "object",
-        "properties": {
-          "token": {
-            "type": "string"
-          },
-          "parts": {
-            "$ref": "#/components/schemas/Map\u003CString,String\u003E"
-          },
-          "workflowExecution": {
-            "type": "string"
-          }
-        }
-      },
-      "CredentialInfo": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "category": {
-            "type": "string"
-          },
-          "label": {
-            "type": "string"
-          },
-          "allowedChannels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/String"
-            }
-          },
-          "api": {
-            "$ref": "#/components/schemas/CredentialApiInfo"
-          }
-        }
-      },
-      "OverrideSettings": {
-        "type": "object",
-        "properties": {
-          "propiedadUno": {
-            "type": "string"
-          },
-          "propiedadDos": {
-            "type": "string"
-          }
-        }
-      },
-      "SDK": {
-        "type": "object",
-        "properties": {
-          "token": {
-            "type": "string"
-          }
-        }
-      },
-      "UserConsent": {
-        "type": "object",
-        "properties": {
-          "userIp": {
-            "type": "string"
-          },
-          "consent": {
-            "$ref": "#/components/schemas/ConsentDetail"
-          }
-        }
-      },
-      "UserLocation": {
-        "type": "object",
-        "properties": {
-          "country": {
-            "type": "string"
-          },
-          "state": {
-            "type": "string"
-          }
-        }
-      },
-      "WebConfig": {
-        "type": "object",
-        "properties": {
-          "urlExito": {
-            "type": "string"
-          },
-          "urlError": {
-            "type": "string"
-          },
-          "idioma": {
-            "type": "string"
-          }
-        }
-      },
-      "WebResponse": {
-        "type": "object",
-        "properties": {
-
-        }
-      },
-      "WorkflowDefinition": {
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "integer"
-          },
-          "credentials": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CredentialDefinition"
-            }
-          }
-        }
-      },
-      "WorkflowExecutionInfo": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "credentials": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CredentialInfo"
-            }
-          }
-        }
-      },
-      "ErrorJumio": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string"
-          },
-          "detail": {
-            "type": "string"
-          }
-        }
-      },
-      "Account": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          }
-        }
-      },
-      "Address": {
-        "type": "object",
-        "properties": {
-          "city": {
-            "type": "string"
-          },
-          "country": {
-            "type": "string"
-          },
-          "formattedAddress": {
-            "type": "string"
-          }
-        }
-      },
-      "BinCheck": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "decision": {
-            "$ref": "#/components/schemas/Decision"
-          },
-          "data": {
-            "$ref": "#/components/schemas/BinCheckData"
-          }
-        }
-      },
-      "BinCheckData": {
-        "type": "object",
-        "properties": {
-          "binMatch": {
-            "type": "string"
-          },
-          "cardType": {
-            "type": "string"
-          },
-          "cardBrand": {
-            "type": "string"
-          }
-        }
-      },
-      "BiometricData": {
-        "type": "object",
-        "properties": {
-          "faceMatch": {
-            "type": "string"
-          },
-          "nameMatch": {
-            "type": "string"
-          },
-          "dobMatch": {
-            "type": "string"
-          },
-          "ocrMatch": {
-            "type": "string"
-          },
-          "code": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          }
-        }
-      },
-      "BiometricVerification": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "decision": {
-            "$ref": "#/components/schemas/Decision"
-          },
-          "data": {
-            "$ref": "#/components/schemas/BiometricData"
-          }
-        }
-      },
-      "BodySalidaWorkflowStatus": {
-        "type": "object",
-        "properties": {
-          "headerSalida": {
-            "$ref": "#/components/schemas/HeaderSalida"
-          },
-          "workflowExecution": {
-            "$ref": "#/components/schemas/Workflow"
-          }
-        }
-      },
-      "BusinessData": {
-        "type": "object",
-        "properties": {
-          "results": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BusinessResult"
-            }
-          }
-        }
-      },
-      "BusinessInfo": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "decision": {
-            "$ref": "#/components/schemas/Decision"
-          },
-          "data": {
-            "$ref": "#/components/schemas/BusinessData"
-          }
-        }
-      },
-      "BusinessResult": {
-        "type": "object",
-        "properties": {
-          "kybSource": {
-            "type": "string"
-          },
-          "data": {
-            "$ref": "#/components/schemas/Object"
-          }
-        }
-      },
-      "Capabilities": {
-        "type": "object",
-        "properties": {
-          "extraction": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Extraction"
-            }
-          },
-          "classification": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Classification"
-            }
-          },
-          "similarity": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Similarity"
-            }
-          },
-          "liveness": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Liveness"
-            }
-          },
-          "dataChecks": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DataChecks"
-            }
-          },
-          "imageChecks": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ImageChecks"
-            }
-          },
-          "usability": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Usability"
-            }
-          },
-          "watchlistScreening": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/WatchlistScreening"
-            }
-          }
-        }
-      },
-      "Classification": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "credentials": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Credential"
-            }
-          },
-          "decision": {
-            "$ref": "#/components/schemas/ClassificationDecision"
-          },
-          "data": {
-            "$ref": "#/components/schemas/ClassificationData"
-          }
-        }
-      },
-      "ClassificationData": {
-        "type": "object",
-        "properties": {
-          "country": {
-            "type": "string"
-          },
-          "state": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "subType": {
-            "type": "string"
-          },
-          "printedDocumentName": {
-            "type": "string"
-          },
-          "firstIssueDate": {
-            "type": "string"
-          },
-          "lastIssueDate": {
-            "type": "string"
-          },
-          "notValidAfter": {
-            "type": "string"
-          },
-          "hasCryptoChip": {
-            "type": "boolean"
-          },
-          "isFoldable": {
-            "type": "boolean"
-          },
-          "isHandwritten": {
-            "type": "boolean"
-          },
-          "layout": {
-            "type": "string"
-          },
-          "material": {
-            "type": "string"
-          },
-          "usaRealIDCompliant": {
-            "type": "boolean"
-          }
-        }
-      },
-      "ClassificationDecision": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string"
-          },
-          "details": {
-            "$ref": "#/components/schemas/Details"
-          }
-        }
-      },
-      "CredentialRef": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "category": {
-            "type": "string"
-          },
-          "label": {
-            "type": "string"
-          }
-        }
-      },
-      "DataChecks": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "credentials": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CredentialRef"
-            }
-          },
-          "decision": {
-            "$ref": "#/components/schemas/Decision"
-          }
-        }
-      },
-      "Decision": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string"
-          },
-          "details": {
-            "$ref": "#/components/schemas/Details"
-          },
-          "risk": {
-            "$ref": "#/components/schemas/Risk"
-          }
-        }
-      },
-      "Details": {
-        "type": "object",
-        "properties": {
-          "label": {
-            "type": "string"
-          }
-        }
-      },
-      "BodyEntradaRecuperarDetallesId": {
-        "type": "object",
-        "properties": {
-          "accToken": {
-            "type": "string"
-          },
-          "accountId": {
-            "type": "string"
-          },
-          "workflowExecutionId": {
-            "type": "string"
-          }
-        }
-      },
-      "BodySalidaRecuperarDetallesId": {
-        "type": "object",
-        "properties": {
-          "workflow": {
-            "$ref": "#/components/schemas/Workflow"
-          },
-          "account": {
-            "$ref": "#/components/schemas/Account"
-          },
-          "decision": {
-            "$ref": "#/components/schemas/Decision"
-          },
-          "credentials": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Credential"
-            }
-          },
-          "capabilities": {
-            "$ref": "#/components/schemas/Capabilities"
-          },
-          "steps": {
-            "$ref": "#/components/schemas/Steps"
-          },
-          "createdAt": {
-            "type": "string"
-          },
-          "startedAt": {
-            "type": "string"
-          },
-          "completedAt": {
-            "type": "string"
-          },
-          "wipedOutAt": {
-            "type": "string"
-          }
-        }
-      },
-      "RequestRecuperarDetallesId": {
-        "type": "object",
-        "properties": {
-          "headerEntrada": {
-            "$ref": "#/components/schemas/HeaderEntrada"
-          },
-          "bodyEntrada": {
-            "$ref": "#/components/schemas/BodyEntradaRecuperarDetallesId"
-          }
-        }
-      },
-      "ResponseRecuperarDetallesId": {
-        "type": "object",
-        "properties": {
-          "bodySalidaRecuperarDetallesId": {
-            "$ref": "#/components/schemas/BodySalidaRecuperarDetallesId"
-          },
-          "errorJumio": {
-            "$ref": "#/components/schemas/ErrorJumio"
-          }
-        }
-      },
-      "Extraction": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "credentials": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Credential"
-            }
-          },
-          "decision": {
-            "$ref": "#/components/schemas/Decision"
-          },
-          "data": {
-            "$ref": "#/components/schemas/ExtractionData"
-          }
-        }
-      },
-      "ExtractionData": {
-        "type": "object",
-        "properties": {
-          "documentType": {
-            "type": "string"
-          },
-          "subType": {
-            "type": "string"
-          },
-          "issuingCountry": {
-            "type": "string"
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "dateOfBirth": {
-            "type": "string"
-          },
-          "expiryDate": {
-            "type": "string"
-          },
-          "documentNumber": {
-            "type": "string"
-          },
-          "currentAge": {
-            "type": "string"
-          }
-        }
-      },
-      "FaceSearchFindings": {
-        "type": "object",
-        "properties": {
-          "status": {
-            "type": "string"
-          }
-        }
-      },
-      "ImageChecks": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "credentials": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CredentialRef"
-            }
-          },
-          "decision": {
-            "$ref": "#/components/schemas/Decision"
-          },
-          "data": {
-            "$ref": "#/components/schemas/ImageChecksData"
-          }
-        }
-      },
-      "ImageChecksData": {
-        "type": "object",
-        "properties": {
-          "faceSearchFindings": {
-            "$ref": "#/components/schemas/FaceSearchFindings"
-          }
-        }
-      },
-      "BodyEntradaRecuperarImagen": {
-        "type": "object",
-        "properties": {
-          "accToken": {
-            "type": "string"
-          },
-          "accountId": {
-            "type": "string"
-          },
-          "credentialId": {
-            "type": "string"
-          },
-          "part": {
-            "type": "string"
-          }
-        }
-      },
-      "BodySalidaRecuperarImagen": {
-        "type": "object",
-        "properties": {
-          "imagen": {
-            "$ref": "#/components/schemas/byte"
-          }
-        }
-      },
-      "RequestRecuperarImagen": {
-        "type": "object",
-        "properties": {
-          "headerEntrada": {
-            "$ref": "#/components/schemas/HeaderEntrada"
-          },
-          "bodyEntrada": {
-            "$ref": "#/components/schemas/BodyEntradaRecuperarImagen"
-          }
-        }
-      },
-      "ResponseRecuperarImagen": {
-        "type": "object",
-        "properties": {
-          "bodySalidaRecuperarImagen": {
-            "$ref": "#/components/schemas/BodySalidaRecuperarImagen"
-          },
-          "errorJumio": {
-            "$ref": "#/components/schemas/ErrorJumio"
-          }
-        }
-      },
-      "Liveness": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "credentials": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CredentialRef"
-            }
-          },
-          "decision": {
-            "$ref": "#/components/schemas/Decision"
-          },
-          "data": {
-            "$ref": "#/components/schemas/LivenessData"
-          }
-        }
-      },
-      "LivenessData": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string"
-          },
-          "predictedAge": {
-            "type": "integer"
-          },
-          "ageConfidenceRange": {
-            "type": "string"
-          }
-        }
-      },
-      "Part": {
-        "type": "object",
-        "properties": {
-          "classifier": {
-            "type": "string"
-          },
-          "href": {
-            "type": "string"
-          }
-        }
-      },
-      "Risk": {
-        "type": "object",
-        "properties": {
-          "score": {
-            "type": "integer"
-          }
-        }
-      },
-      "Similarity": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "credentials": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CredentialRef"
-            }
-          },
-          "decision": {
-            "$ref": "#/components/schemas/Decision"
-          },
-          "data": {
-            "$ref": "#/components/schemas/SimilarityData"
-          }
-        }
-      },
-      "SimilarityData": {
-        "type": "object",
-        "properties": {
-          "similarity": {
-            "type": "string"
-          }
-        }
-      },
-      "Steps": {
-        "type": "object",
-        "properties": {
-          "href": {
-            "type": "string"
-          }
-        }
-      },
-      "Usability": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "credentials": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CredentialRef"
-            }
-          },
-          "decision": {
-            "$ref": "#/components/schemas/Decision"
-          }
-        }
-      },
-      "WatchlistScreening": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "credentials": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CredentialRef"
-            }
-          },
-          "decision": {
-            "$ref": "#/components/schemas/Decision"
-          },
-          "data": {
-            "$ref": "#/components/schemas/WatchlistScreeningData"
-          }
-        }
-      },
-      "WatchlistScreeningData": {
-        "type": "object",
-        "properties": {
-          "searchDate": {
-            "type": "string"
-          },
-          "searchId": {
-            "type": "string"
-          },
-          "searchReference": {
-            "type": "string"
-          },
-          "searchResultUrl": {
-            "type": "string"
-          },
-          "searchResults": {
-            "type": "integer"
-          },
-          "searchStatus": {
-            "type": "string"
-          },
-          "searchResultsFromInternalList": {
-            "type": "integer"
-          }
-        }
-      },
-      "Workflow": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string"
-          },
-          "definitionKey": {
-            "type": "string"
-          },
-          "userReference": {
-            "type": "string"
-          },
-          "customerInternalReference": {
-            "type": "string"
-          },
-          "reportingCriteria": {
-            "type": "string"
-          }
-        }
-      },
-      "BodyEntradaAutenticarClaveTelefonica": {
-        "type": "object",
-        "properties": {
-          "clave3Des": {
-            "type": "string"
-          }
-        }
-      },
-      "RequestAutenticarClaveTelefonica": {
-        "type": "object",
-        "properties": {
-          "headerEntrada": {
-            "$ref": "#/components/schemas/HeaderEntrada"
-          },
-          "bodyEntrada": {
-            "$ref": "#/components/schemas/BodyEntradaAutenticarClaveTelefonica"
-          }
-        }
-      },
-      "BodyEntradaCambClaveTelefonica": {
-        "type": "object",
-        "properties": {
-          "valorClaveNueva": {
-            "type": "string"
-          },
-          "periodoVencimiento": {
-            "type": "integer"
-          }
-        }
-      },
-      "RequestCambClaveTelefonica": {
-        "type": "object",
-        "properties": {
-          "headerEntrada": {
-            "$ref": "#/components/schemas/HeaderEntrada"
-          },
-          "bodyEntrada": {
-            "$ref": "#/components/schemas/BodyEntradaCambClaveTelefonica"
-          }
-        }
-      },
-      "ClaveTelefonicaRequired": {
-        "type": "object",
-        "properties": {
-          "nroPersona": {
-            "type": "integer"
-          },
-          "nroId": {
-            "type": "integer"
-          },
-          "tipoId": {
-            "type": "string"
-          },
-          "codPais": {
-            "type": "string"
-          }
-        }
-      },
-      "BodySalidaConsultarClaveTelefonica": {
-        "type": "object",
-        "properties": {
-          "nroPersona": {
-            "type": "integer"
-          },
-          "intentos": {
-            "type": "integer"
-          },
-          "fchHhUltValid": {
-            "type": "string"
-          },
-          "fchProxVcto": {
-            "type": "string"
-          }
-        }
-      },
-      "RequestConsultarClaveTelefonica": {
-        "type": "object",
-        "properties": {
-          "headerEntrada": {
-            "$ref": "#/components/schemas/HeaderEntrada"
-          },
-          "bodyEntrada": {
-            "$ref": "#/components/schemas/BodyEntradaConsultarClaveTelefonica"
-          }
-        }
-      },
-      "ResponseConsultarClaveTelefonica": {
-        "type": "object",
-        "properties": {
-          "bodySalida": {
-            "$ref": "#/components/schemas/BodySalidaConsultarClaveTelefonica"
-          }
-        }
-      },
-      "BodyEntradaRegistrarClaveTelefonica": {
-        "type": "object",
-        "properties": {
-          "valorClave": {
-            "type": "string"
-          },
-          "periodoVencimiento": {
-            "type": "integer"
-          }
-        }
-      },
-      "RequestRegistrarClaveTelefonica": {
-        "type": "object",
-        "properties": {
-          "headerEntrada": {
-            "$ref": "#/components/schemas/HeaderEntrada"
-          },
-          "bodyEntrada": {
-            "$ref": "#/components/schemas/BodyEntradaRegistrarClaveTelefonica"
-          }
-        }
-      },
-      "RequestRestablecerClaveTelefonica": {
-        "type": "object",
-        "properties": {
-          "headerEntrada": {
-            "$ref": "#/components/schemas/HeaderEntrada"
-          },
-          "bodyEntrada": {
-            "$ref": "#/components/schemas/BodyEntradaRestablecerClaveTelefonica"
-          }
-        }
-      },
-      "Aes": {
-        "type": "object",
-        "properties": {
-          "iv": {
-            "type": "string"
-          },
-          "llave": {
-            "type": "string"
-          },
-          "comercioId": {
-            "type": "string"
-          },
-          "nombreBanco": {
-            "type": "string"
-          }
-        }
-      },
-      "BodySalidaAlmacenar": {
-        "type": "object",
-        "properties": {
-          "estatus": {
-            "type": "string"
-          },
-          "mensaje": {
-            "type": "string"
-          }
-        }
-      },
-      "RequestAlmacenarClaves": {
-        "type": "object",
-        "properties": {
-          "nombreBanco": {
-            "type": "string"
-          },
-          "keys": {
-            "$ref": "#/components/schemas/Keys"
-          }
-        }
-      },
-      "BeanData": {
-        "type": "object",
-        "properties": {
-          "usuario": {
-            "type": "string"
-          },
-          "llaves": {
-            "$ref": "#/components/schemas/Keys"
-          }
-        }
-      },
-      "BodySalidaConsultar": {
-        "type": "object",
-        "properties": {
-          "estatus": {
-            "type": "string"
-          },
-          "beanData": {
-            "$ref": "#/components/schemas/BeanData"
-          }
-        }
-      },
-      "RequestConsultarClaves": {
-        "type": "object",
-        "properties": {
-          "bearer": {
-            "type": "string"
-          }
-        }
-      },
-      "ResponseConsultarClaves": {
-        "type": "object",
-        "properties": {
-          "bodySalidaConsultar": {
-            "$ref": "#/components/schemas/BodySalidaConsultar"
-          }
-        }
-      },
-      "Keys": {
-        "type": "object",
-        "properties": {
-          "aes": {
-            "$ref": "#/components/schemas/Aes"
-          },
-          "rsa": {
-            "$ref": "#/components/schemas/Rsa"
-          },
-          "rsaPKcs1": {
-            "$ref": "#/components/schemas/Rsapkcs1"
-          },
-          "rsaPublicKeys": {
-            "$ref": "#/components/schemas/Rsapublickeys"
-          }
-        }
-      },
-      "BodySalidaLogin": {
-        "type": "object",
-        "properties": {
-          "estatus": {
-            "type": "string"
-          },
-          "token": {
-            "type": "string"
-          }
-        }
-      },
-      "RequestLogin": {
-        "type": "object",
-        "properties": {
-          "usurio": {
-            "type": "string"
-          },
-          "password": {
-            "type": "string"
-          }
-        }
-      },
-      "Rsa": {
-        "type": "object",
-        "properties": {
-          "comercioId": {
-            "type": "string"
-          },
-          "llavePrivada": {
-            "type": "string"
-          },
-          "nombreBanco": {
-            "type": "string"
-          }
-        }
-      },
-      "Rsapkcs1": {
-        "type": "object",
-        "properties": {
-          "comercioId": {
-            "type": "string"
-          },
-          "nombreBanco": {
-            "type": "string"
-          },
-          "llavePrivada": {
-            "type": "string"
-          }
-        }
-      },
-      "Rsapublickeys": {
-        "type": "object",
-        "properties": {
-          "comercioId": {
-            "type": "string"
-          },
-          "nombreBanco": {
-            "type": "string"
-          },
-          "llavePublica": {
-            "type": "string"
-          }
-        }
-      },
-      "BodyEntradaDatosBasicos": {
-        "type": "object",
-        "properties": {
-          "nroPer": {
-            "type": "integer"
-          },
-          "codPais": {
-            "type": "string"
-          },
-          "tipoId": {
-            "type": "string"
-          },
-          "nroId": {
-            "type": "integer"
-          }
-        }
-      },
-      "BodySalidaConsultarDatosBasicos": {
-        "type": "object",
-        "properties": {
-          "segundoApell": {
-            "type": "string"
-          },
-          "primerNom": {
-            "type": "string"
-          },
-          "tipoPer": {
-            "type": "string"
-          },
-          "apellCasada": {
-            "type": "string"
-          },
-          "nomComercial": {
-            "type": "string"
-          },
-          "primerApellRs": {
-            "type": "string"
-          },
-          "segundoNom": {
-            "type": "string"
-          }
-        }
-      },
-      "RequestDatosBasicos": {
-        "type": "object",
-        "properties": {
-          "headerEntrada": {
-            "$ref": "#/components/schemas/HeaderEntrada"
-          },
-          "bodyEntradaConsultarDatosBasicos": {
-            "$ref": "#/components/schemas/BodyEntradaDatosBasicos"
-          }
-        }
-      },
-      "ResponseDatosBasicos": {
-        "type": "object",
-        "properties": {
-          "bodyEntradaConsultarDatosBasicos": {
-            "$ref": "#/components/schemas/BodyEntradaDatosBasicos"
-          },
-          "bodySalidaConsultarDatosBasicos": {
-            "$ref": "#/components/schemas/BodySalidaConsultarDatosBasicos"
-          }
-        }
-      },
-      "BodyEntradaCreate": {
-        "type": "object",
-        "properties": {
-          "usuario": {
-            "type": "string"
-          },
-          "claveuser": {
-            "type": "string"
-          },
-          "metainfo": {
-            "type": "string"
-          },
-          "applid": {
-            "type": "string"
-          }
-        }
-      },
-      "BodySalidaCreate": {
-        "type": "object",
-        "properties": {
-          "createResponseToken": {
-            "$ref": "#/components/schemas/CreateResponseToken"
-          }
-        }
-      },
-      "CreateResponseToken": {
-        "type": "object",
-        "properties": {
-          "codigo": {
-            "type": "string"
-          },
-          "descripcion": {
-            "type": "string"
-          },
-          "token": {
-            "type": "string"
-          }
-        }
-      },
-      "RequestCreateJWT": {
-        "type": "object",
-        "properties": {
-          "headerEntrada": {
-            "$ref": "#/components/schemas/HeaderEntrada"
-          },
-          "bodyEntrada": {
-            "$ref": "#/components/schemas/BodyEntradaCreate"
-          }
-        }
-      },
-      "ResponseCreateJWT": {
-        "type": "object",
-        "properties": {
-          "bodySalida": {
-            "$ref": "#/components/schemas/BodySalidaCreate"
-          }
-        }
-      },
-      "BodyEntradaValidate": {
-        "type": "object",
-        "properties": {
-          "usuario": {
-            "type": "string"
-          },
-          "claveuser": {
-            "type": "string"
-          },
-          "metainfo": {
-            "type": "string"
-          },
-          "applid": {
-            "type": "string"
-          }
-        }
-      },
-      "BodySalidaValidate": {
-        "type": "object",
-        "properties": {
-          "createResponseToken": {
-            "$ref": "#/components/schemas/CreateResponseToken"
-          }
-        }
-      },
-      "RequestValidateJWT": {
-        "type": "object",
-        "properties": {
-          "headerEntrada": {
-            "$ref": "#/components/schemas/HeaderEntrada"
-          },
-          "bodyEntrada": {
-            "$ref": "#/components/schemas/BodyEntradaValidate"
-          }
-        }
-      },
-      "ResponseValidateJWT": {
-        "type": "object",
-        "properties": {
-          "bodySalida": {
-            "$ref": "#/components/schemas/BodySalidaValidate"
-          }
-        }
-      },
-      "BodySalidaConsultarClaveCifrada": {
-        "type": "object",
-        "properties": {
-          "masterkey": {
-            "type": "string"
-          },
-          "versionMasterKey": {
-            "type": "integer"
-          }
-        }
-      },
-      "RequestMasterKey": {
-        "type": "object",
-        "properties": {
-          "headerEntrada": {
-            "$ref": "#/components/schemas/HeaderEntrada"
-          }
-        }
-      },
-      "ResponseMasterKey": {
-        "type": "object",
-        "properties": {
-          "bodySalida": {
-            "$ref": "#/components/schemas/BodySalidaConsultarClaveCifrada"
-          }
-        }
-      },
-      "BodyEntradaGenerateQR": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "phone": {
-            "type": "string"
-          },
-          "bank": {
-            "type": "string"
-          },
-          "amount": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "totp": {
-            "type": "string"
-          }
-        }
-      },
-      "BodySalidaGenerateQR": {
-        "type": "object",
-        "properties": {
-          "qr": {
-            "type": "string"
-          }
-        }
-      },
-      "RequestGenerateQR": {
-        "type": "object",
-        "properties": {
-          "headerEntrada": {
-            "$ref": "#/components/schemas/HeaderEntrada"
-          },
-          "bodyEntrada": {
-            "$ref": "#/components/schemas/BodyEntradaGenerateQR"
-          }
-        }
-      },
-      "ResponseGenerateQR": {
-        "type": "object",
-        "properties": {
-          "bodySalida": {
-            "$ref": "#/components/schemas/BodySalidaGenerateQR"
-          }
-        }
-      },
-      "BodyEntradaReadQR": {
-        "type": "object",
-        "properties": {
-          "qr": {
-            "type": "string"
-          }
-        }
-      },
-      "BodySalidaReadQR": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "phone": {
-            "type": "string"
-          },
-          "bank": {
-            "type": "string"
-          },
-          "amount": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "totp": {
-            "type": "string"
-          }
-        }
-      },
-      "RequestDecryptQR": {
-        "type": "object",
-        "properties": {
-          "headerEntrada": {
-            "$ref": "#/components/schemas/HeaderEntrada"
-          },
-          "bodyEntrada": {
-            "$ref": "#/components/schemas/BodyEntradaReadQR"
-          }
-        }
-      },
-      "ResponseDecryptQR": {
-        "type": "object",
-        "properties": {
-          "bodySalida": {
-            "$ref": "#/components/schemas/BodySalidaReadQR"
-          }
-        }
-      },
-      "AppFilter": {
-        "type": "object",
-        "properties": {
-          "filter": {
-            "$ref": "#/components/schemas/FilterPath"
-          },
-          "exclude": {
-            "$ref": "#/components/schemas/FilterRS"
-          }
-        }
-      },
-      "Conexus": {
-        "type": "object",
-        "properties": {
-          "send": {
-            "$ref": "#/components/schemas/SendRequestRest"
-          }
-        }
-      },
-      "DatosBasicosClient": {
-        "type": "object",
-        "properties": {
-          "send": {
-            "$ref": "#/components/schemas/SendRequestRest"
-          }
-        }
-      },
-      "Finder": {
-        "type": "object",
-        "properties": {
-          "matcher": {
-            "$ref": "#/components/schemas/PathMatcher"
-          },
-          "lstfiles": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/File"
-            }
-          }
-        }
-      },
-      "JumioClient": {
-        "type": "object",
-        "properties": {
-          "send": {
-            "$ref": "#/components/schemas/SendRequestRest"
-          }
-        }
-      },
-      "MasterKey": {
-        "type": "object",
-        "properties": {
-          "log": {
-            "$ref": "#/components/schemas/Logger"
-          },
-          "SERVICE_NAME": {
-            "type": "string"
-          }
-        }
-      },
-      "Seguridad": {
-        "type": "object",
-        "properties": {
-          "send": {
-            "$ref": "#/components/schemas/SendRequestRest"
-          }
-        }
-      }
-    },
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
       }
     }
   },
-  "security": [
-    {
-      "bearerAuth": []
+  "components" : {
+    "schemas" : {
+      "BodySalidaAuthJumio" : {
+        "type" : "object",
+        "properties" : {
+          "accToken" : {
+            "type" : "string"
+          },
+          "expir" : {
+            "type" : "integer"
+          },
+          "tipoToken" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RequestAuthJumio" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          }
+        }
+      },
+      "ResponseAuthJumio" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ConstructorRequired"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "bodySalidaAuthJumio" : {
+              "$ref" : "#/components/schemas/BodySalidaAuthJumio"
+            },
+            "errorJumio" : {
+              "$ref" : "#/components/schemas/ErrorJumio"
+            }
+          }
+        } ]
+      },
+      "TokenInfo" : { },
+      "AccountInfo" : { },
+      "Api" : { },
+      "BodyEntradaActualizarCuenta" : {
+        "type" : "object",
+        "properties" : {
+          "accToken" : {
+            "type" : "string"
+          },
+          "accountId" : {
+            "type" : "string"
+          },
+          "customerInternalReference" : {
+            "type" : "string"
+          },
+          "userReference" : {
+            "type" : "string"
+          },
+          "workflowDefinition" : {
+            "$ref" : "#/components/schemas/WorkflowDefinition"
+          }
+        }
+      },
+      "BodySalidaActualizarCuenta" : {
+        "type" : "object",
+        "properties" : {
+          "timestamp" : {
+            "type" : "string"
+          },
+          "account" : {
+            "$ref" : "#/components/schemas/AccountInfo"
+          },
+          "web" : {
+            "$ref" : "#/components/schemas/WebResponse"
+          },
+          "sdk" : {
+            "$ref" : "#/components/schemas/SDK"
+          },
+          "workflowExecution" : {
+            "$ref" : "#/components/schemas/WorkflowExecutionInfo"
+          }
+        }
+      },
+      "Country" : { },
+      "Credential" : { },
+      "Parts" : { },
+      "RequestActualizarCuenta" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaActualizarCuenta"
+          }
+        }
+      },
+      "ResponseActualizarCuenta" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ConstructorRequired"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "bodySalidaActualizarCuenta" : {
+              "$ref" : "#/components/schemas/BodySalidaActualizarCuenta"
+            },
+            "errorJumio" : {
+              "$ref" : "#/components/schemas/ErrorJumio"
+            }
+          }
+        } ]
+      },
+      "Type" : { },
+      "WorkflowExecution" : { },
+      "ConsentDetail" : { },
+      "BodyEntradaCrearCuenta" : {
+        "type" : "object",
+        "properties" : {
+          "accToken" : {
+            "type" : "string"
+          },
+          "customerInternalReference" : {
+            "type" : "string"
+          },
+          "userReference" : {
+            "type" : "string"
+          },
+          "reportingCriteria" : {
+            "type" : "string"
+          },
+          "callbackUrl" : {
+            "type" : "string"
+          },
+          "workflowDefinition" : {
+            "$ref" : "#/components/schemas/WorkflowDefinition"
+          }
+        }
+      },
+      "BodySalidaCrearCuenta" : {
+        "type" : "object",
+        "properties" : {
+          "timestamp" : {
+            "type" : "string"
+          },
+          "account" : {
+            "$ref" : "#/components/schemas/AccountInfo"
+          },
+          "web" : {
+            "$ref" : "#/components/schemas/WebResponse"
+          },
+          "sdk" : {
+            "$ref" : "#/components/schemas/SDK"
+          },
+          "workflowExecution" : {
+            "$ref" : "#/components/schemas/WorkflowExecutionInfo"
+          }
+        }
+      },
+      "CredentialDefinition" : { },
+      "CredentialType" : { },
+      "RequestCrearCuenta" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaCrearCuenta"
+          }
+        }
+      },
+      "ResponseCrearCuenta" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ConstructorRequired"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "bodySalidaCrearCuenta" : {
+              "$ref" : "#/components/schemas/BodySalidaCrearCuenta"
+            },
+            "errorJumio" : {
+              "$ref" : "#/components/schemas/ErrorJumio"
+            }
+          }
+        } ]
+      },
+      "CredentialApiInfo" : { },
+      "CredentialInfo" : { },
+      "OverrideSettings" : { },
+      "SDK" : { },
+      "UserConsent" : { },
+      "UserLocation" : { },
+      "WebConfig" : { },
+      "WebResponse" : { },
+      "WorkflowDefinition" : { },
+      "WorkflowExecutionInfo" : { },
+      "ErrorJumio" : { },
+      "Account" : { },
+      "Address" : { },
+      "BinCheck" : { },
+      "BinCheckData" : { },
+      "BiometricData" : { },
+      "BiometricVerification" : { },
+      "BodySalidaWorkflowStatus" : {
+        "type" : "object",
+        "properties" : {
+          "headerSalida" : {
+            "$ref" : "#/components/schemas/HeaderSalida"
+          },
+          "ejecucionFlujo" : {
+            "$ref" : "#/components/schemas/Workflow"
+          }
+        }
+      },
+      "BusinessData" : { },
+      "BusinessInfo" : { },
+      "BusinessResult" : { },
+      "Capabilities" : { },
+      "Classification" : { },
+      "ClassificationData" : { },
+      "ClassificationDecision" : { },
+      "CredentialRef" : { },
+      "DataChecks" : { },
+      "Decision" : { },
+      "Details" : { },
+      "BodyEntradaRecuperarDetallesId" : {
+        "type" : "object",
+        "properties" : {
+          "accToken" : {
+            "type" : "string"
+          },
+          "accountId" : {
+            "type" : "string"
+          },
+          "workflowExecutionId" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BodySalidaRecuperarDetallesId" : {
+        "type" : "object",
+        "properties" : {
+          "workflow" : {
+            "$ref" : "#/components/schemas/Workflow"
+          },
+          "account" : {
+            "$ref" : "#/components/schemas/Account"
+          },
+          "decision" : {
+            "$ref" : "#/components/schemas/Decision"
+          },
+          "credentials" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Credential"
+            }
+          },
+          "capabilities" : {
+            "$ref" : "#/components/schemas/Capabilities"
+          },
+          "steps" : {
+            "$ref" : "#/components/schemas/Steps"
+          },
+          "createdAt" : {
+            "type" : "string"
+          },
+          "startedAt" : {
+            "type" : "string"
+          },
+          "completedAt" : {
+            "type" : "string"
+          },
+          "wipedOutAt" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RequestRecuperarDetallesId" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaRecuperarDetallesId"
+          }
+        }
+      },
+      "ResponseRecuperarDetallesId" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ConstructorRequired"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "bodySalidaRecuperarDetallesId" : {
+              "$ref" : "#/components/schemas/BodySalidaRecuperarDetallesId"
+            },
+            "errorJumio" : {
+              "$ref" : "#/components/schemas/ErrorJumio"
+            }
+          }
+        } ]
+      },
+      "Extraction" : { },
+      "ExtractionData" : { },
+      "FaceSearchFindings" : { },
+      "ImageChecks" : { },
+      "ImageChecksData" : { },
+      "BodyEntradaRecuperarImagen" : {
+        "type" : "object",
+        "properties" : {
+          "accToken" : {
+            "type" : "string"
+          },
+          "accountId" : {
+            "type" : "string"
+          },
+          "credentialId" : {
+            "type" : "string"
+          },
+          "part" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BodySalidaRecuperarImagen" : {
+        "type" : "object",
+        "properties" : {
+          "imagen" : {
+            "type" : "string",
+            "format" : "byte"
+          }
+        }
+      },
+      "RequestRecuperarImagen" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaRecuperarImagen"
+          }
+        }
+      },
+      "ResponseRecuperarImagen" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ConstructorRequired"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "bodySalidaRecuperarImagen" : {
+              "$ref" : "#/components/schemas/BodySalidaRecuperarImagen"
+            },
+            "errorJumio" : {
+              "$ref" : "#/components/schemas/ErrorJumio"
+            }
+          }
+        } ]
+      },
+      "Liveness" : { },
+      "LivenessData" : { },
+      "Part" : { },
+      "Risk" : { },
+      "Similarity" : { },
+      "SimilarityData" : { },
+      "Steps" : { },
+      "Usability" : { },
+      "WatchlistScreening" : { },
+      "WatchlistScreeningData" : { },
+      "Workflow" : { },
+      "BodyEntradaAutenticarClaveTelefonica" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ClaveTelefonicaRequired"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "clave3Des" : {
+              "type" : "string"
+            }
+          }
+        } ]
+      },
+      "RequestAutenticarClaveTelefonica" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaAutenticarClaveTelefonica"
+          }
+        }
+      },
+      "ResponseAutenticarClaveTelefonica" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ClientResponse"
+        }, {
+          "type" : "object",
+          "properties" : { }
+        } ]
+      },
+      "BodyEntradaCambClaveTelefonica" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ClaveTelefonicaRequired"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "valorClaveNueva" : {
+              "type" : "string"
+            },
+            "periodoVencimiento" : {
+              "type" : "integer"
+            }
+          }
+        } ]
+      },
+      "RequestCambClaveTelefonica" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaCambClaveTelefonica"
+          }
+        }
+      },
+      "ResponseCambClaveTelefonica" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ClientResponse"
+        }, {
+          "type" : "object",
+          "properties" : { }
+        } ]
+      },
+      "ClaveTelefonicaRequired" : { },
+      "BodyEntradaConsultarClaveTelefonica" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ClaveTelefonicaRequired"
+        }, {
+          "type" : "object",
+          "properties" : { }
+        } ]
+      },
+      "BodySalidaConsultarClaveTelefonica" : {
+        "type" : "object",
+        "properties" : {
+          "nroPersona" : {
+            "type" : "integer"
+          },
+          "intentosDisponibles" : {
+            "type" : "integer"
+          },
+          "fechaUltimoIngreso" : {
+            "type" : "string"
+          },
+          "fechaVencimiento" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RequestConsultarClaveTelefonica" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaConsultarClaveTelefonica"
+          }
+        }
+      },
+      "ResponseConsultarClaveTelefonica" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ClientResponse"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "bodySalidaConsultarClaveTelefonica" : {
+              "$ref" : "#/components/schemas/BodySalidaConsultarClaveTelefonica"
+            }
+          }
+        } ]
+      },
+      "BodyEntradaRegistrarClaveTelefonica" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ClaveTelefonicaRequired"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "valorClave" : {
+              "type" : "string"
+            },
+            "periodoVencimiento" : {
+              "type" : "integer"
+            }
+          }
+        } ]
+      },
+      "RequestRegistrarClaveTelefonica" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaRegistrarClaveTelefonica"
+          }
+        }
+      },
+      "ResponseRegistrarClaveTelefonica" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ClientResponse"
+        }, {
+          "type" : "object",
+          "properties" : { }
+        } ]
+      },
+      "BodyEntradaRestablecerClaveTelefonica" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ClaveTelefonicaRequired"
+        }, {
+          "type" : "object",
+          "properties" : { }
+        } ]
+      },
+      "RequestRestablecerClaveTelefonica" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaRestablecerClaveTelefonica"
+          }
+        }
+      },
+      "ResponseRestablecerClaveTelefonica" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ClientResponse"
+        }, {
+          "type" : "object",
+          "properties" : { }
+        } ]
+      },
+      "Aes" : { },
+      "BodySalidaAlmacenar" : {
+        "type" : "object",
+        "properties" : {
+          "status" : {
+            "type" : "string"
+          },
+          "message" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RequestAlmacenarClaves" : {
+        "type" : "object",
+        "properties" : {
+          "nombreBanco" : {
+            "type" : "string"
+          },
+          "keys" : {
+            "$ref" : "#/components/schemas/Keys"
+          }
+        }
+      },
+      "ResponseAlmacenarClaves" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ConstructorRequired"
+        }, {
+          "type" : "object",
+          "properties" : { }
+        } ]
+      },
+      "BeanData" : { },
+      "BodySalidaConsultar" : {
+        "type" : "object",
+        "properties" : {
+          "status" : {
+            "type" : "string"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/BeanData"
+          }
+        }
+      },
+      "RequestConsultarClaves" : {
+        "type" : "object",
+        "properties" : {
+          "bearer" : {
+            "type" : "string"
+          }
+        }
+      },
+      "ResponseConsultarClaves" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ConstructorRequired"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "bodySalidaConsultar" : {
+              "$ref" : "#/components/schemas/BodySalidaConsultar"
+            }
+          }
+        } ]
+      },
+      "Keys" : { },
+      "BodySalidaLogin" : {
+        "type" : "object",
+        "properties" : {
+          "status" : {
+            "type" : "string"
+          },
+          "token" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RequestLogin" : {
+        "type" : "object",
+        "properties" : {
+          "usurio" : {
+            "type" : "string"
+          },
+          "password" : {
+            "type" : "string"
+          }
+        }
+      },
+      "ResponseLogin" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ConstructorRequired"
+        }, {
+          "type" : "object",
+          "properties" : { }
+        } ]
+      },
+      "Rsa" : { },
+      "Rsapkcs1" : { },
+      "Rsapublickeys" : { },
+      "BodyEntradaDatosBasicos" : {
+        "type" : "object",
+        "properties" : {
+          "nroPer" : {
+            "type" : "integer"
+          },
+          "codPais" : {
+            "type" : "string"
+          },
+          "tipoId" : {
+            "type" : "string"
+          },
+          "nroId" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "BodySalidaConsultarDatosBasicos" : {
+        "type" : "object",
+        "properties" : {
+          "segundoApell" : {
+            "type" : "string"
+          },
+          "primerNom" : {
+            "type" : "string"
+          },
+          "tipoPer" : {
+            "type" : "string"
+          },
+          "apellCasada" : {
+            "type" : "string"
+          },
+          "nomComercial" : {
+            "type" : "string"
+          },
+          "primerApellRs" : {
+            "type" : "string"
+          },
+          "segundoNom" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RequestDatosBasicos" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntradaConsultarDatosBasicos" : {
+            "$ref" : "#/components/schemas/BodyEntradaDatosBasicos"
+          }
+        }
+      },
+      "ResponseDatosBasicos" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ClientResponse"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "bodyEntradaConsultarDatosBasicos" : {
+              "$ref" : "#/components/schemas/BodyEntradaDatosBasicos"
+            },
+            "bodySalidaConsultarDatosBasicos" : {
+              "$ref" : "#/components/schemas/BodySalidaConsultarDatosBasicos"
+            }
+          }
+        } ]
+      },
+      "BodyEntradaCreate" : {
+        "type" : "object",
+        "properties" : {
+          "usuario" : {
+            "type" : "string"
+          },
+          "claveuser" : {
+            "type" : "string"
+          },
+          "metainfo" : {
+            "type" : "string"
+          },
+          "applid" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BodySalidaCreate" : {
+        "type" : "object",
+        "properties" : {
+          "createResponseToken" : {
+            "$ref" : "#/components/schemas/CreateResponseToken"
+          }
+        }
+      },
+      "CreateResponseToken" : { },
+      "RequestCreateJWT" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaCreate"
+          }
+        }
+      },
+      "ResponseCreateJWT" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ClientResponse"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "bodySalidaCreateJWT" : {
+              "$ref" : "#/components/schemas/BodySalidaCreate"
+            }
+          }
+        } ]
+      },
+      "BodyEntradaValidate" : {
+        "type" : "object",
+        "properties" : {
+          "usuario" : {
+            "type" : "string"
+          },
+          "claveuser" : {
+            "type" : "string"
+          },
+          "metainfo" : {
+            "type" : "string"
+          },
+          "applid" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BodySalidaValidate" : {
+        "type" : "object",
+        "properties" : {
+          "createResponseToken" : {
+            "$ref" : "#/components/schemas/CreateResponseToken"
+          }
+        }
+      },
+      "RequestValidateJWT" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaValidate"
+          }
+        }
+      },
+      "ResponseValidateJWT" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ClientResponse"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "bodySalidaValidateJWT" : {
+              "$ref" : "#/components/schemas/BodySalidaValidate"
+            }
+          }
+        } ]
+      },
+      "BodySalidaConsultarClaveCifrada" : {
+        "type" : "object",
+        "properties" : {
+          "masterkey" : {
+            "type" : "string"
+          },
+          "versionMasterKey" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "RequestMasterKey" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          }
+        }
+      },
+      "ResponseMasterKey" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ClientResponse"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "bodySalida" : {
+              "$ref" : "#/components/schemas/BodySalidaConsultarClaveCifrada"
+            }
+          }
+        } ]
+      },
+      "BodyEntradaGenerateQR" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "phone" : {
+            "type" : "string"
+          },
+          "bank" : {
+            "type" : "string"
+          },
+          "amount" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "totp" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BodySalidaGenerateQR" : {
+        "type" : "object",
+        "properties" : {
+          "qr" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RequestGenerateQR" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaGenerateQR"
+          }
+        }
+      },
+      "ResponseGenerateQR" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ClientResponse"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "bodySalidaEncryptQR" : {
+              "$ref" : "#/components/schemas/BodySalidaGenerateQR"
+            }
+          }
+        } ]
+      },
+      "BodyEntradaReadQR" : {
+        "type" : "object",
+        "properties" : {
+          "qr" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BodySalidaReadQR" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "phone" : {
+            "type" : "string"
+          },
+          "bank" : {
+            "type" : "string"
+          },
+          "amount" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "totp" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RequestDecryptQR" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaReadQR"
+          }
+        }
+      },
+      "ResponseDecryptQR" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ClientResponse"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "bodySalidaDecryptQR" : {
+              "$ref" : "#/components/schemas/BodySalidaReadQR"
+            }
+          }
+        } ]
+      },
+      "AppFilter" : { },
+      "Conexus" : { },
+      "DatosBasicosClient" : { },
+      "Finder" : { },
+      "JumioClient" : { },
+      "MasterKey" : { },
+      "Seguridad" : { },
+      "ClaveTelefonicaImpl" : { },
+      "JumioImpl" : { },
+      "JWTImpl" : { },
+      "QRImpl" : { },
+      "HeaderEntrada" : {
+        "type" : "object",
+        "properties" : {
+          "identificadorUnicoGlobal" : {
+            "type" : "string"
+          },
+          "identificacionCanal" : {
+            "type" : "string"
+          },
+          "identificacionSubCanal" : {
+            "type" : "string"
+          },
+          "siglaAplicacion" : {
+            "maxLength" : 4,
+            "type" : "string",
+            "minLength" : 1
+          },
+          "identificacionUsuario" : {
+            "type" : "string"
+          },
+          "direccionIpConsumidor" : {
+            "type" : "string"
+          },
+          "direccionIpCliente" : {
+            "type" : "string"
+          },
+          "fechaEnvioMensaje" : {
+            "type" : "string"
+          },
+          "horaEnvioMensaje" : {
+            "type" : "string"
+          },
+          "atributoPagineo" : {
+            "type" : "string"
+          },
+          "claveBusqueda" : {
+            "type" : "string"
+          },
+          "cantidadRegistros" : {
+            "type" : "integer"
+          }
+        },
+        "required" : [ "identificadorUnicoGlobal", "identificacionCanal", "identificacionSubCanal", "siglaAplicacion", "direccionIpConsumidor", "direccionIpCliente", "fechaEnvioMensaje", "horaEnvioMensaje" ]
+      },
+      "HeaderSalida" : {
+        "type" : "object",
+        "properties" : {
+          "tipoMensaje" : {
+            "example" : "F",
+            "type" : "string"
+          },
+          "mensajeProgramadorSistema" : {
+            "type" : "string"
+          },
+          "codigoMensajeProgramador" : {
+            "type" : "string"
+          },
+          "mensajeUsuario" : {
+            "example" : "EN ESTE MOMENTO NO PODEMOS PROCESAR SU OPERACION",
+            "type" : "string"
+          },
+          "codigoMensajeUsuario" : {
+            "type" : "string"
+          },
+          "fechaSalidaMensaje" : {
+            "type" : "string"
+          },
+          "horaSalidaMensaje" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "securitySchemes" : {
+      "bearerAuth" : {
+        "type" : "http",
+        "scheme" : "bearer",
+        "bearerFormat" : "JWT"
+      }
     }
-  ]
+  },
+  "security" : [ {
+    "bearerAuth" : [ ]
+  } ]
 }
