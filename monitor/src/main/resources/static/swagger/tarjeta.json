@@ -1,1 +1,2004 @@
-{"swagger":"2.0","info":{"description":"Servicios del módulo tarjeta","version":"1.0","title":"API Tarjeta"},"host":"localhost:8091","basePath":"/tarjeta","tags":[{"name":"ACTUALIZAR - Tarjeta","description":"Actualizar Root"},{"name":"afiliar-root","description":"Afiliar Root"},{"name":"consultar-root","description":"Consultar Root"},{"name":"insertar-root","description":"Insertar Root"},{"name":"recibir-root","description":"Recibir Root"},{"name":"solicitar-root","description":"Solicitar Root"},{"name":"suspender-root","description":"Suspender Root"}],"paths":{"/tarjeta/actualizar/pago-cuota":{"post":{"tags":["ACTUALIZAR - Tarjeta"],"summary":"Realiza el adelanto de cuota agendada","operationId":"adelantoCuotaAgendadaUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"request","description":"Request de pago de cuota","required":true,"schema":{"$ref":"#/definitions/RequestActualizarPagoCuota"}}],"responses":{"200":{"description":"Operación exitosa","schema":{"$ref":"#/definitions/ResponseActualizarPagoCuota"}},"400":{"description":"Solicitud inválida"},"500":{"description":"Error interno"}},"deprecated":false}},"/tarjeta/afiliar/mosaic-asociados":{"post":{"tags":["afiliar-root"],"summary":"mosaicAsociados","operationId":"mosaicAsociadosUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/RequestAfiliarMosaicAsociados"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ResponseAfiliarMosaicAsociados"}}},"deprecated":false}},"/tarjeta/consultar/afiliacion-tpago":{"post":{"tags":["consultar-root"],"summary":"afiliacionTPago","operationId":"afiliacionTPagoUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/RequestConsultarAfiliacionTPago"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ResponseConsultarAfiliacionTPago"}}},"deprecated":false}},"/tarjeta/consultar/condicion-tarjeta-marca-compartida":{"post":{"tags":["consultar-root"],"summary":"condiciontarjetamarcacompartida","operationId":"condiciontarjetamarcacompartidaUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/RequestCondicionTarjetaMarcaComp"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ResponseCondicionTarjetaMarcaComp"}}},"deprecated":false}},"/tarjeta/consultar/cuotas-linea-credito":{"post":{"tags":["consultar-root"],"summary":"consultarCuotasLineaCredito","operationId":"consultarCuotasLineaCreditoUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/RequestConsultarCuotasLineaCredito"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ResponseConsultarCuotasLineaCredito"}}},"deprecated":false}},"/tarjeta/consultar/linea-credito-ampliada":{"post":{"tags":["consultar-root"],"summary":"consultarLineaCreditoAmpliada","operationId":"consultarLineaCreditoAmpliadaUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/RequestLineaCreditoAmpliada"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ResponseLineaCreditoAmpliada"}}},"deprecated":false}},"/tarjeta/consultar/marca":{"post":{"tags":["consultar-root"],"summary":"consultarMarca","operationId":"consultarMarcaUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/RequestConsultarMarca"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ResponseConsultarMarca"}}},"deprecated":false}},"/tarjeta/consultar/movimiento-tpago":{"post":{"tags":["consultar-root"],"summary":"movimientoTpagoMovilP2C","operationId":"movimientoTpagoMovilP2CUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/RequestConsultarMovimientosTPagoMovil"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ResponseConsultarMovimientosTPagoMovil"}}},"deprecated":false}},"/tarjeta/consultar/movimientos-linea-credito":{"post":{"tags":["consultar-root"],"summary":"consultarMovimientosLineaCredito","operationId":"consultarMovimientosLineaCreditoUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/RequestConsultarMovimientosLineaCredito"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ResponseConsultarMovimientosLineaCredito"}}},"deprecated":false}},"/tarjeta/consultar/movimientos-tarjeta-prepago":{"post":{"tags":["consultar-root"],"summary":"consultarMovimientosTarjetaPrepago","operationId":"consultarMovimientosTarjetaPrepagoUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/RequestMovimientosTarjetaPrepago"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ResponseMovimientosTarjetaPrepago"}}},"deprecated":false}},"/tarjeta/consultar/saldo-tarjeta-lca":{"post":{"tags":["consultar-root"],"summary":"consultarSaldoTarjetaLca","operationId":"consultarSaldoTarjetaLcaUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/RequestSaldoTarjetaLca"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ResponseSaldoTarjetaLca"}}},"deprecated":false}},"/tarjeta/consultar/saldo-tarjeta-prepago-extendido":{"post":{"tags":["consultar-root"],"summary":"consultarSaldoTarjetaPrepago","operationId":"consultarSaldoTarjetaPrepagoUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/RequestSaldoTarjetaPrepago"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ResponseSaldoTarjetaPrepago"}}},"deprecated":false}},"/tarjeta/consultar/tarjeta-de-credito-activas":{"post":{"tags":["consultar-root"],"summary":"tarjetaCreditoActiva","operationId":"tarjetaCreditoActivaUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/RequestConsultarTarjetaDeCreditoActiva"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ResponseConsultarTarjetaDeCreditoActiva"}}},"deprecated":false}},"/tarjeta/insertar/acepta-tarjeta-lca":{"post":{"tags":["insertar-root"],"summary":"insertarAceptaTarjetaLca","operationId":"insertarAceptaTarjetaLcaUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/RequestInsertarAceptaTarjetaLca"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ResponseInsertarAceptaTarjetaLca"}}},"deprecated":false}},"/tarjeta/insertar/activar-tarjeta-marca-compartida":{"post":{"tags":["insertar-root"],"summary":"activarTarjetaMarcaCompartida","operationId":"activarTarjetaMarcaCompartidaUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/RequestActivarTarjetaMarcaCompartida"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ResponseActivarTarjetaMarcaCompartida"}}},"deprecated":false}},"/tarjeta/insertar/reposicion":{"post":{"tags":["insertar-root"],"summary":"insertarReposicionMarcaCompartida","operationId":"insertarReposicionMarcaCompartidaUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/RequestInsertarReposicion"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ResponseInsertarReposicion"}}},"deprecated":false}},"/tarjeta/recibir/lotes-tarjetas":{"post":{"tags":["recibir-root"],"summary":"recepcionLotesTarjetas","operationId":"recepcionLotesTarjetasUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/RequestRecibirLotesTarjetas"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ResponseRecibirLotesTarjetas"}}},"deprecated":false}},"/tarjeta/solicitar/clave-otp-lca":{"post":{"tags":["solicitar-root"],"summary":"solicitarClaveOtpLca","operationId":"solicitarClaveOtpLcaUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/RequestSolicitarClaveOtpLca"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ResponseSolicitarClaveOtpLca"}}},"deprecated":false}},"/tarjeta/suspender/tarjeta-de-credito":{"post":{"tags":["suspender-root"],"summary":"tarjetaDeCredito","operationId":"tarjetaDeCreditoUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"request","description":"request","required":true,"schema":{"$ref":"#/definitions/RequestSuspenderTarjetaCredito"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ResponseSuspenderTarjetaCredito"}}},"deprecated":false}}},"definitions":{"BeanConsultarMovimientosTPagoMovil":{"type":"object","properties":{"bcoDestino":{"type":"number"},"bcoOrigen":{"type":"number"},"clv":{"type":"number"},"cod":{"type":"number"},"codAutoriza":{"type":"string"},"codCanal":{"type":"number"},"codEstab":{"type":"string"},"codMoneda":{"type":"number"},"codServProd":{"type":"number"},"codSubCanal":{"type":"number"},"codTransMctil":{"type":"number"},"datosOrigen":{"type":"string"},"descripCodBcoProc":{"type":"string"},"descripTrans":{"type":"string"},"email":{"type":"string"},"estatusComisDestino":{"type":"number"},"estatusComisOrigen":{"type":"number"},"estatusEven":{"type":"number"},"fchDeposRecap":{"type":"number"},"fchEmisPago":{"type":"number"},"fchEmisionPago":{"type":"number"},"fchEven":{"type":"number"},"fchLocal":{"type":"number"},"fchTrans":{"type":"number"},"fchTransNeg":{"type":"number"},"formaPago":{"type":"string"},"hhEmisPago":{"type":"number"},"hhEven":{"type":"number"},"hhLocal":{"type":"number"},"hhTrans":{"type":"number"},"idDestino":{"type":"string"},"idOrigen":{"type":"string"},"idTransRed":{"type":"number"},"indicFavorito":{"type":"string"},"indicPos":{"type":"string"},"indicReg":{"type":"number"},"indicTrans":{"type":"string"},"localizaOrigen":{"type":"string"},"modoEntrada":{"type":"number"},"movilDestino":{"type":"number"},"movilOrigen":{"type":"number"},"mtoComisDestino":{"type":"number"},"mtoComisOrigen":{"type":"number"},"mtoTrans":{"type":"number"},"nomAliasFrec":{"type":"string"},"nomOrigen":{"type":"string"},"nroCta":{"type":"number"},"nroCtaDestino":{"type":"number"},"nroDeposRecap":{"type":"number"},"nroPer":{"type":"number"},"nroPerDestino":{"type":"number"},"nroRef":{"type":"number"},"panDestino":{"type":"string"},"ref":{"type":"number"},"refBco":{"type":"number"},"serial":{"type":"number"},"termFncro":{"type":"number"},"termIdOrigen":{"type":"string"},"termRed":{"type":"string"},"tipoComercio":{"type":"number"},"tipoCta":{"type":"string"},"tipoCtaDestino":{"type":"string"},"tipoTpago":{"type":"number"}},"title":"BeanConsultarMovimientosTPagoMovil"},"BeanCustomerId":{"type":"object","properties":{"ltRif":{"type":"string"},"numRif":{"type":"number"},"tipoRIF":{"type":"string"},"nroRIF":{"type":"number"}},"title":"BeanCustomerId"},"BeanPhone":{"type":"object","properties":{"codArea":{"type":"string"},"nroTelf":{"type":"string"}},"title":"BeanPhone"},"BeanRegistroMovimientos":{"type":"object","properties":{"clv":{"$ref":"#/definitions/Clave"},"estatusConsumo":{"type":"string"},"fchPagoConsumo":{"type":"integer","format":"int32"},"fchTrans":{"type":"integer","format":"int32"},"glosa":{"type":"string"},"mtoTrans":{"type":"number"},"nroRef":{"type":"string"}},"title":"BeanRegistroMovimientos"},"BeanTarjetaASuspender":{"type":"object","required":["nroTarj"],"properties":{"nroTarj":{"type":"number"},"numeroTarjeta":{"type":"number"}},"title":"BeanTarjetaASuspender"},"BeanTarjetaASuspenderSalida":{"type":"object","properties":{"codResp":{"type":"string"},"descripResp":{"type":"string"}},"title":"BeanTarjetaASuspenderSalida"},"BeanTarjetaLimitTipoTarjeta":{"type":"object","properties":{"limCdto":{"type":"number"},"nroCta":{"type":"number"},"nroTarj":{"type":"number"},"tipoTarjHab":{"type":"string"}},"title":"BeanTarjetaLimitTipoTarjeta"},"BeanTelefono":{"type":"object","properties":{"areaCode":{"type":"string"},"codArea":{"type":"string"},"phoneNumber":{"type":"string"},"nroTelf":{"type":"string"}},"title":"BeanTelefono"},"BodyEntradaActivarTarjetaMarcaCompartida":{"type":"object","required":["indicClteNvo","nroPer","nroTarj"],"properties":{"nroPer":{"type":"number"},"nroTarj":{"type":"string"},"indicClteNvo":{"type":"string"}},"title":"BodyEntradaActivarTarjetaMarcaCompartida"},"BodyEntradaActualizarPagoCuota":{"type":"object","required":["codBancario","codEstab","codEstablecimiento","fchFacturacion","instrumPago","instrumentoPago","montoCuota","mtoCuo","nroCedula","nroContrato","nroRef","nroReferencia","nroTarj","nroTarjeta"],"properties":{"codBancario":{"type":"string","example":"0105","description":"Código bancario"},"codEstab":{"type":"number","example":9999.0,"description":"Código de establecimiento"},"fchFacturacion":{"type":"number","example":2.0240501E7,"description":"Fecha de facturación"},"instrumPago":{"type":"string","example":"DEBITO","description":"Instrumento de pago"},"mtoCuo":{"type":"number","example":100.5,"description":"Monto de la cuota"},"nroCedula":{"type":"string","example":"V12345678","description":"Número de cédula del cliente"},"nroContrato":{"type":"number","example":1.23456789E8,"description":"Número de contrato"},"nroRef":{"type":"number","example":123456.0,"description":"Número de referencia"},"nroTarj":{"type":"number","example":1.234567890123456E15,"description":"Número de tarjeta"},"nroTarjeta":{"type":"number"},"montoCuota":{"type":"number"},"instrumentoPago":{"type":"string"},"nroReferencia":{"type":"number"},"codEstablecimiento":{"type":"number"}},"title":"BodyEntradaActualizarPagoCuota","description":"Datos del pago de cuota"},"BodyEntradaAfiliarMosaicAsociados":{"type":"object","properties":{"accountnumber":{"type":"string"},"customerId":{"$ref":"#/definitions/BeanCustomerId"},"nroCta":{"type":"string"},"telefono":{"$ref":"#/definitions/BeanTelefono"},"tipoTran":{"type":"string"},"tipoTrans":{"type":"string"},"tipoRIF":{"type":"string"},"nroRIF":{"type":"number"},"codAsociado":{"type":"string"},"codArea":{"type":"string"},"nroTelf":{"type":"string"},"email":{"type":"string"}},"title":"BodyEntradaAfiliarMosaicAsociados"},"BodyEntradaCondicionTarjetaMarcaComp":{"type":"object","required":["codMarcaCompartida","tarjPrepagada"],"properties":{"tarjPrepagada":{"type":"number"},"tarjetaPrepagada":{"type":"number"},"codMarcaCompartida":{"type":"string"}},"title":"BodyEntradaCondicionTarjetaMarcaComp"},"BodyEntradaConsultarAfiliacionTPago":{"type":"object","required":["codServProd","nroTelf","tipoOper"],"properties":{"codServProd":{"type":"number"},"numTelefono":{"type":"string"},"tipoOper":{"type":"string"},"nroTelf":{"type":"string"}},"title":"BodyEntradaConsultarAfiliacionTPago"},"BodyEntradaConsultarCuotasLineaCredito":{"type":"object","required":["codEstab","nroContrato","nroId","nroTarj","tipoId"],"properties":{"nroContrato":{"type":"integer","format":"int64"},"nroTarj":{"type":"integer"},"codEstab":{"type":"integer","format":"int32"},"tipoId":{"type":"string"},"nroId":{"type":"integer"}},"title":"BodyEntradaConsultarCuotasLineaCredito"},"BodyEntradaConsultarMarca":{"type":"object","required":["codTipoProduc","nroPer"],"properties":{"codTipoProducto":{"type":"string"},"nroPer":{"type":"integer","format":"int32"},"nroPersona":{"type":"integer","format":"int32"},"codTipoProduc":{"type":"string"}},"title":"BodyEntradaConsultarMarca"},"BodyEntradaConsultarMovimientosLineaCredito":{"type":"object","required":["codId","codTipoProduc","fchDesde","fchHasta","nroId","nroTarj"],"properties":{"codigoId":{"type":"string"},"codigoTipoProducto":{"type":"string"},"fechaDesde":{"type":"integer","format":"int32"},"fechaHasta":{"type":"integer","format":"int32"},"nroTarj":{"type":"string"},"numeroId":{"type":"integer","format":"int64"},"numeroTarjeta":{"type":"string"},"codTipoProduc":{"type":"string"},"codId":{"type":"string"},"nroId":{"type":"integer","format":"int64"},"fchDesde":{"type":"integer","format":"int32"},"fchHasta":{"type":"integer","format":"int32"},"tipoConsulta":{"type":"string"}},"title":"BodyEntradaConsultarMovimientosLineaCredito"},"BodyEntradaConsultarMovimientosTPagoMovil":{"type":"object","required":["ciBusqueda","codEstab","codMoneda","codServProd","codSubCanal","codTipoOper","fchDesde","fchHasta","indicTpago","nroPer","nrotelfBusqueda","statusEven","tipoOpernConsulta"],"properties":{"cedulaBusquedaInput":{"type":"string"},"codSubCanal":{"type":"string"},"codigoEstabIecimiento":{"type":"number"},"codigoMonedaInput":{"type":"number"},"codigoServProdInput":{"type":"number"},"codigoSubCanalInput":{"type":"string"},"codigoTipoOperacionInput":{"type":"string"},"fechaDesdeInput":{"type":"number"},"fechaHastaInput":{"type":"number"},"indicadorTpagoInput":{"type":"number"},"numeroperInput":{"type":"number"},"numerotelefonoBusquedaInput":{"type":"number"},"statusEventoInput":{"type":"number"},"tipoOperacionConsultaInput":{"type":"number"},"codServProd":{"type":"number"},"codEstab":{"type":"number"},"nroPer":{"type":"number"},"fchDesde":{"type":"number"},"fchHasta":{"type":"number"},"ciBusqueda":{"type":"string"},"nrotelfBusqueda":{"type":"number"},"indicTpago":{"type":"number"},"statusEven":{"type":"number"},"codTipoOper":{"type":"string"},"codMoneda":{"type":"number"},"tipoOpernConsulta":{"type":"number"}},"title":"BodyEntradaConsultarMovimientosTPagoMovil"},"BodyEntradaConsultarTarjetaDeCreditoActiva":{"type":"object","required":["codPais","nroId","tipoId"],"properties":{"codPais":{"type":"string"},"codigoPais":{"type":"string"},"numeroIdentificacion":{"type":"number"},"tipoIdentificacion":{"type":"string"},"tipoId":{"type":"string"},"nroId":{"type":"number"}},"title":"BodyEntradaConsultarTarjetaDeCreditoActiva"},"BodyEntradaInsertarAceptaTarjetaLca":{"type":"object","required":["codTipoProduc","dbtoInmBanco","dbtoInmDatos","fchAcept","idClte","nroTarj","versContrato"],"properties":{"codTipoProducto":{"type":"string"},"customerId":{"type":"string"},"dbiBanco":{"type":"integer","format":"int32"},"dbiDatos":{"type":"number"},"fechaAceptacion":{"type":"number"},"idClte":{"type":"string"},"nroTarjeta":{"type":"number"},"versionContrato":{"type":"number"},"nroTarj":{"type":"number"},"codTipoProduc":{"type":"string"},"versContrato":{"type":"number"},"fchAcept":{"type":"number"},"dbtoInmDatos":{"type":"number"},"dbtoInmBanco":{"type":"integer","format":"int32"}},"title":"BodyEntradaInsertarAceptaTarjetaLca"},"BodyEntradaInsertarReposicion":{"type":"object","required":["motivRepos","nroPer","nroTarj","serial"],"properties":{"nroPer":{"type":"number"},"nroTarj":{"type":"number"},"serial":{"type":"integer","format":"int64"},"motivRepos":{"type":"string"}},"title":"BodyEntradaInsertarReposicion"},"BodyEntradaLineaCreditoAmpliada":{"type":"object","required":["cantCuotas","codComercio","codProduc","datosOtp","fchaUso","frecCuotas","hhUso","mtoComis","mtoMaxEmpresa","mtoTransBs","mtoTransDolar","mtoUsoBs","mtoUsoDolar","nroTarj"],"properties":{"cantCuo":{"type":"integer","format":"int32"},"fchUso":{"type":"integer","format":"int32"},"frecCuo":{"type":"string"},"nroTarj":{"type":"string"},"fchaUso":{"type":"integer","format":"int32"},"hhUso":{"type":"integer","format":"int32"},"mtoUsoBs":{"type":"number","format":"double"},"mtoUsoDolar":{"type":"number","format":"double"},"mtoComis":{"type":"number","format":"double"},"mtoTransBs":{"type":"number","format":"double"},"mtoTransDolar":{"type":"number","format":"double"},"mtoMaxEmpresa":{"type":"number","format":"double"},"cantCuotas":{"type":"integer","format":"int32"},"frecCuotas":{"type":"string"},"codComercio":{"type":"integer","format":"int64"},"codProduc":{"type":"string"},"datosOtp":{"$ref":"#/definitions/DatosOtp"}},"title":"BodyEntradaLineaCreditoAmpliada"},"BodyEntradaMovimientosTarjetaPrepago":{"type":"object","required":["codTrans","nroTarj"],"properties":{"codTrans":{"type":"string"},"codigoAreaTelefono":{"type":"integer","format":"int32"},"codigoCedula":{"type":"string"},"codigoEstablecimiento":{"type":"string"},"codigoSubcanal":{"type":"integer","format":"int32"},"codigoTransaccion":{"type":"string"},"fechaDesde":{"type":"integer","format":"int64"},"fechaHasta":{"type":"integer","format":"int64"},"fechaVencimiento":{"type":"string"},"numeroCedula":{"type":"integer","format":"int64"},"numeroCuenta":{"type":"string"},"numeroTarjeta":{"type":"string"},"numeroTelefono":{"type":"integer","format":"int64"},"serialDispositivo":{"type":"string"},"tipoArchivo":{"type":"string"},"tipoMovimientoDebitoCredito":{"type":"string"},"nroTarj":{"type":"string"},"fchVcto":{"type":"string"},"funcion":{"type":"string"},"nroCta":{"type":"string"},"fchDesde":{"type":"integer","format":"int64"},"fchHasta":{"type":"integer","format":"int64"},"tipoMovDbtoCdto":{"type":"string"},"tipoArch":{"type":"string"},"codSubcanal":{"type":"integer","format":"int32"},"serialDisposit":{"type":"string"},"codAreaTelf":{"type":"integer","format":"int32"},"nroTelf":{"type":"integer","format":"int64"},"codId":{"type":"string"},"nroId":{"type":"integer","format":"int64"},"codEstab":{"type":"string"}},"title":"BodyEntradaMovimientosTarjetaPrepago"},"BodyEntradaRecibirLotesTarjetas":{"type":"object","required":["codProduc","nroAcuseFin","nroAcuseInic","nroSolic"],"properties":{"codProduc":{"type":"string"},"codProducto":{"type":"string"},"numAcuseFin":{"type":"integer","format":"int32"},"numSolicitud":{"type":"integer","format":"int32"},"nunAcuseIni":{"type":"integer","format":"int32"},"nroSolic":{"type":"integer","format":"int32"},"nroAcuseInic":{"type":"integer","format":"int32"},"nroAcuseFin":{"type":"integer","format":"int32"}},"title":"BodyEntradaRecibirLotesTarjetas"},"BodyEntradaSaldoTarjetaLca":{"type":"object","required":["codId","codTipoProduc","nroId","nroTarj"],"properties":{"codCedula":{"type":"string"},"codigoTipoProducto":{"type":"string"},"nroCedula":{"type":"integer","format":"int64"},"nroTarj":{"type":"string"},"numeroTarjeta":{"type":"string"},"codId":{"type":"string"},"nroId":{"type":"integer","format":"int64"},"codTipoProduc":{"type":"string"}},"title":"BodyEntradaSaldoTarjetaLca"},"BodyEntradaSaldoTarjetaPrepago":{"type":"object","required":["nroId","nroTarj"],"properties":{"codTran":{"type":"string"},"codigoAreaTelefono":{"type":"integer","format":"int32"},"codigoId":{"type":"string"},"codigoTransaccion":{"type":"string"},"numeroCedula":{"type":"integer","format":"int64"},"numeroTarjeta":{"type":"string"},"numeroTelefono":{"type":"integer","format":"int64"},"serialDispositivo":{"type":"string"},"nroTarj":{"type":"string"},"serialDisposit":{"type":"string"},"codAreaTelf":{"type":"integer","format":"int32"},"nroTelf":{"type":"integer","format":"int64"},"codId":{"type":"string"},"nroId":{"type":"integer","format":"int64"},"codigoSubcanal":{"type":"integer","format":"int32"}},"title":"BodyEntradaSaldoTarjetaPrepago"},"BodyEntradaSolicitarClaveOtpLca":{"type":"object","required":["clvAlfanumerica","mtoTrans","nomOrigen","nroIdDestino","nroIdOrigen","nroTelfDestino","tipoIdDestino","tipoIdOrigen"],"properties":{"tipoIdDestino":{"type":"string"},"nroIdDestino":{"type":"integer","format":"int32"},"tipoIdOrigen":{"type":"string"},"nroIdOrigen":{"type":"integer","format":"int32"},"nomOrigen":{"type":"string"},"mtoTrans":{"type":"number"},"nroTelfDestino":{"type":"integer","format":"int64"},"clvAlfanumerica":{"type":"string"}},"title":"BodyEntradaSolicitarClaveOtpLca"},"BodyEntradaSuspenderTarjetaCredito":{"type":"object","required":["codPais","codRazon","nroId","suspTarjetas","tipoId"],"properties":{"codPais":{"type":"string"},"codigoPais":{"type":"string"},"codigoRazon":{"type":"string"},"numeroIdentificacion":{"type":"number"},"tarjetasASuspender":{"type":"array","items":{"$ref":"#/definitions/BeanTarjetaASuspender"}},"tipoIdentificacion":{"type":"string"},"tipoId":{"type":"string"},"nroId":{"type":"number"},"codRazon":{"type":"string"},"suspTarjetas":{"type":"array","items":{"$ref":"#/definitions/BeanTarjetaASuspender"}}},"title":"BodyEntradaSuspenderTarjetaCredito"},"BodySalidaActivarTarjetaMarcaCompartida":{"type":"object","properties":{"nroCtaInter":{"type":"integer","format":"int32"}},"title":"BodySalidaActivarTarjetaMarcaCompartida"},"BodySalidaAfiliarMosaicAsociados":{"type":"object","properties":{"cod":{"type":"string"},"codTrader":{"type":"string"},"fchProcesa":{"type":"string"},"msje":{"type":"string"},"telf":{"$ref":"#/definitions/BeanPhone"}},"title":"BodySalidaAfiliarMosaicAsociados"},"BodySalidaConsultarAfiliacionTPago":{"type":"object","properties":{"cantMaxDisp":{"type":"number"},"codApi":{"type":"string"},"codComisInter":{"type":"number"},"codComisMerca":{"type":"number"},"codEmailEstab":{"type":"string"},"codEstab":{"type":"number"},"codEstado":{"type":"string"},"codSic":{"type":"string"},"comercioId":{"type":"string"},"deCodPais":{"type":"string"},"descripDisp":{"type":"string"},"direccCompact":{"type":"string"},"direccHabCodPais":{"type":"number"},"establecimiento":{"$ref":"#/definitions/CodEstabl"},"fchAfilia":{"type":"number"},"formaPago":{"type":"number"},"mtoMaxDisp":{"type":"number"},"nomEstab":{"type":"string"},"nomEstado":{"type":"string"},"nroCtaDisp":{"type":"string"},"nroPer":{"type":"number"}},"title":"BodySalidaConsultarAfiliacionTPago"},"BodySalidaConsultarCuotasLineaCredito":{"type":"object","properties":{"cuotas":{"type":"array","items":{"$ref":"#/definitions/Cuota"}}},"title":"BodySalidaConsultarCuotasLineaCredito"},"BodySalidaConsultarMovimientosLineaCredito":{"type":"object","properties":{"cantMaxMovimientos":{"type":"integer","format":"int32"},"clvBusqueda":{"type":"string"},"lcaMtoDisp":{"type":"number"},"nomClte":{"type":"string"},"regMovimientos":{"type":"array","items":{"$ref":"#/definitions/BeanRegistroMovimientos"}}},"title":"BodySalidaConsultarMovimientosLineaCredito"},"BodySalidaConsultarMovimientosTPagoMovil":{"type":"object","properties":{"cantRegProc":{"type":"number"},"movimientos":{"type":"array","items":{"$ref":"#/definitions/BeanConsultarMovimientosTPagoMovil"}}},"title":"BodySalidaConsultarMovimientosTPagoMovil"},"BodySalidaConsultarTarjetaDeCreditoActiva":{"type":"object","properties":{"tarjetas":{"type":"array","items":{"$ref":"#/definitions/BeanTarjetaLimitTipoTarjeta"}}},"title":"BodySalidaConsultarTarjetaDeCreditoActiva"},"BodySalidaLineaCreditoAmpliada":{"type":"object","properties":{"nroRef":{"type":"integer","format":"int64"}},"title":"BodySalidaLineaCreditoAmpliada"},"BodySalidaMovimientosTarjetaPrepago":{"type":"object","properties":{"cantMaxMovimientos":{"type":"integer","format":"int32"},"clvBusqueda":{"type":"string"},"mtoComis":{"type":"number"},"nroAprob":{"type":"string"},"ordenEntrgDatos":{"type":"string"},"regMovimientos":{"type":"array","items":{"$ref":"#/definitions/MovimientoPrepago"}}},"title":"BodySalidaMovimientosTarjetaPrepago"},"BodySalidaSaldoTarjetaLca":{"type":"object","properties":{"estatusAceptLinCdto":{"type":"string"},"estatusBloqueoLinCdto":{"type":"string"},"estatusTarj":{"type":"string"},"fchVctoTarj":{"type":"string"},"maxCupoLinCdto":{"type":"number"},"mtoVenLinCdto":{"type":"number"},"nomClte":{"type":"string"},"saldoActLinCdto":{"type":"number"},"saldoActTarj":{"type":"number"}},"title":"BodySalidaSaldoTarjetaLca"},"BodySalidaSuspenderTarjetaCredito":{"type":"object","properties":{"tarjetasSuspendidas":{"type":"array","items":{"$ref":"#/definitions/BeanTarjetaASuspenderSalida"}}},"title":"BodySalidaSuspenderTarjetaCredito"},"Clave":{"type":"object","properties":{"codModalAfili":{"type":"string"},"fchPosteo":{"type":"integer","format":"int32"},"hhPosteo":{"type":"integer","format":"int32"},"nroCta":{"type":"integer","format":"int64"},"nroTarj":{"type":"string"}},"title":"Clave"},"ClaveMovimiento":{"type":"object","properties":{"codModalAfili":{"type":"string"},"fchPosteo":{"type":"integer","format":"int64"},"hhPosteo":{"type":"integer","format":"int64"},"nroCta":{"type":"integer","format":"int64"},"nroTarj":{"type":"string"}},"title":"ClaveMovimiento"},"CodEstabl":{"type":"object","properties":{"codEstab":{"type":"string"},"nroCodEstab":{"type":"number"}},"title":"CodEstabl"},"Cuota":{"type":"object","properties":{"estatusCuotas":{"type":"string"},"fchCuo":{"type":"integer","format":"int32"},"fchPagoCuo":{"type":"integer","format":"int32"},"mtoCuo":{"type":"number"}},"title":"Cuota"},"DatosOtp":{"type":"object","required":["claveOtp","movilDestino","nroIdDestino","nroIdOrigen","tipoIdDestino","tipoIdOrigen"],"properties":{"otpClave":{"type":"integer","format":"int64"},"otpIdDstLetra":{"type":"string"},"otpIdDstNro":{"type":"integer","format":"int64"},"otpIdOrgLetra":{"type":"string"},"otpIdOrgNro":{"type":"integer","format":"int64"},"otpMovilDst":{"type":"integer","format":"int64"},"tipoIdOrigen":{"type":"string"},"nroIdOrigen":{"type":"integer","format":"int64"},"tipoIdDestino":{"type":"string"},"nroIdDestino":{"type":"integer","format":"int64"},"movilDestino":{"type":"integer","format":"int64"},"claveOtp":{"type":"integer","format":"int64"}},"title":"DatosOtp"},"HeaderEntrada":{"type":"object","required":["atributoPagineo","cantidadRegistros","claveBusqueda","direccionIpCliente","direccionIpConsumidor","fechaEnvioMensaje","horaEnvioMensaje","identificacionCanal","identificacionSubCanal","identificacionUsuario","identificadorUnicoGlobal","siglaAplicacion"],"properties":{"identificadorUnicoGlobal":{"type":"string"},"identificacionCanal":{"type":"string"},"identificacionSubCanal":{"type":"string"},"siglaAplicacion":{"type":"string"},"identificacionUsuario":{"type":"string"},"direccionIpConsumidor":{"type":"string"},"direccionIpCliente":{"type":"string"},"fechaEnvioMensaje":{"type":"string"},"horaEnvioMensaje":{"type":"string"},"atributoPagineo":{"type":"string"},"claveBusqueda":{"type":"string"},"cantidadRegistros":{"type":"integer","format":"int32"}},"title":"HeaderEntrada"},"HeaderSalida":{"type":"object","properties":{"codigoMensajeProgramador":{"type":"string"},"codigoMensajeUsuario":{"type":"string"},"fechaSalidaMensaje":{"type":"string"},"horaSalidaMensaje":{"type":"string"},"mensajeProgramadorSistema":{"type":"string"},"mensajeUsuario":{"type":"string"},"tipoMensaje":{"type":"string"}},"title":"HeaderSalida"},"MovimientoPrepago":{"type":"object","properties":{"clv":{"$ref":"#/definitions/ClaveMovimiento"},"factorDolarBs":{"type":"number"},"fchTrans":{"type":"integer","format":"int64"},"hhTrans":{"type":"integer","format":"int64"},"indicInfAdic":{"type":"integer","format":"int32"},"mtoTrans":{"type":"number"},"nroRef":{"type":"string"},"statusTrans":{"type":"integer","format":"int32"},"tipoTrans":{"type":"string"}},"title":"MovimientoPrepago"},"RequestActivarTarjetaMarcaCompartida":{"type":"object","required":["bodyEntradaActivarTarjetaMarcaCompartida","headerEntrada"],"properties":{"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"bodyEntradaActivarTarjetaMarcaCompartida":{"$ref":"#/definitions/BodyEntradaActivarTarjetaMarcaCompartida"}},"title":"RequestActivarTarjetaMarcaCompartida"},"RequestActualizarPagoCuota":{"type":"object","required":["bodyEntradaActualizarPagoCuota","headerEntrada"],"properties":{"headerEntrada":{"description":"Encabezado de la petición","$ref":"#/definitions/HeaderEntrada"},"bodyEntradaActualizarPagoCuota":{"description":"Datos del pago de cuota","$ref":"#/definitions/BodyEntradaActualizarPagoCuota"}},"title":"RequestActualizarPagoCuota","description":"Request para actualizar adelanto de pago de cuota"},"RequestAfiliarMosaicAsociados":{"type":"object","required":["bodyEntradaAfiliarMosaicAsociados","headerEntrada"],"properties":{"bodyEntrada":{"$ref":"#/definitions/BodyEntradaAfiliarMosaicAsociados"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"bodyEntradaAfiliarMosaicAsociados":{"$ref":"#/definitions/BodyEntradaAfiliarMosaicAsociados"}},"title":"RequestAfiliarMosaicAsociados"},"RequestCondicionTarjetaMarcaComp":{"type":"object","required":["bodyEntradaCondicionTarjetaMarcaComp","headerEntrada"],"properties":{"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"bodyEntradaCondicionTarjetaMarcaComp":{"$ref":"#/definitions/BodyEntradaCondicionTarjetaMarcaComp"}},"title":"RequestCondicionTarjetaMarcaComp"},"RequestConsultarAfiliacionTPago":{"type":"object","required":["bodyEntradaConsultarAfiliacionTPago","headerEntrada"],"properties":{"bodyEntrada":{"$ref":"#/definitions/BodyEntradaConsultarAfiliacionTPago"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"bodyEntradaConsultarAfiliacionTPago":{"$ref":"#/definitions/BodyEntradaConsultarAfiliacionTPago"}},"title":"RequestConsultarAfiliacionTPago"},"RequestConsultarCuotasLineaCredito":{"type":"object","required":["bodyEntradaConsultarCuotasLineaCredito","headerEntrada"],"properties":{"bodyEntrada":{"$ref":"#/definitions/BodyEntradaConsultarCuotasLineaCredito"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"bodyEntradaConsultarCuotasLineaCredito":{"$ref":"#/definitions/BodyEntradaConsultarCuotasLineaCredito"}},"title":"RequestConsultarCuotasLineaCredito"},"RequestConsultarMarca":{"type":"object","required":["bodyEntradaConsultarMarca","headerEntrada"],"properties":{"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"bodyEntradaConsultarMarca":{"$ref":"#/definitions/BodyEntradaConsultarMarca"}},"title":"RequestConsultarMarca"},"RequestConsultarMovimientosLineaCredito":{"type":"object","required":["bodyEntradaConsultarMovimientosLineaCredito","headerEntrada"],"properties":{"bodyEntrada":{"$ref":"#/definitions/BodyEntradaConsultarMovimientosLineaCredito"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"bodyEntradaConsultarMovimientosLineaCredito":{"$ref":"#/definitions/BodyEntradaConsultarMovimientosLineaCredito"}},"title":"RequestConsultarMovimientosLineaCredito"},"RequestConsultarMovimientosTPagoMovil":{"type":"object","required":["bodyEntradaConsultarMovimientosTPagoMovil","headerEntrada"],"properties":{"bodyEntrada":{"$ref":"#/definitions/BodyEntradaConsultarMovimientosTPagoMovil"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"bodyEntradaConsultarMovimientosTPagoMovil":{"$ref":"#/definitions/BodyEntradaConsultarMovimientosTPagoMovil"}},"title":"RequestConsultarMovimientosTPagoMovil"},"RequestConsultarTarjetaDeCreditoActiva":{"type":"object","required":["bodyEntradaConsultarTarjetaDeCreditoActiva","headerEntrada"],"properties":{"bodyEntrada":{"$ref":"#/definitions/BodyEntradaConsultarTarjetaDeCreditoActiva"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"bodyEntradaConsultarTarjetaDeCreditoActiva":{"$ref":"#/definitions/BodyEntradaConsultarTarjetaDeCreditoActiva"}},"title":"RequestConsultarTarjetaDeCreditoActiva"},"RequestInsertarAceptaTarjetaLca":{"type":"object","required":["bodyEntradaInsertarAceptaTarjetaLca","headerEntrada"],"properties":{"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"bodyEntradaInsertarAceptaTarjetaLca":{"$ref":"#/definitions/BodyEntradaInsertarAceptaTarjetaLca"}},"title":"RequestInsertarAceptaTarjetaLca"},"RequestInsertarReposicion":{"type":"object","required":["bodyEntradaReposicion","headerEntrada"],"properties":{"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"bodyEntradaReposicion":{"$ref":"#/definitions/BodyEntradaInsertarReposicion"}},"title":"RequestInsertarReposicion"},"RequestLineaCreditoAmpliada":{"type":"object","required":["bodyEntradaConsultarLineaCreditoAmpliada","headerEntrada"],"properties":{"bodyEntrada":{"$ref":"#/definitions/BodyEntradaLineaCreditoAmpliada"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"bodyEntradaConsultarLineaCreditoAmpliada":{"$ref":"#/definitions/BodyEntradaLineaCreditoAmpliada"}},"title":"RequestLineaCreditoAmpliada"},"RequestMovimientosTarjetaPrepago":{"type":"object","required":["bodyEntradaMovimientosTarjetaPrepago","headerEntrada"],"properties":{"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"bodyEntradaMovimientosTarjetaPrepago":{"$ref":"#/definitions/BodyEntradaMovimientosTarjetaPrepago"}},"title":"RequestMovimientosTarjetaPrepago"},"RequestRecibirLotesTarjetas":{"type":"object","required":["bodyEntradaRecepcionLotesTarjetas","headerEntrada"],"properties":{"bodyEntrada":{"$ref":"#/definitions/BodyEntradaRecibirLotesTarjetas"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"bodyEntradaRecepcionLotesTarjetas":{"$ref":"#/definitions/BodyEntradaRecibirLotesTarjetas"}},"title":"RequestRecibirLotesTarjetas"},"RequestSaldoTarjetaLca":{"type":"object","required":["bodyEntradaSaldoTarjetaLca","headerEntrada"],"properties":{"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"bodyEntradaSaldoTarjetaLca":{"$ref":"#/definitions/BodyEntradaSaldoTarjetaLca"}},"title":"RequestSaldoTarjetaLca"},"RequestSaldoTarjetaPrepago":{"type":"object","required":["bodyEntradaSaldoTarjetaPrepago","headerEntrada"],"properties":{"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"bodyEntradaSaldoTarjetaPrepago":{"$ref":"#/definitions/BodyEntradaSaldoTarjetaPrepago"}},"title":"RequestSaldoTarjetaPrepago"},"RequestSolicitarClaveOtpLca":{"type":"object","required":["bodyEntradaSolicitarClaveOtpLca","headerEntrada"],"properties":{"bodyEntrada":{"$ref":"#/definitions/BodyEntradaSolicitarClaveOtpLca"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"bodyEntradaSolicitarClaveOtpLca":{"$ref":"#/definitions/BodyEntradaSolicitarClaveOtpLca"}},"title":"RequestSolicitarClaveOtpLca"},"RequestSuspenderTarjetaCredito":{"type":"object","required":["bodyEntradaSuspenderTarjetaCredito","headerEntrada"],"properties":{"bodyEntrada":{"$ref":"#/definitions/BodyEntradaSuspenderTarjetaCredito"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"bodyEntradaSuspenderTarjetaCredito":{"$ref":"#/definitions/BodyEntradaSuspenderTarjetaCredito"}},"title":"RequestSuspenderTarjetaCredito"},"ResponseActivarTarjetaMarcaCompartida":{"type":"object","properties":{"bodyEntrada":{"type":"object"},"bodySalida":{"type":"object"},"bodySalidaActivarTarjetaMarcaCompartida":{"$ref":"#/definitions/BodySalidaActivarTarjetaMarcaCompartida"},"code":{"type":"integer","format":"int32"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"headerSalida":{"$ref":"#/definitions/HeaderSalida"},"message":{"type":"string"}},"title":"ResponseActivarTarjetaMarcaCompartida"},"ResponseActualizarPagoCuota":{"type":"object","properties":{"bodyEntrada":{"type":"object"},"bodySalida":{"type":"object"},"code":{"type":"integer","format":"int32"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"headerSalida":{"$ref":"#/definitions/HeaderSalida"},"message":{"type":"string"}},"title":"ResponseActualizarPagoCuota"},"ResponseAfiliarMosaicAsociados":{"type":"object","properties":{"bodyEntrada":{"type":"object"},"bodySalida":{"type":"object"},"bodySalidaAfiliarMosaicAsociados":{"$ref":"#/definitions/BodySalidaAfiliarMosaicAsociados"},"code":{"type":"integer","format":"int32"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"headerSalida":{"$ref":"#/definitions/HeaderSalida"},"message":{"type":"string"}},"title":"ResponseAfiliarMosaicAsociados"},"ResponseCondicionTarjetaMarcaComp":{"type":"object","properties":{"bodyEntrada":{"type":"object"},"bodySalida":{"type":"object"},"code":{"type":"integer","format":"int32"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"headerSalida":{"$ref":"#/definitions/HeaderSalida"},"message":{"type":"string"}},"title":"ResponseCondicionTarjetaMarcaComp"},"ResponseConsultarAfiliacionTPago":{"type":"object","properties":{"bodyEntrada":{"type":"object"},"bodySalida":{"type":"object"},"bodySalidaConsultarAfiliacionTPago":{"$ref":"#/definitions/BodySalidaConsultarAfiliacionTPago"},"code":{"type":"integer","format":"int32"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"headerSalida":{"$ref":"#/definitions/HeaderSalida"},"message":{"type":"string"}},"title":"ResponseConsultarAfiliacionTPago"},"ResponseConsultarCuotasLineaCredito":{"type":"object","properties":{"bodyEntrada":{"type":"object"},"bodySalida":{"type":"object"},"bodySalidaConsultarCuotasLineaCredito":{"$ref":"#/definitions/BodySalidaConsultarCuotasLineaCredito"},"code":{"type":"integer","format":"int32"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"headerSalida":{"$ref":"#/definitions/HeaderSalida"},"message":{"type":"string"}},"title":"ResponseConsultarCuotasLineaCredito"},"ResponseConsultarMarca":{"type":"object","properties":{"bodyEntrada":{"type":"object"},"bodySalida":{"type":"object"},"code":{"type":"integer","format":"int32"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"headerSalida":{"$ref":"#/definitions/HeaderSalida"},"message":{"type":"string"}},"title":"ResponseConsultarMarca"},"ResponseConsultarMovimientosLineaCredito":{"type":"object","properties":{"bodyEntrada":{"type":"object"},"bodySalida":{"type":"object"},"bodySalidaConsultarMovimientosLineaCredito":{"$ref":"#/definitions/BodySalidaConsultarMovimientosLineaCredito"},"code":{"type":"integer","format":"int32"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"headerSalida":{"$ref":"#/definitions/HeaderSalida"},"message":{"type":"string"}},"title":"ResponseConsultarMovimientosLineaCredito"},"ResponseConsultarMovimientosTPagoMovil":{"type":"object","properties":{"bodyEntrada":{"type":"object"},"bodyEntradaMovimientosTPagoMovilP2C":{"$ref":"#/definitions/BodyEntradaConsultarMovimientosTPagoMovil"},"bodySalida":{"type":"object"},"bodySalidaMovimientosTPagoMovilP2C":{"$ref":"#/definitions/BodySalidaConsultarMovimientosTPagoMovil"},"code":{"type":"integer","format":"int32"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"headerSalida":{"$ref":"#/definitions/HeaderSalida"},"message":{"type":"string"}},"title":"ResponseConsultarMovimientosTPagoMovil"},"ResponseConsultarTarjetaDeCreditoActiva":{"type":"object","properties":{"bodyEntrada":{"type":"object"},"bodySalida":{"type":"object"},"bodySalidaConsultarTarjetaDeCreditoActiva":{"$ref":"#/definitions/BodySalidaConsultarTarjetaDeCreditoActiva"},"code":{"type":"integer","format":"int32"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"headerSalida":{"$ref":"#/definitions/HeaderSalida"},"message":{"type":"string"}},"title":"ResponseConsultarTarjetaDeCreditoActiva"},"ResponseInsertarAceptaTarjetaLca":{"type":"object","properties":{"bodyEntrada":{"type":"object"},"bodySalida":{"type":"object"},"code":{"type":"integer","format":"int32"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"headerSalida":{"$ref":"#/definitions/HeaderSalida"},"message":{"type":"string"}},"title":"ResponseInsertarAceptaTarjetaLca"},"ResponseInsertarReposicion":{"type":"object","properties":{"bodyEntrada":{"type":"object"},"bodySalida":{"type":"object"},"code":{"type":"integer","format":"int32"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"headerSalida":{"$ref":"#/definitions/HeaderSalida"},"message":{"type":"string"}},"title":"ResponseInsertarReposicion"},"ResponseLineaCreditoAmpliada":{"type":"object","properties":{"bodyEntrada":{"type":"object"},"bodySalida":{"type":"object"},"bodySalidaConsultarLineaCreditoAmpliada":{"$ref":"#/definitions/BodySalidaLineaCreditoAmpliada"},"code":{"type":"integer","format":"int32"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"headerSalida":{"$ref":"#/definitions/HeaderSalida"},"message":{"type":"string"}},"title":"ResponseLineaCreditoAmpliada"},"ResponseMovimientosTarjetaPrepago":{"type":"object","properties":{"bodyEntrada":{"type":"object"},"bodySalida":{"type":"object"},"bodySalidaMovimientosTarjetaPrepago":{"$ref":"#/definitions/BodySalidaMovimientosTarjetaPrepago"},"code":{"type":"integer","format":"int32"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"headerSalida":{"$ref":"#/definitions/HeaderSalida"},"message":{"type":"string"}},"title":"ResponseMovimientosTarjetaPrepago"},"ResponseRecibirLotesTarjetas":{"type":"object","properties":{"bodyEntrada":{"type":"object"},"bodySalida":{"type":"object"},"code":{"type":"integer","format":"int32"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"headerSalida":{"$ref":"#/definitions/HeaderSalida"},"message":{"type":"string"}},"title":"ResponseRecibirLotesTarjetas"},"ResponseSaldoTarjetaLca":{"type":"object","properties":{"bodyEntrada":{"type":"object"},"bodySalida":{"type":"object"},"bodySalidaSaldoTarjetaLca":{"$ref":"#/definitions/BodySalidaSaldoTarjetaLca"},"code":{"type":"integer","format":"int32"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"headerSalida":{"$ref":"#/definitions/HeaderSalida"},"message":{"type":"string"}},"title":"ResponseSaldoTarjetaLca"},"ResponseSaldoTarjetaPrepago":{"type":"object","properties":{"bodyEntrada":{"type":"object"},"bodySalida":{"type":"object"},"code":{"type":"integer","format":"int32"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"headerSalida":{"$ref":"#/definitions/HeaderSalida"},"message":{"type":"string"}},"title":"ResponseSaldoTarjetaPrepago"},"ResponseSolicitarClaveOtpLca":{"type":"object","properties":{"bodyEntrada":{"type":"object"},"bodySalida":{"type":"object"},"code":{"type":"integer","format":"int32"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"headerSalida":{"$ref":"#/definitions/HeaderSalida"},"message":{"type":"string"}},"title":"ResponseSolicitarClaveOtpLca"},"ResponseSuspenderTarjetaCredito":{"type":"object","properties":{"bodyEntrada":{"type":"object"},"bodySalida":{"type":"object"},"bodySalidaSuspenderTarjetaCredito":{"$ref":"#/definitions/BodySalidaSuspenderTarjetaCredito"},"code":{"type":"integer","format":"int32"},"headerEntrada":{"$ref":"#/definitions/HeaderEntrada"},"headerSalida":{"$ref":"#/definitions/HeaderSalida"},"message":{"type":"string"}},"title":"ResponseSuspenderTarjetaCredito"}}}
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API tarjeta",
+    "version": "1.0",
+    "description": "Generado dinámicamente BANCO MERCANTIL"
+  },
+  "servers": [
+    {
+      "url": "null/tarjeta"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Actualizar Root",
+      "description": "Operaciones Actualizar Root"
+    },
+    {
+      "name": "Afiliar Root",
+      "description": "CLASE ENCARGADA DE PUBLICAR LOS SERVICIOS REST DE CONSULTAR."
+    },
+    {
+      "name": "Consultar Root",
+      "description": "CLASE ENCARGADA DE PUBLICAR LOS SERVICIOS REST DE CONSULTAR. \u003Cstrong\u003ECONSULTAR\u003C/strong\u003E."
+    },
+    {
+      "name": "Insertar Root",
+      "description": "CLASE ENCARGADA DE PUBLICAR LOS SERVICIOS REST DE CONSULTAR. \u003Cstrong\u003EINSERTAR\u003C/strong\u003E."
+    },
+    {
+      "name": "Recibir Root",
+      "description": "CLASE ENCARGADA DE PUBLICAR LOS SERVICIOS REST DE \u003Cstrong\u003ERECIBIR\u003C/strong\u003E."
+    },
+    {
+      "name": "Solicitar Root",
+      "description": "CLASE ENCARGADA PUBLICAR LOS SERVICIOS REST DE \u003Cstrong\u003ESOLICITAR\u003C/strong\u003E."
+    },
+    {
+      "name": "Suspender Root",
+      "description": "CLASE ENCARGADA DE PUBLICAR LOS SERVICIOS REST DE SOLICITAR."
+    }
+  ],
+  "paths": {
+    "/actualizar/pago-cuota": {
+      "post": {
+        "tags": [
+          "Actualizar Root"
+        ],
+        "summary": "Adelanto Cuota Agendada",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestActualizarPagoCuota"
+              },
+              "example": {
+                "headerEntrada": null,
+                "bodyEntradaPagoCuota": {
+                  "nroCedula": "string",
+                  "nroTarj": null,
+                  "nroContrato": null,
+                  "mtoCuo": null,
+                  "instrumPago": "string",
+                  "fchFacturacion": null,
+                  "nroRef": null,
+                  "codEstab": null,
+                  "codBancario": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseActualizarPagoCuota\u003E"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/afiliar/mosaic-asociados": {
+      "post": {
+        "tags": [
+          "Afiliar Root"
+        ],
+        "summary": "Mosaic Asociados",
+        "description": "METODO ENCAGADO DE IMPLEMENTAR AFILIAR MOSAIC ASOCIADOS",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseAfiliarMosaicAsociados\u003E"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/marca": {
+      "post": {
+        "tags": [
+          "Consultar Root"
+        ],
+        "summary": "Consultar Marca",
+        "description": "METODO ENCARGADO DE IMPLEMENTAR CONSULTAR MARCA",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseConsultarMarca\u003E"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/condicion-tarjeta-marca-compartida": {
+      "post": {
+        "tags": [
+          "Consultar Root"
+        ],
+        "summary": "Condiciontarjetamarcacompartida",
+        "description": "METODO ENCARGADO DE IMPLEMENTAR CONSULTAR CONDICION TARJETA MARCAS COMPARTIDAS",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseCondicionTarjetaMarcaComp\u003E"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/saldo-tarjeta-lca": {
+      "post": {
+        "tags": [
+          "Consultar Root"
+        ],
+        "summary": "Consultar Saldo Tarjeta Lca",
+        "description": "METODO ENCARGADO DE IMPLEMENTAR CONSULTAR SALDO TARJETA Y LCA",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseSaldoTarjetaLca\u003E"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/saldo-tarjeta-prepago-extendido": {
+      "post": {
+        "tags": [
+          "Consultar Root"
+        ],
+        "summary": "Consultar Saldo Tarjeta Prepago",
+        "description": "METODO ENCARGADO DE IMPLEMENTAR CONSULTAR SALDO TARJETA PREPAGO EXTENDIDO",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseSaldoTarjetaPrepago\u003E"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/movimientos-tarjeta-prepago": {
+      "post": {
+        "tags": [
+          "Consultar Root"
+        ],
+        "summary": "Consultar Movimientos Tarjeta Prepago",
+        "description": "METODO ENCARGADO DE IMPLEMENTAR CONSULTAR MOVIMIENTOS TARJETA PREPAGO",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseMovimientosTarjetaPrepago\u003E"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/movimiento-tpago": {
+      "post": {
+        "tags": [
+          "Consultar Root"
+        ],
+        "summary": "Movimiento Tpago Movil P2C",
+        "description": "METODO ENCAGADO DE IMPLEMENTAR CONSULTAR MOVIMIENTO TPAGO",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseConsultarMovimientosTPagoMovil\u003E"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/tarjeta-de-credito-activas": {
+      "post": {
+        "tags": [
+          "Consultar Root"
+        ],
+        "summary": "Tarjeta Credito Activa",
+        "description": "METODO ENCARGADO DE IMPLEMENTAR CONSULTAR TARJETA DE CREDITO ACTIVAS",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseConsultarTarjetaDeCreditoActiva\u003E"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/afiliacion-tpago": {
+      "post": {
+        "tags": [
+          "Consultar Root"
+        ],
+        "summary": "Afiliacion TPago",
+        "description": "METODO ENCARGADO DE AFILIACION TPAGO",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseConsultarAfiliacionTPago\u003E"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/movimientos-linea-credito": {
+      "post": {
+        "tags": [
+          "Consultar Root"
+        ],
+        "summary": "Consultar Movimientos Linea Credito",
+        "description": "METODO ENCARGADO DE IMPLEMENTAR CONSULTAR MOVIMIENTOS LINEA CREDITO",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseConsultarMovimientosLineaCredito\u003E"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/linea-credito-ampliada": {
+      "post": {
+        "tags": [
+          "Consultar Root"
+        ],
+        "summary": "Consultar Linea Credito Ampliada",
+        "description": "METODO ENCARGADO DE IMPLEMENTAR USO LINEA CREDITO",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseLineaCreditoAmpliada\u003E"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/cuotas-linea-credito": {
+      "post": {
+        "tags": [
+          "Consultar Root"
+        ],
+        "summary": "Consultar Cuotas Linea Credito",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseConsultarCuotasLineaCredito\u003E"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/insertar/acepta-tarjeta-lca": {
+      "post": {
+        "tags": [
+          "Insertar Root"
+        ],
+        "summary": "Insertar Acepta Tarjeta Lca",
+        "description": "METODO ENCARGADO DE IMPLEMENTAR INSERTAR ACEPTA TARJETA",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseInsertarAceptaTarjetaLca\u003E"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/insertar/reposicion": {
+      "post": {
+        "tags": [
+          "Insertar Root"
+        ],
+        "summary": "Insertar Reposicion Marca Compartida",
+        "description": "METODO ENCARGADO DE IMPLEMENTAR INSERTAR REPOSICION TARJETA",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseInsertarReposicion\u003E"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/insertar/activar-tarjeta-marca-compartida": {
+      "post": {
+        "tags": [
+          "Insertar Root"
+        ],
+        "summary": "Activar Tarjeta Marca Compartida",
+        "description": "METODO ENCARGADO DE IMPLEMENTAR ACTIVAR TARJETA MARCA COMPARTIDA",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseActivarTarjetaMarcaCompartida\u003E"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/recibir/lotes-tarjetas": {
+      "post": {
+        "tags": [
+          "Recibir Root"
+        ],
+        "summary": "Recepcion Lotes Tarjetas",
+        "description": "MÉTODO PARA IMPLEMENTAR RECEPCION LOTES TARJETAS",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseRecibirLotesTarjetas\u003E"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/solicitar/clave-otp-lca": {
+      "post": {
+        "tags": [
+          "Solicitar Root"
+        ],
+        "summary": "Solicitar Clave Otp Lca",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseSolicitarClaveOtpLca\u003E"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tarjeta-de-credito": {
+      "post": {
+        "tags": [
+          "Suspender Root"
+        ],
+        "summary": "Tarjeta De Credito",
+        "description": "METODO ENCAGADO DE IMPLEMENTAR SOLICITAR CLAVE TEMPORAL COMPRA",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEntity\u003CResponseSuspenderTarjetaCredito\u003E"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BodyEntradaActualizarPagoCuota": {
+        "type": "object",
+        "properties": {
+          "nroCedula": {
+            "type": "string"
+          },
+          "nroTarj": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "nroContrato": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "mtoCuo": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "instrumPago": {
+            "type": "string"
+          },
+          "fchFacturacion": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "nroRef": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "codEstab": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "codBancario": {
+            "type": "string"
+          }
+        }
+      },
+      "RequestActualizarPagoCuota": {
+        "type": "object",
+        "properties": {
+          "headerEntrada": {
+            "$ref": "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntradaPagoCuota": {
+            "$ref": "#/components/schemas/BodyEntradaActualizarPagoCuota"
+          }
+        }
+      },
+      "BeanCustomerId": {
+        "type": "object",
+        "properties": {
+          "ltRif": {
+            "type": "string"
+          },
+          "numRif": {
+            "$ref": "#/components/schemas/BigDecimal"
+          }
+        }
+      },
+      "BeanPhone": {
+        "type": "object",
+        "properties": {
+          "areaCodeResp": {
+            "type": "string"
+          },
+          "phoneNumberResp": {
+            "type": "string"
+          }
+        }
+      },
+      "BeanTelefono": {
+        "type": "object",
+        "properties": {
+          "areaCode": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          }
+        }
+      },
+      "BodyEntradaAfiliarMosaicAsociados": {
+        "type": "object",
+        "properties": {
+          "accountnumber": {
+            "type": "string"
+          },
+          "tipoTran": {
+            "type": "string"
+          },
+          "customerId": {
+            "$ref": "#/components/schemas/BeanCustomerId"
+          },
+          "codAsociado": {
+            "type": "string"
+          },
+          "telefono": {
+            "$ref": "#/components/schemas/BeanTelefono"
+          },
+          "email": {
+            "type": "string"
+          }
+        }
+      },
+      "BodySalidaAfiliarMosaicAsociados": {
+        "type": "object",
+        "properties": {
+          "phone": {
+            "$ref": "#/components/schemas/BeanPhone"
+          },
+          "processingDate": {
+            "type": "string"
+          },
+          "mensaje": {
+            "type": "string"
+          },
+          "codeg": {
+            "type": "string"
+          },
+          "acquirerTradeCode1": {
+            "type": "string"
+          }
+        }
+      },
+      "RequestAfiliarMosaicAsociados": {
+        "type": "object",
+        "properties": {
+          "headerEntrada": {
+            "$ref": "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada": {
+            "$ref": "#/components/schemas/BodyEntradaAfiliarMosaicAsociados"
+          }
+        }
+      },
+      "ResponseAfiliarMosaicAsociados": {
+        "type": "object",
+        "properties": {
+          "bodySalidaAfiliarMosaicAsociados": {
+            "$ref": "#/components/schemas/BodySalidaAfiliarMosaicAsociados"
+          }
+        }
+      },
+      "BodyEntradaConsultarAfiliacionTPago": {
+        "type": "object",
+        "properties": {
+          "codServProd": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "tipoOper": {
+            "type": "string"
+          },
+          "numTelefono": {
+            "type": "string"
+          }
+        }
+      },
+      "BodySalidaConsultarAfiliacionTPago": {
+        "type": "object",
+        "properties": {
+          "codEstab": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "codEmailEstab": {
+            "type": "string"
+          },
+          "dhCodPais": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "descripcionDisp": {
+            "type": "string"
+          },
+          "merchant": {
+            "type": "string"
+          },
+          "codEstabl": {
+            "$ref": "#/components/schemas/CodEstabl"
+          },
+          "nomEstab": {
+            "type": "string"
+          },
+          "numCtaDisp": {
+            "type": "string"
+          },
+          "codComisionMerca": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "deNomEstado": {
+            "type": "string"
+          },
+          "deCodEstado": {
+            "type": "string"
+          },
+          "numPer": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "fchAfilia": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "cantMaxDisp": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "mtoMaxDisp": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "deCodPais": {
+            "type": "string"
+          },
+          "codApi": {
+            "type": "string"
+          },
+          "formaPago": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "dtDirecCOMP01": {
+            "type": "string"
+          },
+          "codComisionInter": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "codSiccode": {
+            "type": "string"
+          }
+        }
+      },
+      "CodEstabl": {
+        "type": "object",
+        "properties": {
+          "codEstabLet": {
+            "type": "string"
+          },
+          "codEstabNum": {
+            "$ref": "#/components/schemas/BigDecimal"
+          }
+        }
+      },
+      "RequestConsultarAfiliacionTPago": {
+        "type": "object",
+        "properties": {
+          "headerEntrada": {
+            "$ref": "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada": {
+            "$ref": "#/components/schemas/BodyEntradaConsultarAfiliacionTPago"
+          }
+        }
+      },
+      "ResponseConsultarAfiliacionTPago": {
+        "type": "object",
+        "properties": {
+          "bodySalidaConsultarAfiliacionTPago": {
+            "$ref": "#/components/schemas/BodySalidaConsultarAfiliacionTPago"
+          }
+        }
+      },
+      "BodyEntradaCondicionTarjetaMarcaComp": {
+        "type": "object",
+        "properties": {
+          "tarjetaPrepagada": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "codMarcaCompartida": {
+            "type": "string"
+          }
+        }
+      },
+      "RequestCondicionTarjetaMarcaComp": {
+        "type": "object",
+        "properties": {
+          "headerEntrada": {
+            "$ref": "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntradaCondicionTarjetaMarcaComp": {
+            "$ref": "#/components/schemas/BodyEntradaCondicionTarjetaMarcaComp"
+          }
+        }
+      },
+      "BodyEntradaConsultarCuotasLineaCredito": {
+        "type": "object",
+        "properties": {
+          "nroContrato": {
+            "type": "integer"
+          },
+          "nroTarj": {
+            "$ref": "#/components/schemas/BigInteger"
+          },
+          "codEstab": {
+            "type": "integer"
+          },
+          "tipoId": {
+            "type": "string"
+          },
+          "nroId": {
+            "$ref": "#/components/schemas/BigInteger"
+          }
+        }
+      },
+      "BodySalidaConsultarCuotasLineaCredito": {
+        "type": "object",
+        "properties": {
+          "cuotas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Cuota"
+            }
+          }
+        }
+      },
+      "Cuota": {
+        "type": "object",
+        "properties": {
+          "fchCuota": {
+            "type": "integer"
+          },
+          "fchPagoCuota": {
+            "type": "integer"
+          },
+          "mtoCuota": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "statusCuotas": {
+            "type": "string"
+          }
+        }
+      },
+      "RequestConsultarCuotasLineaCredito": {
+        "type": "object",
+        "properties": {
+          "headerEntrada": {
+            "$ref": "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada": {
+            "$ref": "#/components/schemas/BodyEntradaConsultarCuotasLineaCredito"
+          }
+        }
+      },
+      "ResponseConsultarCuotasLineaCredito": {
+        "type": "object",
+        "properties": {
+          "bodySalidaConsultarCuotasLineaCredito": {
+            "$ref": "#/components/schemas/BodySalidaConsultarCuotasLineaCredito"
+          }
+        }
+      },
+      "BodyEntradaLineaCreditoAmpliada": {
+        "type": "object",
+        "properties": {
+          "nroTarj": {
+            "type": "string"
+          },
+          "fchUso": {
+            "type": "integer"
+          },
+          "hhUso": {
+            "type": "integer"
+          },
+          "mtoUsoBs": {
+            "type": "number"
+          },
+          "mtoUsoDolar": {
+            "type": "number"
+          },
+          "mtoComis": {
+            "type": "number"
+          },
+          "mtoTransBs": {
+            "type": "number"
+          },
+          "mtoTransDolar": {
+            "type": "number"
+          },
+          "mtoMaxEmpresa": {
+            "type": "number"
+          },
+          "cantCuo": {
+            "type": "integer"
+          },
+          "frecCuo": {
+            "type": "string"
+          },
+          "codComercio": {
+            "type": "integer"
+          },
+          "codProduc": {
+            "type": "string"
+          },
+          "datosOtp": {
+            "$ref": "#/components/schemas/DatosOtp"
+          }
+        }
+      },
+      "BodySalidaLineaCreditoAmpliada": {
+        "type": "object",
+        "properties": {
+          "nroReferencia": {
+            "type": "integer"
+          }
+        }
+      },
+      "DatosOtp": {
+        "type": "object",
+        "properties": {
+          "otpIdOrgLetra": {
+            "type": "string"
+          },
+          "otpIdOrgNro": {
+            "type": "integer"
+          },
+          "otpIdDstLetra": {
+            "type": "string"
+          },
+          "otpIdDstNro": {
+            "type": "integer"
+          },
+          "otpMovilDst": {
+            "type": "integer"
+          },
+          "otpClave": {
+            "type": "integer"
+          }
+        }
+      },
+      "RequestLineaCreditoAmpliada": {
+        "type": "object",
+        "properties": {
+          "headerEntrada": {
+            "$ref": "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada": {
+            "$ref": "#/components/schemas/BodyEntradaLineaCreditoAmpliada"
+          }
+        }
+      },
+      "ResponseLineaCreditoAmpliada": {
+        "type": "object",
+        "properties": {
+          "bodySalidaLineaCreditoAmpliada": {
+            "$ref": "#/components/schemas/BodySalidaLineaCreditoAmpliada"
+          }
+        }
+      },
+      "BodyEntradaConsultarMarca": {
+        "type": "object",
+        "properties": {
+          "nroPersona": {
+            "type": "integer"
+          },
+          "codTipoProducto": {
+            "type": "string"
+          }
+        }
+      },
+      "RequestConsultarMarca": {
+        "type": "object",
+        "properties": {
+          "headerEntrada": {
+            "$ref": "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntradaConsultarMarca": {
+            "$ref": "#/components/schemas/BodyEntradaConsultarMarca"
+          }
+        }
+      },
+      "BeanRegistroMovimientos": {
+        "type": "object",
+        "properties": {
+          "clv": {
+            "$ref": "#/components/schemas/Clave"
+          },
+          "fchTrans": {
+            "type": "integer"
+          },
+          "fchPagoConsumo": {
+            "type": "integer"
+          },
+          "glosa": {
+            "type": "string"
+          },
+          "nroRef": {
+            "type": "string"
+          },
+          "estatusConsumo": {
+            "type": "string"
+          },
+          "mtoTrans": {
+            "$ref": "#/components/schemas/BigDecimal"
+          }
+        }
+      },
+      "BodyEntradaConsultarMovimientosLineaCredito": {
+        "type": "object",
+        "properties": {
+          "numeroTarjeta": {
+            "type": "string"
+          },
+          "codigoTipoProducto": {
+            "type": "string"
+          },
+          "codigoId": {
+            "type": "string"
+          },
+          "numeroId": {
+            "type": "integer"
+          },
+          "fechaDesde": {
+            "type": "integer"
+          },
+          "fechaHasta": {
+            "type": "integer"
+          },
+          "tipoConsulta": {
+            "type": "string"
+          }
+        }
+      },
+      "BodySalidaConsultarMovimientosLineaCredito": {
+        "type": "object",
+        "properties": {
+          "regMov": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BeanRegistroMovimientos"
+            }
+          },
+          "nomClte": {
+            "type": "string"
+          },
+          "clvBusqueda": {
+            "type": "string"
+          },
+          "cantMaxMov": {
+            "type": "integer"
+          },
+          "lcaMtoDisp": {
+            "$ref": "#/components/schemas/BigDecimal"
+          }
+        }
+      },
+      "Clave": {
+        "type": "object",
+        "properties": {
+          "codModalFili": {
+            "type": "string"
+          },
+          "nroCuenta": {
+            "type": "integer"
+          },
+          "hhPosteo": {
+            "type": "integer"
+          },
+          "fchPosteo": {
+            "type": "integer"
+          },
+          "nroTarj": {
+            "type": "string"
+          }
+        }
+      },
+      "RequestConsultarMovimientosLineaCredito": {
+        "type": "object",
+        "properties": {
+          "headerEntrada": {
+            "$ref": "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada": {
+            "$ref": "#/components/schemas/BodyEntradaConsultarMovimientosLineaCredito"
+          }
+        }
+      },
+      "ResponseConsultarMovimientosLineaCredito": {
+        "type": "object",
+        "properties": {
+          "bodySalidaConsultarMovimientosLineaCredito": {
+            "$ref": "#/components/schemas/BodySalidaConsultarMovimientosLineaCredito"
+          }
+        }
+      },
+      "BodyEntradaMovimientosTarjetaPrepago": {
+        "type": "object",
+        "properties": {
+          "codigoTransaccion": {
+            "type": "string"
+          },
+          "numeroTarjeta": {
+            "type": "string"
+          },
+          "fechaVencimiento": {
+            "type": "string"
+          },
+          "funcion": {
+            "type": "string"
+          },
+          "numeroCuenta": {
+            "type": "string"
+          },
+          "fechaDesde": {
+            "type": "integer"
+          },
+          "fechaHasta": {
+            "type": "integer"
+          },
+          "tipoMovimientoDebitoCredito": {
+            "type": "string"
+          },
+          "tipoArchivo": {
+            "type": "string"
+          },
+          "codigoSubcanal": {
+            "type": "integer"
+          },
+          "serialDispositivo": {
+            "type": "string"
+          },
+          "codigoAreaTelefono": {
+            "type": "integer"
+          },
+          "numeroTelefono": {
+            "type": "integer"
+          },
+          "codigoCedula": {
+            "type": "string"
+          },
+          "numeroCedula": {
+            "type": "integer"
+          },
+          "codigoEstablecimiento": {
+            "type": "string"
+          }
+        }
+      },
+      "BodySalidaMovimientosTarjetaPrepago": {
+        "type": "object",
+        "properties": {
+          "claveBusqueda": {
+            "type": "string"
+          },
+          "numeroAprobacion": {
+            "type": "string"
+          },
+          "cantidadMaximaMovimientos": {
+            "type": "integer"
+          },
+          "registrosMovimientos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MovimientoPrepago"
+            }
+          },
+          "montoComision": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "ordenEntregaDatos": {
+            "type": "string"
+          }
+        }
+      },
+      "ClaveMovimiento": {
+        "type": "object",
+        "properties": {
+          "codigoModalidadAfiliacion": {
+            "type": "string"
+          },
+          "numeroCuenta": {
+            "type": "integer"
+          },
+          "horaPosteo": {
+            "type": "integer"
+          },
+          "fechaPosteo": {
+            "type": "integer"
+          },
+          "numeroTarjeta": {
+            "type": "string"
+          }
+        }
+      },
+      "MovimientoPrepago": {
+        "type": "object",
+        "properties": {
+          "horaTransaccion": {
+            "type": "integer"
+          },
+          "factorDolarBolivares": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "statusTransaccion": {
+            "type": "integer"
+          },
+          "indicadorInformacionAdicional": {
+            "type": "integer"
+          },
+          "fechaTransaccion": {
+            "type": "integer"
+          },
+          "numeroReferencia": {
+            "type": "string"
+          },
+          "montoTransaccion": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "tipoTransaccion": {
+            "type": "string"
+          },
+          "clave": {
+            "$ref": "#/components/schemas/ClaveMovimiento"
+          }
+        }
+      },
+      "RequestMovimientosTarjetaPrepago": {
+        "type": "object",
+        "properties": {
+          "headerEntrada": {
+            "$ref": "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntradaMovimientosTarjetaPrepago": {
+            "$ref": "#/components/schemas/BodyEntradaMovimientosTarjetaPrepago"
+          }
+        }
+      },
+      "ResponseMovimientosTarjetaPrepago": {
+        "type": "object",
+        "properties": {
+          "bodySalidaMovimientosTarjetaPrepago": {
+            "$ref": "#/components/schemas/BodySalidaMovimientosTarjetaPrepago"
+          }
+        }
+      },
+      "BeanConsultarMovimientosTPagoMovil": {
+        "type": "object",
+        "properties": {
+          "codigoSubCanal": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "numeroDepositoRecap": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "nombreOrigen": {
+            "type": "string"
+          },
+          "traceSerial": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "indicadorRegistro": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "bancoDestino": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "movilDestino": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "numeroReferencia": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "indicadorTrans": {
+            "type": "string"
+          },
+          "montoComisionOrigen": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "modoEntrada": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "localDate": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "statusEvento": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "numeroCuentaDestino": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "descripcionCodigoBancoProc": {
+            "type": "string"
+          },
+          "codigoEstablecimiento": {
+            "type": "string"
+          },
+          "codigoCanal": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "numerocuenta": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "codigoAutoriza": {
+            "type": "string"
+          },
+          "codigoMoneda": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "referenciaTxn": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "bancoOrigen": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "idOrigen": {
+            "type": "string"
+          },
+          "localizacionOrigen": {
+            "type": "string"
+          },
+          "fechaTransaccionNegocio": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "fechaDepositoRecap": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "tipocuenta": {
+            "type": "string"
+          },
+          "formaPago": {
+            "type": "string"
+          },
+          "idTransaccionRed": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "fechaEvento": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "horaTransaccion": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "datosOrigen": {
+            "type": "string"
+          },
+          "codigoServProd": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "montoComisionDestino": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "nombreAliasFrec": {
+            "type": "string"
+          },
+          "movilOrigen": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "terminalIdOrig": {
+            "type": "string"
+          },
+          "statusComisionDestino": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "numeroPersona": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "statusComisionOrigen": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "codigoTransaccionMtil": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "fechaTransaccion": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "terminalRed": {
+            "type": "string"
+          },
+          "tipoCuentaDestino": {
+            "type": "string"
+          },
+          "fechaEmisionPagoP017": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "horaEvento": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "reasonCode": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "merchantType": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "fechaEmisionPago": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "email": {
+            "type": "string"
+          },
+          "clave": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "descripcionTrans": {
+            "type": "string"
+          },
+          "tipoTpago": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "terminalFinanciero": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "localTime": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "indicadorSiFavorito": {
+            "type": "string"
+          },
+          "panDestino": {
+            "type": "string"
+          },
+          "indicadorPosicion": {
+            "type": "string"
+          },
+          "numeroPerDestino": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "montoTransaccion": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "referenciaBanco": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "horaEmisionPago": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "idDestino": {
+            "type": "string"
+          }
+        }
+      },
+      "BodyEntradaConsultarMovimientosTPagoMovil": {
+        "type": "object",
+        "properties": {
+          "codigoSubCanalInput": {
+            "type": "string"
+          },
+          "codigoServProdInput": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "codigoEstabIecimiento": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "numeroperInput": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "fechaDesdeInput": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "fechaHastaInput": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "cedulaBusquedaInput": {
+            "type": "string"
+          },
+          "numerotelefonoBusquedaInput": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "indicadorTpagoInput": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "statusEventoInput": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "codigoTipoOperacionInput": {
+            "type": "string"
+          },
+          "codigoMonedaInput": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "tipoOperacionConsultaInput": {
+            "$ref": "#/components/schemas/BigDecimal"
+          }
+        }
+      },
+      "BodySalidaConsultarMovimientosTPagoMovil": {
+        "type": "object",
+        "properties": {
+          "cantidadRegistroProc": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "registroMovimiento": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BeanConsultarMovimientosTPagoMovil"
+            }
+          }
+        }
+      },
+      "RequestConsultarMovimientosTPagoMovil": {
+        "type": "object",
+        "properties": {
+          "headerEntrada": {
+            "$ref": "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada": {
+            "$ref": "#/components/schemas/BodyEntradaConsultarMovimientosTPagoMovil"
+          }
+        }
+      },
+      "ResponseConsultarMovimientosTPagoMovil": {
+        "type": "object",
+        "properties": {
+          "bodySalidaMovimientosTPagoMovilP2C": {
+            "$ref": "#/components/schemas/BodySalidaConsultarMovimientosTPagoMovil"
+          },
+          "bodyEntradaConsultarMovimientosTPagoMovil": {
+            "$ref": "#/components/schemas/BodyEntradaConsultarMovimientosTPagoMovil"
+          }
+        }
+      },
+      "BodyEntradaSaldoTarjetaLca": {
+        "type": "object",
+        "properties": {
+          "numeroTarjeta": {
+            "type": "string"
+          },
+          "codCedula": {
+            "type": "string"
+          },
+          "nroCedula": {
+            "type": "integer"
+          },
+          "codigoTipoProducto": {
+            "type": "string"
+          }
+        }
+      },
+      "BodySalidaSaldoTarjetaLca": {
+        "type": "object",
+        "properties": {
+          "saldoActualLineaCredito": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "nombreCliente": {
+            "type": "string"
+          },
+          "saldoActualTarjeta": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "statusTarjeta": {
+            "type": "string"
+          },
+          "fechaVencimientoTarjeta": {
+            "type": "string"
+          },
+          "maxCupoLineaCredito": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "estatusBloqueoLineaCredito": {
+            "type": "string"
+          },
+          "montoVencidoLineaCredito": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "estatusAceptacionLineaCredito": {
+            "type": "string"
+          }
+        }
+      },
+      "RequestSaldoTarjetaLca": {
+        "type": "object",
+        "properties": {
+          "headerEntrada": {
+            "$ref": "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntradaSaldoTarjetaLca": {
+            "$ref": "#/components/schemas/BodyEntradaSaldoTarjetaLca"
+          }
+        }
+      },
+      "ResponseSaldoTarjetaLca": {
+        "type": "object",
+        "properties": {
+          "bodySalidaSaldoTarjetaLca": {
+            "$ref": "#/components/schemas/BodySalidaSaldoTarjetaLca"
+          }
+        }
+      },
+      "BodyEntradaSaldoTarjetaPrepago": {
+        "type": "object",
+        "properties": {
+          "codigoTransaccion": {
+            "type": "string"
+          },
+          "numeroTarjeta": {
+            "type": "string"
+          },
+          "serialDispositivo": {
+            "type": "string"
+          },
+          "codigoAreaTelefono": {
+            "type": "integer"
+          },
+          "numeroTelefono": {
+            "type": "integer"
+          },
+          "codigoId": {
+            "type": "string"
+          },
+          "numeroCedula": {
+            "type": "integer"
+          },
+          "codigoSubcanal": {
+            "type": "integer"
+          }
+        }
+      },
+      "BodySalidaSaldoTarjetaPrepago": {
+        "type": "object",
+        "properties": {
+          "saldoDisponible": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "numeroAprobacion": {
+            "type": "string"
+          },
+          "saldoBloqueado": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "fechaVencimiento": {
+            "type": "string"
+          },
+          "saldoDisponibleEditado": {
+            "type": "string"
+          },
+          "statusTarjeta": {
+            "type": "string"
+          },
+          "saldoActual": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "montoComision": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "saldoBloqueadoEditado": {
+            "type": "string"
+          },
+          "numeroCuentaTarjeta": {
+            "type": "integer"
+          },
+          "saldoActualEditado": {
+            "type": "string"
+          },
+          "codigoTipoProducto": {
+            "type": "string"
+          }
+        }
+      },
+      "RequestSaldoTarjetaPrepago": {
+        "type": "object",
+        "properties": {
+          "headerEntrada": {
+            "$ref": "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntradaSaldoTarjetaPrepago": {
+            "$ref": "#/components/schemas/BodyEntradaSaldoTarjetaPrepago"
+          }
+        }
+      },
+      "BeanTarjetaLimitTipoTarjeta": {
+        "type": "object",
+        "properties": {
+          "tipoTarjetahabiente": {
+            "type": "string"
+          },
+          "limiteCredito": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "numeroCuenta": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "numeroTarjeta": {
+            "$ref": "#/components/schemas/BigDecimal"
+          }
+        }
+      },
+      "BodyEntradaConsultarTarjetaDeCreditoActiva": {
+        "type": "object",
+        "properties": {
+          "codigoPais": {
+            "type": "string"
+          },
+          "tipoIdentificacion": {
+            "type": "string"
+          },
+          "numeroIdentificacion": {
+            "$ref": "#/components/schemas/BigDecimal"
+          }
+        }
+      },
+      "BodySalidaConsultarTarjetaDeCreditoActiva": {
+        "type": "object",
+        "properties": {
+          "tarjetasLimtTipoTarjh": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BeanTarjetaLimitTipoTarjeta"
+            }
+          }
+        }
+      },
+      "RequestConsultarTarjetaDeCreditoActiva": {
+        "type": "object",
+        "properties": {
+          "headerEntrada": {
+            "$ref": "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada": {
+            "$ref": "#/components/schemas/BodyEntradaConsultarTarjetaDeCreditoActiva"
+          }
+        }
+      },
+      "ResponseConsultarTarjetaDeCreditoActiva": {
+        "type": "object",
+        "properties": {
+          "bodySalidaConsultarTarjetaDeCreditoActiva": {
+            "$ref": "#/components/schemas/BodySalidaConsultarTarjetaDeCreditoActiva"
+          }
+        }
+      },
+      "BodyEntradaInsertarAceptaTarjetaLca": {
+        "type": "object",
+        "properties": {
+          "customerId": {
+            "type": "string"
+          },
+          "nroTarjeta": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "codTipoProducto": {
+            "type": "string"
+          },
+          "versionContrato": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "fechaAceptacion": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "dbiDatos": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "dbiBanco": {
+            "type": "integer"
+          }
+        }
+      },
+      "RequestInsertarAceptaTarjetaLca": {
+        "type": "object",
+        "properties": {
+          "headerEntrada": {
+            "$ref": "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntradaInsertarAceptaTarjetaLca": {
+            "$ref": "#/components/schemas/BodyEntradaInsertarAceptaTarjetaLca"
+          }
+        }
+      },
+      "BodyEntradaActivarTarjetaMarcaCompartida": {
+        "type": "object",
+        "properties": {
+          "nroPer": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "nroTarj": {
+            "type": "string"
+          },
+          "indicClteNvo": {
+            "type": "string"
+          }
+        }
+      },
+      "BodySalidaActivarTarjetaMarcaCompartida": {
+        "type": "object",
+        "properties": {
+          "nroCtaInter": {
+            "type": "integer"
+          }
+        }
+      },
+      "RequestActivarTarjetaMarcaCompartida": {
+        "type": "object",
+        "properties": {
+          "headerEntrada": {
+            "$ref": "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntradaActivarTarjetaMarcaCompartida": {
+            "$ref": "#/components/schemas/BodyEntradaActivarTarjetaMarcaCompartida"
+          }
+        }
+      },
+      "ResponseActivarTarjetaMarcaCompartida": {
+        "type": "object",
+        "properties": {
+          "bodySalidaActivarTarjetaMarcaCompartida": {
+            "$ref": "#/components/schemas/BodySalidaActivarTarjetaMarcaCompartida"
+          }
+        }
+      },
+      "BodyEntradaInsertarReposicion": {
+        "type": "object",
+        "properties": {
+          "nroPer": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "nroTarj": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "serial": {
+            "type": "integer"
+          },
+          "motivRepos": {
+            "type": "string"
+          }
+        }
+      },
+      "RequestInsertarReposicion": {
+        "type": "object",
+        "properties": {
+          "headerEntrada": {
+            "$ref": "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntradaReposicion": {
+            "$ref": "#/components/schemas/BodyEntradaInsertarReposicion"
+          }
+        }
+      },
+      "BodyEntradaRecibirLotesTarjetas": {
+        "type": "object",
+        "properties": {
+          "codProducto": {
+            "type": "string"
+          },
+          "numSolicitud": {
+            "type": "integer"
+          },
+          "nunAcuseIni": {
+            "type": "integer"
+          },
+          "numAcuseFin": {
+            "type": "integer"
+          }
+        }
+      },
+      "RequestRecibirLotesTarjetas": {
+        "type": "object",
+        "properties": {
+          "headerEntrada": {
+            "$ref": "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada": {
+            "$ref": "#/components/schemas/BodyEntradaRecibirLotesTarjetas"
+          }
+        }
+      },
+      "BodyEntradaSolicitarClaveOtpLca": {
+        "type": "object",
+        "properties": {
+          "tipoIdDestino": {
+            "type": "string"
+          },
+          "nroIdDestino": {
+            "type": "integer"
+          },
+          "tipoIdOrigen": {
+            "type": "string"
+          },
+          "nroIdOrigen": {
+            "type": "integer"
+          },
+          "nomOrigen": {
+            "type": "string"
+          },
+          "mtoTrans": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "nroTelfDestino": {
+            "type": "integer"
+          },
+          "clvAlfanumerica": {
+            "type": "string"
+          }
+        }
+      },
+      "RequestSolicitarClaveOtpLca": {
+        "type": "object",
+        "properties": {
+          "headerEntrada": {
+            "$ref": "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada": {
+            "$ref": "#/components/schemas/BodyEntradaSolicitarClaveOtpLca"
+          }
+        }
+      },
+      "BeanTarjetaASuspender": {
+        "type": "object",
+        "properties": {
+          "numeroTarjeta": {
+            "$ref": "#/components/schemas/BigDecimal"
+          }
+        }
+      },
+      "BeanTarjetaASuspenderSalida": {
+        "type": "object",
+        "properties": {
+          "descripcionRespuesta": {
+            "type": "string"
+          },
+          "codigoRespuesta": {
+            "type": "string"
+          }
+        }
+      },
+      "BodyEntradaSuspenderTarjetaCredito": {
+        "type": "object",
+        "properties": {
+          "codigoPais": {
+            "type": "string"
+          },
+          "tipoIdentificacion": {
+            "type": "string"
+          },
+          "numeroIdentificacion": {
+            "$ref": "#/components/schemas/BigDecimal"
+          },
+          "codigoRazon": {
+            "type": "string"
+          },
+          "tarjetasASuspender": {
+            "$ref": "#/components/schemas/BeanTarjetaASuspender"
+          }
+        }
+      },
+      "BodySalidaSuspenderTarjetaCredito": {
+        "type": "object",
+        "properties": {
+          "vectTarjetasCodOperMens": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BeanTarjetaASuspenderSalida"
+            }
+          }
+        }
+      },
+      "RequestSuspenderTarjetaCredito": {
+        "type": "object",
+        "properties": {
+          "headerEntrada": {
+            "$ref": "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada": {
+            "$ref": "#/components/schemas/BodyEntradaSuspenderTarjetaCredito"
+          }
+        }
+      },
+      "ResponseSuspenderTarjetaCredito": {
+        "type": "object",
+        "properties": {
+          "bodySalidaSuspenderTarjetaCredito": {
+            "$ref": "#/components/schemas/BodySalidaSuspenderTarjetaCredito"
+          }
+        }
+      },
+      "Actualizar": {
+        "type": "object",
+        "properties": {
+          "send": {
+            "$ref": "#/components/schemas/SendRequestRest"
+          }
+        }
+      },
+      "Afiliar": {
+        "type": "object",
+        "properties": {
+          "send": {
+            "$ref": "#/components/schemas/SendRequestRest"
+          }
+        }
+      },
+      "Consultar": {
+        "type": "object",
+        "properties": {
+          "send": {
+            "$ref": "#/components/schemas/SendRequestRest"
+          },
+          "COMMAREA": {
+            "type": "string"
+          }
+        }
+      },
+      "Insertar": {
+        "type": "object",
+        "properties": {
+          "send": {
+            "$ref": "#/components/schemas/SendRequestRest"
+          }
+        }
+      },
+      "Recibir": {
+        "type": "object",
+        "properties": {
+          "send": {
+            "$ref": "#/components/schemas/SendRequestRest"
+          }
+        }
+      },
+      "Solicitar": {
+        "type": "object",
+        "properties": {
+          "send": {
+            "$ref": "#/components/schemas/SendRequestRest"
+          }
+        }
+      },
+      "Suspender": {
+        "type": "object",
+        "properties": {
+          "send": {
+            "$ref": "#/components/schemas/SendRequestRest"
+          }
+        }
+      },
+      "BeanTarjeta": {
+        "type": "object",
+        "properties": {
+          "pathFileServices": {
+            "type": "string"
+          }
+        }
+      },
+      "InitEnviroment": {
+        "type": "object",
+        "properties": {
+          "log": {
+            "$ref": "#/components/schemas/Logger"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ]
+}
