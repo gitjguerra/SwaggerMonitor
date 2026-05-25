@@ -43,7 +43,8 @@ public class ServerMonitorService {
 
     private ExecutorService executor = Executors.newFixedThreadPool(10);
 
-    @PostConstruct
+    @SuppressWarnings("resource")
+	@PostConstruct
     public void loadServers() {
 
         try {
@@ -66,7 +67,7 @@ public class ServerMonitorService {
                 }
             }
 
-            // ✅ AQUÍ el try-with-resources
+            // ✅ try-with-resources
             try (InputStream autoClose = is) {
 
                 Document doc = DocumentBuilderFactory.newInstance()
@@ -185,7 +186,7 @@ public class ServerMonitorService {
 		    " | historial: " + historyMap.getOrDefault(s.getName(), new ArrayList<>()).size()
 		);
 
-		// ✅ ALERTA SLACK (SIN CAMBIOS)
+		// ✅ ALERTA SLACK
         if (s.isMonitoring() && (s.isFirstCheck() || previousStatus != alive)) {
 
             String estado = alive ? "✅ RECUPERADO" : "🚨 CAIDO";
