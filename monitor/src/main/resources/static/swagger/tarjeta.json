@@ -35,15 +35,35 @@
       "post" : {
         "tags" : [ "Actualizar Root" ],
         "summary" : "adelantoCuotaAgendada",
+        "operationId" : "adelantoCuotaAgendada",
         "requestBody" : {
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/RequestActualizarPagoCuota"
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaActualizarPagoCuota" : {
+                    "$ref" : "#/components/schemas/BodyEntradaActualizarPagoCuota"
+                  }
+                }
               },
               "example" : {
                 "headerEntrada" : {
-                  "info" : "type not found"
+                  "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "OLB",
+                  "identificacionUsuario" : "",
+                  "direccionIpConsumidor" : "10.0.12.48",
+                  "direccionIpCliente" : "10.0.12.48",
+                  "fechaEnvioMensaje" : "20251226",
+                  "horaEnvioMensaje" : "135046",
+                  "atributoPagineo" : "",
+                  "claveBusqueda" : "",
+                  "cantidadRegistros" : 0
                 },
                 "bodyEntradaActualizarPagoCuota" : {
                   "nroCedula" : "string",
@@ -58,19 +78,35 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "OK",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ResponseActualizarPagoCuota"
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
                 },
-                "example" : { }
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "I",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20251226",
+                    "horaSalidaMensaje" : "135046"
+                  }
+                }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -79,17 +115,85 @@
       "post" : {
         "tags" : [ "Afiliar Root" ],
         "summary" : "mosaicAsociados",
+        "operationId" : "mosaicAsociados",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaAfiliarMosaicAsociados"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "OLB",
+                  "identificacionUsuario" : "",
+                  "direccionIpConsumidor" : "10.0.12.48",
+                  "direccionIpCliente" : "10.0.12.48",
+                  "fechaEnvioMensaje" : "20251226",
+                  "horaEnvioMensaje" : "135046",
+                  "atributoPagineo" : "",
+                  "claveBusqueda" : "",
+                  "cantidadRegistros" : 0
+                },
+                "bodyEntrada" : {
+                  "accountnumber" : "string",
+                  "tipoTran" : "string",
+                  "customerId" : {
+                    "ltRif" : "string",
+                    "numRif" : 100.5
+                  },
+                  "codAsociado" : "string",
+                  "telefono" : {
+                    "areaCode" : "string",
+                    "phoneNumber" : "string"
+                  },
+                  "email" : "string"
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
-            "description" : "OK",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ResponseAfiliarMosaicAsociados"
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaAfiliarMosaicAsociados" : {
+                      "$ref" : "#/components/schemas/BodySalidaAfiliarMosaicAsociados"
+                    }
+                  }
                 },
                 "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "I",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20251226",
+                    "horaSalidaMensaje" : "135046"
+                  },
                   "bodySalidaAfiliarMosaicAsociados" : {
-                    "telf" : { },
+                    "telf" : {
+                      "codArea" : "string",
+                      "nroTelf" : "string"
+                    },
                     "fchProcesa" : "string",
                     "msje" : "string",
                     "cod" : "string",
@@ -97,7 +201,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -106,17 +211,71 @@
       "post" : {
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarMarca",
+        "operationId" : "consultarMarca",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaConsultarMarca" : {
+                    "$ref" : "#/components/schemas/BodyEntradaConsultarMarca"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "OLB",
+                  "identificacionUsuario" : "",
+                  "direccionIpConsumidor" : "10.0.12.48",
+                  "direccionIpCliente" : "10.0.12.48",
+                  "fechaEnvioMensaje" : "20251226",
+                  "horaEnvioMensaje" : "135046",
+                  "atributoPagineo" : "",
+                  "claveBusqueda" : "",
+                  "cantidadRegistros" : 0
+                },
+                "bodyEntradaConsultarMarca" : {
+                  "nroPersona" : 0,
+                  "codTipoProducto" : "string"
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
-            "description" : "OK",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ResponseConsultarMarca"
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
                 },
-                "example" : { }
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "I",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20251226",
+                    "horaSalidaMensaje" : "135046"
+                  }
+                }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -125,17 +284,71 @@
       "post" : {
         "tags" : [ "Consultar Root" ],
         "summary" : "condiciontarjetamarcacompartida",
+        "operationId" : "condiciontarjetamarcacompartida",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaCondicionTarjetaMarcaComp" : {
+                    "$ref" : "#/components/schemas/BodyEntradaCondicionTarjetaMarcaComp"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "OLB",
+                  "identificacionUsuario" : "",
+                  "direccionIpConsumidor" : "10.0.12.48",
+                  "direccionIpCliente" : "10.0.12.48",
+                  "fechaEnvioMensaje" : "20251226",
+                  "horaEnvioMensaje" : "135046",
+                  "atributoPagineo" : "",
+                  "claveBusqueda" : "",
+                  "cantidadRegistros" : 0
+                },
+                "bodyEntradaCondicionTarjetaMarcaComp" : {
+                  "tarjetaPrepagada" : 100.5,
+                  "codMarcaCompartida" : "string"
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
-            "description" : "OK",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ResponseCondicionTarjetaMarcaComp"
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
                 },
-                "example" : { }
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "I",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20251226",
+                    "horaSalidaMensaje" : "135046"
+                  }
+                }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -144,15 +357,72 @@
       "post" : {
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarSaldoTarjetaLca",
+        "operationId" : "consultarSaldoTarjetaLca",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaSaldoTarjetaLca" : {
+                    "$ref" : "#/components/schemas/BodyEntradaSaldoTarjetaLca"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "OLB",
+                  "identificacionUsuario" : "",
+                  "direccionIpConsumidor" : "10.0.12.48",
+                  "direccionIpCliente" : "10.0.12.48",
+                  "fechaEnvioMensaje" : "20251226",
+                  "horaEnvioMensaje" : "135046",
+                  "atributoPagineo" : "",
+                  "claveBusqueda" : "",
+                  "cantidadRegistros" : 0
+                },
+                "bodyEntradaSaldoTarjetaLca" : {
+                  "numeroTarjeta" : "string",
+                  "codCedula" : "string",
+                  "nroCedula" : 1,
+                  "codigoTipoProducto" : "string"
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
-            "description" : "OK",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ResponseSaldoTarjetaLca"
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaSaldoTarjetaLca" : {
+                      "$ref" : "#/components/schemas/BodySalidaSaldoTarjetaLca"
+                    }
+                  }
                 },
                 "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "I",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20251226",
+                    "horaSalidaMensaje" : "135046"
+                  },
                   "bodySalidaSaldoTarjetaLca" : {
                     "saldoActLinCdto" : 100.5,
                     "nomClte" : "string",
@@ -166,7 +436,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -175,17 +446,94 @@
       "post" : {
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarSaldoTarjetaPrepago",
+        "operationId" : "consultarSaldoTarjetaPrepago",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaSaldoTarjetaPrepago" : {
+                    "$ref" : "#/components/schemas/BodyEntradaSaldoTarjetaPrepago"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "OLB",
+                  "identificacionUsuario" : "",
+                  "direccionIpConsumidor" : "10.0.12.48",
+                  "direccionIpCliente" : "10.0.12.48",
+                  "fechaEnvioMensaje" : "20251226",
+                  "horaEnvioMensaje" : "135046",
+                  "atributoPagineo" : "",
+                  "claveBusqueda" : "",
+                  "cantidadRegistros" : 0
+                },
+                "bodyEntradaSaldoTarjetaPrepago" : {
+                  "codigoTransaccion" : "string",
+                  "numeroTarjeta" : "string",
+                  "serialDispositivo" : "string",
+                  "codigoAreaTelefono" : 0,
+                  "numeroTelefono" : 1,
+                  "codigoId" : "string",
+                  "numeroCedula" : 1,
+                  "codigoSubcanal" : 0
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
-            "description" : "OK",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ResponseSaldoTarjetaPrepago"
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaSaldoTarjetaPrepago" : {
+                      "$ref" : "#/components/schemas/BodySalidaSaldoTarjetaPrepago"
+                    }
+                  }
                 },
-                "example" : { }
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "I",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20251226",
+                    "horaSalidaMensaje" : "135046"
+                  },
+                  "bodySalidaSaldoTarjetaPrepago" : {
+                    "saldoDisp" : 100.5,
+                    "nroAprob" : "string",
+                    "saldoBloq" : 100.5,
+                    "fchVen" : "string",
+                    "saldoDispEditado" : "string",
+                    "estatusTarj" : "string",
+                    "saldoActual" : 100.5,
+                    "mtoComis" : 100.5,
+                    "saldoBloqEditado" : "string",
+                    "nroCtaTarj" : 1,
+                    "saldoActualEditado" : "string",
+                    "codTipoProduc" : "string"
+                  }
+                }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -194,15 +542,84 @@
       "post" : {
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarMovimientosTarjetaPrepago",
+        "operationId" : "consultarMovimientosTarjetaPrepago",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaMovimientosTarjetaPrepago" : {
+                    "$ref" : "#/components/schemas/BodyEntradaMovimientosTarjetaPrepago"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "OLB",
+                  "identificacionUsuario" : "",
+                  "direccionIpConsumidor" : "10.0.12.48",
+                  "direccionIpCliente" : "10.0.12.48",
+                  "fechaEnvioMensaje" : "20251226",
+                  "horaEnvioMensaje" : "135046",
+                  "atributoPagineo" : "",
+                  "claveBusqueda" : "",
+                  "cantidadRegistros" : 0
+                },
+                "bodyEntradaMovimientosTarjetaPrepago" : {
+                  "codigoTransaccion" : "string",
+                  "numeroTarjeta" : "string",
+                  "fechaVencimiento" : "string",
+                  "funcion" : "string",
+                  "numeroCuenta" : "string",
+                  "fechaDesde" : 1,
+                  "fechaHasta" : 1,
+                  "tipoMovimientoDebitoCredito" : "string",
+                  "tipoArchivo" : "string",
+                  "codigoSubcanal" : 0,
+                  "serialDispositivo" : "string",
+                  "codigoAreaTelefono" : 0,
+                  "numeroTelefono" : 1,
+                  "codigoCedula" : "string",
+                  "numeroCedula" : 1,
+                  "codigoEstablecimiento" : "string"
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
-            "description" : "OK",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ResponseMovimientosTarjetaPrepago"
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaMovimientosTarjetaPrepago" : {
+                      "$ref" : "#/components/schemas/BodySalidaMovimientosTarjetaPrepago"
+                    }
+                  }
                 },
                 "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "I",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20251226",
+                    "horaSalidaMensaje" : "135046"
+                  },
                   "bodySalidaMovimientosTarjetaPrepago" : {
                     "clvBusqueda" : "string",
                     "nroAprob" : "string",
@@ -213,7 +630,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -222,37 +640,153 @@
       "post" : {
         "tags" : [ "Consultar Root" ],
         "summary" : "movimientoTpagoMovilP2C",
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ResponseConsultarMovimientosTPagoMovil"
-                },
-                "example" : {
-                  "bodySalidaMovimientosTPagoMovilP2C" : {
-                    "cantRegProc" : 100.5,
-                    "movimientos" : [ { } ]
+        "operationId" : "movimientoTpagoMovilP2C",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntradaMovimientosTPagoMovilP2C" : {
-                    "codigoSubCanalInput" : "string",
-                    "codigoServProdInput" : 100.5,
-                    "codigoEstabIecimiento" : 100.5,
-                    "numeroperInput" : 100.5,
-                    "fechaDesdeInput" : 100.5,
-                    "fechaHastaInput" : 100.5,
-                    "cedulaBusquedaInput" : "string",
-                    "numerotelefonoBusquedaInput" : 100.5,
-                    "indicadorTpagoInput" : 100.5,
-                    "statusEventoInput" : 100.5,
-                    "codigoTipoOperacionInput" : "string",
-                    "codigoMonedaInput" : 100.5,
-                    "tipoOperacionConsultaInput" : 100.5
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaConsultarMovimientosTPagoMovil"
                   }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "OLB",
+                  "identificacionUsuario" : "",
+                  "direccionIpConsumidor" : "10.0.12.48",
+                  "direccionIpCliente" : "10.0.12.48",
+                  "fechaEnvioMensaje" : "20251226",
+                  "horaEnvioMensaje" : "135046",
+                  "atributoPagineo" : "",
+                  "claveBusqueda" : "",
+                  "cantidadRegistros" : 0
+                },
+                "bodyEntrada" : {
+                  "codigoSubCanalInput" : "string",
+                  "codigoServProdInput" : 100.5,
+                  "codigoEstabIecimiento" : 100.5,
+                  "numeroperInput" : 100.5,
+                  "fechaDesdeInput" : 100.5,
+                  "fechaHastaInput" : 100.5,
+                  "cedulaBusquedaInput" : "string",
+                  "numerotelefonoBusquedaInput" : 100.5,
+                  "indicadorTpagoInput" : 100.5,
+                  "statusEventoInput" : 100.5,
+                  "codigoTipoOperacionInput" : "string",
+                  "codigoMonedaInput" : 100.5,
+                  "tipoOperacionConsultaInput" : 100.5
                 }
               }
             }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaConsultarMovimientosTPagoMovil" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarMovimientosTPagoMovil"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "I",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20251226",
+                    "horaSalidaMensaje" : "135046"
+                  },
+                  "bodySalidaConsultarMovimientosTPagoMovil" : {
+                    "cantRegProc" : 100.5,
+                    "movimientos" : [ {
+                      "codSubCanal" : 100.5,
+                      "nroDeposRecap" : 100.5,
+                      "nomOrigen" : "string",
+                      "serial" : 100.5,
+                      "indicReg" : 100.5,
+                      "bcoDestino" : 100.5,
+                      "movilDestino" : 100.5,
+                      "nroRef" : 100.5,
+                      "indicTrans" : "string",
+                      "mtoComisOrigen" : 100.5,
+                      "modoEntrada" : 100.5,
+                      "fchLocal" : 100.5,
+                      "estatusEven" : 100.5,
+                      "nroCtaDestino" : 100.5,
+                      "descripCodBcoProc" : "string",
+                      "codEstab" : "string",
+                      "codCanal" : 100.5,
+                      "nroCta" : 100.5,
+                      "codAutoriza" : "string",
+                      "codMoneda" : 100.5,
+                      "ref" : 100.5,
+                      "bcoOrigen" : 100.5,
+                      "idOrigen" : "string",
+                      "localizaOrigen" : "string",
+                      "fchTransNeg" : 100.5,
+                      "fchDeposRecap" : 100.5,
+                      "tipoCta" : "string",
+                      "formaPago" : "string",
+                      "idTransRed" : 100.5,
+                      "fchEven" : 100.5,
+                      "hhTrans" : 100.5,
+                      "datosOrigen" : "string",
+                      "codServProd" : 100.5,
+                      "mtoComisDestino" : 100.5,
+                      "nomAliasFrec" : "string",
+                      "movilOrigen" : 100.5,
+                      "termIdOrigen" : "string",
+                      "estatusComisDestino" : 100.5,
+                      "nroPer" : 100.5,
+                      "estatusComisOrigen" : 100.5,
+                      "codTransMctil" : 100.5,
+                      "fchTrans" : 100.5,
+                      "termRed" : "string",
+                      "tipoCtaDestino" : "string",
+                      "fchEmisionPago" : 100.5,
+                      "hhEven" : 100.5,
+                      "cod" : 100.5,
+                      "tipoComercio" : 100.5,
+                      "fchEmisPago" : 100.5,
+                      "email" : "string",
+                      "clv" : 100.5,
+                      "descripTrans" : "string",
+                      "tipoTpago" : 100.5,
+                      "termFncro" : 100.5,
+                      "hhLocal" : 100.5,
+                      "indicFavorito" : "string",
+                      "panDestino" : "string",
+                      "indicPos" : "string",
+                      "nroPerDestino" : 100.5,
+                      "mtoTrans" : 100.5,
+                      "refBco" : 100.5,
+                      "hhEmisPago" : 100.5,
+                      "idDestino" : "string"
+                    } ]
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -261,21 +795,83 @@
       "post" : {
         "tags" : [ "Consultar Root" ],
         "summary" : "tarjetaCreditoActiva",
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ResponseConsultarTarjetaDeCreditoActiva"
-                },
-                "example" : {
-                  "bodySalidaConsultarTarjetaDeCreditoActiva" : {
-                    "tarjetas" : [ { } ]
+        "operationId" : "tarjetaCreditoActiva",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaConsultarTarjetaDeCreditoActiva"
                   }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "OLB",
+                  "identificacionUsuario" : "",
+                  "direccionIpConsumidor" : "10.0.12.48",
+                  "direccionIpCliente" : "10.0.12.48",
+                  "fechaEnvioMensaje" : "20251226",
+                  "horaEnvioMensaje" : "135046",
+                  "atributoPagineo" : "",
+                  "claveBusqueda" : "",
+                  "cantidadRegistros" : 0
+                },
+                "bodyEntrada" : {
+                  "codigoPais" : "string",
+                  "tipoIdentificacion" : "string",
+                  "numeroIdentificacion" : 100.5
                 }
               }
             }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaConsultarTarjetaDeCreditoActiva" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarTarjetaDeCreditoActiva"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "I",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20251226",
+                    "horaSalidaMensaje" : "135046"
+                  },
+                  "bodySalidaConsultarTarjetaDeCreditoActiva" : {
+                    "tarjetas" : [ {
+                      "tipoTarjHab" : "string",
+                      "limCdto" : 100.5,
+                      "nroCta" : 100.5,
+                      "nroTarj" : 100.5
+                    } ]
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -284,15 +880,71 @@
       "post" : {
         "tags" : [ "Consultar Root" ],
         "summary" : "afiliacionTPago",
+        "operationId" : "afiliacionTPago",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaConsultarAfiliacionTPago"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "OLB",
+                  "identificacionUsuario" : "",
+                  "direccionIpConsumidor" : "10.0.12.48",
+                  "direccionIpCliente" : "10.0.12.48",
+                  "fechaEnvioMensaje" : "20251226",
+                  "horaEnvioMensaje" : "135046",
+                  "atributoPagineo" : "",
+                  "claveBusqueda" : "",
+                  "cantidadRegistros" : 0
+                },
+                "bodyEntrada" : {
+                  "codServProd" : 100.5,
+                  "tipoOper" : "string",
+                  "numTelefono" : "string"
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
-            "description" : "OK",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ResponseConsultarAfiliacionTPago"
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaConsultarAfiliacionTPago" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarAfiliacionTPago"
+                    }
+                  }
                 },
                 "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "I",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20251226",
+                    "horaSalidaMensaje" : "135046"
+                  },
                   "bodySalidaConsultarAfiliacionTPago" : {
                     "codEstab" : 100.5,
                     "codEmailEstab" : "string",
@@ -318,7 +970,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -327,17 +980,85 @@
       "post" : {
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarMovimientosLineaCredito",
+        "operationId" : "consultarMovimientosLineaCredito",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaConsultarMovimientosLineaCredito"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "OLB",
+                  "identificacionUsuario" : "",
+                  "direccionIpConsumidor" : "10.0.12.48",
+                  "direccionIpCliente" : "10.0.12.48",
+                  "fechaEnvioMensaje" : "20251226",
+                  "horaEnvioMensaje" : "135046",
+                  "atributoPagineo" : "",
+                  "claveBusqueda" : "",
+                  "cantidadRegistros" : 0
+                },
+                "bodyEntrada" : {
+                  "numeroTarjeta" : "string",
+                  "codigoTipoProducto" : "string",
+                  "codigoId" : "string",
+                  "numeroId" : 1,
+                  "fechaDesde" : 0,
+                  "fechaHasta" : 0,
+                  "tipoConsulta" : "string"
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
-            "description" : "OK",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ResponseConsultarMovimientosLineaCredito"
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaConsultarMovimientosLineaCredito" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarMovimientosLineaCredito"
+                    }
+                  }
                 },
                 "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "I",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20251226",
+                    "horaSalidaMensaje" : "135046"
+                  },
                   "bodySalidaConsultarMovimientosLineaCredito" : {
-                    "regMovimientos" : [ { } ],
+                    "regMovimientos" : [ {
+                      "clv" : { },
+                      "fchTrans" : 0,
+                      "fchPagoConsumo" : 0,
+                      "glosa" : "string",
+                      "nroRef" : "string",
+                      "estatusConsumo" : "string",
+                      "mtoTrans" : 100.5
+                    } ],
                     "nomClte" : "string",
                     "clvBusqueda" : "string",
                     "cantMaxMovimientos" : 0,
@@ -345,7 +1066,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -354,21 +1076,89 @@
       "post" : {
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarLineaCreditoAmpliada",
+        "operationId" : "consultarLineaCreditoAmpliada",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaLineaCreditoAmpliada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "OLB",
+                  "identificacionUsuario" : "",
+                  "direccionIpConsumidor" : "10.0.12.48",
+                  "direccionIpCliente" : "10.0.12.48",
+                  "fechaEnvioMensaje" : "20251226",
+                  "horaEnvioMensaje" : "135046",
+                  "atributoPagineo" : "",
+                  "claveBusqueda" : "",
+                  "cantidadRegistros" : 0
+                },
+                "bodyEntrada" : {
+                  "nroTarj" : "string",
+                  "fchUso" : 0,
+                  "hhUso" : 0,
+                  "mtoUsoBs" : 0.0,
+                  "mtoUsoDolar" : 0.0,
+                  "mtoComis" : 0.0,
+                  "mtoTransBs" : 0.0,
+                  "mtoTransDolar" : 0.0,
+                  "mtoMaxEmpresa" : 0.0,
+                  "cantCuo" : 0,
+                  "frecCuo" : "string",
+                  "codComercio" : 1,
+                  "codProduc" : "string",
+                  "datosOtp" : { }
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
-            "description" : "OK",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ResponseLineaCreditoAmpliada"
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaLineaCreditoAmpliada" : {
+                      "$ref" : "#/components/schemas/BodySalidaLineaCreditoAmpliada"
+                    }
+                  }
                 },
                 "example" : {
-                  "bodySalidaConsultarLineaCreditoAmpliada" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "I",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20251226",
+                    "horaSalidaMensaje" : "135046"
+                  },
+                  "bodySalidaLineaCreditoAmpliada" : {
                     "nroRef" : 1
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -377,21 +1167,80 @@
       "post" : {
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarCuotasLineaCredito",
+        "operationId" : "consultarCuotasLineaCredito",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaConsultarCuotasLineaCredito"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "OLB",
+                  "identificacionUsuario" : "",
+                  "direccionIpConsumidor" : "10.0.12.48",
+                  "direccionIpCliente" : "10.0.12.48",
+                  "fechaEnvioMensaje" : "20251226",
+                  "horaEnvioMensaje" : "135046",
+                  "atributoPagineo" : "",
+                  "claveBusqueda" : "",
+                  "cantidadRegistros" : 0
+                },
+                "bodyEntrada" : {
+                  "nroContrato" : 1,
+                  "nroTarj" : { },
+                  "codEstab" : 0,
+                  "tipoId" : "string",
+                  "nroId" : { }
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
-            "description" : "OK",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ResponseConsultarCuotasLineaCredito"
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaConsultarCuotasLineaCredito" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarCuotasLineaCredito"
+                    }
+                  }
                 },
                 "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "I",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20251226",
+                    "horaSalidaMensaje" : "135046"
+                  },
                   "bodySalidaConsultarCuotasLineaCredito" : {
                     "cuotas" : [ { } ]
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -400,17 +1249,76 @@
       "post" : {
         "tags" : [ "Insertar Root" ],
         "summary" : "insertarAceptaTarjetaLca",
+        "operationId" : "insertarAceptaTarjetaLca",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaInsertarAceptaTarjetaLca" : {
+                    "$ref" : "#/components/schemas/BodyEntradaInsertarAceptaTarjetaLca"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "OLB",
+                  "identificacionUsuario" : "",
+                  "direccionIpConsumidor" : "10.0.12.48",
+                  "direccionIpCliente" : "10.0.12.48",
+                  "fechaEnvioMensaje" : "20251226",
+                  "horaEnvioMensaje" : "135046",
+                  "atributoPagineo" : "",
+                  "claveBusqueda" : "",
+                  "cantidadRegistros" : 0
+                },
+                "bodyEntradaInsertarAceptaTarjetaLca" : {
+                  "customerId" : "string",
+                  "nroTarjeta" : 100.5,
+                  "codTipoProducto" : "string",
+                  "versionContrato" : 100.5,
+                  "fechaAceptacion" : 100.5,
+                  "dbiDatos" : 100.5,
+                  "dbiBanco" : 0
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
-            "description" : "OK",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ResponseInsertarAceptaTarjetaLca"
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
                 },
-                "example" : { }
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "I",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20251226",
+                    "horaSalidaMensaje" : "135046"
+                  }
+                }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -419,17 +1327,73 @@
       "post" : {
         "tags" : [ "Insertar Root" ],
         "summary" : "insertarReposicionMarcaCompartida",
+        "operationId" : "insertarReposicionMarcaCompartida",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaReposicion" : {
+                    "$ref" : "#/components/schemas/BodyEntradaInsertarReposicion"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "OLB",
+                  "identificacionUsuario" : "",
+                  "direccionIpConsumidor" : "10.0.12.48",
+                  "direccionIpCliente" : "10.0.12.48",
+                  "fechaEnvioMensaje" : "20251226",
+                  "horaEnvioMensaje" : "135046",
+                  "atributoPagineo" : "",
+                  "claveBusqueda" : "",
+                  "cantidadRegistros" : 0
+                },
+                "bodyEntradaReposicion" : {
+                  "nroPer" : 100.5,
+                  "nroTarj" : 100.5,
+                  "serial" : 1,
+                  "motivRepos" : "string"
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
-            "description" : "OK",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ResponseInsertarReposicion"
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
                 },
-                "example" : { }
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "I",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20251226",
+                    "horaSalidaMensaje" : "135046"
+                  }
+                }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -438,21 +1402,78 @@
       "post" : {
         "tags" : [ "Insertar Root" ],
         "summary" : "activarTarjetaMarcaCompartida",
+        "operationId" : "activarTarjetaMarcaCompartida",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaActivarTarjetaMarcaCompartida" : {
+                    "$ref" : "#/components/schemas/BodyEntradaActivarTarjetaMarcaCompartida"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "OLB",
+                  "identificacionUsuario" : "",
+                  "direccionIpConsumidor" : "10.0.12.48",
+                  "direccionIpCliente" : "10.0.12.48",
+                  "fechaEnvioMensaje" : "20251226",
+                  "horaEnvioMensaje" : "135046",
+                  "atributoPagineo" : "",
+                  "claveBusqueda" : "",
+                  "cantidadRegistros" : 0
+                },
+                "bodyEntradaActivarTarjetaMarcaCompartida" : {
+                  "nroPer" : 100.5,
+                  "nroTarj" : "string",
+                  "indicClteNvo" : "string"
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
-            "description" : "OK",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ResponseActivarTarjetaMarcaCompartida"
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaActivarTarjetaMarcaCompartida" : {
+                      "$ref" : "#/components/schemas/BodySalidaActivarTarjetaMarcaCompartida"
+                    }
+                  }
                 },
                 "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "I",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20251226",
+                    "horaSalidaMensaje" : "135046"
+                  },
                   "bodySalidaActivarTarjetaMarcaCompartida" : {
                     "nroCtaInter" : 0
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -461,17 +1482,73 @@
       "post" : {
         "tags" : [ "Recibir Root" ],
         "summary" : "recepcionLotesTarjetas",
+        "operationId" : "recepcionLotesTarjetas",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaRecibirLotesTarjetas"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "OLB",
+                  "identificacionUsuario" : "",
+                  "direccionIpConsumidor" : "10.0.12.48",
+                  "direccionIpCliente" : "10.0.12.48",
+                  "fechaEnvioMensaje" : "20251226",
+                  "horaEnvioMensaje" : "135046",
+                  "atributoPagineo" : "",
+                  "claveBusqueda" : "",
+                  "cantidadRegistros" : 0
+                },
+                "bodyEntrada" : {
+                  "codProducto" : "string",
+                  "numSolicitud" : 0,
+                  "nunAcuseIni" : 0,
+                  "numAcuseFin" : 0
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
-            "description" : "OK",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ResponseRecibirLotesTarjetas"
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
                 },
-                "example" : { }
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "I",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20251226",
+                    "horaSalidaMensaje" : "135046"
+                  }
+                }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -480,17 +1557,77 @@
       "post" : {
         "tags" : [ "Solicitar Root" ],
         "summary" : "solicitarClaveOtpLca",
+        "operationId" : "solicitarClaveOtpLca",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaSolicitarClaveOtpLca"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "OLB",
+                  "identificacionUsuario" : "",
+                  "direccionIpConsumidor" : "10.0.12.48",
+                  "direccionIpCliente" : "10.0.12.48",
+                  "fechaEnvioMensaje" : "20251226",
+                  "horaEnvioMensaje" : "135046",
+                  "atributoPagineo" : "",
+                  "claveBusqueda" : "",
+                  "cantidadRegistros" : 0
+                },
+                "bodyEntrada" : {
+                  "tipoIdDestino" : "string",
+                  "nroIdDestino" : 0,
+                  "tipoIdOrigen" : "string",
+                  "nroIdOrigen" : 0,
+                  "nomOrigen" : "string",
+                  "mtoTrans" : 100.5,
+                  "nroTelfDestino" : 1,
+                  "clvAlfanumerica" : "string"
+                }
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
-            "description" : "OK",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ResponseSolicitarClaveOtpLca"
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
                 },
-                "example" : { }
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "I",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20251226",
+                    "horaSalidaMensaje" : "135046"
+                  }
+                }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -499,21 +1636,85 @@
       "post" : {
         "tags" : [ "Suspender Root" ],
         "summary" : "tarjetaDeCredito",
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ResponseSuspenderTarjetaCredito"
+        "operationId" : "tarjetaDeCredito",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaSuspenderTarjetaCredito"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "OLB",
+                  "identificacionUsuario" : "",
+                  "direccionIpConsumidor" : "10.0.12.48",
+                  "direccionIpCliente" : "10.0.12.48",
+                  "fechaEnvioMensaje" : "20251226",
+                  "horaEnvioMensaje" : "135046",
+                  "atributoPagineo" : "",
+                  "claveBusqueda" : "",
+                  "cantidadRegistros" : 0
                 },
-                "example" : {
-                  "bodySalidaSuspenderTarjetaCredito" : {
-                    "tarjetasSuspendidas" : [ { } ]
+                "bodyEntrada" : {
+                  "codigoPais" : "string",
+                  "tipoIdentificacion" : "string",
+                  "numeroIdentificacion" : 100.5,
+                  "codigoRazon" : "string",
+                  "tarjetasASuspender" : {
+                    "numeroTarjeta" : 100.5
                   }
                 }
               }
             }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaSuspenderTarjetaCredito" : {
+                      "$ref" : "#/components/schemas/BodySalidaSuspenderTarjetaCredito"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "I",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20251226",
+                    "horaSalidaMensaje" : "135046"
+                  },
+                  "bodySalidaSuspenderTarjetaCredito" : {
+                    "tarjetasSuspendidas" : [ {
+                      "descripResp" : "string",
+                      "codResp" : "string"
+                    } ]
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -521,6 +1722,76 @@
   },
   "components" : {
     "schemas" : {
+      "HeaderEntrada" : {
+        "type" : "object",
+        "properties" : {
+          "identificadorUnicoGlobal" : {
+            "type" : "string"
+          },
+          "identificacionCanal" : {
+            "type" : "string"
+          },
+          "identificacionSubCanal" : {
+            "type" : "string"
+          },
+          "siglaAplicacion" : {
+            "minLength" : 1,
+            "maxLength" : 4,
+            "type" : "string"
+          },
+          "identificacionUsuario" : {
+            "type" : "string"
+          },
+          "direccionIpConsumidor" : {
+            "type" : "string"
+          },
+          "direccionIpCliente" : {
+            "type" : "string"
+          },
+          "fechaEnvioMensaje" : {
+            "type" : "string"
+          },
+          "horaEnvioMensaje" : {
+            "type" : "string"
+          },
+          "atributoPagineo" : {
+            "type" : "string"
+          },
+          "claveBusqueda" : {
+            "type" : "string"
+          },
+          "cantidadRegistros" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "HeaderSalida" : {
+        "type" : "object",
+        "properties" : {
+          "tipoMensaje" : {
+            "type" : "string",
+            "example" : "F"
+          },
+          "mensajeProgramadorSistema" : {
+            "type" : "string"
+          },
+          "codigoMensajeProgramador" : {
+            "type" : "string"
+          },
+          "mensajeUsuario" : {
+            "type" : "string"
+          },
+          "codigoMensajeUsuario" : {
+            "type" : "string"
+          },
+          "fechaSalidaMensaje" : {
+            "type" : "string"
+          },
+          "horaSalidaMensaje" : {
+            "type" : "string"
+          }
+        }
+      },
       "BodyEntradaActualizarPagoCuota" : {
         "type" : "object",
         "properties" : {
@@ -571,16 +1842,43 @@
         }
       },
       "ResponseActualizarPagoCuota" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/ConstructorRequired"
-        }, {
-          "type" : "object",
-          "properties" : { }
-        } ]
+        "type" : "object",
+        "additionalProperties" : true
       },
-      "BeanCustomerId" : { },
-      "BeanPhone" : { },
-      "BeanTelefono" : { },
+      "BeanCustomerId" : {
+        "type" : "object",
+        "properties" : {
+          "ltRif" : {
+            "type" : "string"
+          },
+          "numRif" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "BeanPhone" : {
+        "type" : "object",
+        "properties" : {
+          "codArea" : {
+            "type" : "string"
+          },
+          "nroTelf" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BeanTelefono" : {
+        "type" : "object",
+        "properties" : {
+          "areaCode" : {
+            "type" : "string"
+          },
+          "phoneNumber" : {
+            "type" : "string"
+          }
+        }
+      },
       "BodyEntradaAfiliarMosaicAsociados" : {
         "type" : "object",
         "properties" : {
@@ -636,16 +1934,12 @@
         }
       },
       "ResponseAfiliarMosaicAsociados" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/ConstructorRequired"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "bodySalidaAfiliarMosaicAsociados" : {
-              "$ref" : "#/components/schemas/BodySalidaAfiliarMosaicAsociados"
-            }
+        "type" : "object",
+        "properties" : {
+          "bodySalidaAfiliarMosaicAsociados" : {
+            "$ref" : "#/components/schemas/BodySalidaAfiliarMosaicAsociados"
           }
-        } ]
+        }
       },
       "BodyEntradaConsultarAfiliacionTPago" : {
         "type" : "object",
@@ -683,7 +1977,7 @@
             "type" : "string"
           },
           "establecimiento" : {
-            "$ref" : "#/components/schemas/CodEstabl"
+            "type" : "object"
           },
           "nomEstab" : {
             "type" : "string"
@@ -739,7 +2033,18 @@
           }
         }
       },
-      "CodEstabl" : { },
+      "CodEstabl" : {
+        "type" : "object",
+        "properties" : {
+          "codEstab" : {
+            "type" : "string"
+          },
+          "nroCodEstab" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
       "RequestConsultarAfiliacionTPago" : {
         "type" : "object",
         "properties" : {
@@ -752,16 +2057,12 @@
         }
       },
       "ResponseConsultarAfiliacionTPago" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/ConstructorRequired"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "bodySalidaConsultarAfiliacionTPago" : {
-              "$ref" : "#/components/schemas/BodySalidaConsultarAfiliacionTPago"
-            }
+        "type" : "object",
+        "properties" : {
+          "bodySalidaConsultarAfiliacionTPago" : {
+            "$ref" : "#/components/schemas/BodySalidaConsultarAfiliacionTPago"
           }
-        } ]
+        }
       },
       "BodyEntradaCondicionTarjetaMarcaComp" : {
         "type" : "object",
@@ -787,12 +2088,8 @@
         }
       },
       "ResponseCondicionTarjetaMarcaComp" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/ConstructorRequired"
-        }, {
-          "type" : "object",
-          "properties" : { }
-        } ]
+        "type" : "object",
+        "additionalProperties" : true
       },
       "BodyEntradaConsultarCuotasLineaCredito" : {
         "type" : "object",
@@ -801,7 +2098,7 @@
             "type" : "integer"
           },
           "nroTarj" : {
-            "$ref" : "#/components/schemas/BigInteger"
+            "type" : "string"
           },
           "codEstab" : {
             "type" : "integer"
@@ -810,7 +2107,7 @@
             "type" : "string"
           },
           "nroId" : {
-            "$ref" : "#/components/schemas/BigInteger"
+            "type" : "string"
           }
         }
       },
@@ -818,15 +2115,32 @@
         "type" : "object",
         "properties" : {
           "cuotas" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/Cuota"
-            }
+            "type" : "object"
           }
         }
       },
-      "CleanerConsultarCuotasLineaCredito" : { },
-      "Cuota" : { },
+      "CleanerConsultarCuotasLineaCredito" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "Cuota" : {
+        "type" : "object",
+        "properties" : {
+          "fchCuo" : {
+            "type" : "integer"
+          },
+          "fchPagoCuo" : {
+            "type" : "integer"
+          },
+          "mtoCuo" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "estatusCuotas" : {
+            "type" : "string"
+          }
+        }
+      },
       "RequestConsultarCuotasLineaCredito" : {
         "type" : "object",
         "properties" : {
@@ -839,16 +2153,12 @@
         }
       },
       "ResponseConsultarCuotasLineaCredito" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/ConstructorRequired"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "bodySalidaConsultarCuotasLineaCredito" : {
-              "$ref" : "#/components/schemas/BodySalidaConsultarCuotasLineaCredito"
-            }
+        "type" : "object",
+        "properties" : {
+          "bodySalidaConsultarCuotasLineaCredito" : {
+            "$ref" : "#/components/schemas/BodySalidaConsultarCuotasLineaCredito"
           }
-        } ]
+        }
       },
       "BodyEntradaLineaCreditoAmpliada" : {
         "type" : "object",
@@ -893,7 +2203,7 @@
             "type" : "string"
           },
           "datosOtp" : {
-            "$ref" : "#/components/schemas/DatosOtp"
+            "type" : "object"
           }
         }
       },
@@ -905,7 +2215,29 @@
           }
         }
       },
-      "DatosOtp" : { },
+      "DatosOtp" : {
+        "type" : "object",
+        "properties" : {
+          "otpIdOrgLetra" : {
+            "type" : "string"
+          },
+          "otpIdOrgNro" : {
+            "type" : "integer"
+          },
+          "otpIdDstLetra" : {
+            "type" : "string"
+          },
+          "otpIdDstNro" : {
+            "type" : "integer"
+          },
+          "otpMovilDst" : {
+            "type" : "integer"
+          },
+          "otpClave" : {
+            "type" : "integer"
+          }
+        }
+      },
       "RequestLineaCreditoAmpliada" : {
         "type" : "object",
         "properties" : {
@@ -918,16 +2250,12 @@
         }
       },
       "ResponseLineaCreditoAmpliada" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/ConstructorRequired"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "bodySalidaConsultarLineaCreditoAmpliada" : {
-              "$ref" : "#/components/schemas/BodySalidaLineaCreditoAmpliada"
-            }
+        "type" : "object",
+        "properties" : {
+          "bodySalidaConsultarLineaCreditoAmpliada" : {
+            "$ref" : "#/components/schemas/BodySalidaLineaCreditoAmpliada"
           }
-        } ]
+        }
       },
       "BodyEntradaConsultarMarca" : {
         "type" : "object",
@@ -952,14 +2280,36 @@
         }
       },
       "ResponseConsultarMarca" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/ConstructorRequired"
-        }, {
-          "type" : "object",
-          "properties" : { }
-        } ]
+        "type" : "object",
+        "additionalProperties" : true
       },
-      "BeanRegistroMovimientos" : { },
+      "BeanRegistroMovimientos" : {
+        "type" : "object",
+        "properties" : {
+          "clv" : {
+            "type" : "object"
+          },
+          "fchTrans" : {
+            "type" : "integer"
+          },
+          "fchPagoConsumo" : {
+            "type" : "integer"
+          },
+          "glosa" : {
+            "type" : "string"
+          },
+          "nroRef" : {
+            "type" : "string"
+          },
+          "estatusConsumo" : {
+            "type" : "string"
+          },
+          "mtoTrans" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
       "BodyEntradaConsultarMovimientosLineaCredito" : {
         "type" : "object",
         "properties" : {
@@ -1010,8 +2360,30 @@
           }
         }
       },
-      "Clave" : { },
-      "CleanerMovimientosLineaCredito" : { },
+      "Clave" : {
+        "type" : "object",
+        "properties" : {
+          "codModalAfili" : {
+            "type" : "string"
+          },
+          "nroCta" : {
+            "type" : "integer"
+          },
+          "hhPosteo" : {
+            "type" : "integer"
+          },
+          "fchPosteo" : {
+            "type" : "integer"
+          },
+          "nroTarj" : {
+            "type" : "string"
+          }
+        }
+      },
+      "CleanerMovimientosLineaCredito" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
       "RequestConsultarMovimientosLineaCredito" : {
         "type" : "object",
         "properties" : {
@@ -1024,16 +2396,12 @@
         }
       },
       "ResponseConsultarMovimientosLineaCredito" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/ConstructorRequired"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "bodySalidaConsultarMovimientosLineaCredito" : {
-              "$ref" : "#/components/schemas/BodySalidaConsultarMovimientosLineaCredito"
-            }
+        "type" : "object",
+        "properties" : {
+          "bodySalidaConsultarMovimientosLineaCredito" : {
+            "$ref" : "#/components/schemas/BodySalidaConsultarMovimientosLineaCredito"
           }
-        } ]
+        }
       },
       "BodyEntradaMovimientosTarjetaPrepago" : {
         "type" : "object",
@@ -1101,10 +2469,7 @@
             "type" : "integer"
           },
           "regMovimientos" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/MovimientoPrepago"
-            }
+            "type" : "object"
           },
           "mtoComis" : {
             "type" : "number",
@@ -1115,8 +2480,60 @@
           }
         }
       },
-      "ClaveMovimiento" : { },
-      "MovimientoPrepago" : { },
+      "ClaveMovimiento" : {
+        "type" : "object",
+        "properties" : {
+          "codModalAfili" : {
+            "type" : "string"
+          },
+          "nroCta" : {
+            "type" : "integer"
+          },
+          "hhPosteo" : {
+            "type" : "integer"
+          },
+          "fchPosteo" : {
+            "type" : "integer"
+          },
+          "nroTarj" : {
+            "type" : "string"
+          }
+        }
+      },
+      "MovimientoPrepago" : {
+        "type" : "object",
+        "properties" : {
+          "hhTrans" : {
+            "type" : "integer"
+          },
+          "factorDolarBs" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "statusTrans" : {
+            "type" : "integer"
+          },
+          "indicInfAdic" : {
+            "type" : "integer"
+          },
+          "fchTrans" : {
+            "type" : "integer"
+          },
+          "nroRef" : {
+            "type" : "string"
+          },
+          "mtoTrans" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "tipoTrans" : {
+            "type" : "string"
+          },
+          "clv" : {
+            "$ref" : "#/components/schemas/ClaveMovimiento"
+          }
+        }
+      },
       "RequestMovimientosTarjetaPrepago" : {
         "type" : "object",
         "properties" : {
@@ -1129,21 +2546,252 @@
         }
       },
       "ResponseMovimientosTarjetaPrepago" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/ConstructorRequired"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "bodySalidaMovimientosTarjetaPrepago" : {
-              "$ref" : "#/components/schemas/BodySalidaMovimientosTarjetaPrepago"
-            }
+        "type" : "object",
+        "properties" : {
+          "bodySalidaMovimientosTarjetaPrepago" : {
+            "$ref" : "#/components/schemas/BodySalidaMovimientosTarjetaPrepago"
           }
-        } ]
+        }
       },
-      "BeanConsultarMovimientosTPagoMovil" : { },
+      "BeanConsultarMovimientosTPagoMovil" : {
+        "type" : "object",
+        "properties" : {
+          "codSubCanal" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nroDeposRecap" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nomOrigen" : {
+            "type" : "string"
+          },
+          "serial" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "indicReg" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "bcoDestino" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "movilDestino" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nroRef" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "indicTrans" : {
+            "type" : "string"
+          },
+          "mtoComisOrigen" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "modoEntrada" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "fchLocal" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "estatusEven" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nroCtaDestino" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "descripCodBcoProc" : {
+            "type" : "string"
+          },
+          "codEstab" : {
+            "type" : "string"
+          },
+          "codCanal" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nroCta" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "codAutoriza" : {
+            "type" : "string"
+          },
+          "codMoneda" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "ref" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "bcoOrigen" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "idOrigen" : {
+            "type" : "string"
+          },
+          "localizaOrigen" : {
+            "type" : "string"
+          },
+          "fchTransNeg" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "fchDeposRecap" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "tipoCta" : {
+            "type" : "string"
+          },
+          "formaPago" : {
+            "type" : "string"
+          },
+          "idTransRed" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "fchEven" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "hhTrans" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "datosOrigen" : {
+            "type" : "string"
+          },
+          "codServProd" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "mtoComisDestino" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nomAliasFrec" : {
+            "type" : "string"
+          },
+          "movilOrigen" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "termIdOrigen" : {
+            "type" : "string"
+          },
+          "estatusComisDestino" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nroPer" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "estatusComisOrigen" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "codTransMctil" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "fchTrans" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "termRed" : {
+            "type" : "string"
+          },
+          "tipoCtaDestino" : {
+            "type" : "string"
+          },
+          "fchEmisionPago" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "hhEven" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "cod" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "tipoComercio" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "fchEmisPago" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "email" : {
+            "type" : "string"
+          },
+          "clv" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "descripTrans" : {
+            "type" : "string"
+          },
+          "tipoTpago" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "termFncro" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "hhLocal" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "indicFavorito" : {
+            "type" : "string"
+          },
+          "panDestino" : {
+            "type" : "string"
+          },
+          "indicPos" : {
+            "type" : "string"
+          },
+          "nroPerDestino" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "mtoTrans" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "refBco" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "hhEmisPago" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "idDestino" : {
+            "type" : "string"
+          }
+        }
+      },
       "BodyConsultarMovimientosTPagoMovilCleaner" : {
         "type" : "object",
-        "properties" : { },
         "additionalProperties" : true
       },
       "BodyEntradaConsultarMovimientosTPagoMovil" : {
@@ -1227,19 +2875,15 @@
         }
       },
       "ResponseConsultarMovimientosTPagoMovil" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/ConstructorRequired"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "bodySalidaMovimientosTPagoMovilP2C" : {
-              "$ref" : "#/components/schemas/BodySalidaConsultarMovimientosTPagoMovil"
-            },
-            "bodyEntradaMovimientosTPagoMovilP2C" : {
-              "$ref" : "#/components/schemas/BodyEntradaConsultarMovimientosTPagoMovil"
-            }
+        "type" : "object",
+        "properties" : {
+          "bodySalidaMovimientosTPagoMovilP2C" : {
+            "$ref" : "#/components/schemas/BodySalidaConsultarMovimientosTPagoMovil"
+          },
+          "bodyEntradaMovimientosTPagoMovilP2C" : {
+            "$ref" : "#/components/schemas/BodyEntradaConsultarMovimientosTPagoMovil"
           }
-        } ]
+        }
       },
       "BodyEntradaSaldoTarjetaLca" : {
         "type" : "object",
@@ -1306,16 +2950,12 @@
         }
       },
       "ResponseSaldoTarjetaLca" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/ConstructorRequired"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "bodySalidaSaldoTarjetaLca" : {
-              "$ref" : "#/components/schemas/BodySalidaSaldoTarjetaLca"
-            }
+        "type" : "object",
+        "properties" : {
+          "bodySalidaSaldoTarjetaLca" : {
+            "$ref" : "#/components/schemas/BodySalidaSaldoTarjetaLca"
           }
-        } ]
+        }
       },
       "BodyEntradaSaldoTarjetaPrepago" : {
         "type" : "object",
@@ -1403,14 +3043,29 @@
         }
       },
       "ResponseSaldoTarjetaPrepago" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/ConstructorRequired"
-        }, {
-          "type" : "object",
-          "properties" : { }
-        } ]
+        "type" : "object",
+        "additionalProperties" : true
       },
-      "BeanTarjetaLimitTipoTarjeta" : { },
+      "BeanTarjetaLimitTipoTarjeta" : {
+        "type" : "object",
+        "properties" : {
+          "tipoTarjHab" : {
+            "type" : "string"
+          },
+          "limCdto" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nroCta" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nroTarj" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
       "BodyEntradaConsultarTarjetaDeCreditoActiva" : {
         "type" : "object",
         "properties" : {
@@ -1437,7 +3092,10 @@
           }
         }
       },
-      "CleanerConsultarTarjetaDeCreditoActiva" : { },
+      "CleanerConsultarTarjetaDeCreditoActiva" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
       "RequestConsultarTarjetaDeCreditoActiva" : {
         "type" : "object",
         "properties" : {
@@ -1450,16 +3108,12 @@
         }
       },
       "ResponseConsultarTarjetaDeCreditoActiva" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/ConstructorRequired"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "bodySalidaConsultarTarjetaDeCreditoActiva" : {
-              "$ref" : "#/components/schemas/BodySalidaConsultarTarjetaDeCreditoActiva"
-            }
+        "type" : "object",
+        "properties" : {
+          "bodySalidaConsultarTarjetaDeCreditoActiva" : {
+            "$ref" : "#/components/schemas/BodySalidaConsultarTarjetaDeCreditoActiva"
           }
-        } ]
+        }
       },
       "BodyEntradaInsertarAceptaTarjetaLca" : {
         "type" : "object",
@@ -1503,12 +3157,8 @@
         }
       },
       "ResponseInsertarAceptaTarjetaLca" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/ConstructorRequired"
-        }, {
-          "type" : "object",
-          "properties" : { }
-        } ]
+        "type" : "object",
+        "additionalProperties" : true
       },
       "BodyEntradaActivarTarjetaMarcaCompartida" : {
         "type" : "object",
@@ -1545,16 +3195,12 @@
         }
       },
       "ResponseActivarTarjetaMarcaCompartida" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/ConstructorRequired"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "bodySalidaActivarTarjetaMarcaCompartida" : {
-              "$ref" : "#/components/schemas/BodySalidaActivarTarjetaMarcaCompartida"
-            }
+        "type" : "object",
+        "properties" : {
+          "bodySalidaActivarTarjetaMarcaCompartida" : {
+            "$ref" : "#/components/schemas/BodySalidaActivarTarjetaMarcaCompartida"
           }
-        } ]
+        }
       },
       "BodyEntradaInsertarReposicion" : {
         "type" : "object",
@@ -1587,12 +3233,8 @@
         }
       },
       "ResponseInsertarReposicion" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/ConstructorRequired"
-        }, {
-          "type" : "object",
-          "properties" : { }
-        } ]
+        "type" : "object",
+        "additionalProperties" : true
       },
       "BodyEntradaRecibirLotesTarjetas" : {
         "type" : "object",
@@ -1623,12 +3265,8 @@
         }
       },
       "ResponseRecibirLotesTarjetas" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/ConstructorRequired"
-        }, {
-          "type" : "object",
-          "properties" : { }
-        } ]
+        "type" : "object",
+        "additionalProperties" : true
       },
       "BodyEntradaSolicitarClaveOtpLca" : {
         "type" : "object",
@@ -1672,15 +3310,29 @@
         }
       },
       "ResponseSolicitarClaveOtpLca" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/ConstructorRequired"
-        }, {
-          "type" : "object",
-          "properties" : { }
-        } ]
+        "type" : "object",
+        "additionalProperties" : true
       },
-      "BeanTarjetaASuspender" : { },
-      "BeanTarjetaASuspenderSalida" : { },
+      "BeanTarjetaASuspender" : {
+        "type" : "object",
+        "properties" : {
+          "numeroTarjeta" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "BeanTarjetaASuspenderSalida" : {
+        "type" : "object",
+        "properties" : {
+          "descripResp" : {
+            "type" : "string"
+          },
+          "codResp" : {
+            "type" : "string"
+          }
+        }
+      },
       "BodyEntradaSuspenderTarjetaCredito" : {
         "type" : "object",
         "properties" : {
@@ -1713,7 +3365,10 @@
           }
         }
       },
-      "CleanerSuspenderTarjetaDeCredito" : { },
+      "CleanerSuspenderTarjetaDeCredito" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
       "RequestSuspenderTarjetaCredito" : {
         "type" : "object",
         "properties" : {
@@ -1726,104 +3381,115 @@
         }
       },
       "ResponseSuspenderTarjetaCredito" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/ConstructorRequired"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "bodySalidaSuspenderTarjetaCredito" : {
-              "$ref" : "#/components/schemas/BodySalidaSuspenderTarjetaCredito"
-            }
-          }
-        } ]
-      },
-      "Actualizar" : { },
-      "Afiliar" : { },
-      "Consultar" : { },
-      "Insertar" : { },
-      "Recibir" : { },
-      "Solicitar" : { },
-      "Suspender" : { },
-      "BeanTarjeta" : { },
-      "InitEnviroment" : { },
-      "ActualizarImpl" : { },
-      "AfiliarImpl" : { },
-      "ConsultarImpl" : { },
-      "InsertarImpl" : { },
-      "RecibirImpl" : { },
-      "SolicitarImpl" : { },
-      "SuspenderImpl" : { },
-      "HeaderEntrada" : {
         "type" : "object",
         "properties" : {
-          "identificadorUnicoGlobal" : {
-            "type" : "string"
-          },
-          "identificacionCanal" : {
-            "type" : "string"
-          },
-          "identificacionSubCanal" : {
-            "type" : "string"
-          },
-          "siglaAplicacion" : {
-            "maxLength" : 4,
-            "type" : "string",
-            "minLength" : 1
-          },
-          "identificacionUsuario" : {
-            "type" : "string"
-          },
-          "direccionIpConsumidor" : {
-            "type" : "string"
-          },
-          "direccionIpCliente" : {
-            "type" : "string"
-          },
-          "fechaEnvioMensaje" : {
-            "type" : "string"
-          },
-          "horaEnvioMensaje" : {
-            "type" : "string"
-          },
-          "atributoPagineo" : {
-            "type" : "string"
-          },
-          "claveBusqueda" : {
-            "type" : "string"
-          },
-          "cantidadRegistros" : {
-            "type" : "integer"
+          "bodySalidaSuspenderTarjetaCredito" : {
+            "$ref" : "#/components/schemas/BodySalidaSuspenderTarjetaCredito"
           }
-        },
-        "required" : [ "identificadorUnicoGlobal", "identificacionCanal", "identificacionSubCanal", "siglaAplicacion", "direccionIpConsumidor", "direccionIpCliente", "fechaEnvioMensaje", "horaEnvioMensaje" ]
+        }
       },
-      "HeaderSalida" : {
+      "Actualizar" : {
         "type" : "object",
         "properties" : {
-          "tipoMensaje" : {
-            "example" : "F",
-            "type" : "string"
+          "send" : {
+            "type" : "object"
+          }
+        }
+      },
+      "Afiliar" : {
+        "type" : "object",
+        "properties" : {
+          "send" : {
+            "type" : "object"
+          }
+        }
+      },
+      "Consultar" : {
+        "type" : "object",
+        "properties" : {
+          "send" : {
+            "type" : "object"
           },
-          "mensajeProgramadorSistema" : {
-            "type" : "string"
-          },
-          "codigoMensajeProgramador" : {
-            "type" : "string"
-          },
-          "mensajeUsuario" : {
-            "example" : "EN ESTE MOMENTO NO PODEMOS PROCESAR SU OPERACION",
-            "type" : "string"
-          },
-          "codigoMensajeUsuario" : {
-            "type" : "string"
-          },
-          "fechaSalidaMensaje" : {
-            "type" : "string"
-          },
-          "horaSalidaMensaje" : {
+          "COMMAREA" : {
             "type" : "string"
           }
         }
+      },
+      "Insertar" : {
+        "type" : "object",
+        "properties" : {
+          "send" : {
+            "type" : "object"
+          }
+        }
+      },
+      "Recibir" : {
+        "type" : "object",
+        "properties" : {
+          "send" : {
+            "type" : "object"
+          }
+        }
+      },
+      "Solicitar" : {
+        "type" : "object",
+        "properties" : {
+          "send" : {
+            "type" : "object"
+          }
+        }
+      },
+      "Suspender" : {
+        "type" : "object",
+        "properties" : {
+          "send" : {
+            "type" : "object"
+          }
+        }
+      },
+      "BeanTarjeta" : {
+        "type" : "object",
+        "properties" : {
+          "pathFileServices" : {
+            "type" : "string"
+          }
+        }
+      },
+      "InitEnviroment" : {
+        "type" : "object",
+        "properties" : {
+          "log" : {
+            "type" : "object"
+          }
+        }
+      },
+      "ActualizarImpl" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "AfiliarImpl" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ConsultarImpl" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "InsertarImpl" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "RecibirImpl" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "SolicitarImpl" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "SuspenderImpl" : {
+        "type" : "object",
+        "additionalProperties" : true
       }
     },
     "securitySchemes" : {
