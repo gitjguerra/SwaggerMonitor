@@ -54,13 +54,43 @@
                   "cantidadRegistros" : 0
                 },
                 "bodyEntrada" : {
-                  "codigoMonedaEnt" : "string",
-                  "numeroCuentaEnt" : 100.5,
-                  "nacIdOrdenanteEnt" : "string",
-                  "nroIdOrdenanteEnt" : 100.5,
-                  "fecIniBqdaOperEnt" : 100.5,
-                  "fecFinBqdaOperEnt" : 100.5,
-                  "tipoOperacionEnt" : "string"
+                  "codigoMonedaEnt" : "VES",
+                  "numeroCuentaEnt" : "string",
+                  "nacIdOrdenanteEnt" : 12345678,
+                  "nroIdOrdenanteEnt" : 12345678,
+                  "fecIniBqdaOperEnt" : 12345678,
+                  "fecFinBqdaOperEnt" : 12345678,
+                  "tipoOperacionEnt" : 12345678
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntrada" : {
+                      "codigoMonedaEnt" : "VES",
+                      "numeroCuentaEnt" : "string",
+                      "nacIdOrdenanteEnt" : 12345678,
+                      "nroIdOrdenanteEnt" : 12345678,
+                      "fecIniBqdaOperEnt" : 12345678,
+                      "fecFinBqdaOperEnt" : 12345678,
+                      "tipoOperacionEnt" : 12345678
+                    }
+                  }
                 }
               }
             }
@@ -93,7 +123,26 @@
                     "horaSalidaMensaje" : "135046"
                   },
                   "bodySalidaConsultarTransferenciasSimf" : {
-                    "resulValid" : 1
+                    "resulValid" : 12345678
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaConsultarTransferenciasSimf" : {
+                        "resulValid" : 12345678
+                      }
+                    }
                   }
                 }
               }
@@ -138,7 +187,31 @@
                   "cantidadRegistros" : 0
                 },
                 "bodyEntrada" : {
-                  "codBco" : 0
+                  "codBco" : 1
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntrada" : {
+                      "codBco" : 1
+                    }
+                  }
                 }
               }
             }
@@ -171,9 +244,30 @@
                     "horaSalidaMensaje" : "135046"
                   },
                   "bodySalidaConsultarTablaBanco" : {
-                    "paisBco" : "string",
-                    "codBco" : 0,
-                    "nomBco" : "string"
+                    "paisBco" : [ { } ],
+                    "codBco" : [ { } ],
+                    "nomBco" : [ { } ]
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaConsultarTablaBanco" : {
+                        "paisBco" : [ { } ],
+                        "codBco" : [ { } ],
+                        "nomBco" : [ { } ]
+                      }
+                    }
                   }
                 }
               }
@@ -218,13 +312,43 @@
                   "cantidadRegistros" : 0
                 },
                 "bodyEntrada" : {
-                  "codSudeban" : 0,
-                  "codAba" : 100.5,
+                  "codSudeban" : 1,
+                  "codAba" : "string",
                   "bcoPignora" : "string",
                   "indBusqIndice" : "string",
                   "sitBco" : "string",
                   "codSuc" : "string",
                   "codSwift" : "string"
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntrada" : {
+                      "codSudeban" : 1,
+                      "codAba" : "string",
+                      "bcoPignora" : "string",
+                      "indBusqIndice" : "string",
+                      "sitBco" : "string",
+                      "codSuc" : "string",
+                      "codSwift" : "string"
+                    }
+                  }
                 }
               }
             }
@@ -257,43 +381,94 @@
                     "horaSalidaMensaje" : "135046"
                   },
                   "bodySalidaConsultarTablaBancoAmpliada" : {
-                    "cantReg" : 100.5,
-                    "paginacion" : {
-                      "apVectPp" : [ { } ]
-                    },
+                    "cantReg" : 12345678,
+                    "paginacion" : 12345678,
                     "bancos" : [ {
-                      "codBcoAba" : 100.5,
-                      "codAla" : 100.5,
+                      "codBcoAba" : "string",
+                      "codAla" : "string",
                       "nomEstado" : "string",
                       "numTelf2" : "string",
                       "numTelf1" : "string",
-                      "codClasif" : "string",
-                      "indParaisoFiscal" : 100.5,
-                      "codMoneda" : "string",
+                      "codClasif" : 12345678,
+                      "indParaisoFiscal" : "string",
+                      "codMoneda" : "VES",
                       "numCtaPpal" : "string",
-                      "numCtaMayor" : 100.5,
+                      "numCtaMayor" : "string",
                       "indConversion" : "string",
-                      "tipoPagoMovi" : 100.5,
-                      "nomCiudad" : "string",
+                      "tipoPagoMovi" : "string",
+                      "nomCiudad" : 12345678,
                       "codDircab" : "string",
-                      "indBcoPignora" : 100.5,
+                      "indBcoPignora" : "string",
                       "codPost" : "string",
-                      "indOtraDivisa" : 100.5,
-                      "nomCalle" : "string",
+                      "indOtraDivisa" : "string",
+                      "nomCalle" : 12345678,
                       "nomBanco" : "string",
                       "sitBanco" : "string",
-                      "fchaAct" : 100.5,
-                      "numPer" : 100.5,
-                      "codBcoBcv" : 100.5,
+                      "fchaAct" : "string",
+                      "numPer" : 12345678,
+                      "codBcoBcv" : "string",
                       "codBcoSwift" : "string",
-                      "nroCarnet" : 100.5,
+                      "nroCarnet" : "string",
                       "numCtaBcv" : "string",
                       "numTelex1" : "string",
                       "nomPais" : "string",
                       "numTelex3" : "string",
-                      "indicPagoMovi" : 100.5,
+                      "indicPagoMovi" : "string",
                       "numTelex2" : "string"
                     } ]
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaConsultarTablaBancoAmpliada" : {
+                        "cantReg" : 12345678,
+                        "paginacion" : 12345678,
+                        "bancos" : [ {
+                          "codBcoAba" : "string",
+                          "codAla" : "string",
+                          "nomEstado" : "string",
+                          "numTelf2" : "string",
+                          "numTelf1" : "string",
+                          "codClasif" : 12345678,
+                          "indParaisoFiscal" : "string",
+                          "codMoneda" : "VES",
+                          "numCtaPpal" : "string",
+                          "numCtaMayor" : "string",
+                          "indConversion" : "string",
+                          "tipoPagoMovi" : "string",
+                          "nomCiudad" : 12345678,
+                          "codDircab" : "string",
+                          "indBcoPignora" : "string",
+                          "codPost" : "string",
+                          "indOtraDivisa" : "string",
+                          "nomCalle" : 12345678,
+                          "nomBanco" : "string",
+                          "sitBanco" : "string",
+                          "fchaAct" : "string",
+                          "numPer" : 12345678,
+                          "codBcoBcv" : "string",
+                          "codBcoSwift" : "string",
+                          "nroCarnet" : "string",
+                          "numCtaBcv" : "string",
+                          "numTelex1" : "string",
+                          "nomPais" : "string",
+                          "numTelex3" : "string",
+                          "indicPagoMovi" : "string",
+                          "numTelex2" : "string"
+                        } ]
+                      }
+                    }
                   }
                 }
               }
@@ -338,23 +513,63 @@
                   "cantidadRegistros" : 0
                 },
                 "bodyEntrada" : {
-                  "codSubCanalEnt" : 0,
-                  "codigoMonedaEnt" : "string",
-                  "numeroPersonaEnt" : 100.5,
-                  "nacIdOrdenanteEnt" : "string",
-                  "nroIdOrdenanteEnt" : 100.5,
-                  "nombreClienteEnt" : "string",
-                  "nroCtaMonedaNacionalEnt" : 100.5,
-                  "nroCtaMeEnt" : 100.5,
-                  "codigoMotivoOperacionEnt" : 0,
-                  "codigoOrigenDestinoFdoEnt" : 0,
+                  "codSubCanalEnt" : 9,
+                  "codigoMonedaEnt" : "VES",
+                  "numeroPersonaEnt" : 12345678,
+                  "nacIdOrdenanteEnt" : 12345678,
+                  "nroIdOrdenanteEnt" : 12345678,
+                  "nombreClienteEnt" : 12345678,
+                  "nroCtaMonedaNacionalEnt" : 12345678,
+                  "nroCtaMeEnt" : "string",
+                  "codigoMotivoOperacionEnt" : 12345678,
+                  "codigoOrigenDestinoFdoEnt" : 1,
                   "numeroTelefonoClienteEnt" : "string",
                   "emailClienteEnt" : "string",
-                  "montoOperDivisaEnt" : 100.5,
-                  "montoOperMonNacEnt" : 100.5,
-                  "montoComisOperEnt" : 100.5,
-                  "tipoCambioDivMenudeoEnt" : 100.5,
-                  "factorCambioDolarEnt" : 100.5
+                  "montoOperDivisaEnt" : 12345678,
+                  "montoOperMonNacEnt" : 12345678,
+                  "montoComisOperEnt" : 12345678,
+                  "tipoCambioDivMenudeoEnt" : "string",
+                  "factorCambioDolarEnt" : "string"
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntrada" : {
+                      "codSubCanalEnt" : 9,
+                      "codigoMonedaEnt" : "VES",
+                      "numeroPersonaEnt" : 12345678,
+                      "nacIdOrdenanteEnt" : 12345678,
+                      "nroIdOrdenanteEnt" : 12345678,
+                      "nombreClienteEnt" : 12345678,
+                      "nroCtaMonedaNacionalEnt" : 12345678,
+                      "nroCtaMeEnt" : "string",
+                      "codigoMotivoOperacionEnt" : 12345678,
+                      "codigoOrigenDestinoFdoEnt" : 1,
+                      "numeroTelefonoClienteEnt" : "string",
+                      "emailClienteEnt" : "string",
+                      "montoOperDivisaEnt" : 12345678,
+                      "montoOperMonNacEnt" : 12345678,
+                      "montoComisOperEnt" : 12345678,
+                      "tipoCambioDivMenudeoEnt" : "string",
+                      "factorCambioDolarEnt" : "string"
+                    }
+                  }
                 }
               }
             }
@@ -387,8 +602,28 @@
                     "horaSalidaMensaje" : "135046"
                   },
                   "bodySalidaRegistrarBancoCompraDivisas" : {
-                    "nroConsecMbu" : 100.5,
-                    "idMoviBcv" : "string"
+                    "nroConsecMbu" : "string",
+                    "idMoviBcv" : 12345678
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaRegistrarBancoCompraDivisas" : {
+                        "nroConsecMbu" : "string",
+                        "idMoviBcv" : 12345678
+                      }
+                    }
                   }
                 }
               }
@@ -433,23 +668,63 @@
                   "cantidadRegistros" : 0
                 },
                 "bodyEntrada" : {
-                  "codSubCanalEnt" : 0,
-                  "codigoMonedaEnt" : "string",
-                  "numeroPersonaEnt" : 100.5,
-                  "nacIdOrdenanteEnt" : "string",
-                  "nroIdOrdenanteEnt" : 100.5,
-                  "nombreClienteEnt" : "string",
-                  "nroCtaMonedaNacionalEnt" : 100.5,
-                  "nroCtaMonedaExtranjeraEnt" : 100.5,
-                  "codigoMotivoOperacionEnt" : 0,
-                  "codigoOrigenDestinoFdoEnt" : 0,
+                  "codSubCanalEnt" : 9,
+                  "codigoMonedaEnt" : "VES",
+                  "numeroPersonaEnt" : 12345678,
+                  "nacIdOrdenanteEnt" : 12345678,
+                  "nroIdOrdenanteEnt" : 12345678,
+                  "nombreClienteEnt" : 12345678,
+                  "nroCtaMonedaNacionalEnt" : 12345678,
+                  "nroCtaMonedaExtranjeraEnt" : "VES",
+                  "codigoMotivoOperacionEnt" : 12345678,
+                  "codigoOrigenDestinoFdoEnt" : 1,
                   "numeroTelefonoClienteEnt" : "string",
                   "emailClienteEnt" : "string",
-                  "montoOperDivisaEnt" : 100.5,
-                  "montoOperMonNacEnt" : 100.5,
-                  "montoComisOperEnt" : 100.5,
-                  "tipoCambioDivMenudeoEnt" : 100.5,
-                  "factorCambioDolarEnt" : 100.5
+                  "montoOperDivisaEnt" : 12345678,
+                  "montoOperMonNacEnt" : 12345678,
+                  "montoComisOperEnt" : 12345678,
+                  "tipoCambioDivMenudeoEnt" : "string",
+                  "factorCambioDolarEnt" : "string"
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntrada" : {
+                      "codSubCanalEnt" : 9,
+                      "codigoMonedaEnt" : "VES",
+                      "numeroPersonaEnt" : 12345678,
+                      "nacIdOrdenanteEnt" : 12345678,
+                      "nroIdOrdenanteEnt" : 12345678,
+                      "nombreClienteEnt" : 12345678,
+                      "nroCtaMonedaNacionalEnt" : 12345678,
+                      "nroCtaMonedaExtranjeraEnt" : "VES",
+                      "codigoMotivoOperacionEnt" : 12345678,
+                      "codigoOrigenDestinoFdoEnt" : 1,
+                      "numeroTelefonoClienteEnt" : "string",
+                      "emailClienteEnt" : "string",
+                      "montoOperDivisaEnt" : 12345678,
+                      "montoOperMonNacEnt" : 12345678,
+                      "montoComisOperEnt" : 12345678,
+                      "tipoCambioDivMenudeoEnt" : "string",
+                      "factorCambioDolarEnt" : "string"
+                    }
+                  }
                 }
               }
             }
@@ -482,8 +757,28 @@
                     "horaSalidaMensaje" : "135046"
                   },
                   "bodySalidaRegistrarBancoVendeDivisas" : {
-                    "nroConsecMbu" : 100.5,
-                    "idMovBcv" : "string"
+                    "nroConsecMbu" : "string",
+                    "idMovBcv" : 12345678
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaRegistrarBancoVendeDivisas" : {
+                        "nroConsecMbu" : "string",
+                        "idMovBcv" : 12345678
+                      }
+                    }
                   }
                 }
               }
@@ -528,15 +823,42 @@
                   "cantidadRegistros" : 0
                 },
                 "bodyEntrada" : {
-                  "refNro" : 1,
-                  "nroPer" : 1,
+                  "refNro" : 12345678,
+                  "nroPer" : 12345678,
                   "codInteg" : 1,
                   "factNro" : "string",
-                  "dbtoRef" : "string",
-                  "origenRef" : 1,
-                  "idComerc" : {
-                    "idCi" : "string",
-                    "nroId" : 1
+                  "dbtoRef" : 12345678,
+                  "origenRef" : 12345678,
+                  "idComerc" : 12345678
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntrada" : {
+                      "refNro" : 12345678,
+                      "nroPer" : 12345678,
+                      "codInteg" : 1,
+                      "factNro" : "string",
+                      "dbtoRef" : 12345678,
+                      "origenRef" : 12345678,
+                      "idComerc" : 12345678
+                    }
                   }
                 }
               }
@@ -565,6 +887,22 @@
                     "codigoMensajeUsuario" : "0000",
                     "fechaSalidaMensaje" : "20251226",
                     "horaSalidaMensaje" : "135046"
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      }
+                    }
                   }
                 }
               }
@@ -609,12 +947,41 @@
                   "cantidadRegistros" : 0
                 },
                 "bodyEntrada" : {
-                  "codSubCanalEnt" : 0,
-                  "tipoOperEnt" : "string",
-                  "codMonedaEnt" : "string",
-                  "nroPerEnt" : 100.5,
-                  "nacIdOrdEnt" : "string",
-                  "nroIdOrdEnt" : 100.5
+                  "codSubCanalEnt" : 9,
+                  "tipoOperEnt" : 12345678,
+                  "codMonedaEnt" : "VES",
+                  "nroPerEnt" : 12345678,
+                  "nacIdOrdEnt" : 12345678,
+                  "nroIdOrdEnt" : 12345678
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntrada" : {
+                      "codSubCanalEnt" : 9,
+                      "tipoOperEnt" : 12345678,
+                      "codMonedaEnt" : "VES",
+                      "nroPerEnt" : 12345678,
+                      "nacIdOrdEnt" : 12345678,
+                      "nroIdOrdEnt" : 12345678
+                    }
+                  }
                 }
               }
             }
@@ -647,14 +1014,40 @@
                     "horaSalidaMensaje" : "135046"
                   },
                   "bodySalidaValidarClienteCompraVentaDivisas" : {
-                    "factorCambioDolar" : 100.5,
-                    "mtoMaxSeg" : 100.5,
+                    "factorCambioDolar" : "string",
+                    "mtoMaxSeg" : "string",
                     "descSegOrd" : "string",
                     "indCupoDisp" : "string",
                     "tipoCambioDivMenudeo" : "string",
-                    "mtoMaxAno" : 100.5,
-                    "mtoMaxMes" : 100.5,
-                    "porcComis" : 100.5
+                    "mtoMaxAno" : "string",
+                    "mtoMaxMes" : "string",
+                    "porcComis" : "string"
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaValidarClienteCompraVentaDivisas" : {
+                        "factorCambioDolar" : "string",
+                        "mtoMaxSeg" : "string",
+                        "descSegOrd" : "string",
+                        "indCupoDisp" : "string",
+                        "tipoCambioDivMenudeo" : "string",
+                        "mtoMaxAno" : "string",
+                        "mtoMaxMes" : "string",
+                        "porcComis" : "string"
+                      }
+                    }
                   }
                 }
               }
@@ -786,7 +1179,8 @@
         "type" : "object",
         "properties" : {
           "headerEntrada" : {
-            "$ref" : "#/components/schemas/HeaderEntrada"
+            "$ref" : "#/components/schemas/HeaderEntrada",
+            "example" : 12345678
           },
           "bodyEntrada" : {
             "$ref" : "#/components/schemas/BodyEntradaConsultarTablaBanco"
@@ -826,14 +1220,16 @@
             "type" : "string"
           },
           "codClasif" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : 12345678
           },
           "indParaisoFiscal" : {
             "type" : "number",
             "format" : "double"
           },
           "codMoneda" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "VES"
           },
           "numCtaPpal" : {
             "type" : "string"
@@ -850,7 +1246,8 @@
             "format" : "double"
           },
           "nomCiudad" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : 12345678
           },
           "codDircab" : {
             "type" : "string"
@@ -867,7 +1264,8 @@
             "format" : "double"
           },
           "nomCalle" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : 12345678
           },
           "nomBanco" : {
             "type" : "string"
@@ -881,7 +1279,8 @@
           },
           "numPer" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : 12345678
           },
           "codBcoBcv" : {
             "type" : "number",
@@ -959,10 +1358,12 @@
         "properties" : {
           "cantReg" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : 12345678
           },
           "paginacion" : {
-            "$ref" : "#/components/schemas/BeanAreaPaginacion"
+            "$ref" : "#/components/schemas/BeanAreaPaginacion",
+            "example" : 12345678
           },
           "bancos" : {
             "type" : "array",
@@ -976,7 +1377,8 @@
         "type" : "object",
         "properties" : {
           "headerEntrada" : {
-            "$ref" : "#/components/schemas/HeaderEntrada"
+            "$ref" : "#/components/schemas/HeaderEntrada",
+            "example" : 12345678
           },
           "bodyEntrada" : {
             "$ref" : "#/components/schemas/BodyEntradaConsultarTablaBancoAmpliada"
@@ -987,7 +1389,8 @@
         "type" : "object",
         "properties" : {
           "bodySalidaConsultarTablaBancoAmpliada" : {
-            "$ref" : "#/components/schemas/BodySalidaConsultarTablaBancoAmpliada"
+            "$ref" : "#/components/schemas/BodySalidaConsultarTablaBancoAmpliada",
+            "example" : 12345678
           }
         }
       },
@@ -995,29 +1398,35 @@
         "type" : "object",
         "properties" : {
           "codigoMonedaEnt" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "VES"
           },
           "numeroCuentaEnt" : {
             "type" : "number",
             "format" : "double"
           },
           "nacIdOrdenanteEnt" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : 12345678
           },
           "nroIdOrdenanteEnt" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : 12345678
           },
           "fecIniBqdaOperEnt" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : 12345678
           },
           "fecFinBqdaOperEnt" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : 12345678
           },
           "tipoOperacionEnt" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : 12345678
           }
         }
       },
@@ -1025,7 +1434,8 @@
         "type" : "object",
         "properties" : {
           "resulValid" : {
-            "type" : "integer"
+            "type" : "integer",
+            "example" : 12345678
           }
         }
       },
@@ -1033,7 +1443,8 @@
         "type" : "object",
         "properties" : {
           "headerEntrada" : {
-            "$ref" : "#/components/schemas/HeaderEntrada"
+            "$ref" : "#/components/schemas/HeaderEntrada",
+            "example" : 12345678
           },
           "bodyEntrada" : {
             "$ref" : "#/components/schemas/BodyEntradaConsultarTransferenciasSimf"
@@ -1044,7 +1455,8 @@
         "type" : "object",
         "properties" : {
           "bodySalidaConsultarTransferenciasSimf" : {
-            "$ref" : "#/components/schemas/BodySalidaConsultarTransferenciasSimf"
+            "$ref" : "#/components/schemas/BodySalidaConsultarTransferenciasSimf",
+            "example" : 12345678
           }
         }
       },
@@ -1052,35 +1464,43 @@
         "type" : "object",
         "properties" : {
           "codSubCanalEnt" : {
-            "type" : "integer"
+            "type" : "integer",
+            "example" : "09"
           },
           "codigoMonedaEnt" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "VES"
           },
           "numeroPersonaEnt" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : 12345678
           },
           "nacIdOrdenanteEnt" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : 12345678
           },
           "nroIdOrdenanteEnt" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : 12345678
           },
           "nombreClienteEnt" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : 12345678
           },
           "nroCtaMonedaNacionalEnt" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : 12345678
           },
           "nroCtaMeEnt" : {
             "type" : "number",
             "format" : "double"
           },
           "codigoMotivoOperacionEnt" : {
-            "type" : "integer"
+            "type" : "integer",
+            "example" : 12345678
           },
           "codigoOrigenDestinoFdoEnt" : {
             "type" : "integer"
@@ -1093,15 +1513,18 @@
           },
           "montoOperDivisaEnt" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : 12345678
           },
           "montoOperMonNacEnt" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : 12345678
           },
           "montoComisOperEnt" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : 12345678
           },
           "tipoCambioDivMenudeoEnt" : {
             "type" : "number",
@@ -1121,7 +1544,8 @@
             "format" : "double"
           },
           "idMoviBcv" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : 12345678
           }
         }
       },
@@ -1129,7 +1553,8 @@
         "type" : "object",
         "properties" : {
           "headerEntrada" : {
-            "$ref" : "#/components/schemas/HeaderEntrada"
+            "$ref" : "#/components/schemas/HeaderEntrada",
+            "example" : 12345678
           },
           "bodyEntrada" : {
             "$ref" : "#/components/schemas/BodyEntradaRegistrarBancoCompraDivisas"
@@ -1140,7 +1565,8 @@
         "type" : "object",
         "properties" : {
           "bodySalidaRegistrarBancoCompraDivisas" : {
-            "$ref" : "#/components/schemas/BodySalidaRegistrarBancoCompraDivisas"
+            "$ref" : "#/components/schemas/BodySalidaRegistrarBancoCompraDivisas",
+            "example" : 12345678
           }
         }
       },
@@ -1148,35 +1574,44 @@
         "type" : "object",
         "properties" : {
           "codSubCanalEnt" : {
-            "type" : "integer"
+            "type" : "integer",
+            "example" : "09"
           },
           "codigoMonedaEnt" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "VES"
           },
           "numeroPersonaEnt" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : 12345678
           },
           "nacIdOrdenanteEnt" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : 12345678
           },
           "nroIdOrdenanteEnt" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : 12345678
           },
           "nombreClienteEnt" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : 12345678
           },
           "nroCtaMonedaNacionalEnt" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : 12345678
           },
           "nroCtaMonedaExtranjeraEnt" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : "VES"
           },
           "codigoMotivoOperacionEnt" : {
-            "type" : "integer"
+            "type" : "integer",
+            "example" : 12345678
           },
           "codigoOrigenDestinoFdoEnt" : {
             "type" : "integer"
@@ -1189,15 +1624,18 @@
           },
           "montoOperDivisaEnt" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : 12345678
           },
           "montoOperMonNacEnt" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : 12345678
           },
           "montoComisOperEnt" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : 12345678
           },
           "tipoCambioDivMenudeoEnt" : {
             "type" : "number",
@@ -1217,7 +1655,8 @@
             "format" : "double"
           },
           "idMovBcv" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : 12345678
           }
         }
       },
@@ -1225,7 +1664,8 @@
         "type" : "object",
         "properties" : {
           "headerEntrada" : {
-            "$ref" : "#/components/schemas/HeaderEntrada"
+            "$ref" : "#/components/schemas/HeaderEntrada",
+            "example" : 12345678
           },
           "bodyEntrada" : {
             "$ref" : "#/components/schemas/BodyEntradaRegistrarBancoVendeDivisas"
@@ -1236,7 +1676,8 @@
         "type" : "object",
         "properties" : {
           "bodySalidaRegistrarBancoVendeDivisas" : {
-            "$ref" : "#/components/schemas/BodySalidaRegistrarBancoVendeDivisas"
+            "$ref" : "#/components/schemas/BodySalidaRegistrarBancoVendeDivisas",
+            "example" : 12345678
           }
         }
       },
@@ -1244,10 +1685,12 @@
         "type" : "object",
         "properties" : {
           "idCi" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : 12345678
           },
           "nroId" : {
-            "type" : "integer"
+            "type" : "integer",
+            "example" : 12345678
           }
         }
       },
@@ -1255,10 +1698,12 @@
         "type" : "object",
         "properties" : {
           "refNro" : {
-            "type" : "integer"
+            "type" : "integer",
+            "example" : 12345678
           },
           "nroPer" : {
-            "type" : "integer"
+            "type" : "integer",
+            "example" : 12345678
           },
           "codInteg" : {
             "type" : "integer"
@@ -1267,13 +1712,16 @@
             "type" : "string"
           },
           "dbtoRef" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : 12345678
           },
           "origenRef" : {
-            "type" : "integer"
+            "type" : "integer",
+            "example" : 12345678
           },
           "idComerc" : {
-            "$ref" : "#/components/schemas/BeanIdComercio"
+            "$ref" : "#/components/schemas/BeanIdComercio",
+            "example" : 12345678
           }
         }
       },
@@ -1281,7 +1729,8 @@
         "type" : "object",
         "properties" : {
           "headerEntrada" : {
-            "$ref" : "#/components/schemas/HeaderEntrada"
+            "$ref" : "#/components/schemas/HeaderEntrada",
+            "example" : 12345678
           },
           "bodyEntrada" : {
             "$ref" : "#/components/schemas/BodyEntradaRegistrarReferenciasDebitoInmediato"
@@ -1296,24 +1745,30 @@
         "type" : "object",
         "properties" : {
           "codSubCanalEnt" : {
-            "type" : "integer"
+            "type" : "integer",
+            "example" : "09"
           },
           "tipoOperEnt" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : 12345678
           },
           "codMonedaEnt" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "VES"
           },
           "nroPerEnt" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : 12345678
           },
           "nacIdOrdEnt" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : 12345678
           },
           "nroIdOrdEnt" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : 12345678
           }
         }
       },
@@ -1355,7 +1810,8 @@
         "type" : "object",
         "properties" : {
           "headerEntrada" : {
-            "$ref" : "#/components/schemas/HeaderEntrada"
+            "$ref" : "#/components/schemas/HeaderEntrada",
+            "example" : 12345678
           },
           "bodyEntrada" : {
             "$ref" : "#/components/schemas/BodyEntradaValidarClienteCompraVentaDivisas"
@@ -1366,7 +1822,8 @@
         "type" : "object",
         "properties" : {
           "bodySalidaValidarClienteCompraVentaDivisas" : {
-            "$ref" : "#/components/schemas/BodySalidaValidarClienteCompraVentaDivisas"
+            "$ref" : "#/components/schemas/BodySalidaValidarClienteCompraVentaDivisas",
+            "example" : 12345678
           }
         }
       },
