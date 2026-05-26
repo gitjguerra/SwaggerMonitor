@@ -62,7 +62,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -81,7 +80,8 @@
                     "bodyEntrada" : {
                       "clave3Des" : 12345678
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -90,6 +90,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -113,7 +114,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -124,12 +124,12 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -175,7 +175,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -195,7 +194,8 @@
                       "valorClaveNueva" : 12345678,
                       "periodoVencimiento" : 12345678
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -204,6 +204,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -227,7 +228,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -238,12 +238,12 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -286,7 +286,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -303,7 +302,8 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntrada" : { }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -312,6 +312,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -335,7 +336,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -346,12 +346,12 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -397,7 +397,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -417,7 +416,8 @@
                       "valorClave" : 12345678,
                       "periodoVencimiento" : 12345678
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -426,6 +426,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -449,7 +450,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -460,12 +460,12 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -508,7 +508,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -525,7 +524,8 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntrada" : { }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -534,6 +534,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -566,7 +567,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -583,12 +583,12 @@
                         "fechaUltimoIngreso" : "string",
                         "fechaVencimiento" : 12345678
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -627,7 +627,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -643,7 +642,8 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -652,6 +652,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -683,7 +684,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -699,12 +699,12 @@
                         "expir" : 12345678,
                         "tipoToken" : "string"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -749,12 +749,11 @@
                   "userReference" : 12345678,
                   "reportingCriteria" : "string",
                   "callbackUrl" : "string",
-                  "workflowDefinition" : 12345678
+                  "workflowDefinition" : { }
                 }
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -776,9 +775,10 @@
                       "userReference" : 12345678,
                       "reportingCriteria" : "string",
                       "callbackUrl" : "string",
-                      "workflowDefinition" : 12345678
+                      "workflowDefinition" : { }
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -787,6 +787,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -812,7 +813,9 @@
                   },
                   "bodySalidaCrearCuenta" : {
                     "timestamp" : "string",
-                    "account" : 12345678,
+                    "account" : {
+                      "id" : 12345678
+                    },
                     "web" : { },
                     "sdk" : { },
                     "workflowExecution" : { }
@@ -820,7 +823,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -833,17 +835,19 @@
                       },
                       "bodySalidaCrearCuenta" : {
                         "timestamp" : "string",
-                        "account" : 12345678,
+                        "account" : {
+                          "id" : 12345678
+                        },
                         "web" : { },
                         "sdk" : { },
                         "workflowExecution" : { }
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -890,7 +894,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -911,7 +914,8 @@
                       "accountId" : 12345678,
                       "workflowExecutionId" : 12345678
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -920,6 +924,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -945,8 +950,14 @@
                   },
                   "bodySalidaRecuperarDetallesId" : {
                     "workflow" : { },
-                    "account" : 12345678,
-                    "decision" : 12345678,
+                    "account" : {
+                      "id" : 12345678
+                    },
+                    "decision" : {
+                      "tipo" : "string",
+                      "detalles" : { },
+                      "riesgo" : { }
+                    },
                     "credentials" : [ {
                       "id" : 12345678,
                       "categoria" : "string",
@@ -972,7 +983,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -985,8 +995,14 @@
                       },
                       "bodySalidaRecuperarDetallesId" : {
                         "workflow" : { },
-                        "account" : 12345678,
-                        "decision" : 12345678,
+                        "account" : {
+                          "id" : 12345678
+                        },
+                        "decision" : {
+                          "tipo" : "string",
+                          "detalles" : { },
+                          "riesgo" : { }
+                        },
                         "credentials" : [ {
                           "id" : 12345678,
                           "categoria" : "string",
@@ -1009,12 +1025,12 @@
                         "completedAt" : "string",
                         "wipedOutAt" : "string"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1062,7 +1078,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1084,7 +1099,8 @@
                       "credentialId" : 12345678,
                       "part" : "string"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -1093,6 +1109,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1122,7 +1139,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1136,12 +1152,12 @@
                       "bodySalidaRecuperarImagen" : {
                         "imagen" : "base64-string"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1185,12 +1201,11 @@
                   "accountId" : 12345678,
                   "customerInternalReference" : 12345678,
                   "userReference" : 12345678,
-                  "workflowDefinition" : 12345678
+                  "workflowDefinition" : { }
                 }
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1211,9 +1226,10 @@
                       "accountId" : 12345678,
                       "customerInternalReference" : 12345678,
                       "userReference" : 12345678,
-                      "workflowDefinition" : 12345678
+                      "workflowDefinition" : { }
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -1222,6 +1238,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1247,7 +1264,9 @@
                   },
                   "bodySalidaActualizarCuenta" : {
                     "timestamp" : "string",
-                    "account" : 12345678,
+                    "account" : {
+                      "id" : 12345678
+                    },
                     "web" : { },
                     "sdk" : { },
                     "workflowExecution" : { }
@@ -1255,7 +1274,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1268,17 +1286,19 @@
                       },
                       "bodySalidaActualizarCuenta" : {
                         "timestamp" : "string",
-                        "account" : 12345678,
+                        "account" : {
+                          "id" : 12345678
+                        },
                         "web" : { },
                         "sdk" : { },
                         "workflowExecution" : { }
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1326,7 +1346,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1348,7 +1367,8 @@
                       "metainfo" : 12345678,
                       "applid" : 12345678
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -1357,6 +1377,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1380,7 +1401,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1391,12 +1411,12 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1444,7 +1464,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1466,7 +1485,8 @@
                       "metainfo" : 12345678,
                       "applid" : 12345678
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -1475,6 +1495,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1498,7 +1519,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1509,12 +1529,12 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1559,7 +1579,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1578,7 +1597,8 @@
                     "bodyEntrada" : {
                       "qr" : "string"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -1587,6 +1607,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1610,7 +1631,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1621,12 +1641,12 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1676,7 +1696,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1700,7 +1719,8 @@
                       "name" : "string",
                       "totp" : "string"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -1709,6 +1729,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1738,7 +1759,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1752,12 +1772,12 @@
                       "bodySalidaGenerateQR" : {
                         "qr" : "string"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1807,7 +1827,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1831,7 +1850,8 @@
                       "name" : "string",
                       "totp" : "string"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -1840,6 +1860,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1869,7 +1890,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1883,12 +1903,12 @@
                       "bodySalidaGenerateQR" : {
                         "qr" : "string"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1909,9 +1929,9 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "type" : "string",
+            "minLength" : 1,
             "maxLength" : 4,
-            "minLength" : 1
+            "type" : "string"
           },
           "identificacionUsuario" : {
             "type" : "string"
@@ -2131,7 +2151,8 @@
             "type" : "array",
             "items" : {
               "type" : "string"
-            }
+            },
+            "example" : 12345678
           },
           "api" : {
             "$ref" : "#/components/schemas/Api"
@@ -2396,7 +2417,8 @@
         "type" : "object",
         "properties" : {
           "codigoPais" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "VE"
           },
           "estado" : {
             "type" : "string"
@@ -2553,7 +2575,8 @@
             "example" : 12345678
           },
           "codigo" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "0001"
           },
           "descripcion" : {
             "type" : "string",
@@ -3282,7 +3305,8 @@
             "example" : "V"
           },
           "codPais" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "VE"
           }
         }
       },
@@ -3562,7 +3586,8 @@
             "example" : 12345678
           },
           "codPais" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "VE"
           },
           "tipoId" : {
             "type" : "string",
@@ -3661,7 +3686,8 @@
         "type" : "object",
         "properties" : {
           "codigo" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "0001"
           },
           "descripcion" : {
             "type" : "string",
@@ -3962,8 +3988,8 @@
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "type" : "http",
         "bearerFormat" : "JWT",
+        "type" : "http",
         "scheme" : "bearer"
       }
     }

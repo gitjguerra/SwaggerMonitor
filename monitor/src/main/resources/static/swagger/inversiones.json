@@ -62,14 +62,13 @@
                   "numeroPersona" : 12345678,
                   "tipoOperacion" : 12345678,
                   "codigoMoneda" : "VES",
-                  "mtoPacto" : "string",
+                  "mtoPacto" : "VES",
                   "subCanal" : "09",
                   "tasaSubastaUsd" : 36.75
                 }
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -91,11 +90,12 @@
                       "numeroPersona" : 12345678,
                       "tipoOperacion" : 12345678,
                       "codigoMoneda" : "VES",
-                      "mtoPacto" : "string",
+                      "mtoPacto" : "VES",
                       "subCanal" : "09",
                       "tasaSubastaUsd" : 36.75
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -104,6 +104,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -138,26 +139,26 @@
                     "horaCierre" : 12345678,
                     "indCierreMelp" : 12345678,
                     "indCierreCanal" : 12345678,
-                    "horaApertura" : "string",
+                    "horaApertura" : 12345678,
                     "tasaTransferencia" : 12345678,
                     "nroTlfnCliente" : "string",
                     "nombreCliente" : 12345678,
-                    "montoComision" : "string",
-                    "codigoProducto" : "string",
+                    "montoComision" : "VES",
+                    "codigoProducto" : "02",
                     "montoMultiploSolicitud" : 12345678,
                     "tasaVentaEur" : 12345678,
                     "emailCliente" : "string",
                     "tasaComisionVenta" : 36.75,
                     "tasaCompraUsdEur" : 36.75,
-                    "montoMinPacto" : "string",
+                    "montoMinPacto" : "VES",
                     "tasaVentaUsd" : 12345678,
                     "tasaVentaUsdEur" : 12345678,
                     "codMonedaIsoUsd" : "VES",
-                    "montoSwift" : "string",
+                    "montoSwift" : "VES",
                     "codMonedaIsoEur" : "VES",
-                    "codigoEmpresa" : "string",
+                    "codigoEmpresa" : "0108",
                     "montoOperacionNeto" : 12345678,
-                    "montoMaxPacto" : "string",
+                    "montoMaxPacto" : "VES",
                     "montoOperacionBs" : 12345678,
                     "fechaCtaMercantil" : 12345678,
                     "indCierreMele" : 12345678
@@ -165,7 +166,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -187,36 +187,36 @@
                         "horaCierre" : 12345678,
                         "indCierreMelp" : 12345678,
                         "indCierreCanal" : 12345678,
-                        "horaApertura" : "string",
+                        "horaApertura" : 12345678,
                         "tasaTransferencia" : 12345678,
                         "nroTlfnCliente" : "string",
                         "nombreCliente" : 12345678,
-                        "montoComision" : "string",
-                        "codigoProducto" : "string",
+                        "montoComision" : "VES",
+                        "codigoProducto" : "02",
                         "montoMultiploSolicitud" : 12345678,
                         "tasaVentaEur" : 12345678,
                         "emailCliente" : "string",
                         "tasaComisionVenta" : 36.75,
                         "tasaCompraUsdEur" : 36.75,
-                        "montoMinPacto" : "string",
+                        "montoMinPacto" : "VES",
                         "tasaVentaUsd" : 12345678,
                         "tasaVentaUsdEur" : 12345678,
                         "codMonedaIsoUsd" : "VES",
-                        "montoSwift" : "string",
+                        "montoSwift" : "VES",
                         "codMonedaIsoEur" : "VES",
-                        "codigoEmpresa" : "string",
+                        "codigoEmpresa" : "0108",
                         "montoOperacionNeto" : 12345678,
-                        "montoMaxPacto" : "string",
+                        "montoMaxPacto" : "VES",
                         "montoOperacionBs" : 12345678,
                         "fechaCtaMercantil" : 12345678,
                         "indCierreMele" : 12345678
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -255,7 +255,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -271,7 +270,8 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -280,6 +280,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -303,7 +304,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -314,12 +314,12 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -359,18 +359,18 @@
                   "cantidadRegistros" : 0
                 },
                 "bodyEntrada" : {
-                  "codigoEmpresa" : "string",
-                  "codigoProducto" : "string",
+                  "codigoEmpresa" : "0108",
+                  "codigoProducto" : "02",
                   "numeroPersona" : 12345678,
                   "tipoIdentificacion" : "V",
                   "cedulaRif" : 12345678,
                   "tipoOperacion" : 12345678,
-                  "mtoPacto" : "string",
+                  "mtoPacto" : "VES",
                   "codigoMoneda" : "VES",
                   "cuentaBolivares" : "string",
                   "cuentaDivisas" : "string",
                   "mtoOperacionBs" : 12345678,
-                  "mtoComision" : "string",
+                  "mtoComision" : "VES",
                   "tasaComisionCompra" : 36.75,
                   "tasaComisionVenta" : 36.75,
                   "tasaCambio" : 36.75,
@@ -385,31 +385,30 @@
                   "codMonedaIsoUsd" : "VES",
                   "codMonedaIsoEur" : "VES",
                   "subCanal" : "09",
-                  "codigoSegmento" : "string",
+                  "codigoSegmento" : "0001",
                   "origenFondos" : "string",
                   "destinoFondos" : "string",
                   "actividadEconomica" : 12345678,
                   "dna" : "string",
                   "sesscookie" : "string",
-                  "horaApertura" : "string",
+                  "horaApertura" : 12345678,
                   "horaCierre" : 12345678,
                   "nombreCliente" : 12345678,
                   "nroTlfnCliente" : "string",
                   "emailCliente" : "string",
-                  "mtoSwift" : "string",
+                  "mtoSwift" : "VES",
                   "mtoTransferencia" : 12345678,
                   "tasaSwift" : 36.75,
                   "tasaTransferencia" : 12345678,
                   "ctaExtranjera" : "string",
                   "bcoExtranjero" : "string",
-                  "codSwift" : "string",
-                  "codAba" : "string",
-                  "codSwiftCorr" : "string"
+                  "codSwift" : "0001",
+                  "codAba" : "0001",
+                  "codSwiftCorr" : "0001"
                 }
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -426,18 +425,18 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntrada" : {
-                      "codigoEmpresa" : "string",
-                      "codigoProducto" : "string",
+                      "codigoEmpresa" : "0108",
+                      "codigoProducto" : "02",
                       "numeroPersona" : 12345678,
                       "tipoIdentificacion" : "V",
                       "cedulaRif" : 12345678,
                       "tipoOperacion" : 12345678,
-                      "mtoPacto" : "string",
+                      "mtoPacto" : "VES",
                       "codigoMoneda" : "VES",
                       "cuentaBolivares" : "string",
                       "cuentaDivisas" : "string",
                       "mtoOperacionBs" : 12345678,
-                      "mtoComision" : "string",
+                      "mtoComision" : "VES",
                       "tasaComisionCompra" : 36.75,
                       "tasaComisionVenta" : 36.75,
                       "tasaCambio" : 36.75,
@@ -452,28 +451,29 @@
                       "codMonedaIsoUsd" : "VES",
                       "codMonedaIsoEur" : "VES",
                       "subCanal" : "09",
-                      "codigoSegmento" : "string",
+                      "codigoSegmento" : "0001",
                       "origenFondos" : "string",
                       "destinoFondos" : "string",
                       "actividadEconomica" : 12345678,
                       "dna" : "string",
                       "sesscookie" : "string",
-                      "horaApertura" : "string",
+                      "horaApertura" : 12345678,
                       "horaCierre" : 12345678,
                       "nombreCliente" : 12345678,
                       "nroTlfnCliente" : "string",
                       "emailCliente" : "string",
-                      "mtoSwift" : "string",
+                      "mtoSwift" : "VES",
                       "mtoTransferencia" : 12345678,
                       "tasaSwift" : 36.75,
                       "tasaTransferencia" : 12345678,
                       "ctaExtranjera" : "string",
                       "bcoExtranjero" : "string",
-                      "codSwift" : "string",
-                      "codAba" : "string",
-                      "codSwiftCorr" : "string"
+                      "codSwift" : "0001",
+                      "codAba" : "0001",
+                      "codSwiftCorr" : "0001"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -482,6 +482,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -508,12 +509,14 @@
                   "bodySalidaCrearOrdenCompraVenta" : {
                     "numeroOrden" : "string",
                     "datosControl" : "string",
-                    "salidaMenudeo" : 12345678
+                    "salidaMenudeo" : {
+                      "nroConsecMbuSal" : "string",
+                      "idMovimientoBcvSal" : 12345678
+                    }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -527,14 +530,17 @@
                       "bodySalidaCrearOrdenCompraVenta" : {
                         "numeroOrden" : "string",
                         "datosControl" : "string",
-                        "salidaMenudeo" : 12345678
+                        "salidaMenudeo" : {
+                          "nroConsecMbuSal" : "string",
+                          "idMovimientoBcvSal" : 12345678
+                        }
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -582,7 +588,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -604,7 +609,8 @@
                       "numeroPersona" : 12345678,
                       "subCanal" : "09"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -613,6 +619,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -638,12 +645,18 @@
                   },
                   "bodySalidaValidarDatosCliente" : {
                     "cantidadOperaciones" : 12345678,
-                    "instruccionPago" : 12345678
+                    "instruccionPago" : [ {
+                      "codigoSwiftCorr" : "0001",
+                      "codigoAba" : "0001",
+                      "codigoMoneda" : "VES",
+                      "bancoExtranjero" : "string",
+                      "cuentaExtranjera" : "string",
+                      "codigoSwift" : "0001"
+                    } ]
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -656,14 +669,21 @@
                       },
                       "bodySalidaValidarDatosCliente" : {
                         "cantidadOperaciones" : 12345678,
-                        "instruccionPago" : 12345678
+                        "instruccionPago" : [ {
+                          "codigoSwiftCorr" : "0001",
+                          "codigoAba" : "0001",
+                          "codigoMoneda" : "VES",
+                          "bancoExtranjero" : "string",
+                          "cuentaExtranjera" : "string",
+                          "codigoSwift" : "0001"
+                        } ]
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -684,9 +704,9 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "type" : "string",
+            "minLength" : 1,
             "maxLength" : 4,
-            "minLength" : 1
+            "type" : "string"
           },
           "identificacionUsuario" : {
             "type" : "string"
@@ -769,7 +789,8 @@
           },
           "mtoPacto" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : "VES"
           },
           "subCanal" : {
             "type" : "number",
@@ -832,7 +853,8 @@
           },
           "horaApertura" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : 12345678
           },
           "tasaTransferencia" : {
             "type" : "number",
@@ -848,10 +870,12 @@
           },
           "montoComision" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : "VES"
           },
           "codigoProducto" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "02"
           },
           "montoMultiploSolicitud" : {
             "type" : "number",
@@ -876,7 +900,8 @@
           },
           "montoMinPacto" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : "VES"
           },
           "tasaVentaUsd" : {
             "type" : "string",
@@ -893,7 +918,8 @@
           },
           "montoSwift" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : "VES"
           },
           "codMonedaIsoEur" : {
             "type" : "number",
@@ -901,7 +927,8 @@
             "example" : "VES"
           },
           "codigoEmpresa" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "0108"
           },
           "montoOperacionNeto" : {
             "type" : "number",
@@ -910,7 +937,8 @@
           },
           "montoMaxPacto" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : "VES"
           },
           "montoOperacionBs" : {
             "type" : "number",
@@ -1011,7 +1039,8 @@
             "example" : 36.75
           },
           "montoDivisa" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "VES"
           },
           "contravalorBs" : {
             "type" : "string",
@@ -1026,7 +1055,8 @@
             "example" : 12345678
           },
           "codigoSubasta" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "0001"
           },
           "index" : {
             "type" : "number",
@@ -1127,7 +1157,8 @@
           },
           "errorCode" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : "0001"
           },
           "transmissionId" : {
             "type" : "string",
@@ -1163,10 +1194,12 @@
         "type" : "object",
         "properties" : {
           "codigoEmpresa" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "0108"
           },
           "codigoProducto" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "02"
           },
           "numeroPersona" : {
             "type" : "number",
@@ -1189,7 +1222,8 @@
           },
           "mtoPacto" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : "VES"
           },
           "codigoMoneda" : {
             "type" : "string",
@@ -1210,7 +1244,8 @@
           },
           "mtoComision" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : "VES"
           },
           "tasaComisionCompra" : {
             "type" : "number",
@@ -1276,7 +1311,8 @@
             "example" : "09"
           },
           "codigoSegmento" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "0001"
           },
           "origenFondos" : {
             "type" : "number",
@@ -1299,7 +1335,8 @@
           },
           "horaApertura" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : 12345678
           },
           "horaCierre" : {
             "type" : "number",
@@ -1318,7 +1355,8 @@
           },
           "mtoSwift" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : "VES"
           },
           "mtoTransferencia" : {
             "type" : "number",
@@ -1342,13 +1380,16 @@
             "type" : "string"
           },
           "codSwift" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "0001"
           },
           "codAba" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "0001"
           },
           "codSwiftCorr" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "0001"
           }
         }
       },
@@ -1393,10 +1434,12 @@
         "type" : "object",
         "properties" : {
           "codigoSwiftCorr" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "0001"
           },
           "codigoAba" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "0001"
           },
           "codigoMoneda" : {
             "type" : "string",
@@ -1409,7 +1452,8 @@
             "type" : "string"
           },
           "codigoSwift" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "0001"
           }
         }
       },
@@ -1550,8 +1594,8 @@
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "type" : "http",
         "bearerFormat" : "JWT",
+        "type" : "http",
         "scheme" : "bearer"
       }
     }

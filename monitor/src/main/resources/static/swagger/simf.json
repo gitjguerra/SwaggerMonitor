@@ -65,7 +65,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -90,7 +89,8 @@
                       "fecFinBqdaOperEnt" : 12345678,
                       "tipoOperacionEnt" : 12345678
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -99,6 +99,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -128,7 +129,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -142,12 +142,12 @@
                       "bodySalidaConsultarTransferenciasSimf" : {
                         "resulValid" : 12345678
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -192,7 +192,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -211,7 +210,8 @@
                     "bodyEntrada" : {
                       "codBco" : 1
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -220,6 +220,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -251,7 +252,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -267,12 +267,12 @@
                         "codBco" : [ { } ],
                         "nomBco" : [ { } ]
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -313,17 +313,16 @@
                 },
                 "bodyEntrada" : {
                   "codSudeban" : 1,
-                  "codAba" : "string",
+                  "codAba" : "0001",
                   "bcoPignora" : "string",
                   "indBusqIndice" : "string",
                   "sitBco" : "string",
-                  "codSuc" : "string",
-                  "codSwift" : "string"
+                  "codSuc" : "0001",
+                  "codSwift" : "0001"
                 }
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -341,14 +340,15 @@
                     },
                     "bodyEntrada" : {
                       "codSudeban" : 1,
-                      "codAba" : "string",
+                      "codAba" : "0001",
                       "bcoPignora" : "string",
                       "indBusqIndice" : "string",
                       "sitBco" : "string",
-                      "codSuc" : "string",
-                      "codSwift" : "string"
+                      "codSuc" : "0001",
+                      "codSwift" : "0001"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -357,6 +357,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -382,10 +383,12 @@
                   },
                   "bodySalidaConsultarTablaBancoAmpliada" : {
                     "cantReg" : 12345678,
-                    "paginacion" : 12345678,
+                    "paginacion" : {
+                      "apVectPp" : [ { } ]
+                    },
                     "bancos" : [ {
-                      "codBcoAba" : "string",
-                      "codAla" : "string",
+                      "codBcoAba" : "0001",
+                      "codAla" : "0001",
                       "nomEstado" : "string",
                       "numTelf2" : "string",
                       "numTelf1" : "string",
@@ -397,17 +400,17 @@
                       "indConversion" : "string",
                       "tipoPagoMovi" : "string",
                       "nomCiudad" : 12345678,
-                      "codDircab" : "string",
+                      "codDircab" : "0001",
                       "indBcoPignora" : "string",
-                      "codPost" : "string",
+                      "codPost" : "0001",
                       "indOtraDivisa" : "string",
                       "nomCalle" : 12345678,
                       "nomBanco" : "string",
                       "sitBanco" : "string",
                       "fchaAct" : "string",
                       "numPer" : 12345678,
-                      "codBcoBcv" : "string",
-                      "codBcoSwift" : "string",
+                      "codBcoBcv" : "0001",
+                      "codBcoSwift" : "0001",
                       "nroCarnet" : "string",
                       "numCtaBcv" : "string",
                       "numTelex1" : "string",
@@ -420,7 +423,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -433,10 +435,12 @@
                       },
                       "bodySalidaConsultarTablaBancoAmpliada" : {
                         "cantReg" : 12345678,
-                        "paginacion" : 12345678,
+                        "paginacion" : {
+                          "apVectPp" : [ { } ]
+                        },
                         "bancos" : [ {
-                          "codBcoAba" : "string",
-                          "codAla" : "string",
+                          "codBcoAba" : "0001",
+                          "codAla" : "0001",
                           "nomEstado" : "string",
                           "numTelf2" : "string",
                           "numTelf1" : "string",
@@ -448,17 +452,17 @@
                           "indConversion" : "string",
                           "tipoPagoMovi" : "string",
                           "nomCiudad" : 12345678,
-                          "codDircab" : "string",
+                          "codDircab" : "0001",
                           "indBcoPignora" : "string",
-                          "codPost" : "string",
+                          "codPost" : "0001",
                           "indOtraDivisa" : "string",
                           "nomCalle" : 12345678,
                           "nomBanco" : "string",
                           "sitBanco" : "string",
                           "fchaAct" : "string",
                           "numPer" : 12345678,
-                          "codBcoBcv" : "string",
-                          "codBcoSwift" : "string",
+                          "codBcoBcv" : "0001",
+                          "codBcoSwift" : "0001",
                           "nroCarnet" : "string",
                           "numCtaBcv" : "string",
                           "numTelex1" : "string",
@@ -468,12 +472,12 @@
                           "numTelex2" : "string"
                         } ]
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -534,7 +538,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -569,7 +572,8 @@
                       "tipoCambioDivMenudeoEnt" : "string",
                       "factorCambioDolarEnt" : "string"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -578,6 +582,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -608,7 +613,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -623,12 +627,12 @@
                         "nroConsecMbu" : "string",
                         "idMoviBcv" : 12345678
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -689,7 +693,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -724,7 +727,8 @@
                       "tipoCambioDivMenudeoEnt" : "string",
                       "factorCambioDolarEnt" : "string"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -733,6 +737,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -763,7 +768,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -778,12 +782,12 @@
                         "nroConsecMbu" : "string",
                         "idMovBcv" : 12345678
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -829,12 +833,14 @@
                   "factNro" : "string",
                   "dbtoRef" : 12345678,
                   "origenRef" : 12345678,
-                  "idComerc" : 12345678
+                  "idComerc" : {
+                    "idCi" : 12345678,
+                    "nroId" : 12345678
+                  }
                 }
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -857,9 +863,13 @@
                       "factNro" : "string",
                       "dbtoRef" : 12345678,
                       "origenRef" : 12345678,
-                      "idComerc" : 12345678
+                      "idComerc" : {
+                        "idCi" : 12345678,
+                        "nroId" : 12345678
+                      }
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -868,6 +878,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -891,7 +902,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -902,12 +912,12 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -957,7 +967,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -981,7 +990,8 @@
                       "nacIdOrdEnt" : 12345678,
                       "nroIdOrdEnt" : 12345678
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
@@ -990,6 +1000,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1015,18 +1026,17 @@
                   },
                   "bodySalidaValidarClienteCompraVentaDivisas" : {
                     "factorCambioDolar" : "string",
-                    "mtoMaxSeg" : "string",
+                    "mtoMaxSeg" : "VES",
                     "descSegOrd" : "string",
                     "indCupoDisp" : "string",
                     "tipoCambioDivMenudeo" : "string",
-                    "mtoMaxAno" : "string",
-                    "mtoMaxMes" : "string",
+                    "mtoMaxAno" : "VES",
+                    "mtoMaxMes" : "VES",
                     "porcComis" : "string"
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1039,20 +1049,20 @@
                       },
                       "bodySalidaValidarClienteCompraVentaDivisas" : {
                         "factorCambioDolar" : "string",
-                        "mtoMaxSeg" : "string",
+                        "mtoMaxSeg" : "VES",
                         "descSegOrd" : "string",
                         "indCupoDisp" : "string",
                         "tipoCambioDivMenudeo" : "string",
-                        "mtoMaxAno" : "string",
-                        "mtoMaxMes" : "string",
+                        "mtoMaxAno" : "VES",
+                        "mtoMaxMes" : "VES",
                         "porcComis" : "string"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1073,9 +1083,9 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "type" : "string",
+            "minLength" : 1,
             "maxLength" : 4,
-            "minLength" : 1
+            "type" : "string"
           },
           "identificacionUsuario" : {
             "type" : "string"
@@ -1134,7 +1144,8 @@
         "type" : "object",
         "properties" : {
           "codBco" : {
-            "type" : "integer"
+            "type" : "integer",
+            "example" : "0001"
           }
         }
       },
@@ -1151,7 +1162,8 @@
             "type" : "array",
             "items" : {
               "type" : "integer"
-            }
+            },
+            "example" : "0001"
           },
           "nomBco" : {
             "type" : "array",
@@ -1168,7 +1180,8 @@
             "type" : "string"
           },
           "codBco" : {
-            "type" : "integer"
+            "type" : "integer",
+            "example" : "0001"
           },
           "nomBco" : {
             "type" : "string"
@@ -1204,11 +1217,13 @@
         "properties" : {
           "codBcoAba" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : "0001"
           },
           "codAla" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : "0001"
           },
           "nomEstado" : {
             "type" : "string"
@@ -1250,14 +1265,16 @@
             "example" : 12345678
           },
           "codDircab" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "0001"
           },
           "indBcoPignora" : {
             "type" : "number",
             "format" : "double"
           },
           "codPost" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "0001"
           },
           "indOtraDivisa" : {
             "type" : "number",
@@ -1284,10 +1301,12 @@
           },
           "codBcoBcv" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : "0001"
           },
           "codBcoSwift" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "0001"
           },
           "nroCarnet" : {
             "type" : "number",
@@ -1330,11 +1349,13 @@
         "type" : "object",
         "properties" : {
           "codSudeban" : {
-            "type" : "integer"
+            "type" : "integer",
+            "example" : "0001"
           },
           "codAba" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : "0001"
           },
           "bcoPignora" : {
             "type" : "string"
@@ -1346,10 +1367,12 @@
             "type" : "string"
           },
           "codSuc" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "0001"
           },
           "codSwift" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "0001"
           }
         }
       },
@@ -1503,7 +1526,8 @@
             "example" : 12345678
           },
           "codigoOrigenDestinoFdoEnt" : {
-            "type" : "integer"
+            "type" : "integer",
+            "example" : "0001"
           },
           "numeroTelefonoClienteEnt" : {
             "type" : "string"
@@ -1614,7 +1638,8 @@
             "example" : 12345678
           },
           "codigoOrigenDestinoFdoEnt" : {
-            "type" : "integer"
+            "type" : "integer",
+            "example" : "0001"
           },
           "numeroTelefonoClienteEnt" : {
             "type" : "string"
@@ -1706,7 +1731,8 @@
             "example" : 12345678
           },
           "codInteg" : {
-            "type" : "integer"
+            "type" : "integer",
+            "example" : "0001"
           },
           "factNro" : {
             "type" : "string"
@@ -1781,7 +1807,8 @@
           },
           "mtoMaxSeg" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : "VES"
           },
           "descSegOrd" : {
             "type" : "string"
@@ -1794,11 +1821,13 @@
           },
           "mtoMaxAno" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : "VES"
           },
           "mtoMaxMes" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "example" : "VES"
           },
           "porcComis" : {
             "type" : "number",
@@ -1874,8 +1903,8 @@
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "type" : "http",
         "bearerFormat" : "JWT",
+        "type" : "http",
         "scheme" : "bearer"
       }
     }
