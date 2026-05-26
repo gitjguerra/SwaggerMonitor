@@ -9,14 +9,14 @@
     "url" : "/simf"
   } ],
   "tags" : [ {
-    "name" : "Consultar Root",
-    "description" : "Operaciones Consultar Root"
+    "description" : "Operaciones Consultar Root",
+    "name" : "Consultar Root"
   }, {
-    "name" : "Registrar Root",
-    "description" : "Operaciones Registrar Root"
+    "description" : "Operaciones Registrar Root",
+    "name" : "Registrar Root"
   }, {
-    "name" : "Validar Root",
-    "description" : "Operaciones Validar Root"
+    "description" : "Operaciones Validar Root",
+    "name" : "Validar Root"
   } ],
   "paths" : {
     "/consultar/transferencias-simf" : {
@@ -680,9 +680,9 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "minLength" : 1,
+            "type" : "string",
             "maxLength" : 4,
-            "type" : "string"
+            "minLength" : 1
           },
           "identificacionUsuario" : {
             "type" : "string"
@@ -1418,8 +1418,8 @@
     "securitySchemes" : {
       "bearerAuth" : {
         "type" : "http",
-        "scheme" : "bearer",
-        "bearerFormat" : "JWT"
+        "bearerFormat" : "JWT",
+        "scheme" : "bearer"
       }
     }
   },

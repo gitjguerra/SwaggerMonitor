@@ -9,17 +9,17 @@
     "url" : "/security"
   } ],
   "tags" : [ {
-    "name" : "Clave Telefonica Root",
-    "description" : "Operaciones Clave Telefonica Root"
+    "description" : "Operaciones Clave Telefonica Root",
+    "name" : "Clave Telefonica Root"
   }, {
-    "name" : "Jumio Root",
-    "description" : "Operaciones Jumio Root"
+    "description" : "Operaciones Jumio Root",
+    "name" : "Jumio Root"
   }, {
-    "name" : "JWTRoot",
-    "description" : "Operaciones JWTRoot"
+    "description" : "Operaciones JWTRoot",
+    "name" : "JWTRoot"
   }, {
-    "name" : "QRRoot",
-    "description" : "Operaciones QRRoot"
+    "description" : "Operaciones QRRoot",
+    "name" : "QRRoot"
   } ],
   "paths" : {
     "/clave-telefonica/autenticar" : {
@@ -1234,9 +1234,9 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "minLength" : 1,
+            "type" : "string",
             "maxLength" : 4,
-            "type" : "string"
+            "minLength" : 1
           },
           "identificacionUsuario" : {
             "type" : "string"
@@ -3142,8 +3142,8 @@
     "securitySchemes" : {
       "bearerAuth" : {
         "type" : "http",
-        "scheme" : "bearer",
-        "bearerFormat" : "JWT"
+        "bearerFormat" : "JWT",
+        "scheme" : "bearer"
       }
     }
   },

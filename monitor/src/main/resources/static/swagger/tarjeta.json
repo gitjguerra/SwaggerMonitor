@@ -9,26 +9,26 @@
     "url" : "/tarjeta"
   } ],
   "tags" : [ {
-    "name" : "Actualizar Root",
-    "description" : "Operaciones Actualizar Root"
+    "description" : "Operaciones Actualizar Root",
+    "name" : "Actualizar Root"
   }, {
-    "name" : "Afiliar Root",
-    "description" : "Operaciones Afiliar Root"
+    "description" : "Operaciones Afiliar Root",
+    "name" : "Afiliar Root"
   }, {
-    "name" : "Consultar Root",
-    "description" : "Operaciones Consultar Root"
+    "description" : "Operaciones Consultar Root",
+    "name" : "Consultar Root"
   }, {
-    "name" : "Insertar Root",
-    "description" : "Operaciones Insertar Root"
+    "description" : "Operaciones Insertar Root",
+    "name" : "Insertar Root"
   }, {
-    "name" : "Recibir Root",
-    "description" : "Operaciones Recibir Root"
+    "description" : "Operaciones Recibir Root",
+    "name" : "Recibir Root"
   }, {
-    "name" : "Solicitar Root",
-    "description" : "Operaciones Solicitar Root"
+    "description" : "Operaciones Solicitar Root",
+    "name" : "Solicitar Root"
   }, {
-    "name" : "Suspender Root",
-    "description" : "Operaciones Suspender Root"
+    "description" : "Operaciones Suspender Root",
+    "name" : "Suspender Root"
   } ],
   "paths" : {
     "/actualizar/pago-cuota" : {
@@ -1735,9 +1735,9 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "minLength" : 1,
+            "type" : "string",
             "maxLength" : 4,
-            "type" : "string"
+            "minLength" : 1
           },
           "identificacionUsuario" : {
             "type" : "string"
@@ -3495,8 +3495,8 @@
     "securitySchemes" : {
       "bearerAuth" : {
         "type" : "http",
-        "scheme" : "bearer",
-        "bearerFormat" : "JWT"
+        "bearerFormat" : "JWT",
+        "scheme" : "bearer"
       }
     }
   },
