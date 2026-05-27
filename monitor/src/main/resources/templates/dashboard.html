@@ -252,6 +252,11 @@
 		background-color:white;
 		}
 	}
+		
+	.swagger-ui {
+	    color-scheme: light;
+	}
+
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -366,8 +371,6 @@
 	<!-- ✅ Swagger -->
 	<div id="swaggerPanel" class="panel"
 		style="margin: 10px; display: none;">
-
-		<h5 class="panel-title">📘 API Explorer</h5>
 
 		<select id="apiSelect" class="form-select mb-2"></select>
 
@@ -735,21 +738,22 @@ function refreshDashboard() {
 // ======================================================
 // ✅ INIT
 // ======================================================
+
 document.addEventListener("DOMContentLoaded", function () {
 
     loadServerSelector();
 
+    // ✅ ✅ ESTA ES LA SOLUCIÓN
+    loadEvents();
+    loadAlerts();
+
+    // ✅ REFRESH AUTOMÁTICO (recomendado)
+    setInterval(loadEvents, 5000);
+    setInterval(loadAlerts, 5000);
+
     document.getElementById("serverSelect")
         .addEventListener("change", loadChartMulti);
 
-    // ✅ NUEVO SWAGGER SELECTOR
-    document.getElementById("apiSelect")
-        .addEventListener("change", function () {
-            loadSwaggerUI(this.value);
-        });
-
-    //setInterval(refreshDashboard, 10000);
-    //refreshDashboard();
 });
 
 
@@ -791,30 +795,66 @@ async function openSwaggerPanel() {
 
 function loadSwaggerUI(apiName) {
 
+    // ✅ ✅ FORZAR MODO CLARO    
+	localStorage.removeItem("swagger-ui-theme");
+	localStorage.setItem("swagger-ui-theme", "light");
+
     document.getElementById("swaggerUI").innerHTML = "";
 
-    SwaggerUIBundle({
-    	url: `/swagger/${apiName}.json?v=` + new Date().getTime(),
+    const ui = SwaggerUIBundle({
+        url: `/swagger/${apiName}.json?v=` + new Date().getTime(),
         dom_id: '#swaggerUI',
 
         deepLinking: true,
-        tryItOutEnabled: false,
         displayRequestDuration: true,
         showExtensions: true,
         showCommonExtensions: true,
 
-	    // ✅ DESACTIVA COMPLETAMENTE TRY IT OUT
         supportedSubmitMethods: [],
 
-        
         presets: [
             SwaggerUIBundle.presets.apis,
             SwaggerUIStandalonePreset
         ],
 
-        layout: "BaseLayout"
+        layout: "StandaloneLayout"
     });
+
+    // ✅ ✅ INYECTAR LOGO MERCANTIL
+
+    setTimeout(() => {
+
+        const topbar = document.querySelector(".swagger-ui .topbar");
+
+        if (topbar) {
+
+            // ✅ agregar sin borrar lo existente
+            const logoContainer = document.createElement("div");
+
+            logoContainer.style.display = "flex";
+            logoContainer.style.alignItems = "center";
+            logoContainer.style.marginRight = "20px";
+
+            logoContainer.innerHTML = `
+                <img src="/images/mercantil.png" 
+                     style="height:30px; margin-right:10px;" />
+                <span style="color:white; font-weight:bold;">
+                    BANCO MERCANTIL API EXPLORER
+                </span>
+                <BR>
+                <BR>
+            `;
+
+            // ✅ insertar al inicio SIN borrar lo demás
+            topbar.insertBefore(logoContainer, topbar.firstChild);
+
+            // ✅ color corporativo
+            topbar.style.backgroundColor = "#0b4ea2";
+        }
+
+    }, 300);
 }
+
 
 async function loadSwaggerApis() {
 
