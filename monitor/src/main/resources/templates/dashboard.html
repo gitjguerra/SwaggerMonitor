@@ -794,7 +794,7 @@ function loadSwaggerUI(apiName) {
     document.getElementById("swaggerUI").innerHTML = "";
 
     SwaggerUIBundle({
-        url: `/swagger/${apiName}.json`,
+    	url: `/swagger/${apiName}.json?v=` + new Date().getTime(),
         dom_id: '#swaggerUI',
 
         deepLinking: true,

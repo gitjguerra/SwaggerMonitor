@@ -9,26 +9,26 @@
     "url" : "/tarjeta"
   } ],
   "tags" : [ {
-    "name" : "Actualizar Root",
-    "description" : "Operaciones Actualizar Root"
+    "description" : "Operaciones Actualizar Root",
+    "name" : "Actualizar Root"
   }, {
-    "name" : "Afiliar Root",
-    "description" : "Operaciones Afiliar Root"
+    "description" : "Operaciones Afiliar Root",
+    "name" : "Afiliar Root"
   }, {
-    "name" : "Consultar Root",
-    "description" : "Operaciones Consultar Root"
+    "description" : "Operaciones Consultar Root",
+    "name" : "Consultar Root"
   }, {
-    "name" : "Insertar Root",
-    "description" : "Operaciones Insertar Root"
+    "description" : "Operaciones Insertar Root",
+    "name" : "Insertar Root"
   }, {
-    "name" : "Recibir Root",
-    "description" : "Operaciones Recibir Root"
+    "description" : "Operaciones Recibir Root",
+    "name" : "Recibir Root"
   }, {
-    "name" : "Solicitar Root",
-    "description" : "Operaciones Solicitar Root"
+    "description" : "Operaciones Solicitar Root",
+    "name" : "Solicitar Root"
   }, {
-    "name" : "Suspender Root",
-    "description" : "Operaciones Suspender Root"
+    "description" : "Operaciones Suspender Root",
+    "name" : "Suspender Root"
   } ],
   "paths" : {
     "/actualizar/pago-cuota" : {
@@ -53,6 +53,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -79,8 +80,7 @@
                       "codEstab" : "0001",
                       "codBancario" : "0001"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -144,6 +144,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -173,8 +174,7 @@
                       },
                       "email" : "string"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -251,6 +251,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -270,8 +271,7 @@
                       "nroPersona" : 12345678,
                       "codTipoProducto" : "02"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -335,6 +335,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -354,8 +355,7 @@
                       "tarjetaPrepagada" : "1234567890123456",
                       "codMarcaCompartida" : 12345678
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -419,6 +419,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -440,8 +441,7 @@
                       "nroCedula" : 12345678,
                       "codigoTipoProducto" : "02"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -519,6 +519,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -544,8 +545,7 @@
                       "numeroCedula" : 12345678,
                       "codigoSubcanal" : "09"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -626,6 +626,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -659,8 +660,7 @@
                       "numeroCedula" : 12345678,
                       "codigoEstablecimiento" : 12345678
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -735,6 +735,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -765,8 +766,7 @@
                       "codigoMonedaInput" : "VES",
                       "tipoOperacionConsultaInput" : 12345678
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -901,6 +901,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -921,8 +922,7 @@
                       "tipoIdentificacion" : "V",
                       "numeroIdentificacion" : 12345678
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -997,6 +997,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1017,8 +1018,7 @@
                       "tipoOper" : 12345678,
                       "numTelefono" : "string"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -1108,6 +1108,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1132,8 +1133,7 @@
                       "fechaHasta" : "string",
                       "tipoConsulta" : "string"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -1215,6 +1215,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1246,8 +1247,7 @@
                       "codProduc" : "02",
                       "datosOtp" : { }
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -1317,6 +1317,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1339,8 +1340,7 @@
                       "tipoId" : "V",
                       "nroId" : 12345678
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -1410,6 +1410,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1434,8 +1435,7 @@
                       "dbiDatos" : 12345678,
                       "dbiBanco" : "string"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -1499,6 +1499,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1520,8 +1521,7 @@
                       "serial" : "string",
                       "motivRepos" : "string"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -1585,6 +1585,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1605,8 +1606,7 @@
                       "nroTarj" : "string",
                       "indicClteNvo" : "string"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -1676,6 +1676,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1697,8 +1698,7 @@
                       "nunAcuseIni" : 12345678,
                       "numAcuseFin" : "string"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -1762,6 +1762,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1787,8 +1788,7 @@
                       "nroTelfDestino" : "string",
                       "clvAlfanumerica" : 12345678
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -1852,6 +1852,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1876,8 +1877,7 @@
                         "numeroTarjeta" : "1234567890123456"
                       }
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -1944,8 +1944,8 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "minLength" : 1,
             "maxLength" : 4,
+            "minLength" : 1,
             "type" : "string"
           },
           "identificacionUsuario" : {
@@ -1972,14 +1972,28 @@
           "cantidadRegistros" : {
             "type" : "integer"
           }
+        },
+        "example" : {
+          "identificadorUnicoGlobal" : "string",
+          "identificacionCanal" : "0006",
+          "identificacionSubCanal" : "01",
+          "siglaAplicacion" : "ABC",
+          "identificacionUsuario" : "user",
+          "direccionIpConsumidor" : "127.0.0.1",
+          "direccionIpCliente" : "127.0.0.1",
+          "fechaEnvioMensaje" : "20260101",
+          "horaEnvioMensaje" : "120000",
+          "atributoPagineo" : "N",
+          "claveBusqueda" : "clave",
+          "cantidadRegistros" : 0
         }
       },
       "HeaderSalida" : {
         "type" : "object",
         "properties" : {
           "tipoMensaje" : {
-            "type" : "string",
-            "example" : "F"
+            "example" : "F",
+            "type" : "string"
           },
           "mensajeProgramadorSistema" : {
             "type" : "string"
@@ -1999,6 +2013,15 @@
           "horaSalidaMensaje" : {
             "type" : "string"
           }
+        },
+        "example" : {
+          "tipoMensaje" : "F",
+          "mensajeProgramadorSistema" : "Procesado correctamente",
+          "codigoMensajeProgramador" : "0000",
+          "mensajeUsuario" : "Operación exitosa",
+          "codigoMensajeUsuario" : "0000",
+          "fechaSalidaMensaje" : "20260101",
+          "horaSalidaMensaje" : "120000"
         }
       },
       "BodyEntradaActualizarPagoCuota" : {
@@ -3610,9 +3633,9 @@
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "type" : "http",
+        "bearerFormat" : "JWT",
         "scheme" : "bearer",
-        "bearerFormat" : "JWT"
+        "type" : "http"
       }
     }
   },

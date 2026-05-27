@@ -9,17 +9,17 @@
     "url" : "/inversiones"
   } ],
   "tags" : [ {
-    "name" : "Buscar Root",
-    "description" : "Operaciones Buscar Root"
+    "description" : "Operaciones Buscar Root",
+    "name" : "Buscar Root"
   }, {
-    "name" : "Consultar Root",
-    "description" : "Operaciones Consultar Root"
+    "description" : "Operaciones Consultar Root",
+    "name" : "Consultar Root"
   }, {
-    "name" : "Crear Root",
-    "description" : "Operaciones Crear Root"
+    "description" : "Operaciones Crear Root",
+    "name" : "Crear Root"
   }, {
-    "name" : "Validar Root",
-    "description" : "Operaciones Validar Root"
+    "description" : "Operaciones Validar Root",
+    "name" : "Validar Root"
   } ],
   "paths" : {
     "/buscar/inventarios" : {
@@ -44,6 +44,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -69,8 +70,7 @@
                       "subCanal" : "09",
                       "tasaSubastaUsd" : 36.75
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -169,6 +169,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -184,8 +185,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -249,6 +249,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -312,8 +313,7 @@
                       "codAba" : "0001",
                       "codSwiftCorr" : "0001"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -388,6 +388,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -409,8 +410,7 @@
                       "numeroPersona" : 12345678,
                       "subCanal" : "09"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -482,8 +482,8 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "minLength" : 1,
             "maxLength" : 4,
+            "minLength" : 1,
             "type" : "string"
           },
           "identificacionUsuario" : {
@@ -510,14 +510,28 @@
           "cantidadRegistros" : {
             "type" : "integer"
           }
+        },
+        "example" : {
+          "identificadorUnicoGlobal" : "string",
+          "identificacionCanal" : "0006",
+          "identificacionSubCanal" : "01",
+          "siglaAplicacion" : "ABC",
+          "identificacionUsuario" : "user",
+          "direccionIpConsumidor" : "127.0.0.1",
+          "direccionIpCliente" : "127.0.0.1",
+          "fechaEnvioMensaje" : "20260101",
+          "horaEnvioMensaje" : "120000",
+          "atributoPagineo" : "N",
+          "claveBusqueda" : "clave",
+          "cantidadRegistros" : 0
         }
       },
       "HeaderSalida" : {
         "type" : "object",
         "properties" : {
           "tipoMensaje" : {
-            "type" : "string",
-            "example" : "F"
+            "example" : "F",
+            "type" : "string"
           },
           "mensajeProgramadorSistema" : {
             "type" : "string"
@@ -537,6 +551,15 @@
           "horaSalidaMensaje" : {
             "type" : "string"
           }
+        },
+        "example" : {
+          "tipoMensaje" : "F",
+          "mensajeProgramadorSistema" : "Procesado correctamente",
+          "codigoMensajeProgramador" : "0000",
+          "mensajeUsuario" : "Operación exitosa",
+          "codigoMensajeUsuario" : "0000",
+          "fechaSalidaMensaje" : "20260101",
+          "horaSalidaMensaje" : "120000"
         }
       },
       "BodyEntradaBuscarInventarios" : {
@@ -1254,9 +1277,9 @@
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "type" : "http",
+        "bearerFormat" : "JWT",
         "scheme" : "bearer",
-        "bearerFormat" : "JWT"
+        "type" : "http"
       }
     }
   },

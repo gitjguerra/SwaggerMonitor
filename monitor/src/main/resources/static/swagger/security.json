@@ -9,17 +9,17 @@
     "url" : "/security"
   } ],
   "tags" : [ {
-    "name" : "Clave Telefonica Root",
-    "description" : "Operaciones Clave Telefonica Root"
+    "description" : "Operaciones Clave Telefonica Root",
+    "name" : "Clave Telefonica Root"
   }, {
-    "name" : "Jumio Root",
-    "description" : "Operaciones Jumio Root"
+    "description" : "Operaciones Jumio Root",
+    "name" : "Jumio Root"
   }, {
-    "name" : "JWTRoot",
-    "description" : "Operaciones JWTRoot"
+    "description" : "Operaciones JWTRoot",
+    "name" : "JWTRoot"
   }, {
-    "name" : "QRRoot",
-    "description" : "Operaciones QRRoot"
+    "description" : "Operaciones QRRoot",
+    "name" : "QRRoot"
   } ],
   "paths" : {
     "/clave-telefonica/autenticar" : {
@@ -44,6 +44,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -62,8 +63,7 @@
                     "bodyEntrada" : {
                       "clave3Des" : 12345678
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -127,6 +127,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -146,8 +147,7 @@
                       "valorClaveNueva" : 12345678,
                       "periodoVencimiento" : 12345678
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -211,6 +211,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -227,8 +228,7 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntrada" : { }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -292,6 +292,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -311,8 +312,7 @@
                       "valorClave" : 12345678,
                       "periodoVencimiento" : 12345678
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -376,6 +376,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -392,8 +393,7 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntrada" : { }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -463,6 +463,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -478,8 +479,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -551,6 +551,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -574,8 +575,7 @@
                       "callbackUrl" : "string",
                       "workflowDefinition" : { }
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -651,6 +651,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -671,8 +672,7 @@
                       "accountId" : 12345678,
                       "workflowExecutionId" : 12345678
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -777,6 +777,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -798,8 +799,7 @@
                       "credentialId" : 12345678,
                       "part" : "string"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -869,6 +869,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -891,8 +892,7 @@
                       "userReference" : 12345678,
                       "workflowDefinition" : { }
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -968,6 +968,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -989,8 +990,7 @@
                       "metainfo" : 12345678,
                       "applid" : 12345678
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -1054,6 +1054,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1075,8 +1076,7 @@
                       "metainfo" : 12345678,
                       "applid" : 12345678
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -1140,6 +1140,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1158,8 +1159,7 @@
                     "bodyEntrada" : {
                       "qr" : "string"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -1223,6 +1223,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1246,8 +1247,7 @@
                       "name" : "string",
                       "totp" : "string"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -1317,6 +1317,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1340,8 +1341,7 @@
                       "name" : "string",
                       "totp" : "string"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -1405,8 +1405,8 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "minLength" : 1,
             "maxLength" : 4,
+            "minLength" : 1,
             "type" : "string"
           },
           "identificacionUsuario" : {
@@ -1433,14 +1433,28 @@
           "cantidadRegistros" : {
             "type" : "integer"
           }
+        },
+        "example" : {
+          "identificadorUnicoGlobal" : "string",
+          "identificacionCanal" : "0006",
+          "identificacionSubCanal" : "01",
+          "siglaAplicacion" : "ABC",
+          "identificacionUsuario" : "user",
+          "direccionIpConsumidor" : "127.0.0.1",
+          "direccionIpCliente" : "127.0.0.1",
+          "fechaEnvioMensaje" : "20260101",
+          "horaEnvioMensaje" : "120000",
+          "atributoPagineo" : "N",
+          "claveBusqueda" : "clave",
+          "cantidadRegistros" : 0
         }
       },
       "HeaderSalida" : {
         "type" : "object",
         "properties" : {
           "tipoMensaje" : {
-            "type" : "string",
-            "example" : "F"
+            "example" : "F",
+            "type" : "string"
           },
           "mensajeProgramadorSistema" : {
             "type" : "string"
@@ -1460,6 +1474,15 @@
           "horaSalidaMensaje" : {
             "type" : "string"
           }
+        },
+        "example" : {
+          "tipoMensaje" : "F",
+          "mensajeProgramadorSistema" : "Procesado correctamente",
+          "codigoMensajeProgramador" : "0000",
+          "mensajeUsuario" : "Operación exitosa",
+          "codigoMensajeUsuario" : "0000",
+          "fechaSalidaMensaje" : "20260101",
+          "horaSalidaMensaje" : "120000"
         }
       },
       "BodySalidaAuthJumio" : {
@@ -2925,9 +2948,9 @@
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "type" : "http",
+        "bearerFormat" : "JWT",
         "scheme" : "bearer",
-        "bearerFormat" : "JWT"
+        "type" : "http"
       }
     }
   },
