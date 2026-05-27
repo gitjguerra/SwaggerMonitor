@@ -798,12 +798,14 @@ function loadSwaggerUI(apiName) {
         dom_id: '#swaggerUI',
 
         deepLinking: true,
-        docExpansion: "full",
         tryItOutEnabled: false,
         displayRequestDuration: true,
         showExtensions: true,
         showCommonExtensions: true,
-        tryItOutEnabled: false,
+
+	    // ✅ DESACTIVA COMPLETAMENTE TRY IT OUT
+        supportedSubmitMethods: [],
+
         
         presets: [
             SwaggerUIBundle.presets.apis,
