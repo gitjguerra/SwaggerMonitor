@@ -180,22 +180,17 @@ public class MonitorController {
 
 		try {
 
-			// ✅ ruta del proyecto
-			String path = "src/main/resources/static/swagger";
+			// ✅ usar classpath (CORRECTO)
+			org.springframework.core.io.Resource[] resources = new org.springframework.core.io.support.PathMatchingResourcePatternResolver()
+					.getResources("classpath:/static/swagger/*.json");
 
-			java.io.File folder = new java.io.File(path);
+			for (org.springframework.core.io.Resource resource : resources) {
 
-			if (!folder.exists() || !folder.isDirectory()) {
-				return result;
-			}
+				String filename = resource.getFilename();
 
-			for (java.io.File file : folder.listFiles()) {
+				if (filename != null && filename.endsWith(".json")) {
 
-				if (file.getName().endsWith(".json")) {
-
-					// ✅ quitar .json
-					String name = file.getName().replace(".json", "");
-
+					String name = filename.replace(".json", "");
 					result.add(name);
 				}
 			}
