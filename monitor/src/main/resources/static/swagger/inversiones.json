@@ -27,6 +27,7 @@
         "tags" : [ "Buscar Root" ],
         "summary" : "inventarios",
         "operationId" : "inventarios",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: busqueda-de-inventarios",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -69,6 +70,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -94,8 +96,7 @@
                       "subCanal" : "09",
                       "tasaSubastaUsd" : 36.75
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -104,7 +105,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -166,6 +166,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -211,12 +212,12 @@
                         "fechaCtaMercantil" : 12345678,
                         "indCierreMele" : 12345678
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -226,6 +227,7 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "operacionesRechazadas",
         "operationId" : "operacionesRechazadas",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -255,6 +257,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -270,8 +273,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -280,7 +282,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -304,6 +305,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -314,12 +316,12 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -329,6 +331,7 @@
         "tags" : [ "Crear Root" ],
         "summary" : "ordenCompraVenta",
         "operationId" : "ordenCompraVenta",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: crear-orden-compra-venta",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -409,6 +412,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -472,8 +476,7 @@
                       "codAba" : "0001",
                       "codSwiftCorr" : "0001"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -482,7 +485,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -517,6 +519,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -535,12 +538,12 @@
                           "idMovimientoBcvSal" : 12345678
                         }
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -550,6 +553,7 @@
         "tags" : [ "Validar Root" ],
         "summary" : "datosClientes",
         "operationId" : "datosClientes",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: validar-datos-clientes",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -588,6 +592,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -609,8 +614,7 @@
                       "numeroPersona" : 12345678,
                       "subCanal" : "09"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -619,7 +623,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -657,6 +660,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -678,12 +682,12 @@
                           "codigoSwift" : "0001"
                         } ]
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -704,9 +708,9 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "minLength" : 1,
+            "type" : "string",
             "maxLength" : 4,
-            "type" : "string"
+            "minLength" : 1
           },
           "identificacionUsuario" : {
             "type" : "string"
@@ -1595,8 +1599,8 @@
     "securitySchemes" : {
       "bearerAuth" : {
         "bearerFormat" : "JWT",
-        "type" : "http",
-        "scheme" : "bearer"
+        "scheme" : "bearer",
+        "type" : "http"
       }
     }
   },

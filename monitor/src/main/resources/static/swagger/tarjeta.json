@@ -36,6 +36,7 @@
         "tags" : [ "Actualizar Root" ],
         "summary" : "adelantoCuotaAgendada",
         "operationId" : "adelantoCuotaAgendada",
+        "description" : "✅ Backend: http://10.0.4.10:7080/pagodecuotas-IAG0030C/V2/pagodecuotas-IAG0030C\n\n\uD83D\uDD17 Core: IAG0030C\n\n\uD83D\uDD17 Service: actualizar-pago-cuota",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -79,6 +80,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -105,8 +107,7 @@
                       "codEstab" : "0001",
                       "codBancario" : "0001"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -115,7 +116,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -139,6 +139,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -149,12 +150,12 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -164,6 +165,7 @@
         "tags" : [ "Afiliar Root" ],
         "summary" : "mosaicAsociados",
         "operationId" : "mosaicAsociados",
+        "description" : "✅ Backend: http://10.0.1.59:7080/afiliacionMosaicAsociados/v1/afiliacionMosaicAsociados-iemw206z\n\n\uD83D\uDD17 Core: IEMW206Z\n\n\uD83D\uDD17 Service: afiliar-mosaic-asociados",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -210,6 +212,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -239,8 +242,7 @@
                       },
                       "email" : "string"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -249,7 +251,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -286,6 +287,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -306,12 +308,12 @@
                         "cod" : "0001",
                         "codTrader" : 12345678
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -321,6 +323,7 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarMarca",
         "operationId" : "consultarMarca",
+        "description" : "✅ Backend: http://10.0.4.10:7080/consultarmarcascompartidas-igb/v2/consultarMarca-igb0201z\n\n\uD83D\uDD17 Core: IGB0201Z\n\n\uD83D\uDD17 Service: consultar-marca",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -357,6 +360,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -376,8 +380,7 @@
                       "nroPersona" : 12345678,
                       "codTipoProducto" : "02"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -386,7 +389,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -410,6 +412,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -420,12 +423,12 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -435,6 +438,7 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "condiciontarjetamarcacompartida",
         "operationId" : "condiciontarjetamarcacompartida",
+        "description" : "✅ Backend: http://10.0.4.10:7080/consultarmarcascompartidas-igb/v2/consultarCondicionTarjetaMarcaCompar-igb0200z\n\n\uD83D\uDD17 Core: IGB0200Z\n\n\uD83D\uDD17 Service: consultar-condicion-tarjeta-marca-compartida",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -471,6 +475,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -490,8 +495,7 @@
                       "tarjetaPrepagada" : "1234567890123456",
                       "codMarcaCompartida" : 12345678
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -500,7 +504,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -524,6 +527,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -534,12 +538,12 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -549,6 +553,7 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarSaldoTarjetaLca",
         "operationId" : "consultarSaldoTarjetaLca",
+        "description" : "✅ Backend: http://10.0.4.10:7080/consultarInformacionClienteMc-itk/consultaSaldoTarjetayLca-itks89cc\n\n\uD83D\uDD17 Core: ITKS89CC\n\n\uD83D\uDD17 Service: consultar-saldo-tarjeta-lca",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -587,6 +592,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -608,8 +614,7 @@
                       "nroCedula" : 12345678,
                       "codigoTipoProducto" : "02"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -618,7 +623,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -656,6 +660,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -677,12 +682,12 @@
                         "mtoVenLinCdto" : "VES",
                         "estatusAceptLinCdto" : 12345678
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -692,6 +697,7 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarSaldoTarjetaPrepago",
         "operationId" : "consultarSaldoTarjetaPrepago",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-saldo-tarjeta-prepago",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -734,6 +740,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -759,8 +766,7 @@
                       "numeroCedula" : 12345678,
                       "codigoSubcanal" : 9
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -769,7 +775,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -810,6 +815,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -834,12 +840,12 @@
                         "saldoActualEditado" : "string",
                         "codTipoProduc" : "02"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -849,6 +855,7 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarMovimientosTarjetaPrepago",
         "operationId" : "consultarMovimientosTarjetaPrepago",
+        "description" : "✅ Backend: http://10.0.4.10:7080/tarjetaprepago-itk/v2/consultarMovimientoTarjetaPrepago-itks95cc\n\n\uD83D\uDD17 Core: ITKS95CC\n\n\uD83D\uDD17 Service: consultar-movimientos-tarjeta-prepago",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -899,6 +906,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -932,8 +940,7 @@
                       "numeroCedula" : 12345678,
                       "codigoEstablecimiento" : 12345678
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -942,7 +949,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -977,6 +983,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -995,12 +1002,12 @@
                         "mtoComis" : "VES",
                         "ordenEntrgDatos" : "string"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1010,6 +1017,7 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "movimientoTpagoMovilP2C",
         "operationId" : "movimientoTpagoMovilP2C",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-movimientos-tpago-p2c",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1057,6 +1065,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1087,8 +1096,7 @@
                       "codigoMonedaInput" : "VES",
                       "tipoOperacionConsultaInput" : 12345678
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -1097,7 +1105,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1192,6 +1199,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1270,12 +1278,12 @@
                           "idDestino" : 12345678
                         } ]
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1285,6 +1293,7 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "tarjetaCreditoActiva",
         "operationId" : "tarjetaCreditoActiva",
+        "description" : "✅ Backend: http://10.0.1.59:7080/creditossingarantiasnaturalcics-ith/v2/consultarTarjetaDeCreditoActivas-ith3110z\n\n\uD83D\uDD17 Core: ITH3110Z\n\n\uD83D\uDD17 Service: consultar-tarjeta-credito-activas",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1322,6 +1331,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1342,8 +1352,7 @@
                       "tipoIdentificacion" : "V",
                       "numeroIdentificacion" : 12345678
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -1352,7 +1361,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1387,6 +1395,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1405,12 +1414,12 @@
                           "nroTarj" : "string"
                         } ]
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1420,6 +1429,7 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "afiliacionTPago",
         "operationId" : "afiliacionTPago",
+        "description" : "✅ Backend: http://10.0.4.10:7080/consultaAfiliacionTpago/v1/consultaAfiliacionTpago-iem121dc\n\n\uD83D\uDD17 Core: IEM121DC\n\n\uD83D\uDD17 Service: consultar-afiliacion-tpago",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1457,6 +1467,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1477,8 +1488,7 @@
                       "tipoOper" : 12345678,
                       "numTelefono" : "string"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -1487,7 +1497,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1537,6 +1546,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1570,12 +1580,12 @@
                         "codComisInter" : "0001",
                         "codSic" : "0001"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1585,6 +1595,7 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarMovimientosLineaCredito",
         "operationId" : "consultarMovimientosLineaCredito",
+        "description" : "✅ Backend: http://10.0.4.10:7080/consultarInformacionClienteMc-itk/consultarMovimientosLineaCredito-itks75cc\n\n\uD83D\uDD17 Core: ITKS75CC\n\n\uD83D\uDD17 Service: consultar-movimientos-linea-credito",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1626,6 +1637,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1650,8 +1662,7 @@
                       "fechaHasta" : 1,
                       "tipoConsulta" : "string"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -1660,7 +1671,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1702,6 +1712,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1727,12 +1738,12 @@
                         "cantMaxMovimientos" : 12345678,
                         "lcaMtoDisp" : "VES"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1742,6 +1753,7 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarLineaCreditoAmpliada",
         "operationId" : "consultarLineaCreditoAmpliada",
+        "description" : "✅ Backend: http://10.0.4.10:7080/usolca/v1/usoLca-itk3635p\n\n\uD83D\uDD17 Core: ITK3635P\n\n\uD83D\uDD17 Service: consultar-linea-credito-ampliada",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1790,6 +1802,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1821,8 +1834,7 @@
                       "codProduc" : "02",
                       "datosOtp" : { }
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -1831,7 +1843,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1861,6 +1872,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1874,12 +1886,12 @@
                       "bodySalidaLineaCreditoAmpliada" : {
                         "nroRef" : 12345678
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1889,6 +1901,7 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarCuotasLineaCredito",
         "operationId" : "consultarCuotasLineaCredito",
+        "description" : "✅ Backend: http://10.0.4.10:7080/consultarInformacionClienteMc-iag/consultarCuotas-iag0001z\n\n\uD83D\uDD17 Core: IAG0001Z\n\n\uD83D\uDD17 Service: consultar-cuotas-linea-credito",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1928,6 +1941,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1950,8 +1964,7 @@
                       "tipoId" : "V",
                       "nroId" : 12345678
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -1960,7 +1973,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1990,6 +2002,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2003,12 +2016,12 @@
                       "bodySalidaConsultarCuotasLineaCredito" : {
                         "cuotas" : [ { } ]
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2018,6 +2031,7 @@
         "tags" : [ "Insertar Root" ],
         "summary" : "insertarAceptaTarjetaLca",
         "operationId" : "insertarAceptaTarjetaLca",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: insertar-acepta-tarjeta-lca",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2059,6 +2073,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -2083,8 +2098,7 @@
                       "dbiDatos" : 12345678,
                       "dbiBanco" : 1
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -2093,7 +2107,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2117,6 +2130,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2127,12 +2141,12 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2142,6 +2156,7 @@
         "tags" : [ "Insertar Root" ],
         "summary" : "insertarReposicionMarcaCompartida",
         "operationId" : "insertarReposicionMarcaCompartida",
+        "description" : "✅ Backend: http://10.0.4.10:7080/reposiciontddmarcacompartida-ITK314CC/V1/reposiciontddmarcacompartida-ITK314CC\n\n\uD83D\uDD17 Core: ITK314CC\n\n\uD83D\uDD17 Service: insertar-reposicion",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2180,6 +2195,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -2201,8 +2217,7 @@
                       "serial" : 1,
                       "motivRepos" : "string"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -2211,7 +2226,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2235,6 +2249,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2245,12 +2260,12 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2260,6 +2275,7 @@
         "tags" : [ "Insertar Root" ],
         "summary" : "activarTarjetaMarcaCompartida",
         "operationId" : "activarTarjetaMarcaCompartida",
+        "description" : "✅ Backend: http://10.0.4.10:7080/actualizatajetamarcacompartida-itk/v2/activarTarjetaMarcaCompartida-itk\n\n\uD83D\uDD17 Core: ITK\n\n\uD83D\uDD17 Service: activar-tarjeta-marca-compartida",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2297,6 +2313,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -2317,8 +2334,7 @@
                       "nroTarj" : "string",
                       "indicClteNvo" : "string"
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -2327,7 +2343,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2357,6 +2372,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2370,12 +2386,12 @@
                       "bodySalidaActivarTarjetaMarcaCompartida" : {
                         "nroCtaInter" : 1
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2385,6 +2401,7 @@
         "tags" : [ "Recibir Root" ],
         "summary" : "recepcionLotesTarjetas",
         "operationId" : "recepcionLotesTarjetas",
+        "description" : "✅ Backend: http://10.0.4.10:7080/marcasCompartidasTarjetasnaturalcics-igb/v1/recepcionLotesTarjetas-igb6050z\n\n\uD83D\uDD17 Core: IGB6050Z\n\n\uD83D\uDD17 Service: recepcion-lotes-tarjetas",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2423,6 +2440,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -2444,8 +2462,7 @@
                       "nunAcuseIni" : 12345678,
                       "numAcuseFin" : 1
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -2454,7 +2471,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2478,6 +2494,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2488,12 +2505,12 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2503,6 +2520,7 @@
         "tags" : [ "Solicitar Root" ],
         "summary" : "solicitarClaveOtpLca",
         "operationId" : "solicitarClaveOtpLca",
+        "description" : "✅ Backend: http://10.0.4.10:7080/claveotplca/v1/claveOtpLca-itk3640p\n\n\uD83D\uDD17 Core: ITK3640P\n\n\uD83D\uDD17 Service: solicitar-clave-otp-lca",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2545,6 +2563,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -2570,8 +2589,7 @@
                       "nroTelfDestino" : 1,
                       "clvAlfanumerica" : 12345678
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -2580,7 +2598,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2604,6 +2621,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2614,12 +2632,12 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2629,6 +2647,7 @@
         "tags" : [ "Suspender Root" ],
         "summary" : "tarjetaDeCredito",
         "operationId" : "tarjetaDeCredito",
+        "description" : "✅ Backend: http://10.0.1.59:7080/creditossingarantiasnaturalcics-ith/v2/suspenderTarjetaDeCreditoActivas-ith3120z\n\n\uD83D\uDD17 Core: ITH3120Z\n\n\uD83D\uDD17 Service: suspender-tarjeta-de-credito",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2670,6 +2689,7 @@
               },
               "examples" : {
                 "default" : {
+                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -2694,8 +2714,7 @@
                         "numeroTarjeta" : "1234567890123456"
                       }
                     }
-                  },
-                  "summary" : "Ejemplo generado"
+                  }
                 }
               }
             }
@@ -2704,7 +2723,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2737,6 +2755,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2753,12 +2772,12 @@
                           "codResp" : "0001"
                         } ]
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2779,9 +2798,9 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "minLength" : 1,
+            "type" : "string",
             "maxLength" : 4,
-            "type" : "string"
+            "minLength" : 1
           },
           "identificacionUsuario" : {
             "type" : "string"
@@ -4760,8 +4779,8 @@
     "securitySchemes" : {
       "bearerAuth" : {
         "bearerFormat" : "JWT",
-        "type" : "http",
-        "scheme" : "bearer"
+        "scheme" : "bearer",
+        "type" : "http"
       }
     }
   },
