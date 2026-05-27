@@ -773,15 +773,18 @@ function loadSwaggerUI(apiName) {
         dom_id: '#swaggerUI',
 
         deepLinking: true,
-        docExpansion: "list",
-        tryItOutEnabled: true,
+        docExpansion: "full",
+        tryItOutEnabled: false,
+        displayRequestDuration: true,
+        showExtensions: true,
+        showCommonExtensions: true,
 
         presets: [
             SwaggerUIBundle.presets.apis,
             SwaggerUIStandalonePreset
         ],
 
-        layout: "StandaloneLayout"
+        layout: "BaseLayout"
     });
 }
 
