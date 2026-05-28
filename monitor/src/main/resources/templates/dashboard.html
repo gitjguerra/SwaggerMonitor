@@ -10,253 +10,264 @@
 	rel="stylesheet">
 
 <style>
-	/* HEADER */
-	.header {
-		background-color: #0b4ea2;
-		color: white;
-		padding: 12px 20px;
-		display: flex;
-		align-items: center;
-		height: 60px;
-	}
-	
-	.header img {
-		height: 40px;
-		margin-right: 10px;
-	}
-	
-	.header h5 {
-		margin: 0;
-	}
-	
-	body {
-		background-color: #eef2f7;
-	}
-	
-	/* CARD */
-	.card {
-		margin: 5px 0;
-		border-radius: 10px;
-		border: none;
-		background: white;
-		box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
-		padding: 8px; /* ⬅️ menos padding */
-		transition: 0.2s;
-		font-size: 12px; /* ⬅️ texto más pequeño */
-	}
-	
-	.card:hover {
-		transform: translateY(-2px);
-	}
-	
-	.card-warning {
-		border-left: 4px solid #facc15;
-	}
-	
-	.card button {
-		pointer-events: auto;
-		z-index: 2;
-	}
-	
-	/* ESTADO */
-	.status-up {
-		color: #28a745;
-		font-size: 22px;
-	}
-	
-	.status-down {
-		color: #dc3545;
-		font-size: 22px;
-	}
-	
-	.status-label {
-		font-size: 11px;
-	}
-	
-	.status-warning {
-		color: #facc15;
-		font-size: 26px;
-	}
-	
-	.env-title {
-		color: #0b4ea2;
-		font-weight: 600;
-		margin-top: 25px;
-	}
-	
-	.small-text {
-		font-size: 10px;
-	}
-	
-	/* ALERTA VISUAL SI CAE */
-	.down-alert {
-	    border: 2px solid #dc3545;
-	    background-color: #ffe5e5;
-	    animation: blink 0.8s infinite;
-	}
-	
-	@keyframes blink { 0% {
-		background: #fff;
-	}
-	
-	50%
-	{
-		background:#ffe5e5;
-	}
-	100%
-	{
-		background:#fff;
-		}
-	}
-	
-	/* BADGES */
-	.badge {
-		font-size: 13px;
-	}
-	
-	/* TABLA HISTORICA */
-	.table {
-		color: #e5e7eb;
-	}
-	
-	/* DASHBOARD GRID */
-	.dashboard {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-auto-rows: minmax(250px, auto);
-		gap: 10px;
-		padding: 10px;
-	}
-	
-	/* PANEL */
-	.panel {
-		background: white;
-		border-radius: 12px;
-		padding: 12px;
-		border: 1px solid #d1d5db; /* ✅ borde visible */
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* ✅ sombra */
-		overflow-y: auto;
-		overflow-x: hidden;
-	}
-	/* TITULO */
-	.panel-title {
-		font-weight: bold;
-		color: #0b4ea2;
-		border-bottom: 2px solid #e5e7eb; /* ✅ separador */
-		padding-bottom: 5px;
-		margin-bottom: 10px;
-	}
-	
-	.panel-servers {
-		grid-column: 1;
-		grid-row: 1;
-	}
-	
-	/* GRÁFICA (arriba derecha) */
-	.panel:nth-of-type(2) {
-		grid-column: 2;
-		grid-row: 1;
-	}
-	/* LOGS (abajo izquierda) */
-	.panel:nth-of-type(3) {
-		grid-column: 1;
-		grid-row: 2;
-	}
-	/* ALERTAS (abajo derecha) */
-	.panel:nth-of-type(4) {
-		grid-column: 2;
-		grid-row: 2;
-	}
-	
-	/* TIMELINE */
-	.timeline {
-		position: relative;
-		padding-left: 30px;
-	}
-	
-	.timeline::before {
-		content: '';
-		position: absolute;
-		left: 10px;
-		top: 0;
-		bottom: 0;
-		width: 2px;
-		background: #d1d5db;
-	}
-	
-	/* ITEM */
-	.timeline-item {
-		animation: fadeIn 0.3s ease;
-	}
-	
-	@keyframes fadeIn {from { opacity:0;
-		transform: translateY(5px);
-	}
-	
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-	
-	}
-	
-	/* DOT */
-	.timeline-dot {
-		position: absolute;
-		left: -1px;
-		top: 5px;
-		width: 20px;
-		height: 20px;
-		border-radius: 50%;
-	}
-	
-	/* COLORS */
-	.dot-danger {
-		background: #dc3545;
-	} /* rojo */
-	.dot-warning {
-		background: #facc15;
-	} /* amarillo */
-	.dot-success {
-		background: #28a745;
-	} /* verde */
-	
-	/* CONTENIDO */
-	.timeline-content {
-		padding-left: 15px;
-	}
-	
-	canvas {
-		max-height: 250px;
-	}
-	
-	.server-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-		gap: 8px;
-	}
-	
-	#swaggerFrame {
-		height: 400px;
-	}
-	
-	.highlight {
-		animation: highlightFlash 1s ease;
-	}
-	
-	@keyframes highlightFlash { 0% {
-		background-color: #fff3cd;
-	}
-	100%
-	{
-		background-color:white;
-		}
-	}
-		
-	.swagger-ui {
-	    color-scheme: light;
-	}
+/* HEADER */
+.header {
+	background-color: #0b4ea2;
+	color: white;
+	padding: 12px 20px;
+	display: flex;
+	align-items: center;
+	height: 60px;
+}
 
+.header img {
+	height: 40px;
+	margin-right: 10px;
+}
+
+.header h5 {
+	margin: 0;
+}
+
+body {
+	background-color: #eef2f7;
+}
+
+/* CARD */
+.card {
+	margin: 5px 0;
+	border-radius: 10px;
+	border: none;
+	background: white;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+	padding: 8px; /* ⬅️ menos padding */
+	transition: 0.2s;
+	font-size: 12px; /* ⬅️ texto más pequeño */
+}
+
+.card:hover {
+	transform: translateY(-2px);
+}
+
+.card-warning {
+	border-left: 4px solid #facc15;
+}
+
+.card button {
+	pointer-events: auto;
+	z-index: 2;
+}
+
+/* ESTADO */
+.status-up {
+	color: #28a745;
+	font-size: 22px;
+}
+
+.status-down {
+	color: #dc3545;
+	font-size: 22px;
+}
+
+.status-label {
+	font-size: 11px;
+}
+
+.status-warning {
+	color: #facc15;
+	font-size: 26px;
+}
+
+.env-title {
+	color: #0b4ea2;
+	font-weight: 600;
+	margin-top: 25px;
+}
+
+.small-text {
+	font-size: 10px;
+}
+
+/* ALERTA VISUAL SI CAE */
+.down-alert {
+	border: 2px solid #dc3545;
+	background-color: #ffe5e5;
+	animation: blink 0.8s infinite;
+}
+
+@
+keyframes blink { 0% {
+	background: #fff;
+}
+
+50
+%
+{
+background
+:
+#ffe5e5;
+}
+100
+%
+{
+background
+:
+#fff;
+}
+}
+
+/* BADGES */
+.badge {
+	font-size: 13px;
+}
+
+/* TABLA HISTORICA */
+.table {
+	color: #e5e7eb;
+}
+
+/* DASHBOARD GRID */
+.dashboard {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-auto-rows: minmax(250px, auto);
+	gap: 10px;
+	padding: 10px;
+}
+
+/* PANEL */
+.panel {
+	background: white;
+	border-radius: 12px;
+	padding: 12px;
+	border: 1px solid #d1d5db; /* ✅ borde visible */
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* ✅ sombra */
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+/* TITULO */
+.panel-title {
+	font-weight: bold;
+	color: #0b4ea2;
+	border-bottom: 2px solid #e5e7eb; /* ✅ separador */
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+}
+
+.panel-servers {
+	grid-column: 1;
+	grid-row: 1;
+}
+
+/* GRÁFICA (arriba derecha) */
+.panel:nth-of-type(2) {
+	grid-column: 2;
+	grid-row: 1;
+}
+/* LOGS (abajo izquierda) */
+.panel:nth-of-type(3) {
+	grid-column: 1;
+	grid-row: 2;
+}
+/* ALERTAS (abajo derecha) */
+.panel:nth-of-type(4) {
+	grid-column: 2;
+	grid-row: 2;
+}
+
+/* TIMELINE */
+.timeline {
+	position: relative;
+	padding-left: 30px;
+}
+
+.timeline::before {
+	content: '';
+	position: absolute;
+	left: 10px;
+	top: 0;
+	bottom: 0;
+	width: 2px;
+	background: #d1d5db;
+}
+
+/* ITEM */
+.timeline-item {
+	animation: fadeIn 0.3s ease;
+}
+
+@
+keyframes fadeIn {from { opacity:0;
+	transform: translateY(5px);
+}
+
+to {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+}
+
+/* DOT */
+.timeline-dot {
+	position: absolute;
+	left: -1px;
+	top: 5px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+}
+
+/* COLORS */
+.dot-danger {
+	background: #dc3545;
+} /* rojo */
+.dot-warning {
+	background: #facc15;
+} /* amarillo */
+.dot-success {
+	background: #28a745;
+} /* verde */
+
+/* CONTENIDO */
+.timeline-content {
+	padding-left: 15px;
+}
+
+canvas {
+	max-height: 250px;
+}
+
+.server-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+	gap: 8px;
+}
+
+#swaggerFrame {
+	height: 400px;
+}
+
+.highlight {
+	animation: highlightFlash 1s ease;
+}
+
+@
+keyframes highlightFlash { 0% {
+	background-color: #fff3cd;
+}
+
+100
+%
+{
+background-color
+:
+white;
+}
+}
+.swagger-ui {
+	color-scheme: light;
+}
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -796,14 +807,23 @@ async function openSwaggerPanel() {
 function loadSwaggerUI(apiName) {
 
     // ✅ ✅ FORZAR MODO CLARO    
-	localStorage.removeItem("swagger-ui-theme");
-	localStorage.setItem("swagger-ui-theme", "light");
+    localStorage.removeItem("swagger-ui-theme");
+    localStorage.setItem("swagger-ui-theme", "light");
 
     document.getElementById("swaggerUI").innerHTML = "";
 
     const ui = SwaggerUIBundle({
-        url: `/swagger/${apiName}.json?v=` + new Date().getTime(),
+        url: `/swagger/${apiName}.json?ts=` + Date.now(), // ✅ cache buster REAL
+
         dom_id: '#swaggerUI',
+
+        // ✅ 🔥 FORZAR SIN CACHE (CLAVE)
+        requestInterceptor: (req) => {
+            req.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate';
+            req.headers['Pragma'] = 'no-cache';
+            req.headers['Expires'] = '0';
+            return req;
+        },
 
         deepLinking: true,
         displayRequestDuration: true,
@@ -828,7 +848,6 @@ function loadSwaggerUI(apiName) {
 
         if (topbar) {
 
-            // ✅ agregar sin borrar lo existente
             const logoContainer = document.createElement("div");
 
             logoContainer.style.display = "flex";
@@ -845,15 +864,13 @@ function loadSwaggerUI(apiName) {
                 <BR>
             `;
 
-            // ✅ insertar al inicio SIN borrar lo demás
             topbar.insertBefore(logoContainer, topbar.firstChild);
-
-            // ✅ color corporativo
             topbar.style.backgroundColor = "#0b4ea2";
         }
 
     }, 300);
 }
+
 
 
 async function loadSwaggerApis() {
