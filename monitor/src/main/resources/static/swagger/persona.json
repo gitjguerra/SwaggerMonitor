@@ -9,29 +9,29 @@
     "url" : "/persona"
   } ],
   "tags" : [ {
-    "description" : "Operaciones Actualizar Root",
-    "name" : "Actualizar Root"
+    "name" : "Actualizar Root",
+    "description" : "Operaciones Actualizar Root"
   }, {
-    "description" : "Operaciones Anular Root",
-    "name" : "Anular Root"
+    "name" : "Anular Root",
+    "description" : "Operaciones Anular Root"
   }, {
-    "description" : "Operaciones Capturar Root",
-    "name" : "Capturar Root"
+    "name" : "Capturar Root",
+    "description" : "Operaciones Capturar Root"
   }, {
-    "description" : "Operaciones Consultar Root",
-    "name" : "Consultar Root"
+    "name" : "Consultar Root",
+    "description" : "Operaciones Consultar Root"
   }, {
-    "description" : "Operaciones Gestionar Root",
-    "name" : "Gestionar Root"
+    "name" : "Gestionar Root",
+    "description" : "Operaciones Gestionar Root"
   }, {
-    "description" : "Operaciones Imprimir Root",
-    "name" : "Imprimir Root"
+    "name" : "Imprimir Root",
+    "description" : "Operaciones Imprimir Root"
   }, {
-    "description" : "Operaciones Incluir Root",
-    "name" : "Incluir Root"
+    "name" : "Incluir Root",
+    "description" : "Operaciones Incluir Root"
   }, {
-    "description" : "Operaciones Ingresar Root",
-    "name" : "Ingresar Root"
+    "name" : "Ingresar Root",
+    "description" : "Operaciones Ingresar Root"
   } ],
   "paths" : {
     "/actualizar/datos-no-clientes" : {
@@ -41,6 +41,7 @@
         "operationId" : "datosNoClientes",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: actualizar-datos-no-clientes",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -56,63 +57,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "nroPerNoCliente" : 12345678,
-                  "codPais" : "VE",
-                  "tipoId" : "V",
-                  "nroId" : 12345678,
-                  "primerApell" : "PEREZ",
-                  "segundoApell" : "PEREZ",
-                  "apellCasada" : "PEREZ",
-                  "primerNom" : "JUAN",
-                  "segundoNom" : "JUAN",
-                  "codZonaPostal" : "0001",
-                  "email" : "test@email.com",
-                  "codNivel" : "0001",
-                  "descripNivel" : "VALOR",
-                  "codCalle" : "0001",
-                  "descripCodCalle" : "0001",
-                  "direcc" : "AV PRINCIPAL CARACAS",
-                  "fchNac" : "01012026",
-                  "nomApto" : "JUAN",
-                  "nomEdif" : "JUAN",
-                  "codPaisCelular" : "VE",
-                  "codAreaCelular" : "0001",
-                  "nroCelular" : 12345678,
-                  "codPaisHabTelf" : "VE",
-                  "codAreaHabTelf" : "0001",
-                  "nroTelfHab" : 12345678,
-                  "codOficPaisTelf" : "VE",
-                  "codAreaTelfOfic" : "0001",
-                  "nroTelfOfic" : 12345678,
-                  "codAptadoPostal" : "0001",
-                  "codCiudad" : "0001",
-                  "codEdo" : "0001",
-                  "codMunic" : "0001",
-                  "codParroq" : "0001",
-                  "genero" : "VALOR",
-                  "fchReg" : "01012026",
-                  "origenReg" : "VALOR",
-                  "nroPerClte" : 12345678,
-                  "codPaisDirecc" : "VE"
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -130,12 +90,12 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   }
                 }
               }
@@ -151,6 +111,7 @@
         "operationId" : "personaContactoEmpresa",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: actualizar-persona-contacto-empresa",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -166,48 +127,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "tpAccion" : "VALOR",
-                  "idRifPais" : 12345678,
-                  "idRifTipo" : 12345678,
-                  "idRifNume" : 12345678,
-                  "nrPersonaRif" : 12345678,
-                  "idPersContPais" : 12345678,
-                  "idPersContTipo" : 12345678,
-                  "idPersContNume" : 12345678,
-                  "nrPersContacto" : "VALOR",
-                  "idUsuarioMeleTipo" : 12345678,
-                  "idUsuarioMeleNume" : 12345678,
-                  "tipoContacto" : "01",
-                  "nomContacto" : "JUAN",
-                  "cargoContacto" : "VALOR",
-                  "direccContacto" : "AV PRINCIPAL CARACAS",
-                  "nroSuc" : 12345678,
-                  "direccEmailContacto" : "test@email.com",
-                  "codAreaContacto" : "0001",
-                  "nroTelfContacto" : 12345678,
-                  "nroExtContacto" : 12345678,
-                  "codCelAreaContacto" : "0001",
-                  "nroCelTelfContacto" : 12345678,
-                  "fchNacContacto" : "01012026"
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -225,12 +160,12 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   }
                 }
               }
@@ -246,6 +181,7 @@
         "operationId" : "roles",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: actualizar-roles",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -261,34 +197,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "codPais" : "VE",
-                  "tipoId" : "V",
-                  "nroId" : 12345678,
-                  "nroPer" : 12345678,
-                  "rol" : "CLIENTE",
-                  "tipAccion" : "VALOR",
-                  "codTrans" : "0001",
-                  "fchRolIni" : "01012026",
-                  "fchRolFin" : "31122026"
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -306,12 +230,12 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   }
                 }
               }
@@ -327,6 +251,7 @@
         "operationId" : "rjReferido",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: actualizar-rj-referido",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -342,35 +267,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "tipoSolicitud" : "01",
-                  "codPaisV" : "VE",
-                  "tipoIdV" : "V",
-                  "nroIdV" : 12345678,
-                  "nroCuenta" : "123456789012",
-                  "codSegmento" : "0001",
-                  "codSubsegmento" : "0001",
-                  "codCartera" : "0001",
-                  "carnetEjectRel" : "VALOR",
-                  "codGrupoClte" : "0001"
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -388,12 +300,12 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   }
                 }
               }
@@ -409,6 +321,7 @@
         "operationId" : "telefonoCliente",
         "description" : "\n\n\uD83D\uDD17 Programa: GIPW108X\n\n\uD83D\uDD17 Service: actualizar-telefono-cliente",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -424,40 +337,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "paramEntrada" : {
-                    "codPaisId" : 12345678,
-                    "tipId" : 12345678,
-                    "nroId" : 12345678,
-                    "nroPer" : 12345678,
-                    "vectorTelefonos" : [ {
-                      "tipoTelf" : "04141234567",
-                      "codArea" : "0001",
-                      "nroTelf" : "02126624076",
-                      "nroExt" : "5342",
-                      "nroSuc" : 12345678,
-                      "codAreaPais" : "VE",
-                      "codLocalizaTelf" : "0001"
-                    } ]
-                  }
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -478,20 +373,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaActualizarTelefonoCliente" : {
-                    "paramSalida" : {
-                      "telefonos" : [ {
-                        "txtRetorno" : "VALOR"
-                      } ]
-                    }
-                  }
+                  "bodySalidaActualizarTelefonoCliente" : { }
                 }
               }
             }
@@ -506,6 +395,7 @@
         "operationId" : "localizacionNacionalCompactada",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: actualizar-localizacion-nacional-compactada",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -521,33 +411,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "codPais" : "VE",
-                  "tipoId" : "V",
-                  "nroId" : 12345678,
-                  "nroPer" : 12345678,
-                  "codLocaliza" : "0001",
-                  "tpLocaliza" : "VALOR",
-                  "medio" : "VALOR",
-                  "direccComp" : [ "AV PRINCIPAL CARACAS" ]
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -565,12 +444,12 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   }
                 }
               }
@@ -586,6 +465,7 @@
         "operationId" : "autorizacionesCliente",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: anular-autorizaciones-cliente",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -601,31 +481,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "codigoPais" : "VE",
-                  "tipoIdentificacion" : "V",
-                  "nroIdentificacion" : 12345678,
-                  "nroPersona" : 12345678,
-                  "tipoAutorizacion" : "01",
-                  "nroAutorizacion" : 12345678
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -643,12 +514,12 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   }
                 }
               }
@@ -664,6 +535,7 @@
         "operationId" : "capturarReclamos",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: capturar-reclamos-cuentas-deposito",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -679,85 +551,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "tipoId" : "V",
-                  "nroCi" : 12345678,
-                  "nuPersona" : 12345678,
-                  "nomPer" : 12345678,
-                  "direc" : "VALOR",
-                  "area" : "VALOR",
-                  "telefono" : "04141234567",
-                  "area2" : "VALOR",
-                  "telefono2" : "VALOR",
-                  "email" : "test@email.com",
-                  "coTipoRequerim" : "01",
-                  "coTipoProduc" : "01",
-                  "nomTipoProduc" : "JUAN",
-                  "coRequerimEsp" : "VALOR",
-                  "nomRequerimEsp" : "JUAN",
-                  "codUnidadOrg" : "0001",
-                  "nomUnidadOrg" : "JUAN",
-                  "cantDdDesde" : "VALOR",
-                  "cantDdHasta" : "VALOR",
-                  "cantDdSoluc" : "VALOR",
-                  "cantDdNoti" : "VALOR",
-                  "cantDdHolgura" : "VALOR",
-                  "cantDdAntel" : "VALOR",
-                  "txResp" : "VALOR",
-                  "codTipoRecaudo" : "0001",
-                  "nomTipoRecaudo" : "JUAN",
-                  "codUnidadOrgResp" : "0001",
-                  "txInstrucsOperad" : "VALOR",
-                  "nuCuenta" : "123456789012",
-                  "inEjecutivo" : "VALOR",
-                  "indNoCliente" : "VALOR",
-                  "txTipoCall" : "01",
-                  "txRecaudos" : "VALOR",
-                  "codSubTipo" : "0001",
-                  "desSubTipo" : "01",
-                  "nroReq" : 12345678,
-                  "feEdocta" : "VALOR",
-                  "codMedioComunic" : "0001",
-                  "descriMedioComunic" : "VALOR",
-                  "nroSerialDoc" : 12345678,
-                  "txObserv" : "VALOR",
-                  "area1250Terminal" : "VALOR",
-                  "area1250MtoOper" : "VALOR",
-                  "area1250Nroope" : "VALOR",
-                  "area1250FchTrans" : "VALOR",
-                  "area1250FchReal" : "VALOR",
-                  "area1250Hora" : "VALOR",
-                  "ctaDestinoFondos" : "123456789012",
-                  "nombreBeneficiario" : "JUAN",
-                  "area1250MtoTotal" : "VALOR",
-                  "coCarnet" : "VALOR",
-                  "codUnidadCaptura" : "0001",
-                  "nroTarjAbra24" : "1234567890123456",
-                  "nroTarjCdto" : "1234567890123456",
-                  "nroCtaTarjCdto" : "123456789012",
-                  "codBanco" : "0001",
-                  "nombreBanco" : "JUAN",
-                  "fchRequer" : "01012026",
-                  "mtoDispCajero" : 1500.5,
-                  "codigoAccion" : "0001"
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -778,22 +587,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaReclamosCuentasDeposito" : {
-                    "fchDdSoluc" : "01012026",
-                    "tipoRequerimEspec" : "01",
-                    "txReqerimEspec" : "VALOR",
-                    "reclamo" : "VALOR",
-                    "mto" : 1500.5,
-                    "tipoId" : "V",
-                    "nroCi" : 12345678
-                  }
+                  "bodySalidaReclamosCuentasDeposito" : { }
                 }
               }
             }
@@ -808,6 +609,7 @@
         "operationId" : "reclamosTarjetaEfectivo",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: capturar-reclamos-tarjeta-efectivo",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -823,72 +625,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "tipoId" : "V",
-                  "nroCi" : 12345678,
-                  "nroPersona" : 12345678,
-                  "nomPer" : 12345678,
-                  "direcc" : [ "AV PRINCIPAL CARACAS" ],
-                  "nroReq" : 12345678,
-                  "area" : "VALOR",
-                  "telf" : "04141234567",
-                  "area2" : "VALOR",
-                  "telf2" : "VALOR",
-                  "email" : "test@email.com",
-                  "feEdocta" : "VALOR",
-                  "monto" : 1500.5,
-                  "nroTarjEfectivo" : "1234567890123456",
-                  "nroOper" : 12345678,
-                  "codMedioComunic" : "0001",
-                  "descripMedioComunic" : "VALOR",
-                  "codTipoRequerim" : "0001",
-                  "codTipoProduc" : "0001",
-                  "codRequerimEsp" : "0001",
-                  "nomRequerimEsp" : "JUAN",
-                  "observ" : [ "VALOR" ],
-                  "reca" : [ "VALOR" ],
-                  "codUnidadOrg" : "0001",
-                  "nomUnidadOrg" : "JUAN",
-                  "codReclamo" : "0001",
-                  "desReclamo" : "VALOR",
-                  "indNroCliente" : 12345678,
-                  "transacciones" : [ {
-                    "fchTrans" : "01012026",
-                    "hhTrans" : "VALOR",
-                    "fchPosteo" : "01012026",
-                    "nroTerm" : 12345678,
-                    "mtoTrans" : 1500.5,
-                    "hhPosteo" : "VALOR",
-                    "MtoCre" : 1500.5,
-                    "mtoDeb" : 1500.5,
-                    "nroRef" : 12345678,
-                    "codTrans" : "0001",
-                    "glosaTrans" : "VALOR",
-                    "codCanal" : "0001",
-                    "codSubcanal" : "09",
-                    "nroRequerimAnt" : 12345678,
-                    "cantReconsiderac" : "VALOR"
-                  } ],
-                  "codUnidadCaptura" : "0001",
-                  "carnetCaptura" : "VALOR"
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -909,22 +661,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaReclamosTarjetaEfectivo" : {
-                    "salida" : {
-                      "tiempoEstimSoluc" : "VALOR",
-                      "nomRequerimEspecif" : "JUAN",
-                      "mto" : 1500.5,
-                      "nroReclamo" : 12345678,
-                      "codRequerimEspecif" : "0001"
-                    }
-                  }
+                  "bodySalidaReclamosTarjetaEfectivo" : { }
                 }
               }
             }
@@ -939,6 +683,7 @@
         "operationId" : "consultarTelefonosDetallado",
         "description" : "\n\n\uD83D\uDD17 Programa: GIPW106X\n\n\uD83D\uDD17 Service: consultar-telefonos-detallado",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -954,31 +699,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "paramEntrada" : {
-                    "codPaisId" : 12345678,
-                    "tipId" : 12345678,
-                    "nroId" : 12345678,
-                    "nroPer" : 12345678
-                  }
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -999,26 +735,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaConsultarTelefonosDetallado" : {
-                    "detalleTelefonos" : {
-                      "telefonos" : [ {
-                        "codLocalizaTelf" : "0001",
-                        "tipoTelf" : "04141234567",
-                        "codArea" : "0001",
-                        "nroExt" : "5342",
-                        "nroSuc" : 12345678,
-                        "codAreaPais" : "VE",
-                        "nroTelf" : "02126624076"
-                      } ]
-                    }
-                  }
+                  "bodySalidaConsultarTelefonosDetallado" : { }
                 }
               }
             }
@@ -1033,6 +757,7 @@
         "operationId" : "consultarLocalizacionNacionalCompactada",
         "description" : "\n\n\uD83D\uDD17 Programa: GIPWC31X\n\n\uD83D\uDD17 Service: consultar-localizacion-nacional-compactada",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1048,30 +773,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "nroPer" : 12345678,
-                  "codPais" : "VE",
-                  "tipoId" : "V",
-                  "nroId" : 12345678,
-                  "tipoLocaliza" : "01"
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -1092,17 +809,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaConsultarLocalizacionNacionalCompactada" : {
-                    "direccCompact" : [ "AV PRINCIPAL CARACAS" ],
-                    "codLocaliza" : "0001"
-                  }
+                  "bodySalidaConsultarLocalizacionNacionalCompactada" : { }
                 }
               }
             }
@@ -1117,6 +831,7 @@
         "operationId" : "datosBasicosDireccionTelefonoEmail",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-datos-basicos-direccion-telefono-email",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1132,29 +847,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "codPais" : "VE",
-                  "tipoId" : "V",
-                  "nroId" : 12345678,
-                  "nroPer" : 12345678
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -1175,80 +883,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaConsultarDatosBasicosDireccionTelefonoEmail" : {
-                    "nroExtHab" : 12345678,
-                    "habDescripCodPais" : "VE",
-                    "codAreaCiudadOfic" : "0001",
-                    "habNomSector" : "JUAN",
-                    "descripFliaProducCIIU3" : "VALOR",
-                    "habDireccCompact" : "AV PRINCIPAL CARACAS",
-                    "sedeCodParroq" : "0001",
-                    "primerNom" : "JUAN",
-                    "sedeCodEdo" : "0001",
-                    "nroTelfHab" : 12345678,
-                    "direccSedeNomSector" : "JUAN",
-                    "codActivoOcup" : "0001",
-                    "apellCasada" : "PEREZ",
-                    "fchNac" : "01012026",
-                    "emailPer" : 12345678,
-                    "habCodZonaPostal" : "0001",
-                    "direccSedeNomMunic" : "JUAN",
-                    "habDescripParroq" : "VALOR",
-                    "habCodSector" : "0001",
-                    "codAreaCiudaddHab" : "0001",
-                    "sedeDescripCodEdo" : "0001",
-                    "nroExtOfic" : 12345678,
-                    "sedeCodUrb" : "0001",
-                    "direccHabCodMunic" : "0001",
-                    "habNroAptdoPostal" : 12345678,
-                    "sedeCodPais" : "VE",
-                    "habCodEdo" : "0001",
-                    "codAreaPaisOfic" : "VE",
-                    "descripEdoCivil" : "VALOR",
-                    "edoCivil" : "VALOR",
-                    "habDescripCodUrb" : "0001",
-                    "nroTelfOfic" : 12345678,
-                    "nomComerc" : "JUAN",
-                    "primerApellRs" : "PEREZ",
-                    "sedeDescripParroq" : "VALOR",
-                    "nroTelfCelular" : 12345678,
-                    "sedeCodCiudad" : "0001",
-                    "direccHabNomMunic" : "JUAN",
-                    "sedeDescripCodPais" : "VE",
-                    "descripTipoPer" : 12345678,
-                    "codFliaProducCIIU3" : "0001",
-                    "tipoPer" : 12345678,
-                    "habDescripCodEdo" : "0001",
-                    "sedeDescripCodCiudad" : "0001",
-                    "emailOfic" : "test@email.com",
-                    "habCodPais" : "VE",
-                    "codAreaPaisHab" : "VE",
-                    "codCategCIIU3" : "0001",
-                    "direccSedeCodSector" : "0001",
-                    "direccCompact" : "AV PRINCIPAL CARACAS",
-                    "codAreaPaisCelular" : "VE",
-                    "direccSedeCodMunic" : "0001",
-                    "segundoApell" : "PEREZ",
-                    "habDescripCodCiudad" : "0001",
-                    "descripActivoOcup" : "VALOR",
-                    "sedeDescripCodUrb" : "0001",
-                    "segundoNom" : "JUAN",
-                    "sedeCodLocaliza" : "0001",
-                    "habCodUrb" : "0001",
-                    "sedeCodZonaPostal" : "0001",
-                    "habCodParroq" : "0001",
-                    "habCodLocaliza" : "0001",
-                    "sexo" : "VALOR",
-                    "sedeNroAptdoPostal" : 12345678,
-                    "habCodCiudad" : "0001"
-                  }
+                  "bodySalidaConsultarDatosBasicosDireccionTelefonoEmail" : { }
                 }
               }
             }
@@ -1263,6 +905,7 @@
         "operationId" : "personaContactoEmpresa",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-persona-contacto-empresa",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1278,36 +921,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "codPais" : "VE",
-                  "tipoId" : "V",
-                  "nroId" : 12345678,
-                  "nroPer" : 12345678,
-                  "idPerContPais" : 12345678,
-                  "idPerContTipo" : 12345678,
-                  "idPerContNro " : 12345678,
-                  "nroPerContacto" : 12345678,
-                  "idUsuMeleTipo" : 12345678,
-                  "idUsuMeleNro" : 12345678,
-                  "nroTipoContacto" : 12345678
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -1328,36 +957,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaConsultarPersonaContactoEmpresa" : {
-                    "contactos" : [ {
-                      "tipoID" : 12345678,
-                      "nroPerMele" : 12345678,
-                      "nroExtContacto" : 12345678,
-                      "direccContacto" : "AV PRINCIPAL CARACAS",
-                      "nroSuc" : 12345678,
-                      "cargoContacto" : "VALOR",
-                      "nroCelContacto" : 12345678,
-                      "fchNacimContacto" : "01012026",
-                      "codAreaContacto" : "0001",
-                      "nroID" : 12345678,
-                      "descripContacto" : "VALOR",
-                      "codCelAreaContacto" : "0001",
-                      "nroTelfContacto" : 12345678,
-                      "idPais" : 12345678,
-                      "nomContacto" : "JUAN",
-                      "tipoUsuMele" : "01",
-                      "nroPerContacto" : 12345678,
-                      "direccEmailContacto" : "test@email.com",
-                      "tipoContacto" : "01"
-                    } ]
-                  }
+                  "bodySalidaConsultarPersonaContactoEmpresa" : { }
                 }
               }
             }
@@ -1372,6 +979,7 @@
         "operationId" : "consultarGrupoEconomico",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-grupo-economico",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1387,26 +995,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntradaConsultarGrupoEconomico" : {
-                  "codGrupoReferido" : "0001"
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -1427,27 +1031,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaConsultarGrupoEconomico" : {
-                    "nomGrupo" : "JUAN",
-                    "codMegaGrupo" : "0001",
-                    "nomEspecTransacc" : "JUAN",
-                    "carnetFuncGrupo" : "VALOR",
-                    "nomFuncGrupo" : "JUAN",
-                    "descripCodUnidadNeg" : "0001",
-                    "descripTipoGrupo" : "01",
-                    "codFuncGrupo" : "0001",
-                    "tipoGrupo" : "01",
-                    "carnetEspecTransacc" : "VALOR",
-                    "nomMegaGrupo" : "JUAN",
-                    "codUnidadNeg" : "0001"
-                  }
+                  "bodySalidaConsultarGrupoEconomico" : { }
                 }
               }
             }
@@ -1462,6 +1053,7 @@
         "operationId" : "consultarDatosEmpleado",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-datos-empleado",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1477,26 +1069,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntradaConsultarDatosEmpleado" : {
-                  "carnetEmpl" : "VALOR"
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -1517,32 +1105,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaConsultarDatosEmpleado" : {
-                    "datosEmpleado" : {
-                      "nomEmpresaEmpl" : "JUAN",
-                      "nomCargoEmpl" : "JUAN",
-                      "codUnidadSuper" : "0001",
-                      "rolEmpl" : "CLIENTE",
-                      "estatusEmpl" : "ACTIVO",
-                      "codUnidadEmpl" : "0001",
-                      "nomEmpl" : "JUAN",
-                      "nomUnidadEmpl" : "JUAN",
-                      "numIdEmpl" : 12345678,
-                      "tipoIdEmpl" : 12345678,
-                      "codCargoEmpl" : "0001",
-                      "carnetRespbUnidad" : "VALOR",
-                      "codDepto" : "0001",
-                      "carnetRespbUnidadSup" : "VALOR",
-                      "codEmpresaEmpl" : "0108"
-                    }
-                  }
+                  "bodySalidaConsultarDatosEmpleado" : { }
                 }
               }
             }
@@ -1557,6 +1127,7 @@
         "operationId" : "productoPersonas",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-producto-personas",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1572,29 +1143,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "codPaisV" : "VE",
-                  "tipoIdV" : "V",
-                  "nroIdV" : 12345678,
-                  "nroPer" : 12345678
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -1615,20 +1179,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaConsultarProductosPersonas" : {
-                    "codEmpresaRel" : "0108",
-                    "rolPer" : 12345678,
-                    "codTipoProduc" : "0001",
-                    "producto" : "VALOR",
-                    "nomComProduc" : "JUAN"
-                  }
+                  "bodySalidaConsultarProductosPersonas" : { }
                 }
               }
             }
@@ -1643,6 +1201,7 @@
         "operationId" : "cuentasOficinasActivas",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-cuentas-oficina-activas",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1658,29 +1217,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "codPaisEntrada" : "VE",
-                  "tipoIdEntrada" : 12345678,
-                  "nroIdEntrada" : 12345678,
-                  "nroPer" : 12345678
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -1701,22 +1253,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaConsultarCuentasOficinasActivas" : {
-                    "oficinasActivas" : [ {
-                      "codSafeAcept" : "0001",
-                      "nomOficSafeAcepta" : "JUAN",
-                      "nroctaAcepta" : "VALOR",
-                      "txtDireccAcepta" : "AV PRINCIPAL CARACAS",
-                      "oficSafeAcepta" : "VALOR"
-                    } ]
-                  }
+                  "bodySalidaConsultarCuentasOficinasActivas" : { }
                 }
               }
             }
@@ -1731,6 +1275,7 @@
         "operationId" : "relacionCuentaCliente",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-relacion-cuenta-cliente",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1746,30 +1291,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "nroCuenta" : "123456789012",
-                  "codPais" : "VE",
-                  "tipoId" : "V",
-                  "nroId" : 12345678,
-                  "nroPer" : 12345678
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -1787,12 +1324,12 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   }
                 }
               }
@@ -1808,6 +1345,7 @@
         "operationId" : "indicadorActualizacionPersonas",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-indicadores-actualizacion-personas",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1823,29 +1361,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "nroPer" : 12345678,
-                  "codPais" : "VE",
-                  "tipoIdPpal" : 12345678,
-                  "nroIdPpal" : 12345678
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -1866,26 +1397,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaConsultarIndicadoresActualizacionPersonas" : {
-                    "codFormaUnif" : "0001",
-                    "indExpedActualizado" : "VALOR",
-                    "indEsClte" : "VALOR",
-                    "fchUltActExped" : "01012026",
-                    "tipoPer" : 12345678,
-                    "fchActMelp" : "01012026",
-                    "tipoPep" : "01",
-                    "codSeg" : "0001",
-                    "fchActRecaUnif" : "01012026",
-                    "oficEntregRecaUnif" : "VALOR",
-                    "fchProxActExped" : "01012026"
-                  }
+                  "bodySalidaConsultarIndicadoresActualizacionPersonas" : { }
                 }
               }
             }
@@ -1900,6 +1419,7 @@
         "operationId" : "datosBasicos",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-datos-basicos",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1915,29 +1435,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "nroPer" : 12345678,
-                  "codPais" : "VE",
-                  "tipoId" : "V",
-                  "nroId" : 12345678
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -1958,22 +1471,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaConsultarDatosBasicos" : {
-                    "segundoApell" : "PEREZ",
-                    "primerNom" : "JUAN",
-                    "tipoPer" : 12345678,
-                    "apellCasada" : "PEREZ",
-                    "nomComerc" : "JUAN",
-                    "primerApell" : "PEREZ",
-                    "segundoNom" : "JUAN"
-                  }
+                  "bodySalidaConsultarDatosBasicos" : { }
                 }
               }
             }
@@ -1988,6 +1493,7 @@
         "operationId" : "grupoMegaGrupo",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-grupo-mega-grupo",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2003,31 +1509,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "datosCliente" : {
-                    "codigoPais" : "VE",
-                    "tipoIdentificacion" : "V",
-                    "numeroIdentificacion" : 12345678,
-                    "numeroPersona" : 12345678
-                  }
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -2048,19 +1545,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaConsultarGrupoMegaGrupo" : {
-                    "grupoCod" : "0001",
-                    "megaGrupoCod" : "0001",
-                    "grupoNom" : "JUAN",
-                    "megaGrupoNom" : "JUAN"
-                  }
+                  "bodySalidaConsultarGrupoMegaGrupo" : { }
                 }
               }
             }
@@ -2075,6 +1567,7 @@
         "operationId" : "detalleProductoCliente",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-detalle-producto-cliente",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2090,27 +1583,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "codProduc" : "0001",
-                  "codTipoProduc" : "0001"
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -2131,36 +1619,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaConsultarDetalleProductoCliente" : {
-                    "codUsoProduc" : "0001",
-                    "mtoPromMtoCta" : "123456789012",
-                    "fchInicio" : "01012026",
-                    "codSitProduc" : "0001",
-                    "idProducRel" : 12345678,
-                    "fchActualizExpe" : "01012026",
-                    "tipoExoneracion" : "01",
-                    "nomComProduc" : "JUAN",
-                    "codProducRel" : "0001",
-                    "indicCtaMenor" : "123456789012",
-                    "tipoExento" : "01",
-                    "codFirma" : "0001",
-                    "indicCtaNomina" : "123456789012",
-                    "fchNacMenor" : "01012026",
-                    "codEmpresaRel" : "0108",
-                    "fchFinRel" : "31122026",
-                    "rolPer" : 12345678,
-                    "nroSuc" : 12345678,
-                    "fchUltActReg" : "01012026",
-                    "codGrupo" : "0001",
-                    "nroPer" : 12345678
-                  }
+                  "bodySalidaConsultarDetalleProductoCliente" : { }
                 }
               }
             }
@@ -2175,6 +1641,7 @@
         "operationId" : "reportadoSudeban",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-reportado-sudeban",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2190,29 +1657,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "codPais" : "VE",
-                  "tipoIdPpal" : 12345678,
-                  "nroIdPpal" : 12345678,
-                  "nroPer" : 12345678
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -2230,12 +1690,12 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   }
                 }
               }
@@ -2251,6 +1711,7 @@
         "operationId" : "datosNoClientes",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-datos-no-clientes",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2266,29 +1727,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "nroPerNoClte" : 12345678,
-                  "codPais" : "VE",
-                  "tipoId" : "V",
-                  "nroId" : 12345678
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -2309,58 +1763,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaConsultarDatosNoClientes" : {
-                    "tipoId" : "V",
-                    "nroTelfHab" : 12345678,
-                    "codCalle" : "0001",
-                    "descripCodCalle" : "0001",
-                    "codMunic" : "0001",
-                    "nroCelular" : 12345678,
-                    "codAreaHabTelf" : "0001",
-                    "desParroq" : "VALOR",
-                    "primerNom" : "JUAN",
-                    "nomEdif" : "JUAN",
-                    "codAreaTelfOfic" : "0001",
-                    "desMunic" : "VALOR",
-                    "codPaisDirecc" : "VE",
-                    "nroPerNoClte" : 12345678,
-                    "apellCasada" : "PEREZ",
-                    "desEdo" : "VALOR",
-                    "genero" : "VALOR",
-                    "primerApell" : "PEREZ",
-                    "descripNivel" : "VALOR",
-                    "codAptdoPostal" : "0001",
-                    "desCiudad" : "VALOR",
-                    "email" : "test@email.com",
-                    "codPaisCelular" : "VE",
-                    "segundoApell" : "PEREZ",
-                    "nomApto" : "JUAN",
-                    "codEdo" : "0001",
-                    "codNivel" : "0001",
-                    "nroId" : 12345678,
-                    "codPais" : "VE",
-                    "segundoNom" : "JUAN",
-                    "codCiudad" : "0001",
-                    "nroTelfOfic" : 12345678,
-                    "origenReg" : "VALOR",
-                    "codPaisHabTelf" : "VE",
-                    "codOficPaisTelf" : "VE",
-                    "nroPerClte" : 12345678,
-                    "codZonaPostal" : "0001",
-                    "codParroq" : "0001",
-                    "fchNac" : "01012026",
-                    "descripPaisDirecc" : "AV PRINCIPAL CARACAS",
-                    "fchReg" : "01012026",
-                    "direcc" : "AV PRINCIPAL CARACAS",
-                    "codAreaCelular" : "0001"
-                  }
+                  "bodySalidaConsultarDatosNoClientes" : { }
                 }
               }
             }
@@ -2375,6 +1785,7 @@
         "operationId" : "consultarAutorizacionesCliente",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-autorizaciones-cliente",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2390,32 +1801,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "codPais" : "VE",
-                  "tipoId" : "V",
-                  "nroId" : 12345678,
-                  "nroPer" : 12345678,
-                  "tipoAutorizacion" : "01",
-                  "codProducto" : "02",
-                  "codTipoProducto" : "02"
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -2436,35 +1837,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaConsultarAutorizacionesCliente" : {
-                    "nroAutori" : 12345678,
-                    "fchFinAutori" : "31122026",
-                    "idAutori" : 12345678,
-                    "fchSolicAutori" : "01012026",
-                    "codTipoAutori" : "0001",
-                    "fchInicioAutori" : "01012026",
-                    "carnetFnarioCapt" : "VALOR",
-                    "statusAutori" : "ACTIVO",
-                    "unidadOrgCapt" : "VALOR",
-                    "indicAutoriClte" : "S",
-                    "fchActualiz" : "01012026",
-                    "codCanalAutori" : "0001",
-                    "autorizaciones" : [ {
-                      "codTipoProducAutori" : "0001",
-                      "nroCtaAutori" : "123456789012"
-                    } ],
-                    "paisesDestinos" : [ {
-                      "codPaisesDestino" : "0001",
-                      "descriPaisesDestino" : "VALOR"
-                    } ]
-                  }
+                  "bodySalidaConsultarAutorizacionesCliente" : { }
                 }
               }
             }
@@ -2479,6 +1859,7 @@
         "operationId" : "personaPEP",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-persona-pep",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2494,31 +1875,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "tipoConsulta" : "01",
-                  "nroPer" : 12345678,
-                  "paisId" : 12345678,
-                  "tipoId" : "V",
-                  "numeId" : 12345678,
-                  "codigPaisCliente" : "VALOR"
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -2539,44 +1911,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaConsultarPersonaPEP" : {
-                    "tipoPep" : "01",
-                    "enteAdscripcion" : "VALOR",
-                    "indicTelf" : "04141234567",
-                    "nomCorporacion" : "JUAN",
-                    "indicDireccPostal" : "AV PRINCIPAL CARACAS",
-                    "codPaisNacAlterna" : "VE",
-                    "recaudaciones" : [ {
-                      "serialVersionUID" : "VALOR",
-                      "fchEntrgReca" : "01012026",
-                      "indicAcept" : "S",
-                      "codTipoReca" : "0001",
-                      "nomTipoReca" : "JUAN"
-                    } ],
-                    "nomPepAsociado" : "JUAN",
-                    "indicDirecc" : "AV PRINCIPAL CARACAS",
-                    "indicTransfer" : "S",
-                    "indicResd" : "S",
-                    "indicClasifEmpresa" : "S",
-                    "codigPaisConstit" : "VALOR",
-                    "codPartdoPolitico" : "0001",
-                    "codPaisCorporacion" : "VE",
-                    "fchInicIndicios" : "01012026",
-                    "fchRenuncia2Nac" : "01012026",
-                    "codCargoEnGob" : "0001",
-                    "codCargoEnPartdoPolitico" : "0001",
-                    "tipoPer" : 12345678,
-                    "nomPaisConstit" : "JUAN",
-                    "indicApoder" : "S",
-                    "fchActualIndicios" : "01012026"
-                  }
+                  "bodySalidaConsultarPersonaPEP" : { }
                 }
               }
             }
@@ -2591,6 +1933,7 @@
         "operationId" : "autorizacionesNoCliente",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-autorizaciones-no-cliente",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2606,30 +1949,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "paisIdNoClte" : 12345678,
-                  "tipoIdNoClte" : 12345678,
-                  "nroIdNoClte" : 12345678,
-                  "nroPerNoClte" : 12345678,
-                  "tipoAutorizacion" : "01"
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -2650,27 +1985,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaConsultarAutorizacionesNoCliente" : {
-                    "fchInicAutori" : "01012026",
-                    "fchActualiz" : "01012026",
-                    "fchFinAutori" : "31122026",
-                    "idAutori" : 12345678,
-                    "nroAutori" : 12345678,
-                    "statusAutori" : "ACTIVO",
-                    "codTipoAutori" : "0001",
-                    "codCanalAutori" : "0001",
-                    "fchSolicAutori" : "01012026",
-                    "unidadOrgCapt" : "VALOR",
-                    "indicAutoriClte" : "S",
-                    "carnetFnarioCapt" : "VALOR"
-                  }
+                  "bodySalidaConsultarAutorizacionesNoCliente" : { }
                 }
               }
             }
@@ -2685,6 +2007,7 @@
         "operationId" : "roles",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-roles",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2700,30 +2023,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "codPais" : "VE",
-                  "tipoId" : "V",
-                  "nroId" : 12345678,
-                  "nroPer" : 12345678,
-                  "rol" : "CLIENTE"
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -2744,27 +2059,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaConsultarRoles" : {
-                    "rolSuper" : "CLIENTE",
-                    "superRoles" : [ "VALOR" ],
-                    "fchInicRoles" : [ "01012026" ],
-                    "statusRol" : "ACTIVO",
-                    "cantRoles" : "VALOR",
-                    "fchFinRoles" : [ "31122026" ],
-                    "status" : [ "ACTIVO" ],
-                    "existeRol" : "CLIENTE",
-                    "fchRolFin" : "31122026",
-                    "fchRolInic" : "01012026",
-                    "rol" : "CLIENTE",
-                    "roles" : [ "VALOR" ]
-                  }
+                  "bodySalidaConsultarRoles" : { }
                 }
               }
             }
@@ -2779,6 +2081,7 @@
         "operationId" : "tablaEquivalencia",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-tabla-equivalencia-reclamos",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2794,33 +2097,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "parametrosEntrada" : {
-                    "codTipoProduc" : "0001",
-                    "codCanal" : "0001",
-                    "codSubCanal" : "0001",
-                    "codRequerimEsp" : "0001",
-                    "codSubRequerimEsp" : "0001",
-                    "codTipCliente" : "0001"
-                  }
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -2841,22 +2133,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaTablaEquivalenciaReclamos" : {
-                    "productos" : {
-                      "descripProducUni" : "VALOR",
-                      "descripRequerimUni" : "VALOR",
-                      "codRequerimUni" : "0001",
-                      "codProducUni" : "0001",
-                      "subRequerimUni" : "VALOR"
-                    }
-                  }
+                  "bodySalidaTablaEquivalenciaReclamos" : { }
                 }
               }
             }
@@ -2871,6 +2155,7 @@
         "operationId" : "consultarReclamos",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-reclamos",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2886,32 +2171,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntradaConsultarReclamos" : {
-                  "codPaisEntrada" : "VE",
-                  "tipoIdEntrada" : 12345678,
-                  "nroIdEntrada" : 12345678,
-                  "nroPer" : 12345678,
-                  "indProducto" : "VALOR",
-                  "indTipoRequerim" : "01",
-                  "nroRequerimE" : 12345678
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -2932,34 +2207,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaConsultarReclamos" : {
-                    "tipoIdS" : 12345678,
-                    "nroCiS" : 12345678,
-                    "indCliente" : "VALOR",
-                    "nombreCliente" : "JUAN",
-                    "vectNroRequerimS" : [ {
-                      "nroRequerimS" : 12345678
-                    } ],
-                    "vectTxtStatusS" : [ {
-                      "txtStatusS" : "ACTIVO"
-                    } ],
-                    "vectTxtUnidSolucS" : [ {
-                      "txtUnidSolucS" : "VALOR"
-                    } ],
-                    "VectMtoProcedenteS" : [ {
-                      "MtoProcedenteS" : 1500.5
-                    } ],
-                    "vectFchRequerimS" : [ {
-                      "fchRequerimS" : "01012026"
-                    } ]
-                  }
+                  "bodySalidaConsultarReclamos" : { }
                 }
               }
             }
@@ -2974,6 +2229,7 @@
         "operationId" : "gestionarCantTranSinExpedActualizado",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: gestionar-cant-sin-exp-act",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2989,27 +2245,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "nroPer" : 12345678,
-                  "accion" : "VALOR"
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -3030,21 +2281,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaGestionarCantTranSinExpedActualizado" : {
-                    "indBloqueo" : "VALOR",
-                    "topeTrxPermite" : "VALOR",
-                    "contIntentos" : "VALOR",
-                    "indActualizExpe" : "VALOR",
-                    "fchActualizExpe" : "01012026",
-                    "fchProxActExped" : "01012026"
-                  }
+                  "bodySalidaGestionarCantTranSinExpedActualizado" : { }
                 }
               }
             }
@@ -3059,6 +2303,7 @@
         "operationId" : "fichaCliente",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: imprimir-ficha-cliente-persona-natural",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3074,31 +2319,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "rutinaImpresionIn" : {
-                    "codPaisId" : 12345678,
-                    "tipoId" : "V",
-                    "nroId" : 12345678,
-                    "nroPer" : 12345678
-                  }
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -3119,124 +2355,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaImprimirFichaClientePersonaNatural" : {
-                    "fichaCliente" : {
-                      "otrosProductosBancarios" : {
-                        "origenFondos" : "VALOR",
-                        "destinoFondos" : "VALOR",
-                        "motivo" : "VALOR",
-                        "productosActivos" : [ {
-                          "nomMoneda" : "VES",
-                          "nomCta" : "123456789012",
-                          "nroCta" : "123456789012"
-                        } ]
-                      },
-                      "otrosIngresos" : {
-                        "otroIngresoN" : "VALOR",
-                        "actGeneradora" : "VALOR"
-                      },
-                      "repLegalApoderadoAutorizado" : {
-                        "idRepApoAut" : 12345678,
-                        "nroDoc" : 12345678,
-                        "lugarRepApoAut" : "VALOR",
-                        "nomRepApoAut" : "JUAN",
-                        "fchRepApoAut" : "01012026",
-                        "telefRepApoAut" : "VALOR"
-                      },
-                      "descripProfes" : "VALOR",
-                      "nom" : "JUAN",
-                      "nomBco" : "JUAN",
-                      "email" : "test@email.com",
-                      "negocioPropio" : {
-                        "idNegPropio" : 12345678,
-                        "proveedores" : [ {
-                          "paisProv" : "VALOR",
-                          "nomProv" : "JUAN"
-                        } ],
-                        "raRegPropio" : "VALOR",
-                        "mtnNegPropio" : "VALOR",
-                        "registroMercantil" : {
-                          "nrRegPropio" : "VALOR",
-                          "liNegPropio" : "VALOR",
-                          "reRegPropio" : "VALOR",
-                          "finegPropio" : "VALOR"
-                        },
-                        "negPropio" : "VALOR",
-                        "tiregPropio" : "VALOR",
-                        "fchNegPropio" : "01012026",
-                        "clientes" : [ {
-                          "nomRsClte" : "JUAN",
-                          "paisClte" : "VALOR"
-                        } ],
-                        "direcRegPropio" : "VALOR"
-                      },
-                      "telfHab" : "04141234567",
-                      "lugOfic" : "VALOR",
-                      "direcHab" : "VALOR",
-                      "fuenteIngresosCliente" : {
-                        "negProcio" : "VALOR",
-                        "otrosIng" : "VALOR",
-                        "relacDependencia" : "VALOR"
-                      },
-                      "personaExpuestaPoliticament" : {
-                        "idPerPep" : 12345678,
-                        "cargPerPep" : 12345678,
-                        "perPep" : 12345678,
-                        "paisPerPep" : 12345678,
-                        "entePerPep" : 12345678
-                      },
-                      "referenciasBancarias" : {
-                        "nomProduc" : "JUAN",
-                        "cifras" : "VALOR",
-                        "nomBco" : "JUAN",
-                        "nroProduc" : 12345678
-                      },
-                      "apell" : "PEREZ",
-                      "nomConyuge" : "JUAN",
-                      "nomOfic" : "JUAN",
-                      "fteIngConyuge" : "VALOR",
-                      "nroRifBco" : 12345678,
-                      "lugarNac" : "VALOR",
-                      "descripSegunNac" : "VALOR",
-                      "cargaFlia" : "VALOR",
-                      "condiViv" : "VALOR",
-                      "descripEdoCivil" : "VALOR",
-                      "informacionEconFinancClient" : {
-                        "activEspec" : "VALOR",
-                        "categEspec" : "VALOR",
-                        "descripActEcon" : "VALOR"
-                      },
-                      "relacionDependencia" : {
-                        "diEmpRelac" : "VALOR",
-                        "mtEmpRelacN" : "VALOR",
-                        "idEmpRelac" : 12345678,
-                        "tiEmpRelac" : "VALOR",
-                        "nbEmpRelac" : "VALOR",
-                        "raEmpRelac" : "VALOR",
-                        "feEmpRelac" : "VALOR",
-                        "caEmpRelac" : "VALOR"
-                      },
-                      "fchNac" : "01012026",
-                      "referenciasPersonales" : {
-                        "nomApellPer" : 12345678,
-                        "telLocPer" : 12345678,
-                        "telCelPer" : 12345678,
-                        "nroPer" : 12345678
-                      },
-                      "fchElab" : "01012026",
-                      "nroCi" : 12345678,
-                      "sexo" : "VALOR",
-                      "descripNac" : "VALOR",
-                      "idConyuge" : 12345678
-                    }
-                  }
+                  "bodySalidaImprimirFichaClientePersonaNatural" : { }
                 }
               }
             }
@@ -3251,6 +2377,7 @@
         "operationId" : "incluirDatosNoClientes",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: incluir-datos-no-clientes",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3266,62 +2393,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "codPais" : "VE",
-                  "tipoId" : "V",
-                  "nroId" : 12345678,
-                  "primerApell" : "PEREZ",
-                  "segundoApell" : "PEREZ",
-                  "apellCasada" : "PEREZ",
-                  "primerNom" : "JUAN",
-                  "segundoNom" : "JUAN",
-                  "codZonaPostal" : "0001",
-                  "email" : "test@email.com",
-                  "codNivel" : "0001",
-                  "descripNivel" : "VALOR",
-                  "codCalle" : "0001",
-                  "descripCodCalle" : "0001",
-                  "direcc" : "AV PRINCIPAL CARACAS",
-                  "fchNac" : "01012026",
-                  "nomApto" : "JUAN",
-                  "nomEdif" : "JUAN",
-                  "codPaisCelular" : "VE",
-                  "codAreaCelular" : "0001",
-                  "nroCelular" : 12345678,
-                  "codPaisHabTelf" : "VE",
-                  "codAreaHabTelf" : "0001",
-                  "nroTelfHab" : 12345678,
-                  "codOficPaisTelf" : "VE",
-                  "codAreaTelfOfic" : "0001",
-                  "nroTelfOfic" : 12345678,
-                  "codAptadoPostal" : "0001",
-                  "codCiudad" : "0001",
-                  "codEdo" : "0001",
-                  "codMunic" : "0001",
-                  "codParroq" : "0001",
-                  "genero" : "VALOR",
-                  "fchReg" : "01012026",
-                  "origenReg" : "VALOR",
-                  "nroPerClte" : 12345678,
-                  "codPaisDirecc" : "VE"
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -3342,16 +2429,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaIncluirDatosNoCliente" : {
-                    "nroPerNoClte" : 12345678
-                  }
+                  "bodySalidaIncluirDatosNoCliente" : { }
                 }
               }
             }
@@ -3366,6 +2451,7 @@
         "operationId" : "ingresarAutorizacionesClientes",
         "description" : "\n\n\uD83D\uDD17 Programa: GIPW114Z\n\n\uD83D\uDD17 Service: ingresar-autorizaciones-cliente",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3381,44 +2467,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "nroPersona" : 12345678,
-                  "tipoIdentificacion" : "V",
-                  "nroIdentificacion" : 12345678,
-                  "idAutorizadorMele" : 12345678,
-                  "tipoAutorizacion" : "01",
-                  "resultadoAutorizacion" : "VALOR",
-                  "arregloProducto" : {
-                    "codigoProducto" : "02",
-                    "nroProducto" : 12345678,
-                    "nroCuentaAsociadoProducto" : "123456789012"
-                  },
-                  "arregloCuentasAutorizadas" : {
-                    "cuentasAutorizadasCliente" : "VALOR"
-                  },
-                  "fechaInicioAutorizacion" : "01012026",
-                  "fechaFinalAutorizacion" : "01012026",
-                  "arregloPaisesDestinos" : {
-                    "codigoPaisesDestino" : "0001"
-                  }
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -3436,12 +2500,12 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   }
                 }
               }
@@ -3457,6 +2521,7 @@
         "operationId" : "ingresarLocalizacionNacionalCompc",
         "description" : "\n\n\uD83D\uDD17 Programa: GIPWC32X\n\n\uD83D\uDD17 Service: ingresar-localizacion-nacional-compactada",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3472,32 +2537,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "codPaisV" : "VE",
-                  "tipoIdV" : "V",
-                  "nroIdV" : 12345678,
-                  "nroPer" : 12345678,
-                  "tpLocalizaV" : "VALOR",
-                  "medio" : "VALOR",
-                  "direccComp" : "AV PRINCIPAL CARACAS"
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -3518,16 +2573,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaIngresarLocalizacionNacionalCompactada" : {
-                    "codLocaliza" : "0001"
-                  }
+                  "bodySalidaIngresarLocalizacionNacionalCompactada" : { }
                 }
               }
             }
@@ -3542,6 +2595,7 @@
         "operationId" : "ingresarTelefonosCliente",
         "description" : "\n\n\uD83D\uDD17 Programa: GIPW107X\n\n\uD83D\uDD17 Service: ingresar-telefonos-cliente",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3557,40 +2611,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "beanParametrosEntrada" : {
-                    "codPaisId" : 12345678,
-                    "tipId" : 12345678,
-                    "nroId" : 12345678,
-                    "nroPer" : 12345678,
-                    "vectorTelefonos" : [ {
-                      "tipoTelf" : "04141234567",
-                      "codArea" : "0001",
-                      "nroTelf" : "02126624076",
-                      "nroExt" : "5342",
-                      "nroSuc" : 12345678,
-                      "codAreaPais" : "VE",
-                      "codLocalizaTelf" : "0001"
-                    } ]
-                  }
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -3611,26 +2647,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaIngresarTelefonosCliente" : {
-                    "paramSalida" : {
-                      "resultados" : [ {
-                        "codLocalizaTelf" : "0001",
-                        "tipoTelf" : "04141234567",
-                        "codArea" : "0001",
-                        "nroExt" : "5342",
-                        "nroSuc" : 12345678,
-                        "codAreaPais" : "VE",
-                        "nroTelf" : "02126624076"
-                      } ]
-                    }
-                  }
+                  "bodySalidaIngresarTelefonosCliente" : { }
                 }
               }
             }
@@ -3645,6 +2669,7 @@
         "operationId" : "ingresarProducto",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: ingresar-producto",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3660,49 +2685,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "codPaisV" : "VE",
-                  "tipoIdV" : "V",
-                  "nroIdV" : 12345678,
-                  "nroPer" : 12345678,
-                  "producto" : "VALOR",
-                  "tpProducto" : "VALOR",
-                  "codSitProduc" : "0001",
-                  "cdEmpresaRel" : "VALOR",
-                  "rol" : "CLIENTE",
-                  "nroSuc" : 12345678,
-                  "indicCtaNomina" : "123456789012",
-                  "nomComProduc" : "JUAN",
-                  "codUsoProduc" : "0001",
-                  "mtoPromMmCta" : "123456789012",
-                  "motivoServicio" : "EJEMPLO",
-                  "origenFondos" : "VALOR",
-                  "otroOrigenFondos" : "VALOR",
-                  "montoApertura" : 1500.5,
-                  "promedioCantidadTransaccio" : "VALOR",
-                  "promedioDepositosEfectivo" : "VALOR",
-                  "promedioDepositosChequesM" : "VALOR",
-                  "paisOrigenTransferencia" : "VALOR",
-                  "paisDestinoTransferencia" : "VALOR",
-                  "informacionNoSuministrada" : "VALOR"
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -3720,12 +2718,12 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   }
                 }
               }
@@ -3741,6 +2739,7 @@
         "operationId" : "ingresarAutorizacionesNoClientes",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: ingresar-autorizaciones-datos-no-cliente",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3756,32 +2755,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "nroPersonaNoCliente" : 12345678,
-                  "paisIdNoClte" : 12345678,
-                  "tipoIdentificacion" : "V",
-                  "nroIdentificacion" : 12345678,
-                  "idAutorizadorMele" : 12345678,
-                  "tipoAutorizacion" : "01",
-                  "resultadoAutorizacion" : "VALOR"
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -3799,12 +2788,12 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   }
                 }
               }
@@ -3820,6 +2809,7 @@
         "operationId" : "ingresarDatosBasicos",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: ingresar-datos-basicos",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3835,37 +2825,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "rolPersona" : 12345678,
-                  "codPais" : "VE",
-                  "primerApellRs" : "PEREZ",
-                  "apellCasada" : "PEREZ",
-                  "primerNom" : "JUAN",
-                  "nbProgLlama" : "VALOR",
-                  "sigApp" : "VALOR",
-                  "segundoApell" : "PEREZ",
-                  "segundoNom" : "JUAN",
-                  "nomComercial" : "JUAN",
-                  "tipId" : 12345678,
-                  "nroId" : 12345678
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -3886,17 +2861,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaIngresarDatosBasicos" : {
-                    "tipoPer" : 12345678,
-                    "nroPer" : 12345678
-                  }
+                  "bodySalidaIngresarDatosBasicos" : { }
                 }
               }
             }
@@ -3911,6 +2883,7 @@
         "operationId" : "ingresarDatosSocioDemograficos",
         "description" : "\n\n\uD83D\uDD17 Programa: GIPW022X\n\n\uD83D\uDD17 Service: ingresar-datos-sociodemograficos",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3926,91 +2899,22 @@
               },
               "example" : {
                 "headerEntrada" : {
-                  "identificadorUnicoGlobal" : "VALOR",
-                  "identificacionCanal" : 12345678,
-                  "identificacionSubCanal" : 12345678,
-                  "siglaAplicacion" : "VALOR",
-                  "identificacionUsuario" : 12345678,
-                  "direccionIpConsumidor" : "AV PRINCIPAL CARACAS",
-                  "direccionIpCliente" : "AV PRINCIPAL CARACAS",
-                  "fechaEnvioMensaje" : "01012026",
-                  "horaEnvioMensaje" : "VALOR",
-                  "atributoPagineo" : "VALOR",
-                  "claveBusqueda" : "VALOR",
-                  "cantidadRegistros" : "VALOR"
-                },
-                "bodyEntrada" : {
-                  "codigoPais" : "VE",
-                  "tipoIdentificacion" : "V",
-                  "numeroIdentificacion" : 12345678,
-                  "tipoPersona" : 12345678,
-                  "primerNombre" : "JUAN",
-                  "segundoNombre" : "JUAN",
-                  "primerApellido" : "PEREZ",
-                  "segundoApellido" : "PEREZ",
-                  "apellidoCasada" : "PEREZ",
-                  "fechaNacimiento" : "01012026",
-                  "lugarNacimiento" : "VALOR",
-                  "codigoNacionalidad" : "0001",
-                  "sexo" : "VALOR",
-                  "estadoCivil" : "VALOR",
-                  "cargaFamiliar" : "VALOR",
-                  "paisResidencia" : "VALOR",
-                  "anioIngresoPais" : "VALOR",
-                  "aniosEnElPais" : "VALOR",
-                  "categoriaOcupacional" : "VALOR",
-                  "codigoProfesion" : "0001",
-                  "nivelEducativo" : "VALOR",
-                  "fechaIngresoLaboral" : "01012026",
-                  "aniosAntiguedadLaboral" : "VALOR",
-                  "porcentajePropiedadEmpresa" : "VALOR",
-                  "codigosDescripcionCargo" : "VALOR",
-                  "codigosActividadLaboral" : "VALOR",
-                  "descripcionesCargoLaboral" : "VALOR",
-                  "empresasLaborales" : "VALOR",
-                  "zonasUbicacionEmpresa" : "VALOR",
-                  "rangosCantidadEmpleados" : "VALOR",
-                  "sueldosMensuales" : "VALOR",
-                  "codigoCategoriaCiiu3" : "0001",
-                  "codigoFlujoProductoCiiu3" : "02",
-                  "codigoViaCambioCiiu3" : "0001",
-                  "nombreComercial" : "JUAN",
-                  "montoVentas" : 1500.5,
-                  "nivelIngresosMensuales" : "VALOR",
-                  "montoOtrosIngresosMensuales" : 1500.5,
-                  "codigoFuncionario" : "0001",
-                  "codigoDivisionRegional" : "0001",
-                  "codigoUnidadOrganizativa" : "0001",
-                  "carnetEjecutivoRelacion" : "VALOR",
-                  "codigoActivo" : "0001",
-                  "codigoCondicionActivo" : "0001",
-                  "fechaCondicionActivo" : "01012026",
-                  "fechaAdquisicionActivo" : "01012026",
-                  "nombreAcreedorActivo" : "JUAN",
-                  "telefonoAcreedorActivo" : "04141234567",
-                  "rolPersona" : 12345678,
-                  "medioComunicacion" : "VALOR",
-                  "tipoIdentificacionAnterior" : 12345678,
-                  "numeroIdentificacionAnterior" : 12345678,
-                  "numeroIdentificacionAnteriorNatural" : 12345678,
-                  "tipoIdentificacionRif" : 12345678,
-                  "numeroIdentificacionRif" : 12345678,
-                  "fechaVigenciaRegistroMercantil" : "01012026",
-                  "folio" : "VALOR",
-                  "circunscripcionRegistro" : "VALOR",
-                  "numeroTribunal" : 12345678,
-                  "tomoRegistro" : "VALOR",
-                  "protocolo" : "VALOR",
-                  "capitalSuscrito" : "VALOR",
-                  "capitalPagado" : "VALOR",
-                  "tipoEmpresa" : "01",
-                  "cantidadEmpleados" : "VALOR",
-                  "fechaUltimaActualizacion" : "01012026"
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -4031,17 +2935,14 @@
                 "example" : {
                   "headerSalida" : {
                     "tipoMensaje" : "F",
-                    "mensajeProgramadorSistema" : "VALOR",
-                    "codigoMensajeProgramador" : "0001",
-                    "mensajeUsuario" : "VALOR",
-                    "codigoMensajeUsuario" : "0001",
-                    "fechaSalidaMensaje" : "01012026",
-                    "horaSalidaMensaje" : "VALOR"
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
                   },
-                  "bodySalidaIngresarDatosSocioDemograficos" : {
-                    "txRetorno" : "VALOR",
-                    "nroPer" : 12345678
-                  }
+                  "bodySalidaIngresarDatosSocioDemograficos" : { }
                 }
               }
             }
@@ -4113,8 +3014,8 @@
         "type" : "object",
         "properties" : {
           "tipoMensaje" : {
-            "type" : "string",
-            "example" : "F"
+            "example" : "F",
+            "type" : "string"
           },
           "mensajeProgramadorSistema" : {
             "type" : "string"
@@ -10158,9 +9059,9 @@
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "bearerFormat" : "JWT",
         "type" : "http",
-        "scheme" : "bearer"
+        "scheme" : "bearer",
+        "bearerFormat" : "JWT"
       }
     }
   },

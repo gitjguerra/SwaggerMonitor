@@ -1,0 +1,2911 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "API notificaciones",
+    "version" : "1.0",
+    "description" : "Generado dinámicamente"
+  },
+  "servers" : [ {
+    "url" : "/notificaciones"
+  } ],
+  "tags" : [ {
+    "name" : "Actualizar Root",
+    "description" : "Operaciones Actualizar Root"
+  }, {
+    "name" : "Consultar Root",
+    "description" : "Operaciones Consultar Root"
+  }, {
+    "name" : "Eliminar Root",
+    "description" : "Operaciones Eliminar Root"
+  }, {
+    "name" : "Ingresar Root",
+    "description" : "Operaciones Ingresar Root"
+  } ],
+  "paths" : {
+    "/actualizar/integradora" : {
+      "post" : {
+        "tags" : [ "Actualizar Root" ],
+        "summary" : "actualizarIntegradora",
+        "operationId" : "actualizarIntegradora",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/actualizar/notificacion-correo" : {
+      "post" : {
+        "tags" : [ "Actualizar Root" ],
+        "summary" : "actualizarNotificacionCorreo",
+        "operationId" : "actualizarNotificacionCorreo",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/actualizar/notificacion-sms" : {
+      "post" : {
+        "tags" : [ "Actualizar Root" ],
+        "summary" : "actualizarNotificacionSms",
+        "operationId" : "actualizarNotificacionSms",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/actualizar/plantilla" : {
+      "post" : {
+        "tags" : [ "Actualizar Root" ],
+        "summary" : "actualizarPlantilla",
+        "operationId" : "actualizarPlantilla",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/actualizar/tipo-notificacion" : {
+      "post" : {
+        "tags" : [ "Actualizar Root" ],
+        "summary" : "actualizarTipoNotificacion",
+        "operationId" : "actualizarTipoNotificacion",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/actualizar/variable" : {
+      "post" : {
+        "tags" : [ "Actualizar Root" ],
+        "summary" : "actualizarVariable",
+        "operationId" : "actualizarVariable",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/actualizar/accion" : {
+      "post" : {
+        "tags" : [ "Actualizar Root" ],
+        "summary" : "actualizarAccion",
+        "operationId" : "actualizarAccion",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/actualizar/cobros" : {
+      "post" : {
+        "tags" : [ "Actualizar Root" ],
+        "summary" : "actualizarCobros",
+        "operationId" : "actualizarCobros",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/integradoras" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "listarIntegradoras",
+        "operationId" : "listarIntegradoras",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/notificacion-correo" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "listarNotificacionCorreo",
+        "operationId" : "listarNotificacionCorreo",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/notificacion-sms" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "listarNotificacionSms",
+        "operationId" : "listarNotificacionSms",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/plantillas" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "listarPlantillas",
+        "operationId" : "listarPlantillas",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/tipo-notificacion" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "listarTipoNotificacion",
+        "operationId" : "listarTipoNotificacion",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/variables" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "listarVariables",
+        "operationId" : "listarVariables",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/acciones" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "listarAcciones",
+        "operationId" : "listarAcciones",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/cobros" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "listarCobros",
+        "operationId" : "listarCobros",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/eliminar/integradoras" : {
+      "post" : {
+        "tags" : [ "Eliminar Root" ],
+        "summary" : "eliminarIntegradoras",
+        "operationId" : "eliminarIntegradoras",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/eliminar/notificacion-correo" : {
+      "post" : {
+        "tags" : [ "Eliminar Root" ],
+        "summary" : "eliminarNotificacionCorreo",
+        "operationId" : "eliminarNotificacionCorreo",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/eliminar/notificacion-sms" : {
+      "post" : {
+        "tags" : [ "Eliminar Root" ],
+        "summary" : "eliminarNotificacionSms",
+        "operationId" : "eliminarNotificacionSms",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/eliminar/plantillas" : {
+      "post" : {
+        "tags" : [ "Eliminar Root" ],
+        "summary" : "eliminarPlantilla",
+        "operationId" : "eliminarPlantilla",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/eliminar/tipo-notificacion" : {
+      "post" : {
+        "tags" : [ "Eliminar Root" ],
+        "summary" : "eliminarTipoNotificacion",
+        "operationId" : "eliminarTipoNotificacion",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/eliminar/variables" : {
+      "post" : {
+        "tags" : [ "Eliminar Root" ],
+        "summary" : "eliminarVariables",
+        "operationId" : "eliminarVariables",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/eliminar/acciones" : {
+      "post" : {
+        "tags" : [ "Eliminar Root" ],
+        "summary" : "eliminarAcciones",
+        "operationId" : "eliminarAcciones",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ingresar/integradora" : {
+      "post" : {
+        "tags" : [ "Ingresar Root" ],
+        "summary" : "insertarIntegradora",
+        "operationId" : "insertarIntegradora",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ingresar/notificacion-correo" : {
+      "post" : {
+        "tags" : [ "Ingresar Root" ],
+        "summary" : "insertarNotificacionCorreo",
+        "operationId" : "insertarNotificacionCorreo",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ingresar/notificacion-sms" : {
+      "post" : {
+        "tags" : [ "Ingresar Root" ],
+        "summary" : "insertarNotificacionSms",
+        "operationId" : "insertarNotificacionSms",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ingresar/plantilla" : {
+      "post" : {
+        "tags" : [ "Ingresar Root" ],
+        "summary" : "insertarPlantilla",
+        "operationId" : "insertarPlantilla",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ingresar/tipo-notificacion" : {
+      "post" : {
+        "tags" : [ "Ingresar Root" ],
+        "summary" : "insertarTipoNotificacion",
+        "operationId" : "insertarTipoNotificacion",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ingresar/variable" : {
+      "post" : {
+        "tags" : [ "Ingresar Root" ],
+        "summary" : "insertarVariable",
+        "operationId" : "insertarVariable",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ingresar/accion" : {
+      "post" : {
+        "tags" : [ "Ingresar Root" ],
+        "summary" : "insertarAccion",
+        "operationId" : "insertarAccion",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ingresar/cobros" : {
+      "post" : {
+        "tags" : [ "Ingresar Root" ],
+        "summary" : "insertarCobros",
+        "operationId" : "insertarCobros",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "HeaderEntrada" : {
+        "type" : "object",
+        "properties" : {
+          "identificadorUnicoGlobal" : {
+            "type" : "string"
+          },
+          "identificacionCanal" : {
+            "type" : "string"
+          },
+          "identificacionSubCanal" : {
+            "type" : "string"
+          },
+          "siglaAplicacion" : {
+            "minLength" : 1,
+            "maxLength" : 4,
+            "type" : "string"
+          },
+          "identificacionUsuario" : {
+            "type" : "string"
+          },
+          "direccionIpConsumidor" : {
+            "type" : "string"
+          },
+          "direccionIpCliente" : {
+            "type" : "string"
+          },
+          "fechaEnvioMensaje" : {
+            "type" : "string"
+          },
+          "horaEnvioMensaje" : {
+            "type" : "string"
+          },
+          "atributoPagineo" : {
+            "type" : "string"
+          },
+          "claveBusqueda" : {
+            "type" : "string"
+          },
+          "cantidadRegistros" : {
+            "type" : "integer"
+          }
+        },
+        "example" : {
+          "identificadorUnicoGlobal" : "string",
+          "identificacionCanal" : "0006",
+          "identificacionSubCanal" : "01",
+          "siglaAplicacion" : "ABC",
+          "identificacionUsuario" : "user",
+          "direccionIpConsumidor" : "127.0.0.1",
+          "direccionIpCliente" : "127.0.0.1",
+          "fechaEnvioMensaje" : "20260101",
+          "horaEnvioMensaje" : "120000",
+          "atributoPagineo" : "N",
+          "claveBusqueda" : "clave",
+          "cantidadRegistros" : 0
+        }
+      },
+      "HeaderSalida" : {
+        "type" : "object",
+        "properties" : {
+          "tipoMensaje" : {
+            "example" : "F",
+            "type" : "string"
+          },
+          "mensajeProgramadorSistema" : {
+            "type" : "string"
+          },
+          "codigoMensajeProgramador" : {
+            "type" : "string"
+          },
+          "mensajeUsuario" : {
+            "type" : "string"
+          },
+          "codigoMensajeUsuario" : {
+            "type" : "string"
+          },
+          "fechaSalidaMensaje" : {
+            "type" : "string"
+          },
+          "horaSalidaMensaje" : {
+            "type" : "string"
+          }
+        },
+        "example" : {
+          "tipoMensaje" : "F",
+          "mensajeProgramadorSistema" : "Procesado correctamente",
+          "codigoMensajeProgramador" : "0000",
+          "mensajeUsuario" : "Operación exitosa",
+          "codigoMensajeUsuario" : "0000",
+          "fechaSalidaMensaje" : "20260101",
+          "horaSalidaMensaje" : "120000"
+        }
+      },
+      "BodyEntradaConsultarSaldo" : {
+        "type" : "object",
+        "properties" : {
+          "codigoTransaccion" : {
+            "type" : "string",
+            "example" : "0001"
+          },
+          "indicadorReverso" : {
+            "type" : "string",
+            "example" : "S"
+          },
+          "codigoTerminal" : {
+            "type" : "string",
+            "example" : "0001"
+          },
+          "numeroTarjeta" : {
+            "type" : "string",
+            "example" : "1234567890123456"
+          },
+          "fechaVencimiento" : {
+            "type" : "string",
+            "example" : "01012026"
+          },
+          "tipoCuenta" : {
+            "type" : "string",
+            "example" : "123456789012"
+          },
+          "numeroCuenta" : {
+            "type" : "string",
+            "example" : "123456789012"
+          },
+          "indicadorCobro" : {
+            "type" : "string",
+            "example" : "S"
+          },
+          "numeroCedula" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "inicValCedula" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "longitudValCedula" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "codigoMoneda" : {
+            "type" : "string",
+            "example" : "VES"
+          },
+          "codigoSubCanal" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "0001"
+          }
+        }
+      },
+      "BodySalidaConsultarSaldo" : {
+        "type" : "object"
+      },
+      "RequestConsultarSaldoCuenta" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada",
+            "example" : "VALOR"
+          },
+          "bodyEntradaConsultarSaldo" : {
+            "$ref" : "#/components/schemas/BodyEntradaConsultarSaldo",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "ResponseConsultarSaldoCuenta" : {
+        "type" : "object"
+      },
+      "BeanWsError" : {
+        "type" : "object",
+        "properties" : {
+          "codigo" : {
+            "type" : "string",
+            "example" : "0001"
+          },
+          "descrip" : {
+            "type" : "string",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "BeanwsResult" : {
+        "type" : "object",
+        "properties" : {
+          "resulId" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "descrip" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "idConversation" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "campos" : {
+            "type" : "string",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "BodyEntradaObtenerCampos" : {
+        "type" : "object",
+        "properties" : {
+          "conversationId" : {
+            "type" : "integer",
+            "example" : 12345678
+          }
+        }
+      },
+      "RequestObtenerCampos" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada",
+            "example" : "VALOR"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaObtenerCampos",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "ResponseConsultarCampos" : {
+        "type" : "object",
+        "properties" : {
+          "error" : {
+            "$ref" : "#/components/schemas/BeanWsError",
+            "example" : "VALOR"
+          },
+          "resul" : {
+            "$ref" : "#/components/schemas/BeanwsResult",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "BodyEntradaCrearToken" : {
+        "type" : "object",
+        "properties" : {
+          "oauthId" : {
+            "type" : "integer",
+            "example" : 12345678
+          }
+        }
+      },
+      "BodySalidaCrearToken" : {
+        "type" : "object",
+        "properties" : {
+          "token" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "tipotoken" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "exp" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "scope" : {
+            "type" : "string",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "RequestCrearToken" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada",
+            "example" : "VALOR"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaCrearToken",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "ResponseCrearToken" : {
+        "type" : "object",
+        "properties" : {
+          "bodySalidaCrearToken" : {
+            "$ref" : "#/components/schemas/BodySalidaCrearToken",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "BeanCampo" : {
+        "type" : "object",
+        "properties" : {
+          "clave" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "valor" : {
+            "type" : "string",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "BodyEntradaIniciarConversacion" : {
+        "type" : "object",
+        "properties" : {
+          "conversationId" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "campos" : {
+            "type" : "array",
+            "example" : [ "VALOR" ],
+            "items" : {
+              "$ref" : "#/components/schemas/BeanCampo"
+            }
+          }
+        }
+      },
+      "RequestIniciarConversacion" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada",
+            "example" : "VALOR"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaIniciarConversacion",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "ResponseIniciarConversacion" : {
+        "type" : "object",
+        "properties" : {
+          "transId" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "error" : {
+            "$ref" : "#/components/schemas/BeanWsError",
+            "example" : "VALOR"
+          },
+          "resul" : {
+            "$ref" : "#/components/schemas/BeanwsResult",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "BodySalidaSMS" : {
+        "type" : "object",
+        "properties" : {
+          "meta" : {
+            "$ref" : "#/components/schemas/Meta",
+            "example" : "VALOR"
+          },
+          "errors" : {
+            "$ref" : "#/components/schemas/ErrorsMessangi",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "ErrorsMessangi" : {
+        "type" : "object",
+        "properties" : {
+          "reason" : {
+            "type" : "string",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "Meta" : {
+        "type" : "object",
+        "properties" : {
+          "timestamp" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "transactionId" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "explain" : {
+            "type" : "string",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "RequestMessangiSMS" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada",
+            "example" : "VALOR"
+          },
+          "canal" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "request" : {
+            "$ref" : "#/components/schemas/RequestSMS",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "RequestSMS" : {
+        "type" : "object",
+        "properties" : {
+          "de" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "mensaje" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "para" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "tipo" : {
+            "type" : "string",
+            "example" : "01"
+          },
+          "nroPer" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "idExterno" : {
+            "type" : "integer",
+            "example" : 12345678
+          }
+        }
+      },
+      "ResponseMessangi" : {
+        "type" : "object",
+        "properties" : {
+          "meta" : {
+            "$ref" : "#/components/schemas/Meta",
+            "example" : "VALOR"
+          },
+          "errors" : {
+            "$ref" : "#/components/schemas/ErrorsMessangi",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "BodyEntradaEnviarNotificaciones" : {
+        "type" : "object",
+        "properties" : {
+          "nroPer" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "tipoId" : {
+            "type" : "string",
+            "example" : "V"
+          },
+          "nroCi" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "codNoti" : {
+            "type" : "string",
+            "example" : "0001"
+          },
+          "tipoNoti" : {
+            "type" : "string",
+            "example" : "01"
+          },
+          "parametros" : {
+            "type" : "array",
+            "example" : [ "VALOR" ],
+            "items" : {
+              "$ref" : "#/components/schemas/Parametro"
+            }
+          }
+        }
+      },
+      "Parametro" : {
+        "type" : "object",
+        "properties" : {
+          "clv" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "valor" : {
+            "type" : "string",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "RequestEnviarNotificaciones" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada",
+            "example" : "VALOR"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaEnviarNotificaciones",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "BodySalidaOperacionesMultiples" : {
+        "type" : "object",
+        "properties" : {
+          "mensaje" : {
+            "type" : "string",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "ExtraInfo" : {
+        "type" : "object",
+        "properties" : {
+          "samwellWebHookName" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "msgiSourceCampaign" : {
+            "type" : "string",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "RequestOperacionesMultiples" : {
+        "type" : "object",
+        "properties" : {
+          "owner" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "date" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "mlogId" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "processId" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "origin" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "externalId" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "callback" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "connection" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "id" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "text" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "user" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "extraInfo" : {
+            "$ref" : "#/components/schemas/ExtraInfo",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "ResponseOperacionesMultiples" : {
+        "type" : "object"
+      },
+      "DanaConnectClient" : {
+        "type" : "object",
+        "properties" : {
+          "send" : {
+            "$ref" : "#/components/schemas/SendRequestRest",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "Messangi" : {
+        "type" : "object",
+        "properties" : {
+          "log" : {
+            "$ref" : "#/components/schemas/Logger",
+            "example" : "VALOR"
+          },
+          "bean" : {
+            "$ref" : "#/components/schemas/BeansNotifications",
+            "example" : "VALOR"
+          },
+          "canales" : {
+            "$ref" : "#/components/schemas/Channels",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "MessangiClient" : {
+        "type" : "object",
+        "properties" : {
+          "send" : {
+            "$ref" : "#/components/schemas/SendRequestRest",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "OAuthClient" : {
+        "type" : "object"
+      },
+      "BeansNotifications" : {
+        "type" : "object",
+        "properties" : {
+          "pathFileServices" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "messangiChannels" : {
+            "$ref" : "#/components/schemas/Channels",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "Channel" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "authorization" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "from" : {
+            "type" : "string",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "Channels" : {
+        "type" : "object",
+        "properties" : {
+          "channel" : {
+            "type" : "array",
+            "example" : [ "VALOR" ],
+            "items" : {
+              "$ref" : "#/components/schemas/Channel"
+            }
+          }
+        }
+      },
+      "DanaConnectImpl" : {
+        "type" : "object"
+      },
+      "ResponseActualizarIntegradora" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseActualizarNotificacionCorreo" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseActualizarNotificacionSms" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseActualizarPlantilla" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseActualizarTipoNotificacion" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseActualizarVariable" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseActualizarAccion" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseActualizarCobros" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseConsultarIntegradora" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseConsultarNotificacionCorreo" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseConsultarNotificacionSms" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseConsultarPlantilla" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseConsultarTipoNotificacion" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseConsultarVariable" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseConsultarAccion" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseConsultarCobros" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseEliminarIntegradora" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseEliminarNotificacionCorreo" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseEliminarNotificacionSms" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseEliminarPlantilla" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseEliminarTipoNotificacion" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseEliminarVariable" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseEliminarAccion" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseIngresarIntegradora" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseIngresarNotificacionCorreo" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseIngresarNotificacionSms" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseIngresarPlantilla" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseIngresarTipoNotificacion" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseIngresarVariable" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseIngresarAccion" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "ResponseIngresarCobros" : {
+        "type" : "object",
+        "additionalProperties" : true
+      }
+    },
+    "securitySchemes" : {
+      "bearerAuth" : {
+        "type" : "http",
+        "scheme" : "bearer",
+        "bearerFormat" : "JWT"
+      }
+    }
+  },
+  "security" : [ {
+    "bearerAuth" : [ ]
+  } ]
+}

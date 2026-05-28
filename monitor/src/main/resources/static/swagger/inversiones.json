@@ -1,0 +1,1284 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "API inversiones",
+    "version" : "1.0",
+    "description" : "Generado dinámicamente"
+  },
+  "servers" : [ {
+    "url" : "/inversiones"
+  } ],
+  "tags" : [ {
+    "name" : "Buscar Root",
+    "description" : "Operaciones Buscar Root"
+  }, {
+    "name" : "Consultar Root",
+    "description" : "Operaciones Consultar Root"
+  }, {
+    "name" : "Crear Root",
+    "description" : "Operaciones Crear Root"
+  }, {
+    "name" : "Validar Root",
+    "description" : "Operaciones Validar Root"
+  } ],
+  "paths" : {
+    "/buscar/inventarios" : {
+      "post" : {
+        "tags" : [ "Buscar Root" ],
+        "summary" : "inventarios",
+        "operationId" : "inventarios",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: busqueda-de-inventarios",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaBuscarInventarios"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaBuscarInventarios" : {
+                      "$ref" : "#/components/schemas/BodySalidaBuscarInventarios"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  },
+                  "bodySalidaBuscarInventarios" : { }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/operaciones-rechazadas" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "operacionesRechazadas",
+        "operationId" : "operacionesRechazadas",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/crear/orden-compra-venta" : {
+      "post" : {
+        "tags" : [ "Crear Root" ],
+        "summary" : "ordenCompraVenta",
+        "operationId" : "ordenCompraVenta",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: crear-orden-compra-venta",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaCrearOrdenCompraVenta"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaCrearOrdenCompraVenta" : {
+                      "$ref" : "#/components/schemas/BodySalidaCrearOrdenCompraVenta"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  },
+                  "bodySalidaCrearOrdenCompraVenta" : { }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/validar/datos-cliente" : {
+      "post" : {
+        "tags" : [ "Validar Root" ],
+        "summary" : "datosClientes",
+        "operationId" : "datosClientes",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: validar-datos-clientes",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaValidarDatosCliente"
+                  }
+                }
+              },
+              "example" : {
+                "headerEntrada" : {
+                  "identificadorUnicoGlobal" : "string",
+                  "identificacionCanal" : "0006",
+                  "identificacionSubCanal" : "01",
+                  "siglaAplicacion" : "ABC",
+                  "identificacionUsuario" : "user",
+                  "direccionIpConsumidor" : "127.0.0.1",
+                  "direccionIpCliente" : "127.0.0.1",
+                  "fechaEnvioMensaje" : "20260101",
+                  "horaEnvioMensaje" : "120000",
+                  "atributoPagineo" : "N",
+                  "claveBusqueda" : "clave",
+                  "cantidadRegistros" : 0
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaValidarDatosCliente" : {
+                      "$ref" : "#/components/schemas/BodySalidaValidarDatosCliente"
+                    }
+                  }
+                },
+                "example" : {
+                  "headerSalida" : {
+                    "tipoMensaje" : "F",
+                    "mensajeProgramadorSistema" : "Procesado correctamente",
+                    "codigoMensajeProgramador" : "0000",
+                    "mensajeUsuario" : "Operación exitosa",
+                    "codigoMensajeUsuario" : "0000",
+                    "fechaSalidaMensaje" : "20260101",
+                    "horaSalidaMensaje" : "120000"
+                  },
+                  "bodySalidaValidarDatosCliente" : { }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "HeaderEntrada" : {
+        "type" : "object",
+        "properties" : {
+          "identificadorUnicoGlobal" : {
+            "type" : "string"
+          },
+          "identificacionCanal" : {
+            "type" : "string"
+          },
+          "identificacionSubCanal" : {
+            "type" : "string"
+          },
+          "siglaAplicacion" : {
+            "minLength" : 1,
+            "maxLength" : 4,
+            "type" : "string"
+          },
+          "identificacionUsuario" : {
+            "type" : "string"
+          },
+          "direccionIpConsumidor" : {
+            "type" : "string"
+          },
+          "direccionIpCliente" : {
+            "type" : "string"
+          },
+          "fechaEnvioMensaje" : {
+            "type" : "string"
+          },
+          "horaEnvioMensaje" : {
+            "type" : "string"
+          },
+          "atributoPagineo" : {
+            "type" : "string"
+          },
+          "claveBusqueda" : {
+            "type" : "string"
+          },
+          "cantidadRegistros" : {
+            "type" : "integer"
+          }
+        },
+        "example" : {
+          "identificadorUnicoGlobal" : "string",
+          "identificacionCanal" : "0006",
+          "identificacionSubCanal" : "01",
+          "siglaAplicacion" : "ABC",
+          "identificacionUsuario" : "user",
+          "direccionIpConsumidor" : "127.0.0.1",
+          "direccionIpCliente" : "127.0.0.1",
+          "fechaEnvioMensaje" : "20260101",
+          "horaEnvioMensaje" : "120000",
+          "atributoPagineo" : "N",
+          "claveBusqueda" : "clave",
+          "cantidadRegistros" : 0
+        }
+      },
+      "HeaderSalida" : {
+        "type" : "object",
+        "properties" : {
+          "tipoMensaje" : {
+            "example" : "F",
+            "type" : "string"
+          },
+          "mensajeProgramadorSistema" : {
+            "type" : "string"
+          },
+          "codigoMensajeProgramador" : {
+            "type" : "string"
+          },
+          "mensajeUsuario" : {
+            "type" : "string"
+          },
+          "codigoMensajeUsuario" : {
+            "type" : "string"
+          },
+          "fechaSalidaMensaje" : {
+            "type" : "string"
+          },
+          "horaSalidaMensaje" : {
+            "type" : "string"
+          }
+        },
+        "example" : {
+          "tipoMensaje" : "F",
+          "mensajeProgramadorSistema" : "Procesado correctamente",
+          "codigoMensajeProgramador" : "0000",
+          "mensajeUsuario" : "Operación exitosa",
+          "codigoMensajeUsuario" : "0000",
+          "fechaSalidaMensaje" : "20260101",
+          "horaSalidaMensaje" : "120000"
+        }
+      },
+      "BodyEntradaBuscarInventarios" : {
+        "type" : "object",
+        "properties" : {
+          "tipoIdentificacion" : {
+            "type" : "string",
+            "example" : "V"
+          },
+          "cedulaRif" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "numeroPersona" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "tipoOperacion" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "01"
+          },
+          "codigoMoneda" : {
+            "type" : "string",
+            "example" : "VES"
+          },
+          "mtoPacto" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 1500.5
+          },
+          "subCanal" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "VALOR"
+          },
+          "tasaSubastaUsd" : {
+            "type" : "number",
+            "example" : 36.75
+          }
+        }
+      },
+      "BodySalidaBuscarInventarios" : {
+        "type" : "object",
+        "properties" : {
+          "cantDiasCtaMercantil" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "123456789012"
+          },
+          "tasaCambio" : {
+            "type" : "number",
+            "example" : 36.75
+          },
+          "tasaComisionCompra" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 36.75
+          },
+          "montoTransferencia" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 1500.5
+          },
+          "tasaSwift" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 36.75
+          },
+          "tasaCompraUsd" : {
+            "type" : "number",
+            "example" : 36.75
+          },
+          "tasaCompraEur" : {
+            "type" : "number",
+            "example" : 36.75
+          },
+          "horaCierre" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "VALOR"
+          },
+          "indCierreMelp" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "indCierreCanal" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "horaApertura" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "VALOR"
+          },
+          "tasaTransferencia" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 36.75
+          },
+          "nroTlfnCliente" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "nombreCliente" : {
+            "type" : "string",
+            "example" : "JUAN"
+          },
+          "montoComision" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 1500.5
+          },
+          "codigoProducto" : {
+            "type" : "string",
+            "example" : "02"
+          },
+          "montoMultiploSolicitud" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 1500.5
+          },
+          "tasaVentaEur" : {
+            "type" : "number",
+            "example" : 36.75
+          },
+          "emailCliente" : {
+            "type" : "string",
+            "example" : "test@email.com"
+          },
+          "tasaComisionVenta" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 36.75
+          },
+          "tasaCompraUsdEur" : {
+            "type" : "number",
+            "example" : 36.75
+          },
+          "montoMinPacto" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 1500.5
+          },
+          "tasaVentaUsd" : {
+            "type" : "number",
+            "example" : 36.75
+          },
+          "tasaVentaUsdEur" : {
+            "type" : "number",
+            "example" : 36.75
+          },
+          "codMonedaIsoUsd" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "VES"
+          },
+          "montoSwift" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 1500.5
+          },
+          "codMonedaIsoEur" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "VES"
+          },
+          "codigoEmpresa" : {
+            "type" : "string",
+            "example" : "0108"
+          },
+          "montoOperacionNeto" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 1500.5
+          },
+          "montoMaxPacto" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 1500.5
+          },
+          "montoOperacionBs" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 1500.5
+          },
+          "fechaCtaMercantil" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "01012026"
+          },
+          "indCierreMele" : {
+            "type" : "string",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "RequestBuscarInventarios" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada",
+            "example" : "VALOR"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaBuscarInventarios",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "ResponseBuscarInventarios" : {
+        "type" : "object",
+        "properties" : {
+          "bodySalidaBuscarInventarios" : {
+            "$ref" : "#/components/schemas/BodySalidaBuscarInventarios",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "BeanTransactionData" : {
+        "type" : "object",
+        "properties" : {
+          "fechaRecepcionFondos" : {
+            "type" : "string",
+            "example" : "01012026"
+          },
+          "fechaSubasta" : {
+            "type" : "string",
+            "example" : "01012026"
+          },
+          "fechaSolicitudCliente" : {
+            "type" : "string",
+            "example" : "01012026"
+          },
+          "idMoneda" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "rifCiCliente" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "nombreCliente" : {
+            "type" : "string",
+            "example" : "JUAN"
+          },
+          "nroCtaBancariaCliente" : {
+            "type" : "string",
+            "example" : "123456789012"
+          },
+          "idTipoCtaBancariaCliente" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "nroCtaBancariaExtCliente" : {
+            "type" : "string",
+            "example" : "123456789012"
+          },
+          "idTipoCtaBancariaExtCliente" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "idActEconomicaCliente" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "idDestinoFondos" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "idMedioPago" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "tasaCambioBs" : {
+            "type" : "number",
+            "example" : 36.75
+          },
+          "montoDivisa" : {
+            "type" : "number",
+            "example" : 1500.5
+          },
+          "contravalorBs" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "idEstatus" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "idTipoOperacion" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "codigoSubasta" : {
+            "type" : "string",
+            "example" : "0001"
+          },
+          "index" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "VALOR"
+          },
+          "newResultRequest" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "idTipoPacto" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "idOrigenFondos" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "idMedioPagoOrigen" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "rifCiDestino" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "nombreClienteDestino" : {
+            "type" : "string",
+            "example" : "JUAN"
+          },
+          "nroCtaBancariaDestino" : {
+            "type" : "string",
+            "example" : "123456789012"
+          },
+          "idTipoCtaBancariaDestino" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "nroCtaBancariaExtDestino" : {
+            "type" : "string",
+            "example" : "123456789012"
+          },
+          "idTipoCtaBancariaExtDestino" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "idActEconomicaDestino" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "fechaPacto" : {
+            "type" : "string",
+            "example" : "01012026"
+          },
+          "idActEconomicaOrigen" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "idMedioPagoDestino" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "idTipoCtaBancariaExtOrigen" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "idTipoCtaBancariaOrigen" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "nombreClienteOrigen" : {
+            "type" : "string",
+            "example" : "JUAN"
+          },
+          "nroCtaBancariaExtOrigen" : {
+            "type" : "string",
+            "example" : "123456789012"
+          },
+          "nroCtaBancariaOrigen" : {
+            "type" : "string",
+            "example" : "123456789012"
+          },
+          "rifCiOrigen" : {
+            "type" : "integer",
+            "example" : 12345678
+          }
+        }
+      },
+      "RequestConsultarOperacionesRechazadas" : {
+        "type" : "object",
+        "properties" : {
+          "timestamp" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "transactionType" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "errorCode" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "VALOR"
+          },
+          "transmissionId" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "transactionData" : {
+            "$ref" : "#/components/schemas/BeanTransactionData",
+            "example" : "VALOR"
+          },
+          "errorMessage" : {
+            "type" : "string",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "ResponseConsultarOperacionesRechazadas" : {
+        "type" : "object"
+      },
+      "BeanSalidaMenudeo" : {
+        "type" : "object",
+        "properties" : {
+          "nroConsecMbuSal" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "idMovimientoBcvSal" : {
+            "type" : "integer",
+            "example" : 12345678
+          }
+        }
+      },
+      "BodyEntradaCrearOrdenCompraVenta" : {
+        "type" : "object",
+        "properties" : {
+          "codigoEmpresa" : {
+            "type" : "string",
+            "example" : "0108"
+          },
+          "codigoProducto" : {
+            "type" : "string",
+            "example" : "02"
+          },
+          "numeroPersona" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "tipoIdentificacion" : {
+            "type" : "string",
+            "example" : "V"
+          },
+          "cedulaRif" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "tipoOperacion" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "01"
+          },
+          "mtoPacto" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 1500.5
+          },
+          "codigoMoneda" : {
+            "type" : "string",
+            "example" : "VES"
+          },
+          "cuentaBolivares" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "123456789012"
+          },
+          "cuentaDivisas" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "123456789012"
+          },
+          "mtoOperacionBs" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 1500.5
+          },
+          "mtoComision" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 1500.5
+          },
+          "tasaComisionCompra" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 36.75
+          },
+          "tasaComisionVenta" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 36.75
+          },
+          "tasaCambio" : {
+            "type" : "number",
+            "example" : 36.75
+          },
+          "tasaCompraUsd" : {
+            "type" : "number",
+            "example" : 36.75
+          },
+          "tasaCompraEur" : {
+            "type" : "number",
+            "example" : 36.75
+          },
+          "tasaCompraUsdEur" : {
+            "type" : "number",
+            "example" : 36.75
+          },
+          "tasaVentaUsd" : {
+            "type" : "number",
+            "example" : 36.75
+          },
+          "tasaVentaEur" : {
+            "type" : "number",
+            "example" : 36.75
+          },
+          "tasaVentaUsdEur" : {
+            "type" : "number",
+            "example" : 36.75
+          },
+          "cantDiasCtaMercantil" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "123456789012"
+          },
+          "fechaCtaMercantil" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "01012026"
+          },
+          "codMonedaIsoUsd" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "VES"
+          },
+          "codMonedaIsoEur" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "VES"
+          },
+          "subCanal" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "VALOR"
+          },
+          "codigoSegmento" : {
+            "type" : "string",
+            "example" : "0001"
+          },
+          "origenFondos" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "VALOR"
+          },
+          "destinoFondos" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "VALOR"
+          },
+          "actividadEconomica" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "VALOR"
+          },
+          "dna" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "sesscookie" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "horaApertura" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "VALOR"
+          },
+          "horaCierre" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "VALOR"
+          },
+          "nombreCliente" : {
+            "type" : "string",
+            "example" : "JUAN"
+          },
+          "nroTlfnCliente" : {
+            "type" : "integer",
+            "example" : 12345678
+          },
+          "emailCliente" : {
+            "type" : "string",
+            "example" : "test@email.com"
+          },
+          "mtoSwift" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 1500.5
+          },
+          "mtoTransferencia" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 1500.5
+          },
+          "tasaSwift" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 36.75
+          },
+          "tasaTransferencia" : {
+            "type" : "number",
+            "format" : "double",
+            "example" : 36.75
+          },
+          "ctaExtranjera" : {
+            "type" : "string",
+            "example" : "123456789012"
+          },
+          "bcoExtranjero" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "codSwift" : {
+            "type" : "string",
+            "example" : "0001"
+          },
+          "codAba" : {
+            "type" : "string",
+            "example" : "0001"
+          },
+          "codSwiftCorr" : {
+            "type" : "string",
+            "example" : "0001"
+          }
+        }
+      },
+      "BodySalidaCrearOrdenCompraVenta" : {
+        "type" : "object",
+        "properties" : {
+          "numeroOrden" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "datosControl" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "salidaMenudeo" : {
+            "$ref" : "#/components/schemas/BeanSalidaMenudeo",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "RequestCrearOrdenCompraVenta" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada",
+            "example" : "VALOR"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaCrearOrdenCompraVenta",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "ResponseCrearOrdenCompraVenta" : {
+        "type" : "object",
+        "properties" : {
+          "bodySalidaCrearOrdenCompraVenta" : {
+            "$ref" : "#/components/schemas/BodySalidaCrearOrdenCompraVenta",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "BeanInstruccionPagos" : {
+        "type" : "object",
+        "properties" : {
+          "codigoSwiftCorr" : {
+            "type" : "string",
+            "example" : "0001"
+          },
+          "codigoAba" : {
+            "type" : "string",
+            "example" : "0001"
+          },
+          "codigoMoneda" : {
+            "type" : "string",
+            "example" : "VES"
+          },
+          "bancoExtranjero" : {
+            "type" : "string",
+            "example" : "VALOR"
+          },
+          "cuentaExtranjera" : {
+            "type" : "string",
+            "example" : "123456789012"
+          },
+          "codigoSwift" : {
+            "type" : "string",
+            "example" : "0001"
+          }
+        }
+      },
+      "BodyEntradaValidarDatosCliente" : {
+        "type" : "object",
+        "properties" : {
+          "tipoIdentificacion" : {
+            "type" : "string",
+            "example" : "V"
+          },
+          "cedulaRif" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "numeroPersona" : {
+            "type" : "integer",
+            "format" : "double",
+            "example" : 12345678
+          },
+          "subCanal" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "BodySalidaValidarDatosCliente" : {
+        "type" : "object",
+        "properties" : {
+          "cantidadOperaciones" : {
+            "type" : "string",
+            "format" : "double",
+            "example" : "VALOR"
+          },
+          "instruccionPago" : {
+            "type" : "array",
+            "example" : [ "VALOR" ],
+            "items" : {
+              "$ref" : "#/components/schemas/BeanInstruccionPagos"
+            }
+          }
+        }
+      },
+      "CleanValidarDatosCliente" : {
+        "type" : "object"
+      },
+      "RequestValidarDatosCliente" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada",
+            "example" : "VALOR"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaValidarDatosCliente",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "ResponseValidarDatosCliente" : {
+        "type" : "object",
+        "properties" : {
+          "bodySalidaValidarDatosCliente" : {
+            "$ref" : "#/components/schemas/BodySalidaValidarDatosCliente",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "Buscar" : {
+        "type" : "object",
+        "properties" : {
+          "send" : {
+            "$ref" : "#/components/schemas/SendRequestRest",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "Crear" : {
+        "type" : "object",
+        "properties" : {
+          "send" : {
+            "$ref" : "#/components/schemas/SendRequestRest",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "Validar" : {
+        "type" : "object",
+        "properties" : {
+          "send" : {
+            "$ref" : "#/components/schemas/SendRequestRest",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "BeanInversiones" : {
+        "type" : "object",
+        "properties" : {
+          "pathFileServices" : {
+            "type" : "string",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "ProcessInversiones" : {
+        "type" : "object",
+        "properties" : {
+          "user" : {
+            "$ref" : "#/components/schemas/User",
+            "example" : "VALOR"
+          },
+          "smtp" : {
+            "$ref" : "#/components/schemas/Smtp",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "InitEnviroment" : {
+        "type" : "object",
+        "properties" : {
+          "log" : {
+            "$ref" : "#/components/schemas/Logger",
+            "example" : "VALOR"
+          }
+        }
+      },
+      "BuscarImpl" : {
+        "type" : "object"
+      },
+      "ConsultarImpl" : {
+        "type" : "object"
+      },
+      "CrearImpl" : {
+        "type" : "object"
+      },
+      "ValidarImpl" : {
+        "type" : "object"
+      }
+    },
+    "securitySchemes" : {
+      "bearerAuth" : {
+        "type" : "http",
+        "scheme" : "bearer",
+        "bearerFormat" : "JWT"
+      }
+    }
+  },
+  "security" : [ {
+    "bearerAuth" : [ ]
+  } ]
+}
