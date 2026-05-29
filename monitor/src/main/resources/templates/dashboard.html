@@ -793,20 +793,25 @@ async function openSwaggerPanel() {
     panel.scrollIntoView({ behavior: "smooth" });
 }
 
+
 function loadSwaggerUI(apiName) {
 
-    // ✅ ✅ FORZAR MODO CLARO    
     localStorage.removeItem("swagger-ui-theme");
     localStorage.setItem("swagger-ui-theme", "light");
 
+    const noCache = () => `ts=${Date.now()}&r=${Math.random()}`;
+
+    // ✅ limpiar contenedor (correcto)
     document.getElementById("swaggerUI").innerHTML = "";
 
+    // ✅ crear instancia correctamente
     const ui = SwaggerUIBundle({
-        url: `/swagger/${apiName}.json?ts=` + Date.now(), // ✅ cache buster REAL
+
+        url: `/swagger/${apiName}.json?` + noCache(),
+        configUrl: null,
 
         dom_id: '#swaggerUI',
 
-        // ✅ 🔥 FORZAR SIN CACHE (CLAVE)
         requestInterceptor: (req) => {
             req.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate';
             req.headers['Pragma'] = 'no-cache';
@@ -829,8 +834,17 @@ function loadSwaggerUI(apiName) {
         layout: "StandaloneLayout"
     });
 
-    // ✅ ✅ INYECTAR LOGO MERCANTIL
+    // ✅ OPCIONAL: reforzar recarga (AHORA SÍ correcto)
+    setTimeout(() => {
+        try {
+            ui.getSystem().specActions.updateUrl(`/swagger/${apiName}.json?` + noCache());
+            ui.getSystem().specActions.download();
+        } catch (e) {
+            console.warn("Swagger reload fallback:", e);
+        }
+    }, 100);
 
+    // ✅ logo (lo dejas igual)
     setTimeout(() => {
 
         const topbar = document.querySelector(".swagger-ui .topbar");
@@ -849,8 +863,7 @@ function loadSwaggerUI(apiName) {
                 <span style="color:white; font-weight:bold;">
                     BANCO MERCANTIL API EXPLORER
                 </span>
-                <BR>
-                <BR>
+                <br><br>
             `;
 
             topbar.insertBefore(logoContainer, topbar.firstChild);
@@ -859,6 +872,7 @@ function loadSwaggerUI(apiName) {
 
     }, 300);
 }
+
 
 
 

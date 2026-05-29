@@ -1,10 +1,13 @@
 package com.mercantilbanco.monitor.controller;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.CacheControl;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -173,27 +176,19 @@ public class MonitorController {
 	}
 
 	@GetMapping("/api/swagger/files")
-	@ResponseBody
-	public List<String> getSwaggerFiles() {
+	public ResponseEntity<List<String>> getSwaggerFiles() {
 
 		List<String> result = new ArrayList<>();
 
 		try {
-
-			// ✅ ruta REAL en disco
 			String path = "src/main/resources/static/swagger";
+			File folder = new File(path);
 
-			java.io.File folder = new java.io.File(path);
-
-			if (!folder.exists() || !folder.isDirectory()) {
-				return result;
-			}
-
-			for (java.io.File file : folder.listFiles()) {
-
-				if (file.getName().endsWith(".json")) {
-
-					result.add(file.getName().replace(".json", ""));
+			if (folder.exists()) {
+				for (File file : folder.listFiles()) {
+					if (file.getName().endsWith(".json")) {
+						result.add(file.getName().replace(".json", ""));
+					}
 				}
 			}
 
@@ -201,7 +196,8 @@ public class MonitorController {
 			e.printStackTrace();
 		}
 
-		return result;
+		return ResponseEntity.ok().cacheControl(CacheControl.noStore()) // 🔥 CLAVE
+				.header("Pragma", "no-cache").header("Expires", "0").body(result);
 	}
 
 }
