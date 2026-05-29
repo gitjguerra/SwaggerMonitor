@@ -1,0 +1,1530 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "API simf",
+    "version" : "1.0",
+    "description" : "Generado dinámicamente"
+  },
+  "servers" : [ {
+    "url" : "/simf"
+  } ],
+  "tags" : [ {
+    "name" : "Consultar Root",
+    "description" : "Operaciones Consultar Root"
+  }, {
+    "name" : "Registrar Root",
+    "description" : "Operaciones Registrar Root"
+  }, {
+    "name" : "Validar Root",
+    "description" : "Operaciones Validar Root"
+  } ],
+  "paths" : {
+    "/consultar/transferencias-simf" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "consultarTransferenciasSimf",
+        "operationId" : "consultarTransferenciasSimf",
+        "description" : "\n\n\uD83D\uDD17 Programa: BTRS010Z\n\n\uD83D\uDD17 Service: consultar-transferencias-simf",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaConsultarTransferenciasSimf"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntrada" : {
+                      "codigoMonedaEnt" : "VES",
+                      "numeroCuentaEnt" : "string",
+                      "nacIdOrdenanteEnt" : 12345678,
+                      "nroIdOrdenanteEnt" : 12345678,
+                      "fecIniBqdaOperEnt" : 12345678,
+                      "fecFinBqdaOperEnt" : 12345678,
+                      "tipoOperacionEnt" : 12345678
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaConsultarTransferenciasSimf" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarTransferenciasSimf"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaConsultarTransferenciasSimf" : {
+                        "resulValid" : 12345678
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/tabla-banco" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "consultarTablaBanco",
+        "operationId" : "consultarTablaBanco",
+        "description" : "\n\n\uD83D\uDD17 Programa: BTRW830X\n\n\uD83D\uDD17 Service: consultar-tabla-banco",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaConsultarTablaBanco"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntrada" : {
+                      "codBco" : "0001"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaConsultarTablaBanco" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarTablaBanco"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaConsultarTablaBanco" : {
+                        "paisBco" : [ "string" ],
+                        "codBco" : [ "string" ],
+                        "nomBco" : [ "string" ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/consultar/tabla-banco-ampliada" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "consultarTablaBancoAmpliada",
+        "operationId" : "consultarTablaBancoAmpliada",
+        "description" : "\n\n\uD83D\uDD17 Programa: BTR050DC\n\n\uD83D\uDD17 Service: consultar-tabla-bancos-ampliadas",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaConsultarTablaBancoAmpliada"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntrada" : {
+                      "codSudeban" : "0001",
+                      "codAba" : "0001",
+                      "bcoPignora" : "string",
+                      "indBusqIndice" : "string",
+                      "sitBco" : "string",
+                      "codSuc" : "0001",
+                      "codSwift" : "0001"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaConsultarTablaBancoAmpliada" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarTablaBancoAmpliada"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaConsultarTablaBancoAmpliada" : {
+                        "cantReg" : 12345678,
+                        "paginacion" : {
+                          "apVectPp" : [ { } ]
+                        },
+                        "bancos" : [ {
+                          "codBcoAba" : "0001",
+                          "codAla" : "0001",
+                          "nomEstado" : "string",
+                          "numTelf2" : "string",
+                          "numTelf1" : "string",
+                          "codClasif" : 12345678,
+                          "indParaisoFiscal" : "string",
+                          "codMoneda" : "VES",
+                          "numCtaPpal" : 1242034900,
+                          "numCtaMayor" : 1242034900,
+                          "indConversion" : "string",
+                          "tipoPagoMovi" : "string",
+                          "nomCiudad" : 12345678,
+                          "codDircab" : "0001",
+                          "indBcoPignora" : "string",
+                          "codPost" : "0001",
+                          "indOtraDivisa" : "string",
+                          "nomCalle" : 12345678,
+                          "nomBanco" : "string",
+                          "sitBanco" : "string",
+                          "fchaAct" : "20251226",
+                          "numPer" : 12345678,
+                          "codBcoBcv" : "0001",
+                          "codBcoSwift" : "0001",
+                          "nroCarnet" : "string",
+                          "numCtaBcv" : 1242034900,
+                          "numTelex1" : "string",
+                          "nomPais" : "string",
+                          "numTelex3" : "string",
+                          "indicPagoMovi" : "string",
+                          "numTelex2" : "string"
+                        } ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/registrar/banco-compra-divisa" : {
+      "post" : {
+        "tags" : [ "Registrar Root" ],
+        "summary" : "registrarBancoCompraDivisas",
+        "operationId" : "registrarBancoCompraDivisas",
+        "description" : "\n\n\uD83D\uDD17 Programa: BOCS013Z\n\n\uD83D\uDD17 Service: registrar-banco-compra-divisas",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaRegistrarBancoCompraDivisas"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntrada" : {
+                      "codSubCanalEnt" : "09",
+                      "codigoMonedaEnt" : "VES",
+                      "numeroPersonaEnt" : 12345678,
+                      "nacIdOrdenanteEnt" : 12345678,
+                      "nroIdOrdenanteEnt" : 12345678,
+                      "nombreClienteEnt" : 12345678,
+                      "nroCtaMonedaNacionalEnt" : 12345678,
+                      "nroCtaMeEnt" : "string",
+                      "codigoMotivoOperacionEnt" : 12345678,
+                      "codigoOrigenDestinoFdoEnt" : "0001",
+                      "numeroTelefonoClienteEnt" : "string",
+                      "emailClienteEnt" : "jperez@email.com",
+                      "montoOperDivisaEnt" : 12345678,
+                      "montoOperMonNacEnt" : 12345678,
+                      "montoComisOperEnt" : 12345678,
+                      "tipoCambioDivMenudeoEnt" : "string",
+                      "factorCambioDolarEnt" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaRegistrarBancoCompraDivisas" : {
+                      "$ref" : "#/components/schemas/BodySalidaRegistrarBancoCompraDivisas"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaRegistrarBancoCompraDivisas" : {
+                        "nroConsecMbu" : "string",
+                        "idMoviBcv" : 12345678
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/registrar/banco-vende-divisa" : {
+      "post" : {
+        "tags" : [ "Registrar Root" ],
+        "summary" : "registrarBancoVendeDivisas",
+        "operationId" : "registrarBancoVendeDivisas",
+        "description" : "\n\n\uD83D\uDD17 Programa: BOCS012Z\n\n\uD83D\uDD17 Service: registrar-banco-vende-divisas",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaRegistrarBancoVendeDivisas"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntrada" : {
+                      "codSubCanalEnt" : "09",
+                      "codigoMonedaEnt" : "VES",
+                      "numeroPersonaEnt" : 12345678,
+                      "nacIdOrdenanteEnt" : 12345678,
+                      "nroIdOrdenanteEnt" : 12345678,
+                      "nombreClienteEnt" : 12345678,
+                      "nroCtaMonedaNacionalEnt" : 12345678,
+                      "nroCtaMonedaExtranjeraEnt" : "VES",
+                      "codigoMotivoOperacionEnt" : 12345678,
+                      "codigoOrigenDestinoFdoEnt" : "0001",
+                      "numeroTelefonoClienteEnt" : "string",
+                      "emailClienteEnt" : "jperez@email.com",
+                      "montoOperDivisaEnt" : 12345678,
+                      "montoOperMonNacEnt" : 12345678,
+                      "montoComisOperEnt" : 12345678,
+                      "tipoCambioDivMenudeoEnt" : "string",
+                      "factorCambioDolarEnt" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaRegistrarBancoVendeDivisas" : {
+                      "$ref" : "#/components/schemas/BodySalidaRegistrarBancoVendeDivisas"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaRegistrarBancoVendeDivisas" : {
+                        "nroConsecMbu" : "string",
+                        "idMovBcv" : 12345678
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/registrar/referencia-debito-inmediato" : {
+      "post" : {
+        "tags" : [ "Registrar Root" ],
+        "summary" : "registrarRefenciasDebitoInmediato",
+        "operationId" : "registrarRefenciasDebitoInmediato",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: registrar-referencia-debito-inmediato",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaRegistrarReferenciasDebitoInmediato"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntrada" : {
+                      "refNro" : 12345678,
+                      "nroPer" : 12345678,
+                      "codInteg" : "0001",
+                      "factNro" : "string",
+                      "dbtoRef" : 12345678,
+                      "origenRef" : 12345678,
+                      "idComerc" : {
+                        "idCi" : 12345678,
+                        "nroId" : 12345678
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/validar/cliente-compra-venta-divisas" : {
+      "post" : {
+        "tags" : [ "Validar Root" ],
+        "summary" : "validarClienteCompraVentaDivisas",
+        "operationId" : "validarClienteCompraVentaDivisas",
+        "description" : "\n\n\uD83D\uDD17 Programa: BOCS011Z\n\n\uD83D\uDD17 Service: validar-cliente-compra-venta-divisas",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaValidarClienteCompraVentaDivisas"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntrada" : {
+                      "codSubCanalEnt" : "09",
+                      "tipoOperEnt" : 12345678,
+                      "codMonedaEnt" : "VES",
+                      "nroPerEnt" : 12345678,
+                      "nacIdOrdEnt" : 12345678,
+                      "nroIdOrdEnt" : 12345678
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Operación exitosa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaValidarClienteCompraVentaDivisas" : {
+                      "$ref" : "#/components/schemas/BodySalidaValidarClienteCompraVentaDivisas"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaValidarClienteCompraVentaDivisas" : {
+                        "factorCambioDolar" : "string",
+                        "mtoMaxSeg" : "VES",
+                        "descSegOrd" : "string",
+                        "indCupoDisp" : "string",
+                        "tipoCambioDivMenudeo" : "string",
+                        "mtoMaxAno" : "VES",
+                        "mtoMaxMes" : "VES",
+                        "porcComis" : "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "HeaderEntrada" : {
+        "type" : "object",
+        "properties" : {
+          "identificadorUnicoGlobal" : {
+            "type" : "string"
+          },
+          "identificacionCanal" : {
+            "type" : "string"
+          },
+          "identificacionSubCanal" : {
+            "type" : "string"
+          },
+          "siglaAplicacion" : {
+            "minLength" : 1,
+            "maxLength" : 4,
+            "type" : "string"
+          },
+          "identificacionUsuario" : {
+            "type" : "string"
+          },
+          "direccionIpConsumidor" : {
+            "type" : "string"
+          },
+          "direccionIpCliente" : {
+            "type" : "string"
+          },
+          "fechaEnvioMensaje" : {
+            "type" : "string"
+          },
+          "horaEnvioMensaje" : {
+            "type" : "string"
+          },
+          "atributoPagineo" : {
+            "type" : "string"
+          },
+          "claveBusqueda" : {
+            "type" : "string"
+          },
+          "cantidadRegistros" : {
+            "type" : "integer"
+          }
+        },
+        "example" : {
+          "identificadorUnicoGlobal" : "string",
+          "identificacionCanal" : "0006",
+          "identificacionSubCanal" : "01",
+          "siglaAplicacion" : "ABC",
+          "identificacionUsuario" : "user",
+          "direccionIpConsumidor" : "127.0.0.1",
+          "direccionIpCliente" : "127.0.0.1",
+          "fechaEnvioMensaje" : "20260101",
+          "horaEnvioMensaje" : "120000",
+          "atributoPagineo" : "N",
+          "claveBusqueda" : "clave",
+          "cantidadRegistros" : 0
+        }
+      },
+      "HeaderSalida" : {
+        "type" : "object",
+        "properties" : {
+          "tipoMensaje" : {
+            "type" : "string",
+            "example" : "F"
+          },
+          "mensajeProgramadorSistema" : {
+            "type" : "string"
+          },
+          "codigoMensajeProgramador" : {
+            "type" : "string"
+          },
+          "mensajeUsuario" : {
+            "type" : "string"
+          },
+          "codigoMensajeUsuario" : {
+            "type" : "string"
+          },
+          "fechaSalidaMensaje" : {
+            "type" : "string"
+          },
+          "horaSalidaMensaje" : {
+            "type" : "string"
+          }
+        },
+        "example" : {
+          "tipoMensaje" : "F",
+          "mensajeProgramadorSistema" : "Procesado correctamente",
+          "codigoMensajeProgramador" : "0000",
+          "mensajeUsuario" : "Operación exitosa",
+          "codigoMensajeUsuario" : "0000",
+          "fechaSalidaMensaje" : "20260101",
+          "horaSalidaMensaje" : "120000"
+        }
+      },
+      "BodyEntradaConsultarTablaBanco" : {
+        "type" : "object",
+        "properties" : {
+          "codBco" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "BodySalidaConsultarTablaBanco" : {
+        "type" : "object",
+        "properties" : {
+          "paisBco" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "codBco" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer"
+            }
+          },
+          "nomBco" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "FormatBodyResponse" : {
+        "type" : "object",
+        "properties" : {
+          "pais" : {
+            "type" : "string"
+          },
+          "codBco" : {
+            "type" : "integer"
+          },
+          "nomBco" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RequestConsultarTablaBanco" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaConsultarTablaBanco"
+          }
+        }
+      },
+      "ResponseConsultarTablaBanco" : {
+        "type" : "object"
+      },
+      "BeanVectorPaginacion" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "BeanAreaPaginacion" : {
+        "type" : "object",
+        "properties" : {
+          "apVectPp" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanVectorPaginacion"
+            }
+          }
+        }
+      },
+      "BeanDataSalida" : {
+        "type" : "object",
+        "properties" : {
+          "codBcoAba" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "codAla" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nomEstado" : {
+            "type" : "string"
+          },
+          "numTelf2" : {
+            "type" : "string"
+          },
+          "numTelf1" : {
+            "type" : "string"
+          },
+          "codClasif" : {
+            "type" : "string"
+          },
+          "indParaisoFiscal" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "codMoneda" : {
+            "type" : "string"
+          },
+          "numCtaPpal" : {
+            "type" : "string"
+          },
+          "numCtaMayor" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "indConversion" : {
+            "type" : "string"
+          },
+          "tipoPagoMovi" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nomCiudad" : {
+            "type" : "string"
+          },
+          "codDircab" : {
+            "type" : "string"
+          },
+          "indBcoPignora" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "codPost" : {
+            "type" : "string"
+          },
+          "indOtraDivisa" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nomCalle" : {
+            "type" : "string"
+          },
+          "nomBanco" : {
+            "type" : "string"
+          },
+          "sitBanco" : {
+            "type" : "string"
+          },
+          "fchaAct" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "numPer" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "codBcoBcv" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "codBcoSwift" : {
+            "type" : "string"
+          },
+          "nroCarnet" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "numCtaBcv" : {
+            "type" : "string"
+          },
+          "numTelex1" : {
+            "type" : "string"
+          },
+          "nomPais" : {
+            "type" : "string"
+          },
+          "numTelex3" : {
+            "type" : "string"
+          },
+          "indicPagoMovi" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "numTelex2" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BodyBancoCleaner" : {
+        "type" : "object"
+      },
+      "BodyEntradaConsultarTablaBancoAmpliada" : {
+        "type" : "object",
+        "properties" : {
+          "codSudeban" : {
+            "type" : "integer"
+          },
+          "codAba" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "bcoPignora" : {
+            "type" : "string"
+          },
+          "indBusqIndice" : {
+            "type" : "string"
+          },
+          "sitBco" : {
+            "type" : "string"
+          },
+          "codSuc" : {
+            "type" : "string"
+          },
+          "codSwift" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BodySalidaConsultarTablaBancoAmpliada" : {
+        "type" : "object",
+        "properties" : {
+          "cantReg" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "paginacion" : {
+            "$ref" : "#/components/schemas/BeanAreaPaginacion"
+          },
+          "bancos" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanDataSalida"
+            }
+          }
+        }
+      },
+      "RequestConsultarTablaBancoAmpliada" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaConsultarTablaBancoAmpliada"
+          }
+        }
+      },
+      "ResponseConsultarTablaBancoAmpliada" : {
+        "type" : "object",
+        "properties" : {
+          "bodySalidaConsultarTablaBancoAmpliada" : {
+            "$ref" : "#/components/schemas/BodySalidaConsultarTablaBancoAmpliada"
+          }
+        }
+      },
+      "BodyEntradaConsultarTransferenciasSimf" : {
+        "type" : "object",
+        "properties" : {
+          "codigoMonedaEnt" : {
+            "type" : "string"
+          },
+          "numeroCuentaEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nacIdOrdenanteEnt" : {
+            "type" : "string"
+          },
+          "nroIdOrdenanteEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "fecIniBqdaOperEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "fecFinBqdaOperEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "tipoOperacionEnt" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BodySalidaConsultarTransferenciasSimf" : {
+        "type" : "object",
+        "properties" : {
+          "resulValid" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "RequestConsultarTransferenciasSimf" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaConsultarTransferenciasSimf"
+          }
+        }
+      },
+      "ResponseConsultarTransferenciasSimf" : {
+        "type" : "object",
+        "properties" : {
+          "bodySalidaConsultarTransferenciasSimf" : {
+            "$ref" : "#/components/schemas/BodySalidaConsultarTransferenciasSimf"
+          }
+        }
+      },
+      "BodyEntradaRegistrarBancoCompraDivisas" : {
+        "type" : "object",
+        "properties" : {
+          "codSubCanalEnt" : {
+            "type" : "integer"
+          },
+          "codigoMonedaEnt" : {
+            "type" : "string"
+          },
+          "numeroPersonaEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nacIdOrdenanteEnt" : {
+            "type" : "string"
+          },
+          "nroIdOrdenanteEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nombreClienteEnt" : {
+            "type" : "string"
+          },
+          "nroCtaMonedaNacionalEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nroCtaMeEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "codigoMotivoOperacionEnt" : {
+            "type" : "integer"
+          },
+          "codigoOrigenDestinoFdoEnt" : {
+            "type" : "integer"
+          },
+          "numeroTelefonoClienteEnt" : {
+            "type" : "string"
+          },
+          "emailClienteEnt" : {
+            "type" : "string"
+          },
+          "montoOperDivisaEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "montoOperMonNacEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "montoComisOperEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "tipoCambioDivMenudeoEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "factorCambioDolarEnt" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "BodySalidaRegistrarBancoCompraDivisas" : {
+        "type" : "object",
+        "properties" : {
+          "nroConsecMbu" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "idMoviBcv" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RequestRegistrarBancoCompraDivisas" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaRegistrarBancoCompraDivisas"
+          }
+        }
+      },
+      "ResponseRegistrarBancoCompraDivisas" : {
+        "type" : "object",
+        "properties" : {
+          "bodySalidaRegistrarBancoCompraDivisas" : {
+            "$ref" : "#/components/schemas/BodySalidaRegistrarBancoCompraDivisas"
+          }
+        }
+      },
+      "BodyEntradaRegistrarBancoVendeDivisas" : {
+        "type" : "object",
+        "properties" : {
+          "codSubCanalEnt" : {
+            "type" : "integer"
+          },
+          "codigoMonedaEnt" : {
+            "type" : "string"
+          },
+          "numeroPersonaEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nacIdOrdenanteEnt" : {
+            "type" : "string"
+          },
+          "nroIdOrdenanteEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nombreClienteEnt" : {
+            "type" : "string"
+          },
+          "nroCtaMonedaNacionalEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nroCtaMonedaExtranjeraEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "codigoMotivoOperacionEnt" : {
+            "type" : "integer"
+          },
+          "codigoOrigenDestinoFdoEnt" : {
+            "type" : "integer"
+          },
+          "numeroTelefonoClienteEnt" : {
+            "type" : "string"
+          },
+          "emailClienteEnt" : {
+            "type" : "string"
+          },
+          "montoOperDivisaEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "montoOperMonNacEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "montoComisOperEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "tipoCambioDivMenudeoEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "factorCambioDolarEnt" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "BodySalidaRegistrarBancoVendeDivisas" : {
+        "type" : "object",
+        "properties" : {
+          "nroConsecMbu" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "idMovBcv" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RequestRegistrarBancoVendeDivisas" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaRegistrarBancoVendeDivisas"
+          }
+        }
+      },
+      "ResponseRegistrarBancoVendeDivisas" : {
+        "type" : "object",
+        "properties" : {
+          "bodySalidaRegistrarBancoVendeDivisas" : {
+            "$ref" : "#/components/schemas/BodySalidaRegistrarBancoVendeDivisas"
+          }
+        }
+      },
+      "BeanIdComercio" : {
+        "type" : "object",
+        "properties" : {
+          "idCi" : {
+            "type" : "string"
+          },
+          "nroId" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "BodyEntradaRegistrarReferenciasDebitoInmediato" : {
+        "type" : "object",
+        "properties" : {
+          "refNro" : {
+            "type" : "integer"
+          },
+          "nroPer" : {
+            "type" : "integer"
+          },
+          "codInteg" : {
+            "type" : "integer"
+          },
+          "factNro" : {
+            "type" : "string"
+          },
+          "dbtoRef" : {
+            "type" : "string"
+          },
+          "origenRef" : {
+            "type" : "integer"
+          },
+          "idComerc" : {
+            "$ref" : "#/components/schemas/BeanIdComercio"
+          }
+        }
+      },
+      "RequestRegistrarReferenciasDebitoInmediato" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaRegistrarReferenciasDebitoInmediato"
+          }
+        }
+      },
+      "ResponseRegistrarReferenciasDebitoInmediato" : {
+        "type" : "object"
+      },
+      "BodyEntradaValidarClienteCompraVentaDivisas" : {
+        "type" : "object",
+        "properties" : {
+          "codSubCanalEnt" : {
+            "type" : "integer"
+          },
+          "tipoOperEnt" : {
+            "type" : "string"
+          },
+          "codMonedaEnt" : {
+            "type" : "string"
+          },
+          "nroPerEnt" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "nacIdOrdEnt" : {
+            "type" : "string"
+          },
+          "nroIdOrdEnt" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "BodySalidaValidarClienteCompraVentaDivisas" : {
+        "type" : "object",
+        "properties" : {
+          "factorCambioDolar" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "mtoMaxSeg" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "descSegOrd" : {
+            "type" : "string"
+          },
+          "indCupoDisp" : {
+            "type" : "string"
+          },
+          "tipoCambioDivMenudeo" : {
+            "type" : "string"
+          },
+          "mtoMaxAno" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "mtoMaxMes" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "porcComis" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "RequestValidarClienteCompraVentaDivisas" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaValidarClienteCompraVentaDivisas"
+          }
+        }
+      },
+      "ResponseValidarClienteCompraVentaDivisas" : {
+        "type" : "object",
+        "properties" : {
+          "bodySalidaValidarClienteCompraVentaDivisas" : {
+            "$ref" : "#/components/schemas/BodySalidaValidarClienteCompraVentaDivisas"
+          }
+        }
+      },
+      "SendRequestRest" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "Consultar" : {
+        "type" : "object",
+        "properties" : {
+          "send" : {
+            "$ref" : "#/components/schemas/SendRequestRest"
+          }
+        }
+      },
+      "Registrar" : {
+        "type" : "object",
+        "properties" : {
+          "send" : {
+            "$ref" : "#/components/schemas/SendRequestRest"
+          }
+        }
+      },
+      "Validar" : {
+        "type" : "object",
+        "properties" : {
+          "send" : {
+            "$ref" : "#/components/schemas/SendRequestRest"
+          }
+        }
+      },
+      "Logger" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "InitEnviroment" : {
+        "type" : "object",
+        "properties" : {
+          "log" : {
+            "$ref" : "#/components/schemas/Logger"
+          }
+        }
+      },
+      "ConsultarInterface" : {
+        "type" : "object"
+      },
+      "RegistrarInterface" : {
+        "type" : "object"
+      },
+      "ValidateInterface" : {
+        "type" : "object"
+      }
+    },
+    "securitySchemes" : {
+      "bearerAuth" : {
+        "bearerFormat" : "JWT",
+        "type" : "http",
+        "scheme" : "bearer"
+      }
+    }
+  },
+  "security" : [ {
+    "bearerAuth" : [ ]
+  } ]
+}

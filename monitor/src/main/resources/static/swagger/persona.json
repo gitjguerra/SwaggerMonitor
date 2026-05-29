@@ -121,6 +121,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -148,8 +149,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -226,6 +226,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -253,8 +254,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -317,6 +317,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -344,8 +345,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -409,6 +409,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -436,8 +437,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -447,7 +447,7 @@
         "tags" : [ "Actualizar Root" ],
         "summary" : "telefonoCliente",
         "operationId" : "telefonoCliente",
-        "description" : "✅ Backend: http://10.0.4.10:7080/datosclientenaturalv2-gip/v2/actualizarTelefonosCliente-gipw108x\n\n\uD83D\uDD17 Core: GIPW108X\n\n\uD83D\uDD17 Service: actualizar-telefono-cliente",
+        "description" : "\n\n\uD83D\uDD17 Programa: GIPW108X\n\n\uD83D\uDD17 Service: actualizar-telefono-cliente",
         "requestBody" : {
           "required" : true,
           "content" : {
@@ -498,6 +498,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -535,8 +536,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -598,6 +598,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -625,8 +626,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -686,6 +686,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -713,8 +714,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -828,6 +828,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -867,8 +868,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -878,7 +878,7 @@
         "tags" : [ "Capturar Root" ],
         "summary" : "reclamosTarjetaEfectivo",
         "operationId" : "reclamosTarjetaEfectivo",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: capturar-reclamos-tarjeta-efectivo",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: caputar-reclamos-tarjeta-efectivo",
         "requestBody" : {
           "required" : true,
           "content" : {
@@ -953,6 +953,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -986,8 +987,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -997,7 +997,7 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarTelefonosDetallado",
         "operationId" : "consultarTelefonosDetallado",
-        "description" : "✅ Backend: http://10.0.4.10:7080/datosclientenaturalv2-gip/v2/consultarTelefonosDetallado-gipw106x\n\n\uD83D\uDD17 Core: GIPW106X\n\n\uD83D\uDD17 Service: consultar-telefonos-detallado",
+        "description" : "\n\n\uD83D\uDD17 Programa: GIPW106X\n\n\uD83D\uDD17 Service: consultar-telefonos-detallado",
         "requestBody" : {
           "required" : true,
           "content" : {
@@ -1047,6 +1047,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1082,8 +1083,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1093,7 +1093,7 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarLocalizacionNacionalCompactada",
         "operationId" : "consultarLocalizacionNacionalCompactada",
-        "description" : "✅ Backend: http://10.0.4.10:7080/datosclientenaturalv2-gip/v2/consultarLocalizacionNacionalCompactada-gipwc31x\n\n\uD83D\uDD17 Core: GIPWC31X\n\n\uD83D\uDD17 Service: consultar-localizacion-nacional-compactada",
+        "description" : "\n\n\uD83D\uDD17 Programa: GIPWC31X\n\n\uD83D\uDD17 Service: consultar-localizacion-nacional-compactada",
         "requestBody" : {
           "required" : true,
           "content" : {
@@ -1142,6 +1142,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1176,8 +1177,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1235,6 +1235,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1332,8 +1333,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1398,6 +1398,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1451,8 +1452,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1507,6 +1507,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1551,8 +1552,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1607,6 +1607,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1656,8 +1657,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1715,6 +1715,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1752,8 +1753,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1763,7 +1763,7 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "cuentasOficinasActivas",
         "operationId" : "cuentasOficinasActivas",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-cuentas-oficina-activas",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-cuentas-oficinas-activas",
         "requestBody" : {
           "required" : true,
           "content" : {
@@ -1811,6 +1811,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1850,8 +1851,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1910,6 +1910,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1937,8 +1938,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1948,7 +1948,7 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "indicadorActualizacionPersonas",
         "operationId" : "indicadorActualizacionPersonas",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-indicadores-actualizacion-personas",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-indicador-actualizacion-personas",
         "requestBody" : {
           "required" : true,
           "content" : {
@@ -1996,6 +1996,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2039,8 +2040,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -2098,6 +2098,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2137,8 +2138,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -2198,6 +2198,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2234,8 +2235,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -2291,6 +2291,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2344,8 +2345,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -2403,6 +2403,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2430,8 +2431,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -2489,6 +2489,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2564,8 +2565,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -2626,6 +2626,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2678,8 +2679,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -2739,6 +2739,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2800,8 +2801,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -2860,6 +2860,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2904,8 +2905,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -2964,6 +2964,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3008,8 +3009,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -3064,6 +3064,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3097,8 +3098,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -3159,6 +3159,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3210,8 +3211,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -3221,7 +3221,7 @@
         "tags" : [ "Gestionar Root" ],
         "summary" : "gestionarCantTranSinExpedActualizado",
         "operationId" : "gestionarCantTranSinExpedActualizado",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: gestionar-cant-sin-exp-act",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: gestionar-cant-tran-sin-exp-act",
         "requestBody" : {
           "required" : true,
           "content" : {
@@ -3267,6 +3267,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3305,8 +3306,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -3316,7 +3316,7 @@
         "tags" : [ "Imprimir Root" ],
         "summary" : "fichaCliente",
         "operationId" : "fichaCliente",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: imprimir-ficha-cliente-persona-natural",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: imprimir-ficha-cliente-pn",
         "requestBody" : {
           "required" : true,
           "content" : {
@@ -3366,6 +3366,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3433,8 +3434,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -3525,6 +3525,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3558,8 +3559,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -3569,7 +3569,7 @@
         "tags" : [ "Ingresar Root" ],
         "summary" : "ingresarAutorizacionesClientes",
         "operationId" : "ingresarAutorizacionesClientes",
-        "description" : "✅ Backend: http://10.0.4.10:7080/datosclientenaturalv2-gip/v2/ingresarAutorizacionesCliente-gipw114z\n\n\uD83D\uDD17 Core: GIPW114Z\n\n\uD83D\uDD17 Service: ingresar-autorizaciones-cliente",
+        "description" : "\n\n\uD83D\uDD17 Programa: GIPW114Z\n\n\uD83D\uDD17 Service: ingresar-autorizaciones-cliente",
         "requestBody" : {
           "required" : true,
           "content" : {
@@ -3632,6 +3632,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3659,8 +3660,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -3670,7 +3670,7 @@
         "tags" : [ "Ingresar Root" ],
         "summary" : "ingresarLocalizacionNacionalCompc",
         "operationId" : "ingresarLocalizacionNacionalCompc",
-        "description" : "✅ Backend: http://10.0.4.10:7080/datosclientenaturalv2-gip/v2/ingresarLocalizacionNacionalCompactada-gipwc32x\n\n\uD83D\uDD17 Core: GIPWC32X\n\n\uD83D\uDD17 Service: ingresar-localizacion-nacional-compactada",
+        "description" : "\n\n\uD83D\uDD17 Programa: GIPWC32X\n\n\uD83D\uDD17 Service: ingresar-localizacion-nacional-compactada",
         "requestBody" : {
           "required" : true,
           "content" : {
@@ -3721,6 +3721,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3754,8 +3755,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -3765,7 +3765,7 @@
         "tags" : [ "Ingresar Root" ],
         "summary" : "ingresarTelefonosCliente",
         "operationId" : "ingresarTelefonosCliente",
-        "description" : "✅ Backend: http://10.0.4.10:7080/datosclientenaturalv2-gip/v2/ingresarTelefonosCliente-gipw107x\n\n\uD83D\uDD17 Core: GIPW107X\n\n\uD83D\uDD17 Service: ingresar-telefonos-cliente",
+        "description" : "\n\n\uD83D\uDD17 Programa: GIPW107X\n\n\uD83D\uDD17 Service: ingresar-telefonos-cliente",
         "requestBody" : {
           "required" : true,
           "content" : {
@@ -3816,6 +3816,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3851,8 +3852,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -3930,6 +3930,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3957,8 +3958,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -3968,7 +3968,7 @@
         "tags" : [ "Ingresar Root" ],
         "summary" : "ingresarAutorizacionesNoClientes",
         "operationId" : "ingresarAutorizacionesNoClientes",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: ingresar-autorizaciones-datos-no-cliente",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: ingresar-autorzaciones-datos-no-cliente",
         "requestBody" : {
           "required" : true,
           "content" : {
@@ -4019,6 +4019,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -4046,8 +4047,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -4113,6 +4113,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -4147,8 +4148,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -4158,7 +4158,7 @@
         "tags" : [ "Ingresar Root" ],
         "summary" : "ingresarDatosSocioDemograficos",
         "operationId" : "ingresarDatosSocioDemograficos",
-        "description" : "✅ Backend: http://10.0.4.10:7080/datosclientenaturalv2-gip/v2/ingresarDatosSociodemograficos-gipw022x\n\n\uD83D\uDD17 Core: GIPW022X\n\n\uD83D\uDD17 Service: ingresar-datos-sociodemograficos",
+        "description" : "\n\n\uD83D\uDD17 Programa: GIPW022X\n\n\uD83D\uDD17 Service: ingresar-datos-sociodemograficos",
         "requestBody" : {
           "required" : true,
           "content" : {
@@ -4268,6 +4268,7 @@
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -4302,8 +4303,7 @@
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -4324,9 +4324,9 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "type" : "string",
+            "minLength" : 1,
             "maxLength" : 4,
-            "minLength" : 1
+            "type" : "string"
           },
           "identificacionUsuario" : {
             "type" : "string"
@@ -4372,8 +4372,8 @@
         "type" : "object",
         "properties" : {
           "tipoMensaje" : {
-            "example" : "F",
-            "type" : "string"
+            "type" : "string",
+            "example" : "F"
           },
           "mensajeProgramadorSistema" : {
             "type" : "string"
@@ -8904,9 +8904,9 @@
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "scheme" : "bearer",
+        "bearerFormat" : "JWT",
         "type" : "http",
-        "bearerFormat" : "JWT"
+        "scheme" : "bearer"
       }
     }
   },
