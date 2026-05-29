@@ -10,7 +10,7 @@ spring:
         enabled: 'false'
 
 server:
-  port: 8080
+  port: 8081
 
 monitor:
   refresh: 10

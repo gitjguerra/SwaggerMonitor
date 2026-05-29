@@ -38,6 +38,7 @@
         "operationId" : "adelantoCuotaAgendada",
         "description" : "\n\n\uD83D\uDD17 Programa: IAG0030C\n\n\uD83D\uDD17 Service: actualizar-pago-cuota",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -71,7 +72,7 @@
                     },
                     "bodyEntradaActualizarPagoCuota" : {
                       "nroCedula" : 12345678,
-                      "nroTarj" : "string",
+                      "nroTarj" : "5888910003058274",
                       "nroContrato" : "string",
                       "mtoCuo" : "VES",
                       "instrumPago" : "string",
@@ -84,11 +85,11 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -101,6 +102,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -111,13 +113,11 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -129,6 +129,7 @@
         "operationId" : "mosaicAsociados",
         "description" : "\n\n\uD83D\uDD17 Programa: IEMW206Z\n\n\uD83D\uDD17 Service: afiliar-mosaic-asociados",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -178,11 +179,11 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -198,6 +199,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -218,13 +220,11 @@
                         "cod" : "0001",
                         "codTrader" : 12345678
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -236,6 +236,7 @@
         "operationId" : "consultarMarca",
         "description" : "\n\n\uD83D\uDD17 Programa: IGB0201Z\n\n\uD83D\uDD17 Service: consultar-marca",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -275,11 +276,11 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -292,6 +293,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -302,13 +304,11 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -320,6 +320,7 @@
         "operationId" : "condiciontarjetamarcacompartida",
         "description" : "\n\n\uD83D\uDD17 Programa: IGB0200Z\n\n\uD83D\uDD17 Service: consultar-condicion-tarjeta-marca-compartida",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -352,18 +353,18 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaCondicionTarjetaMarcaComp" : {
-                      "tarjetaPrepagada" : "1234567890123456",
+                      "tarjetaPrepagada" : "5888910003058274",
                       "codMarcaCompartida" : 12345678
                     }
                   }
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -376,6 +377,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -386,13 +388,11 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -404,6 +404,7 @@
         "operationId" : "consultarSaldoTarjetaLca",
         "description" : "\n\n\uD83D\uDD17 Programa: ITKS89CC\n\n\uD83D\uDD17 Service: consultar-saldo-tarjeta-lca",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -436,7 +437,7 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaSaldoTarjetaLca" : {
-                      "numeroTarjeta" : "1234567890123456",
+                      "numeroTarjeta" : "5888910003058274",
                       "codCedula" : 12345678,
                       "nroCedula" : 12345678,
                       "codigoTipoProducto" : "02"
@@ -445,11 +446,11 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -465,6 +466,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -478,21 +480,19 @@
                       "bodySalidaSaldoTarjetaLca" : {
                         "saldoActLinCdto" : "string",
                         "nomClte" : 12345678,
-                        "saldoActTarj" : "string",
-                        "estatusTarj" : "string",
+                        "saldoActTarj" : "5888910003058274",
+                        "estatusTarj" : "5888910003058274",
                         "fchVctoTarj" : "20251226",
                         "maxCupoLinCdto" : "string",
                         "estatusBloqueoLinCdto" : "string",
                         "mtoVenLinCdto" : "VES",
                         "estatusAceptLinCdto" : 12345678
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -504,6 +504,7 @@
         "operationId" : "consultarSaldoTarjetaPrepago",
         "description" : "\n\n\uD83D\uDD17 Programa: ITKS87CC\n\n\uD83D\uDD17 Service: consultar-saldo-tarjeta-prepago-extendido",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -537,7 +538,7 @@
                     },
                     "bodyEntradaSaldoTarjetaPrepago" : {
                       "codigoTransaccion" : 12345678,
-                      "numeroTarjeta" : "1234567890123456",
+                      "numeroTarjeta" : "5888910003058274",
                       "serialDispositivo" : "string",
                       "codigoAreaTelefono" : "0001",
                       "numeroTelefono" : "string",
@@ -549,11 +550,11 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -569,6 +570,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -585,21 +587,19 @@
                         "saldoBloq" : "string",
                         "fchVen" : "20251226",
                         "saldoDispEditado" : "string",
-                        "estatusTarj" : "string",
+                        "estatusTarj" : "5888910003058274",
                         "saldoActual" : "string",
                         "mtoComis" : "VES",
                         "saldoBloqEditado" : "string",
-                        "nroCtaTarj" : "string",
+                        "nroCtaTarj" : "5888910003058274",
                         "saldoActualEditado" : "string",
                         "codTipoProduc" : "02"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -611,6 +611,7 @@
         "operationId" : "consultarMovimientosTarjetaPrepago",
         "description" : "\n\n\uD83D\uDD17 Programa: ITKS95CC\n\n\uD83D\uDD17 Service: consultar-movimientos-tarjeta-prepago",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -644,7 +645,7 @@
                     },
                     "bodyEntradaMovimientosTarjetaPrepago" : {
                       "codigoTransaccion" : 12345678,
-                      "numeroTarjeta" : "1234567890123456",
+                      "numeroTarjeta" : "5888910003058274",
                       "fechaVencimiento" : "20251226",
                       "funcion" : 12345678,
                       "numeroCuenta" : "string",
@@ -664,11 +665,11 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -684,6 +685,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -702,13 +704,11 @@
                         "mtoComis" : "VES",
                         "ordenEntrgDatos" : "string"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -720,6 +720,7 @@
         "operationId" : "movimientoTpagoMovilP2C",
         "description" : "\n\n\uD83D\uDD17 Programa: MMPP41CC\n\n\uD83D\uDD17 Service: consultar-movimiento-tpago-p2c",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -770,11 +771,11 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -790,6 +791,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -868,13 +870,11 @@
                           "idDestino" : 12345678
                         } ]
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -886,6 +886,7 @@
         "operationId" : "tarjetaCreditoActiva",
         "description" : "\n\n\uD83D\uDD17 Programa: ITH3110Z\n\n\uD83D\uDD17 Service: consultar-tarjeta-credito-activas",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -926,11 +927,11 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -946,6 +947,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -958,19 +960,17 @@
                       },
                       "bodySalidaConsultarTarjetaDeCreditoActiva" : {
                         "tarjetas" : [ {
-                          "tipoTarjHab" : "string",
+                          "tipoTarjHab" : "5888910003058274",
                           "limCdto" : "string",
                           "nroCta" : "string",
-                          "nroTarj" : "string"
+                          "nroTarj" : "5888910003058274"
                         } ]
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -982,6 +982,7 @@
         "operationId" : "afiliacionTPago",
         "description" : "\n\n\uD83D\uDD17 Programa: IEM121DC\n\n\uD83D\uDD17 Service: consultar-afiliacion-tpago",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1022,11 +1023,11 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1042,6 +1043,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1075,13 +1077,11 @@
                         "codComisInter" : "0001",
                         "codSic" : "0001"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1093,6 +1093,7 @@
         "operationId" : "consultarMovimientosLineaCredito",
         "description" : "\n\n\uD83D\uDD17 Programa: ITKS75CC\n\n\uD83D\uDD17 Service: consultar-movimientos-linea-credito",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1125,7 +1126,7 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntrada" : {
-                      "numeroTarjeta" : "1234567890123456",
+                      "numeroTarjeta" : "5888910003058274",
                       "codigoTipoProducto" : "02",
                       "codigoId" : 12345678,
                       "numeroId" : 12345678,
@@ -1137,11 +1138,11 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1157,6 +1158,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1182,13 +1184,11 @@
                         "cantMaxMovimientos" : 12345678,
                         "lcaMtoDisp" : "VES"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1200,6 +1200,7 @@
         "operationId" : "consultarLineaCreditoAmpliada",
         "description" : "\n\n\uD83D\uDD17 Programa: ITK3635P\n\n\uD83D\uDD17 Service: consultar-linea-credito-ampliada",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1232,7 +1233,7 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntrada" : {
-                      "nroTarj" : "string",
+                      "nroTarj" : "5888910003058274",
                       "fchUso" : "20251226",
                       "hhUso" : "string",
                       "mtoUsoBs" : "VES",
@@ -1251,11 +1252,11 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1271,6 +1272,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1284,13 +1286,11 @@
                       "bodySalidaLineaCreditoAmpliada" : {
                         "nroRef" : 12345678
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1302,6 +1302,7 @@
         "operationId" : "consultarCuotasLineaCredito",
         "description" : "\n\n\uD83D\uDD17 Programa: IAG0001Z\n\n\uD83D\uDD17 Service: consultar-cuotas-linea-credito",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1335,7 +1336,7 @@
                     },
                     "bodyEntrada" : {
                       "nroContrato" : "string",
-                      "nroTarj" : "string",
+                      "nroTarj" : "5888910003058274",
                       "codEstab" : "0001",
                       "tipoId" : "V",
                       "nroId" : 12345678
@@ -1344,11 +1345,11 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1364,6 +1365,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1377,13 +1379,11 @@
                       "bodySalidaConsultarCuotasLineaCredito" : {
                         "cuotas" : [ { } ]
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1395,6 +1395,7 @@
         "operationId" : "insertarAceptaTarjetaLca",
         "description" : "\n\n\uD83D\uDD17 Programa: ITK3630P\n\n\uD83D\uDD17 Service: acepta-tarjeta-lca",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1428,7 +1429,7 @@
                     },
                     "bodyEntradaInsertarAceptaTarjetaLca" : {
                       "customerId" : 12345678,
-                      "nroTarjeta" : "1234567890123456",
+                      "nroTarjeta" : "5888910003058274",
                       "codTipoProducto" : "02",
                       "versionContrato" : "string",
                       "fechaAceptacion" : "20251226",
@@ -1439,11 +1440,11 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1456,6 +1457,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1466,13 +1468,11 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1484,6 +1484,7 @@
         "operationId" : "insertarReposicionMarcaCompartida",
         "description" : "\n\n\uD83D\uDD17 Programa: ITK314CC\n\n\uD83D\uDD17 Service: insertar-reposicion",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1517,7 +1518,7 @@
                     },
                     "bodyEntradaReposicion" : {
                       "nroPer" : 12345678,
-                      "nroTarj" : "string",
+                      "nroTarj" : "5888910003058274",
                       "serial" : "string",
                       "motivRepos" : "string"
                     }
@@ -1525,11 +1526,11 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1542,6 +1543,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1552,13 +1554,11 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1570,6 +1570,7 @@
         "operationId" : "activarTarjetaMarcaCompartida",
         "description" : "\n\n\uD83D\uDD17 Programa: ITK\n\n\uD83D\uDD17 Service: activar-tarjeta-marca-compartida",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1603,18 +1604,18 @@
                     },
                     "bodyEntradaActivarTarjetaMarcaCompartida" : {
                       "nroPer" : 12345678,
-                      "nroTarj" : "string",
+                      "nroTarj" : "5888910003058274",
                       "indicClteNvo" : "string"
                     }
                   }
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1630,6 +1631,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1643,13 +1645,11 @@
                       "bodySalidaActivarTarjetaMarcaCompartida" : {
                         "nroCtaInter" : "string"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1661,6 +1661,7 @@
         "operationId" : "recepcionLotesTarjetas",
         "description" : "\n\n\uD83D\uDD17 Programa: IGB6050Z\n\n\uD83D\uDD17 Service: recepcion-lotes-tarjetas",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1702,11 +1703,11 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1719,6 +1720,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1729,13 +1731,11 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1747,6 +1747,7 @@
         "operationId" : "solicitarClaveOtpLca",
         "description" : "\n\n\uD83D\uDD17 Programa: ITK3640P\n\n\uD83D\uDD17 Service: solicitar-clave-otp-lca",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1792,11 +1793,11 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1809,6 +1810,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1819,13 +1821,11 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1837,6 +1837,7 @@
         "operationId" : "tarjetaDeCredito",
         "description" : "\n\n\uD83D\uDD17 Programa: ITH3120Z\n\n\uD83D\uDD17 Service: suspender-tarjeta-de-credito",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1874,18 +1875,18 @@
                       "numeroIdentificacion" : 12345678,
                       "codigoRazon" : "01",
                       "tarjetasASuspender" : {
-                        "numeroTarjeta" : "1234567890123456"
+                        "numeroTarjeta" : "5888910003058274"
                       }
                     }
                   }
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1901,6 +1902,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1917,13 +1919,11 @@
                           "codResp" : "0001"
                         } ]
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -3633,9 +3633,9 @@
     },
     "securitySchemes" : {
       "bearerAuth" : {
+        "bearerFormat" : "JWT",
         "scheme" : "bearer",
-        "type" : "http",
-        "bearerFormat" : "JWT"
+        "type" : "http"
       }
     }
   },

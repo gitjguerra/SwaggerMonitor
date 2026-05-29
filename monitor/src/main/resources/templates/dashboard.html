@@ -256,6 +256,16 @@
 	.swagger-ui {
 	    color-scheme: light;
 	}
+	
+	.logo {
+	    height: 55px;              /* 🔥 más grande */
+	    margin-right: 15px;
+	    object-fit: contain;
+	    background: transparent;   /* ✅ transparente */
+	
+	    /* 🔥 opcional: efecto moderno */
+	    filter: brightness(0) invert(1);  
+	}
 
 </style>
 
@@ -269,8 +279,7 @@
 
 	<div class="header d-flex align-items-center px-3">
 
-		<img th:src="@{/images/mercantil.png}" alt="Servidores"
-			style="height: 40px;" />
+	<img th:src="@{/images/mercantil.png}" alt="Logo" class="logo" />
 
 		<!-- ✅ NUEVO -->
 		<button class="btn btn-light btn-sm" onclick="openSwaggerPanel()">
