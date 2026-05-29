@@ -9,17 +9,17 @@
     "url" : "/security"
   } ],
   "tags" : [ {
-    "name" : "Clave Telefonica Root",
-    "description" : "Operaciones Clave Telefonica Root"
+    "description" : "Operaciones Clave Telefonica Root",
+    "name" : "Clave Telefonica Root"
   }, {
-    "name" : "Jumio Root",
-    "description" : "Operaciones Jumio Root"
+    "description" : "Operaciones Jumio Root",
+    "name" : "Jumio Root"
   }, {
-    "name" : "JWTRoot",
-    "description" : "Operaciones JWTRoot"
+    "description" : "Operaciones JWTRoot",
+    "name" : "JWTRoot"
   }, {
-    "name" : "QRRoot",
-    "description" : "Operaciones QRRoot"
+    "description" : "Operaciones QRRoot",
+    "name" : "QRRoot"
   } ],
   "paths" : {
     "/clave-telefonica/autenticar" : {
@@ -29,7 +29,6 @@
         "operationId" : "autenticarClaveTelefonica",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -68,11 +67,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -85,7 +84,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -96,11 +94,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -112,7 +112,6 @@
         "operationId" : "cambiarClaveTelefonica",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -152,11 +151,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -169,7 +168,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -180,11 +178,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -196,7 +196,6 @@
         "operationId" : "restablecerClaveTelefonica",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -233,11 +232,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -250,7 +249,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -261,11 +259,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -277,7 +277,6 @@
         "operationId" : "registrarClaveTelefonica",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -317,11 +316,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -334,7 +333,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -345,11 +343,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -361,7 +361,6 @@
         "operationId" : "consultarClaveTelefonica",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -398,11 +397,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -418,7 +417,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -435,11 +433,13 @@
                         "fechaUltimoIngreso" : "20251226",
                         "fechaVencimiento" : "20251226"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -451,7 +451,6 @@
         "operationId" : "autenticar",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -484,11 +483,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -504,7 +503,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -520,11 +518,13 @@
                         "expir" : 12345678,
                         "tipoToken" : "string"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -536,7 +536,6 @@
         "operationId" : "crearCuenta",
         "description" : "\n\n\uD83D\uDD17 Service: jumio-crear-cuenta",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -580,11 +579,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -600,7 +599,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -620,11 +618,13 @@
                         "sdk" : { },
                         "workflowExecution" : { }
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -636,7 +636,6 @@
         "operationId" : "recuperarDetallesId",
         "description" : "\n\n\uD83D\uDD17 Service: jumio-recuperar-detalles-id",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -677,11 +676,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -697,7 +696,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -746,11 +744,13 @@
                         "completedAt" : "string",
                         "wipedOutAt" : "string"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -762,7 +762,6 @@
         "operationId" : "recuperarImagen",
         "description" : "\n\n\uD83D\uDD17 Service: jumio-recuperar-imagen",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -804,11 +803,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -824,7 +823,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -838,11 +836,13 @@
                       "bodySalidaRecuperarImagen" : {
                         "imagen" : "base64-string"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -854,7 +854,6 @@
         "operationId" : "actualizarCuenta",
         "description" : "\n\n\uD83D\uDD17 Service: jumio-actualizar-cuenta",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -897,11 +896,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -917,7 +916,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -937,11 +935,13 @@
                         "sdk" : { },
                         "workflowExecution" : { }
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -953,7 +953,6 @@
         "operationId" : "create",
         "description" : "\n\n\uD83D\uDD17 Service: jwt-create",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -995,11 +994,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1012,7 +1011,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1023,11 +1021,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1039,7 +1039,6 @@
         "operationId" : "validate",
         "description" : "\n\n\uD83D\uDD17 Service: jwt-validate",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1081,11 +1080,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1098,7 +1097,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1109,11 +1107,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1125,7 +1125,6 @@
         "operationId" : "leerQR",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1164,11 +1163,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1181,7 +1180,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1192,11 +1190,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1208,7 +1208,6 @@
         "operationId" : "generarQrAes",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1252,11 +1251,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1272,7 +1271,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1286,11 +1284,13 @@
                       "bodySalidaGenerateQR" : {
                         "qr" : "string"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1302,7 +1302,6 @@
         "operationId" : "generarQrRsa",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1346,11 +1345,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1366,7 +1365,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1380,11 +1378,13 @@
                       "bodySalidaGenerateQR" : {
                         "qr" : "string"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1405,9 +1405,9 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "minLength" : 1,
+            "type" : "string",
             "maxLength" : 4,
-            "type" : "string"
+            "minLength" : 1
           },
           "identificacionUsuario" : {
             "type" : "string"
@@ -1453,8 +1453,8 @@
         "type" : "object",
         "properties" : {
           "tipoMensaje" : {
-            "type" : "string",
-            "example" : "F"
+            "example" : "F",
+            "type" : "string"
           },
           "mensajeProgramadorSistema" : {
             "type" : "string"
@@ -2948,9 +2948,9 @@
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "bearerFormat" : "JWT",
+        "scheme" : "bearer",
         "type" : "http",
-        "scheme" : "bearer"
+        "bearerFormat" : "JWT"
       }
     }
   },

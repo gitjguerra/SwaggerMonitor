@@ -9,14 +9,14 @@
     "url" : "/simf"
   } ],
   "tags" : [ {
-    "name" : "Consultar Root",
-    "description" : "Operaciones Consultar Root"
+    "description" : "Operaciones Consultar Root",
+    "name" : "Consultar Root"
   }, {
-    "name" : "Registrar Root",
-    "description" : "Operaciones Registrar Root"
+    "description" : "Operaciones Registrar Root",
+    "name" : "Registrar Root"
   }, {
-    "name" : "Validar Root",
-    "description" : "Operaciones Validar Root"
+    "description" : "Operaciones Validar Root",
+    "name" : "Validar Root"
   } ],
   "paths" : {
     "/consultar/transferencias-simf" : {
@@ -26,7 +26,6 @@
         "operationId" : "consultarTransferenciasSimf",
         "description" : "\n\n\uD83D\uDD17 Programa: BTRS010Z\n\n\uD83D\uDD17 Service: consultar-transferencias-simf",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -71,11 +70,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -91,7 +90,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -105,11 +103,13 @@
                       "bodySalidaConsultarTransferenciasSimf" : {
                         "resulValid" : 12345678
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -121,7 +121,6 @@
         "operationId" : "consultarTablaBanco",
         "description" : "\n\n\uD83D\uDD17 Programa: BTRW830X\n\n\uD83D\uDD17 Service: consultar-tabla-banco",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -160,11 +159,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -180,7 +179,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -196,11 +194,13 @@
                         "codBco" : [ "string" ],
                         "nomBco" : [ "string" ]
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -212,7 +212,6 @@
         "operationId" : "consultarTablaBancoAmpliada",
         "description" : "\n\n\uD83D\uDD17 Programa: BTR050DC\n\n\uD83D\uDD17 Service: consultar-tabla-bancos-ampliadas",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -257,11 +256,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -277,7 +276,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -327,11 +325,13 @@
                           "numTelex2" : "string"
                         } ]
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -343,7 +343,6 @@
         "operationId" : "registrarBancoCompraDivisas",
         "description" : "\n\n\uD83D\uDD17 Programa: BOCS013Z\n\n\uD83D\uDD17 Service: registrar-banco-compra-divisas",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -398,11 +397,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -418,7 +417,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -433,11 +431,13 @@
                         "nroConsecMbu" : "string",
                         "idMoviBcv" : 12345678
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -449,7 +449,6 @@
         "operationId" : "registrarBancoVendeDivisas",
         "description" : "\n\n\uD83D\uDD17 Programa: BOCS012Z\n\n\uD83D\uDD17 Service: registrar-banco-vende-divisas",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -504,11 +503,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -524,7 +523,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -539,11 +537,13 @@
                         "nroConsecMbu" : "string",
                         "idMovBcv" : 12345678
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -555,7 +555,6 @@
         "operationId" : "registrarRefenciasDebitoInmediato",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: registrar-referencia-debito-inmediato",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -603,11 +602,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -620,7 +619,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -631,11 +629,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -647,7 +647,6 @@
         "operationId" : "validarClienteCompraVentaDivisas",
         "description" : "\n\n\uD83D\uDD17 Programa: BOCS011Z\n\n\uD83D\uDD17 Service: validar-cliente-compra-venta-divisas",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -691,11 +690,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -711,7 +710,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -732,11 +730,13 @@
                         "mtoMaxMes" : "VES",
                         "porcComis" : "string"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -757,9 +757,9 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "minLength" : 1,
+            "type" : "string",
             "maxLength" : 4,
-            "type" : "string"
+            "minLength" : 1
           },
           "identificacionUsuario" : {
             "type" : "string"
@@ -805,8 +805,8 @@
         "type" : "object",
         "properties" : {
           "tipoMensaje" : {
-            "type" : "string",
-            "example" : "F"
+            "example" : "F",
+            "type" : "string"
           },
           "mensajeProgramadorSistema" : {
             "type" : "string"
@@ -1518,9 +1518,9 @@
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "bearerFormat" : "JWT",
+        "scheme" : "bearer",
         "type" : "http",
-        "scheme" : "bearer"
+        "bearerFormat" : "JWT"
       }
     }
   },

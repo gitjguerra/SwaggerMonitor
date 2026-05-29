@@ -9,29 +9,29 @@
     "url" : "/persona"
   } ],
   "tags" : [ {
-    "name" : "Actualizar Root",
-    "description" : "Operaciones Actualizar Root"
+    "description" : "Operaciones Actualizar Root",
+    "name" : "Actualizar Root"
   }, {
-    "name" : "Anular Root",
-    "description" : "Operaciones Anular Root"
+    "description" : "Operaciones Anular Root",
+    "name" : "Anular Root"
   }, {
-    "name" : "Capturar Root",
-    "description" : "Operaciones Capturar Root"
+    "description" : "Operaciones Capturar Root",
+    "name" : "Capturar Root"
   }, {
-    "name" : "Consultar Root",
-    "description" : "Operaciones Consultar Root"
+    "description" : "Operaciones Consultar Root",
+    "name" : "Consultar Root"
   }, {
-    "name" : "Gestionar Root",
-    "description" : "Operaciones Gestionar Root"
+    "description" : "Operaciones Gestionar Root",
+    "name" : "Gestionar Root"
   }, {
-    "name" : "Imprimir Root",
-    "description" : "Operaciones Imprimir Root"
+    "description" : "Operaciones Imprimir Root",
+    "name" : "Imprimir Root"
   }, {
-    "name" : "Incluir Root",
-    "description" : "Operaciones Incluir Root"
+    "description" : "Operaciones Incluir Root",
+    "name" : "Incluir Root"
   }, {
-    "name" : "Ingresar Root",
-    "description" : "Operaciones Ingresar Root"
+    "description" : "Operaciones Ingresar Root",
+    "name" : "Ingresar Root"
   } ],
   "paths" : {
     "/actualizar/datos-no-clientes" : {
@@ -41,7 +41,6 @@
         "operationId" : "datosNoClientes",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: actualizar-datos-no-clientes",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -117,11 +116,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -134,7 +133,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -145,11 +143,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -161,7 +161,6 @@
         "operationId" : "personaContactoEmpresa",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: actualizar-persona-contacto-empresa",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -222,11 +221,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -239,7 +238,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -250,11 +248,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -266,7 +266,6 @@
         "operationId" : "roles",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: actualizar-roles",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -313,11 +312,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -330,7 +329,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -341,11 +339,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -357,7 +357,6 @@
         "operationId" : "rjReferido",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: actualizar-rj-referido",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -405,11 +404,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -422,7 +421,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -433,11 +431,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -449,7 +449,6 @@
         "operationId" : "telefonoCliente",
         "description" : "\n\n\uD83D\uDD17 Programa: GIPW108X\n\n\uD83D\uDD17 Service: actualizar-telefono-cliente",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -494,11 +493,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -514,7 +513,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -532,11 +530,13 @@
                           } ]
                         }
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -548,7 +548,6 @@
         "operationId" : "localizacionNacionalCompactada",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: actualizar-localizacion-nacional-compactada",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -594,11 +593,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -611,7 +610,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -622,11 +620,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -638,7 +638,6 @@
         "operationId" : "autorizacionesCliente",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: anular-autorizaciones-cliente",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -682,11 +681,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -699,7 +698,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -710,11 +708,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -726,7 +726,6 @@
         "operationId" : "capturarReclamos",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: capturar-reclamos-cuentas-deposito",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -824,11 +823,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -844,7 +843,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -864,11 +862,13 @@
                         "tipoId" : "V",
                         "nroCi" : 12345678
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -880,7 +880,6 @@
         "operationId" : "reclamosTarjetaEfectivo",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: caputar-reclamos-tarjeta-efectivo",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -949,11 +948,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -969,7 +968,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -983,11 +981,13 @@
                       "bodySalidaReclamosTarjetaEfectivo" : {
                         "salida" : { }
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -999,7 +999,6 @@
         "operationId" : "consultarTelefonosDetallado",
         "description" : "\n\n\uD83D\uDD17 Programa: GIPW106X\n\n\uD83D\uDD17 Service: consultar-telefonos-detallado",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1043,11 +1042,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1063,7 +1062,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1079,11 +1077,13 @@
                           "telefonos" : [ { } ]
                         }
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1095,7 +1095,6 @@
         "operationId" : "consultarLocalizacionNacionalCompactada",
         "description" : "\n\n\uD83D\uDD17 Programa: GIPWC31X\n\n\uD83D\uDD17 Service: consultar-localizacion-nacional-compactada",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1138,11 +1137,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1158,7 +1157,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1173,11 +1171,13 @@
                         "direccCompact" : [ "string" ],
                         "codLocaliza" : "0001"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1189,7 +1189,6 @@
         "operationId" : "datosBasicosDireccionTelefonoEmail",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-datos-basicos-direccion-telefono-email",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1231,11 +1230,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1251,7 +1250,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1329,11 +1327,13 @@
                         "sedeNroAptdoPostal" : "string",
                         "habCodCiudad" : 12345678
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1345,7 +1345,6 @@
         "operationId" : "personaContactoEmpresa",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-persona-contacto-empresa",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1394,11 +1393,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1414,7 +1413,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1448,11 +1446,13 @@
                           "tipoContacto" : "string"
                         } ]
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1464,7 +1464,6 @@
         "operationId" : "consultarGrupoEconomico",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-grupo-economico",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1503,11 +1502,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1523,7 +1522,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1548,11 +1546,13 @@
                         "nomMegaGrupo" : 12345678,
                         "codUnidadNeg" : 12345678
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1564,7 +1564,6 @@
         "operationId" : "consultarDatosEmpleado",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-datos-empleado",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1603,11 +1602,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1623,7 +1622,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1653,11 +1651,13 @@
                           "codEmpresaEmpl" : "0108"
                         }
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1669,7 +1669,6 @@
         "operationId" : "productoPersonas",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-producto-personas",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1711,11 +1710,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1731,7 +1730,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1749,11 +1747,13 @@
                         "producto" : "02",
                         "nomComProduc" : 12345678
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1765,7 +1765,6 @@
         "operationId" : "cuentasOficinasActivas",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-cuentas-oficinas-activas",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1807,11 +1806,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1827,7 +1826,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1847,11 +1845,13 @@
                           "oficSafeAcepta" : 12345678
                         } ]
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1863,7 +1863,6 @@
         "operationId" : "relacionCuentaCliente",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-relacion-cuenta-cliente",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1906,11 +1905,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1923,7 +1922,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1934,11 +1932,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1950,7 +1950,6 @@
         "operationId" : "indicadorActualizacionPersonas",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-indicador-actualizacion-personas",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1992,11 +1991,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2012,7 +2011,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2036,11 +2034,13 @@
                         "oficEntregRecaUnif" : 12345678,
                         "fchProxActExped" : "20251226"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2052,7 +2052,6 @@
         "operationId" : "datosBasicos",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-datos-basicos",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2094,11 +2093,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2114,7 +2113,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2134,11 +2132,13 @@
                         "primerApell" : "Pérez",
                         "segundoNom" : "Carlos"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2150,7 +2150,6 @@
         "operationId" : "grupoMegaGrupo",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-grupo-mega-grupo",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2194,11 +2193,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2214,7 +2213,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2231,11 +2229,13 @@
                         "grupoNom" : "string",
                         "megaGrupoNom" : 12345678
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2247,7 +2247,6 @@
         "operationId" : "detalleProductoCliente",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-detalle-producto-cliente",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2287,11 +2286,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2307,7 +2306,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2341,11 +2339,13 @@
                         "codGrupo" : "0001",
                         "nroPer" : 12345678
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2357,7 +2357,6 @@
         "operationId" : "reportadoSudeban",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-reportado-sudeban",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2399,11 +2398,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2416,7 +2415,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2427,11 +2425,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2443,7 +2443,6 @@
         "operationId" : "datosNoClientes",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-datos-no-clientes",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2485,11 +2484,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2505,7 +2504,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2561,11 +2559,13 @@
                         "direcc" : 12345678,
                         "codAreaCelular" : "0001"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2577,7 +2577,6 @@
         "operationId" : "consultarAutorizacionesCliente",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-autorizaciones-cliente",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2622,11 +2621,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2642,7 +2641,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2675,11 +2673,13 @@
                           "descriPaisesDestino" : 12345678
                         } ]
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2691,7 +2691,6 @@
         "operationId" : "personaPEP",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-persona-pep",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2735,11 +2734,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2755,7 +2754,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2797,11 +2795,13 @@
                         "indicApoder" : 12345678,
                         "fchActualIndicios" : "20251226"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2813,7 +2813,6 @@
         "operationId" : "autorizacionesNoCliente",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-autorizaciones-no-cliente",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2856,11 +2855,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2876,7 +2875,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2901,11 +2899,13 @@
                         "indicAutoriClte" : 12345678,
                         "carnetFnarioCapt" : "string"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2917,7 +2917,6 @@
         "operationId" : "roles",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-roles",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2960,11 +2959,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2980,7 +2979,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -3005,11 +3003,13 @@
                         "rol" : "string",
                         "roles" : [ "string" ]
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3021,7 +3021,6 @@
         "operationId" : "tablaEquivalencia",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-tabla-equivalencia-reclamos",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3060,11 +3059,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3080,7 +3079,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -3094,11 +3092,13 @@
                       "bodySalidaTablaEquivalenciaReclamos" : {
                         "productos" : { }
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3110,7 +3110,6 @@
         "operationId" : "consultarReclamos",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-reclamos",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3155,11 +3154,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3175,7 +3174,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -3207,11 +3205,13 @@
                           "fchRequerimS" : "20251226"
                         } ]
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3223,7 +3223,6 @@
         "operationId" : "gestionarCantTranSinExpedActualizado",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: gestionar-cant-tran-sin-exp-act",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3263,11 +3262,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3283,7 +3282,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -3302,11 +3300,13 @@
                         "fchActualizExpe" : "20251226",
                         "fchProxActExped" : "20251226"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3318,7 +3318,6 @@
         "operationId" : "fichaCliente",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: imprimir-ficha-cliente-pn",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3362,11 +3361,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3382,7 +3381,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -3430,11 +3428,13 @@
                           "idConyuge" : 12345678
                         }
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3446,7 +3446,6 @@
         "operationId" : "incluirDatosNoClientes",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: incluir-datos-no-clientes",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3521,11 +3520,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3541,7 +3540,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -3555,11 +3553,13 @@
                       "bodySalidaIncluirDatosNoCliente" : {
                         "nroPerNoClte" : 12345678
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3571,7 +3571,6 @@
         "operationId" : "ingresarAutorizacionesClientes",
         "description" : "\n\n\uD83D\uDD17 Programa: GIPW114Z\n\n\uD83D\uDD17 Service: ingresar-autorizaciones-cliente",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3628,11 +3627,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3645,7 +3644,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -3656,11 +3654,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3672,7 +3672,6 @@
         "operationId" : "ingresarLocalizacionNacionalCompc",
         "description" : "\n\n\uD83D\uDD17 Programa: GIPWC32X\n\n\uD83D\uDD17 Service: ingresar-localizacion-nacional-compactada",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3717,11 +3716,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3737,7 +3736,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -3751,11 +3749,13 @@
                       "bodySalidaIngresarLocalizacionNacionalCompactada" : {
                         "codLocaliza" : "0001"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3767,7 +3767,6 @@
         "operationId" : "ingresarTelefonosCliente",
         "description" : "\n\n\uD83D\uDD17 Programa: GIPW107X\n\n\uD83D\uDD17 Service: ingresar-telefonos-cliente",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3812,11 +3811,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3832,7 +3831,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -3848,11 +3846,13 @@
                           "resultados" : [ { } ]
                         }
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3864,7 +3864,6 @@
         "operationId" : "ingresarProducto",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: ingresar-producto",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3926,11 +3925,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3943,7 +3942,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -3954,11 +3952,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3970,7 +3970,6 @@
         "operationId" : "ingresarAutorizacionesNoClientes",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: ingresar-autorzaciones-datos-no-cliente",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -4015,11 +4014,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -4032,7 +4031,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -4043,11 +4041,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -4059,7 +4059,6 @@
         "operationId" : "ingresarDatosBasicos",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: ingresar-datos-basicos",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -4109,11 +4108,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -4129,7 +4128,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -4144,11 +4142,13 @@
                         "tipoPer" : 12345678,
                         "nroPer" : 12345678
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -4160,7 +4160,6 @@
         "operationId" : "ingresarDatosSocioDemograficos",
         "description" : "\n\n\uD83D\uDD17 Programa: GIPW022X\n\n\uD83D\uDD17 Service: ingresar-datos-sociodemograficos",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -4264,11 +4263,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -4284,7 +4283,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -4299,11 +4297,13 @@
                         "txRetorno" : "string",
                         "nroPer" : 12345678
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -4324,9 +4324,9 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "minLength" : 1,
+            "type" : "string",
             "maxLength" : 4,
-            "type" : "string"
+            "minLength" : 1
           },
           "identificacionUsuario" : {
             "type" : "string"
@@ -4372,8 +4372,8 @@
         "type" : "object",
         "properties" : {
           "tipoMensaje" : {
-            "type" : "string",
-            "example" : "F"
+            "example" : "F",
+            "type" : "string"
           },
           "mensajeProgramadorSistema" : {
             "type" : "string"
@@ -8904,9 +8904,9 @@
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "bearerFormat" : "JWT",
+        "scheme" : "bearer",
         "type" : "http",
-        "scheme" : "bearer"
+        "bearerFormat" : "JWT"
       }
     }
   },

@@ -9,17 +9,17 @@
     "url" : "/inversiones"
   } ],
   "tags" : [ {
-    "name" : "Buscar Root",
-    "description" : "Operaciones Buscar Root"
+    "description" : "Operaciones Buscar Root",
+    "name" : "Buscar Root"
   }, {
-    "name" : "Consultar Root",
-    "description" : "Operaciones Consultar Root"
+    "description" : "Operaciones Consultar Root",
+    "name" : "Consultar Root"
   }, {
-    "name" : "Crear Root",
-    "description" : "Operaciones Crear Root"
+    "description" : "Operaciones Crear Root",
+    "name" : "Crear Root"
   }, {
-    "name" : "Validar Root",
-    "description" : "Operaciones Validar Root"
+    "description" : "Operaciones Validar Root",
+    "name" : "Validar Root"
   } ],
   "paths" : {
     "/buscar/inventarios" : {
@@ -29,7 +29,6 @@
         "operationId" : "inventarios",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: busqueda-de-inventarios",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -75,11 +74,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -95,7 +94,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -141,11 +139,13 @@
                         "fechaCtaMercantil" : "20251226",
                         "indCierreMele" : 12345678
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -157,7 +157,6 @@
         "operationId" : "operacionesRechazadas",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -190,11 +189,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -207,7 +206,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -218,11 +216,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -234,7 +234,6 @@
         "operationId" : "ordenCompraVenta",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: crear-orden-compra-venta",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -318,11 +317,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -338,7 +337,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -357,11 +355,13 @@
                           "idMovimientoBcvSal" : 12345678
                         }
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -373,7 +373,6 @@
         "operationId" : "datosClientes",
         "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: validar-datos-clientes",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -415,11 +414,11 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -435,7 +434,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -457,11 +455,13 @@
                           "codigoSwift" : "0001"
                         } ]
                       }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -482,9 +482,9 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "minLength" : 1,
+            "type" : "string",
             "maxLength" : 4,
-            "type" : "string"
+            "minLength" : 1
           },
           "identificacionUsuario" : {
             "type" : "string"
@@ -530,8 +530,8 @@
         "type" : "object",
         "properties" : {
           "tipoMensaje" : {
-            "type" : "string",
-            "example" : "F"
+            "example" : "F",
+            "type" : "string"
           },
           "mensajeProgramadorSistema" : {
             "type" : "string"
@@ -1277,9 +1277,9 @@
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "bearerFormat" : "JWT",
+        "scheme" : "bearer",
         "type" : "http",
-        "scheme" : "bearer"
+        "bearerFormat" : "JWT"
       }
     }
   },

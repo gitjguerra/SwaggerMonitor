@@ -1,0 +1,824 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "API mia",
+    "version" : "1.0",
+    "description" : "Generado dinámicamente"
+  },
+  "servers" : [ {
+    "url" : "/mia"
+  } ],
+  "tags" : [ {
+    "name" : "Security",
+    "description" : "Operaciones Security"
+  } ],
+  "paths" : {
+    "/security/create-jwt" : {
+      "post" : {
+        "tags" : [ "Security" ],
+        "summary" : "create",
+        "operationId" : "create",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaCreateJWT"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntrada" : {
+                      "metainfo" : 12345678,
+                      "applid" : 12345678
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaCreateJWT" : {
+                      "$ref" : "#/components/schemas/BodySalidaCreateJWT"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaCreateJWT" : {
+                        "createResponseToken" : { }
+                      }
+                    },
+                    "summary" : "Ejemplo generado"
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/security/validate-jwt" : {
+      "post" : {
+        "tags" : [ "Security" ],
+        "summary" : "validate",
+        "operationId" : "validate",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaValidateJWT" : {
+                    "$ref" : "#/components/schemas/BodyEntradaValidate"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaValidateJWT" : {
+                      "metainfo" : 12345678,
+                      "applid" : 12345678
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      }
+                    },
+                    "summary" : "Ejemplo generado"
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/security/decrypt-qr" : {
+      "post" : {
+        "tags" : [ "Security" ],
+        "summary" : "readQR",
+        "operationId" : "readQR",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntrada" : {
+                    "$ref" : "#/components/schemas/BodyEntradaReadQR"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntrada" : {
+                      "qr" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      }
+                    },
+                    "summary" : "Ejemplo generado"
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/security/encrypt-rsa-qr" : {
+      "post" : {
+        "tags" : [ "Security" ],
+        "summary" : "generateQrRsa",
+        "operationId" : "generateQrRsa",
+        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaEncryptQR" : {
+                    "$ref" : "#/components/schemas/BodyEntradaGenerateQR"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaEncryptQR" : {
+                      "id" : 12345678,
+                      "phone" : "string",
+                      "bank" : "string",
+                      "amount" : "string",
+                      "name" : "string",
+                      "totp" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaGenerateQR" : {
+                      "$ref" : "#/components/schemas/BodySalidaGenerateQR"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaGenerateQR" : {
+                        "qr" : "string"
+                      }
+                    },
+                    "summary" : "Ejemplo generado"
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "HeaderEntrada" : {
+        "type" : "object",
+        "properties" : {
+          "identificadorUnicoGlobal" : {
+            "type" : "string"
+          },
+          "identificacionCanal" : {
+            "type" : "string"
+          },
+          "identificacionSubCanal" : {
+            "type" : "string"
+          },
+          "siglaAplicacion" : {
+            "minLength" : 1,
+            "maxLength" : 4,
+            "type" : "string"
+          },
+          "identificacionUsuario" : {
+            "type" : "string"
+          },
+          "direccionIpConsumidor" : {
+            "type" : "string"
+          },
+          "direccionIpCliente" : {
+            "type" : "string"
+          },
+          "fechaEnvioMensaje" : {
+            "type" : "string"
+          },
+          "horaEnvioMensaje" : {
+            "type" : "string"
+          },
+          "atributoPagineo" : {
+            "type" : "string"
+          },
+          "claveBusqueda" : {
+            "type" : "string"
+          },
+          "cantidadRegistros" : {
+            "type" : "integer"
+          }
+        },
+        "example" : {
+          "identificadorUnicoGlobal" : "string",
+          "identificacionCanal" : "0006",
+          "identificacionSubCanal" : "01",
+          "siglaAplicacion" : "ABC",
+          "identificacionUsuario" : "user",
+          "direccionIpConsumidor" : "127.0.0.1",
+          "direccionIpCliente" : "127.0.0.1",
+          "fechaEnvioMensaje" : "20260101",
+          "horaEnvioMensaje" : "120000",
+          "atributoPagineo" : "N",
+          "claveBusqueda" : "clave",
+          "cantidadRegistros" : 0
+        }
+      },
+      "HeaderSalida" : {
+        "type" : "object",
+        "properties" : {
+          "tipoMensaje" : {
+            "type" : "string",
+            "example" : "F"
+          },
+          "mensajeProgramadorSistema" : {
+            "type" : "string"
+          },
+          "codigoMensajeProgramador" : {
+            "type" : "string"
+          },
+          "mensajeUsuario" : {
+            "type" : "string"
+          },
+          "codigoMensajeUsuario" : {
+            "type" : "string"
+          },
+          "fechaSalidaMensaje" : {
+            "type" : "string"
+          },
+          "horaSalidaMensaje" : {
+            "type" : "string"
+          }
+        },
+        "example" : {
+          "tipoMensaje" : "F",
+          "mensajeProgramadorSistema" : "Procesado correctamente",
+          "codigoMensajeProgramador" : "0000",
+          "mensajeUsuario" : "Operación exitosa",
+          "codigoMensajeUsuario" : "0000",
+          "fechaSalidaMensaje" : "20260101",
+          "horaSalidaMensaje" : "120000"
+        }
+      },
+      "BodyEntradaProductosCelular" : {
+        "type" : "object",
+        "properties" : {
+          "eCodProduc" : {
+            "type" : "integer"
+          },
+          "eVaNroServprod" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Identificacion" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "Productos" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "BodySalidaProductosCelular" : {
+        "type" : "object",
+        "properties" : {
+          "numeroPersona" : {
+            "type" : "integer"
+          },
+          "numeroTarjeta" : {
+            "type" : "integer"
+          },
+          "estatusAfiliacion" : {
+            "type" : "integer"
+          },
+          "emailBeneficiario" : {
+            "type" : "string"
+          },
+          "indentificacion" : {
+            "$ref" : "#/components/schemas/Identificacion"
+          },
+          "productos" : {
+            "$ref" : "#/components/schemas/Productos"
+          }
+        }
+      },
+      "TipoCuentas" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "InfoMsg" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "RequestProductosCelular" : {
+        "type" : "object",
+        "properties" : {
+          "infoMsg" : {
+            "$ref" : "#/components/schemas/InfoMsg"
+          },
+          "bodyEntradaProductosCelular" : {
+            "$ref" : "#/components/schemas/BodyEntradaProductosCelular"
+          }
+        }
+      },
+      "ResponseProductosCelular" : {
+        "type" : "object",
+        "properties" : {
+          "bodySalida" : {
+            "$ref" : "#/components/schemas/BodySalidaProductosCelular"
+          }
+        }
+      },
+      "BodyEntradaCreateJWT" : {
+        "type" : "object",
+        "properties" : {
+          "metainfo" : {
+            "type" : "string"
+          },
+          "applid" : {
+            "type" : "string"
+          }
+        }
+      },
+      "CreateResponseToken" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "BodySalidaCreateJWT" : {
+        "type" : "object",
+        "properties" : {
+          "createResponseToken" : {
+            "$ref" : "#/components/schemas/CreateResponseToken"
+          }
+        }
+      },
+      "RequestCreateJWT" : {
+        "type" : "object",
+        "properties" : {
+          "infoMsg" : {
+            "$ref" : "#/components/schemas/InfoMsg"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaCreateJWT"
+          },
+          "needRefresh" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "ResponseCreateJWT" : {
+        "type" : "object",
+        "properties" : {
+          "bodySalidaCreateJWT" : {
+            "$ref" : "#/components/schemas/BodySalidaCreateJWT"
+          },
+          "needRefresh" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "MetaInfo" : {
+        "type" : "object",
+        "properties" : {
+          "guId" : {
+            "type" : "string"
+          },
+          "channel" : {
+            "type" : "string"
+          },
+          "subchannel" : {
+            "type" : "string"
+          },
+          "applId" : {
+            "type" : "string"
+          },
+          "personId" : {
+            "type" : "string"
+          },
+          "userId" : {
+            "type" : "string"
+          },
+          "ipClient" : {
+            "type" : "string"
+          },
+          "action" : {
+            "type" : "string"
+          },
+          "timestamp" : {
+            "type" : "string"
+          },
+          "lastaccess" : {
+            "type" : "string"
+          },
+          "products" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "groupRifs" : {
+            "type" : "string"
+          },
+          "counter" : {
+            "type" : "integer"
+          },
+          "isTransaction" : {
+            "type" : "boolean"
+          },
+          "isMultipleTransaction" : {
+            "type" : "boolean"
+          },
+          "idNumber" : {
+            "type" : "string"
+          },
+          "deviceID" : {
+            "type" : "string"
+          },
+          "trustedDevice" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "BodyEntradaValidate" : {
+        "type" : "object",
+        "properties" : {
+          "metainfo" : {
+            "type" : "string"
+          },
+          "applid" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BodySalidaValidate" : {
+        "type" : "object",
+        "properties" : {
+          "CreateResponseToken" : {
+            "$ref" : "#/components/schemas/CreateResponseToken"
+          }
+        }
+      },
+      "RequestValidateJWT" : {
+        "type" : "object",
+        "properties" : {
+          "infoMsg" : {
+            "$ref" : "#/components/schemas/InfoMsg"
+          },
+          "bodyEntradaValidateJWT" : {
+            "$ref" : "#/components/schemas/BodyEntradaValidate"
+          }
+        }
+      },
+      "ResponseValidateJWT" : {
+        "type" : "object",
+        "properties" : {
+          "bodySalidaValidate" : {
+            "$ref" : "#/components/schemas/BodySalidaValidate"
+          },
+          "needRefresh" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "BodyEntradaGenerateQR" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "phone" : {
+            "type" : "string"
+          },
+          "bank" : {
+            "type" : "string"
+          },
+          "amount" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "totp" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BodySalidaGenerateQR" : {
+        "type" : "object",
+        "properties" : {
+          "qr" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RequestGenerateQR" : {
+        "type" : "object",
+        "properties" : {
+          "infoMsg" : {
+            "$ref" : "#/components/schemas/InfoMsg"
+          },
+          "bodyEntradaEncryptQR" : {
+            "$ref" : "#/components/schemas/BodyEntradaGenerateQR"
+          }
+        }
+      },
+      "ResponseGenerateQR" : {
+        "type" : "object",
+        "properties" : {
+          "bodySalidaEncryptQR" : {
+            "$ref" : "#/components/schemas/BodySalidaGenerateQR"
+          }
+        }
+      },
+      "BodyEntradaReadQR" : {
+        "type" : "object",
+        "properties" : {
+          "qr" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BodySalidaReadQR" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "phone" : {
+            "type" : "string"
+          },
+          "bank" : {
+            "type" : "string"
+          },
+          "amount" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "totp" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RequestDecryptQR" : {
+        "type" : "object",
+        "properties" : {
+          "infoMsg" : {
+            "$ref" : "#/components/schemas/InfoMsg"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaReadQR"
+          }
+        }
+      },
+      "ResponseDecryptQR" : {
+        "type" : "object",
+        "properties" : {
+          "bodySalidaDecryptQR" : {
+            "$ref" : "#/components/schemas/BodySalidaReadQR"
+          }
+        }
+      },
+      "SendRequestRest" : {
+        "type" : "object",
+        "additionalProperties" : true
+      },
+      "DataCliente" : {
+        "type" : "object",
+        "properties" : {
+          "send" : {
+            "$ref" : "#/components/schemas/SendRequestRest"
+          }
+        }
+      },
+      "Security" : {
+        "type" : "object",
+        "properties" : {
+          "send" : {
+            "$ref" : "#/components/schemas/SendRequestRest"
+          }
+        }
+      },
+      "IDASS" : {
+        "type" : "object"
+      },
+      "JsonWebToken" : {
+        "type" : "object"
+      },
+      "QuickResponse" : {
+        "type" : "object"
+      }
+    },
+    "securitySchemes" : {
+      "bearerAuth" : {
+        "type" : "http",
+        "scheme" : "bearer",
+        "bearerFormat" : "JWT"
+      }
+    }
+  },
+  "security" : [ {
+    "bearerAuth" : [ ]
+  } ]
+}

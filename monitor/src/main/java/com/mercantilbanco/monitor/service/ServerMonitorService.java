@@ -58,7 +58,7 @@ public class ServerMonitorService {
 
 			} catch (Exception e) {
 
-				System.out.println("⚠️ No se encontró archivo externo, usando interno...");
+				System.out.println("⚠️ No se encontró archivo externo servers.xml, usando interno...");
 
 				is = getClass().getClassLoader().getResourceAsStream("servers.xml");
 

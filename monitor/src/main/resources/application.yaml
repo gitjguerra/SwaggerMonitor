@@ -16,6 +16,8 @@ monitor:
   refresh: 10
   servers:
      file: servers.xml
+  swagger:
+     external-dir: C:/DevEnvironment/src/java/monitor-workspace/swagger
 
 slack:
   enabled: false
