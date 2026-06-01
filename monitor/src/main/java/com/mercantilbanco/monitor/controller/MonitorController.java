@@ -261,21 +261,21 @@ public class MonitorController {
 
 		try {
 
-			// ✅ 1. EXTERNO
+			// ✅ EXTERNO
 			if (swaggerDir != null && !swaggerDir.isEmpty()) {
 
 				File file = findSwaggerFileIgnoreCase(swaggerDir, name);
 
 				if (file != null && file.exists()) {
 
-					String content = new String(java.nio.file.Files.readAllBytes(file.toPath()));
+					String content = new String(java.nio.file.Files.readAllBytes(file.toPath()),
+							java.nio.charset.StandardCharsets.UTF_8);
 
-					return ResponseEntity.ok().header("Content-Type", "application/json").body(content); // ✅ ahora sí
-																											// compila
+					return ResponseEntity.ok().header("Content-Type", "application/json;charset=UTF-8").body(content);
 				}
 			}
 
-			// ✅ 2. CLASSPATH
+			// ✅ CLASSPATH
 			org.springframework.core.io.ClassPathResource resource = new org.springframework.core.io.ClassPathResource(
 					"static/swagger/" + name + ".json");
 
@@ -285,7 +285,7 @@ public class MonitorController {
 
 				String content = readInputStream(is);
 
-				return ResponseEntity.ok().header("Content-Type", "application/json").body(content);
+				return ResponseEntity.ok().header("Content-Type", "application/json;charset=UTF-8").body(content);
 			}
 
 			return ResponseEntity.notFound().build();
@@ -312,7 +312,7 @@ public class MonitorController {
 
 		buffer.flush();
 
-		return new String(buffer.toByteArray());
+		return new String(buffer.toByteArray(), java.nio.charset.StandardCharsets.UTF_8);
 	}
 
 	private File findSwaggerFileIgnoreCase(String dir, String name) {
