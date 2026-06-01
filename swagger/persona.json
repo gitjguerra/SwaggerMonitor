@@ -9,29 +9,29 @@
     "url" : "/persona"
   } ],
   "tags" : [ {
-    "description" : "Operaciones Actualizar Root",
-    "name" : "Actualizar Root"
+    "name" : "Actualizar Root",
+    "description" : "Operaciones Actualizar Root"
   }, {
-    "description" : "Operaciones Anular Root",
-    "name" : "Anular Root"
+    "name" : "Anular Root",
+    "description" : "Operaciones Anular Root"
   }, {
-    "description" : "Operaciones Capturar Root",
-    "name" : "Capturar Root"
+    "name" : "Capturar Root",
+    "description" : "Operaciones Capturar Root"
   }, {
-    "description" : "Operaciones Consultar Root",
-    "name" : "Consultar Root"
+    "name" : "Consultar Root",
+    "description" : "Operaciones Consultar Root"
   }, {
-    "description" : "Operaciones Gestionar Root",
-    "name" : "Gestionar Root"
+    "name" : "Gestionar Root",
+    "description" : "Operaciones Gestionar Root"
   }, {
-    "description" : "Operaciones Imprimir Root",
-    "name" : "Imprimir Root"
+    "name" : "Imprimir Root",
+    "description" : "Operaciones Imprimir Root"
   }, {
-    "description" : "Operaciones Incluir Root",
-    "name" : "Incluir Root"
+    "name" : "Incluir Root",
+    "description" : "Operaciones Incluir Root"
   }, {
-    "description" : "Operaciones Ingresar Root",
-    "name" : "Ingresar Root"
+    "name" : "Ingresar Root",
+    "description" : "Operaciones Ingresar Root"
   } ],
   "paths" : {
     "/actualizar/datos-no-clientes" : {
@@ -39,8 +39,8 @@
         "tags" : [ "Actualizar Root" ],
         "summary" : "datosNoClientes",
         "operationId" : "datosNoClientes",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: actualizar-datos-no-clientes",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -49,7 +49,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaActualizarDatosNoClientes" : {
                     "$ref" : "#/components/schemas/BodyEntradaActualizarDatosNoClientes"
                   }
                 }
@@ -72,7 +72,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaActualizarDatosNoClientes" : {
                       "nroPerNoCliente" : 12345678,
                       "codPais" : "VE",
                       "tipoId" : "V",
@@ -116,8 +116,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -128,11 +127,15 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaActualizarDatosNoClientes" : {
+                      "$ref" : "#/components/schemas/BodySalidaActualizarDatosNoClientes"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -142,9 +145,9 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      }
-                    },
-                    "summary" : "Ejemplo generado"
+                      },
+                      "bodySalidaActualizarDatosNoClientes" : { }
+                    }
                   }
                 }
               }
@@ -159,8 +162,8 @@
         "tags" : [ "Actualizar Root" ],
         "summary" : "personaContactoEmpresa",
         "operationId" : "personaContactoEmpresa",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: actualizar-persona-contacto-empresa",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -169,7 +172,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaActualizarPersonaContactoEmpresa" : {
                     "$ref" : "#/components/schemas/BodyEntradaActualizarPersonaContactoEmpresa"
                   }
                 }
@@ -192,7 +195,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaActualizarPersonaContactoEmpresa" : {
                       "tpAccion" : 12345678,
                       "idRifPais" : 12345678,
                       "idRifTipo" : 12345678,
@@ -221,8 +224,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -233,11 +235,15 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaActualizarPersonaContactoEmpresa" : {
+                      "$ref" : "#/components/schemas/BodySalidaActualizarPersonaContactoEmpresa"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -247,9 +253,9 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      }
-                    },
-                    "summary" : "Ejemplo generado"
+                      },
+                      "bodySalidaActualizarPersonaContactoEmpresa" : { }
+                    }
                   }
                 }
               }
@@ -264,8 +270,8 @@
         "tags" : [ "Actualizar Root" ],
         "summary" : "roles",
         "operationId" : "roles",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: actualizar-roles",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -274,7 +280,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaActualizarRoles" : {
                     "$ref" : "#/components/schemas/BodyEntradaActualizarRoles"
                   }
                 }
@@ -297,7 +303,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaActualizarRoles" : {
                       "codPais" : "VE",
                       "tipoId" : "V",
                       "nroId" : 12345678,
@@ -312,8 +318,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -324,11 +329,15 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaActualizarRoles" : {
+                      "$ref" : "#/components/schemas/BodySalidaActualizarRoles"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -338,9 +347,9 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      }
-                    },
-                    "summary" : "Ejemplo generado"
+                      },
+                      "bodySalidaActualizarRoles" : { }
+                    }
                   }
                 }
               }
@@ -355,8 +364,8 @@
         "tags" : [ "Actualizar Root" ],
         "summary" : "rjReferido",
         "operationId" : "rjReferido",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: actualizar-rj-referido",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -365,7 +374,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaActualizarPjReferido" : {
                     "$ref" : "#/components/schemas/BodyEntradaActualizarPjReferido"
                   }
                 }
@@ -388,7 +397,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaActualizarPjReferido" : {
                       "tipoSolicitud" : 12345678,
                       "codPaisV" : "VE",
                       "tipoIdV" : "V",
@@ -404,8 +413,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -416,11 +424,15 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaActualizarPjReferido" : {
+                      "$ref" : "#/components/schemas/BodySalidaActualizarPjReferido"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -430,9 +442,9 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      }
-                    },
-                    "summary" : "Ejemplo generado"
+                      },
+                      "bodySalidaActualizarPjReferido" : { }
+                    }
                   }
                 }
               }
@@ -447,8 +459,8 @@
         "tags" : [ "Actualizar Root" ],
         "summary" : "telefonoCliente",
         "operationId" : "telefonoCliente",
-        "description" : "\n\n\uD83D\uDD17 Programa: GIPW108X\n\n\uD83D\uDD17 Service: actualizar-telefono-cliente",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -457,7 +469,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaActualizarTelefonoCliente" : {
                     "$ref" : "#/components/schemas/BodyEntradaActualizarTelefonoCliente"
                   }
                 }
@@ -480,7 +492,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaActualizarTelefonoCliente" : {
                       "paramEntrada" : {
                         "codPaisId" : 12345678,
                         "tipId" : 12345678,
@@ -493,8 +505,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -513,6 +524,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -530,8 +542,7 @@
                           } ]
                         }
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -546,8 +557,8 @@
         "tags" : [ "Actualizar Root" ],
         "summary" : "localizacionNacionalCompactada",
         "operationId" : "localizacionNacionalCompactada",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: actualizar-localizacion-nacional-compactada",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -556,7 +567,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaActualizarLocalizacionNacionalCompactada" : {
                     "$ref" : "#/components/schemas/BodyEntradaActualizarLocalizacionNacionalCompactada"
                   }
                 }
@@ -579,7 +590,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaActualizarLocalizacionNacionalCompactada" : {
                       "codPais" : "VE",
                       "tipoId" : "V",
                       "nroId" : 12345678,
@@ -593,8 +604,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -605,11 +615,15 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaActualizarLocalizacionNacionalCompactada" : {
+                      "$ref" : "#/components/schemas/BodySalidaActualizarLocalizacionNacionalCompactada"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -619,9 +633,9 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      }
-                    },
-                    "summary" : "Ejemplo generado"
+                      },
+                      "bodySalidaActualizarLocalizacionNacionalCompactada" : { }
+                    }
                   }
                 }
               }
@@ -636,8 +650,8 @@
         "tags" : [ "Anular Root" ],
         "summary" : "autorizacionesCliente",
         "operationId" : "autorizacionesCliente",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: anular-autorizaciones-cliente",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -646,7 +660,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaAnularAutorizacionesCliente" : {
                     "$ref" : "#/components/schemas/BodyEntradaAnularAutorizacionesCliente"
                   }
                 }
@@ -669,7 +683,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaAnularAutorizacionesCliente" : {
                       "codigoPais" : "VE",
                       "tipoIdentificacion" : "V",
                       "nroIdentificacion" : 12345678,
@@ -681,8 +695,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -693,11 +706,15 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaAnularAutorizacionesCliente" : {
+                      "$ref" : "#/components/schemas/BodySalidaAnularAutorizacionesCliente"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -707,9 +724,9 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      }
-                    },
-                    "summary" : "Ejemplo generado"
+                      },
+                      "bodySalidaAnularAutorizacionesCliente" : { }
+                    }
                   }
                 }
               }
@@ -724,8 +741,8 @@
         "tags" : [ "Capturar Root" ],
         "summary" : "capturarReclamos",
         "operationId" : "capturarReclamos",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: capturar-reclamos-cuentas-deposito",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -734,7 +751,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaReclamosCuentasDeposito" : {
                     "$ref" : "#/components/schemas/BodyEntradaReclamosCuentasDeposito"
                   }
                 }
@@ -757,7 +774,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaReclamosCuentasDeposito" : {
                       "tipoId" : "V",
                       "nroCi" : 12345678,
                       "nuPersona" : 12345678,
@@ -810,9 +827,9 @@
                       "area1250MtoTotal" : "VES",
                       "coCarnet" : "string",
                       "codUnidadCaptura" : 12345678,
-                      "nroTarjAbra24" : "10",
-                      "nroTarjCdto" : "string",
-                      "nroCtaTarjCdto" : "string",
+                      "nroTarjAbra24" : "5888910003058274",
+                      "nroTarjCdto" : "5888910003058274",
+                      "nroCtaTarjCdto" : "5888910003058274",
                       "codBanco" : "0001",
                       "nombreBanco" : "string",
                       "fchRequer" : "20251226",
@@ -823,8 +840,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -843,6 +859,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -862,8 +879,7 @@
                         "tipoId" : "V",
                         "nroCi" : 12345678
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -878,8 +894,8 @@
         "tags" : [ "Capturar Root" ],
         "summary" : "reclamosTarjetaEfectivo",
         "operationId" : "reclamosTarjetaEfectivo",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: caputar-reclamos-tarjeta-efectivo",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -888,7 +904,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaReclamosTarjetaEfectivo" : {
                     "$ref" : "#/components/schemas/BodyEntradaReclamosTarjetaEfectivo"
                   }
                 }
@@ -911,7 +927,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaReclamosTarjetaEfectivo" : {
                       "tipoId" : "V",
                       "nroCi" : 12345678,
                       "nroPersona" : 12345678,
@@ -925,7 +941,7 @@
                       "email" : "jperez@email.com",
                       "feEdocta" : "string",
                       "monto" : "VES",
-                      "nroTarjEfectivo" : "string",
+                      "nroTarjEfectivo" : "5888910003058274",
                       "nroOper" : 12345678,
                       "codMedioComunic" : "0001",
                       "descripMedioComunic" : 12345678,
@@ -940,7 +956,9 @@
                       "codReclamo" : 12345678,
                       "desReclamo" : 12345678,
                       "indNroCliente" : "string",
-                      "transacciones" : [ { } ],
+                      "transacciones" : [ {
+                        "id" : "string"
+                      } ],
                       "codUnidadCaptura" : 12345678,
                       "carnetCaptura" : "string"
                     }
@@ -948,8 +966,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -968,6 +985,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -979,10 +997,11 @@
                         "horaSalidaMensaje" : "135046"
                       },
                       "bodySalidaReclamosTarjetaEfectivo" : {
-                        "salida" : { }
+                        "salida" : {
+                          "id" : "string"
+                        }
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -997,8 +1016,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarTelefonosDetallado",
         "operationId" : "consultarTelefonosDetallado",
-        "description" : "\n\n\uD83D\uDD17 Programa: GIPW106X\n\n\uD83D\uDD17 Service: consultar-telefonos-detallado",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1007,7 +1026,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaConsultarTelefonosDetallado" : {
                     "$ref" : "#/components/schemas/BodyEntradaConsultarTelefonosDetallado"
                   }
                 }
@@ -1030,7 +1049,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaConsultarTelefonosDetallado" : {
                       "paramEntrada" : {
                         "codPaisId" : 12345678,
                         "tipId" : 12345678,
@@ -1042,8 +1061,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -1062,6 +1080,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1074,11 +1093,12 @@
                       },
                       "bodySalidaConsultarTelefonosDetallado" : {
                         "detalleTelefonos" : {
-                          "telefonos" : [ { } ]
+                          "telefonos" : [ {
+                            "id" : "string"
+                          } ]
                         }
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -1093,8 +1113,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarLocalizacionNacionalCompactada",
         "operationId" : "consultarLocalizacionNacionalCompactada",
-        "description" : "\n\n\uD83D\uDD17 Programa: GIPWC31X\n\n\uD83D\uDD17 Service: consultar-localizacion-nacional-compactada",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1103,7 +1123,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaConsultarLocalizacionNacionalCompactada" : {
                     "$ref" : "#/components/schemas/BodyEntradaConsultarLocalizacionNacionalCompactada"
                   }
                 }
@@ -1126,7 +1146,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaConsultarLocalizacionNacionalCompactada" : {
                       "nroPer" : 12345678,
                       "codPais" : "VE",
                       "tipoId" : "V",
@@ -1137,8 +1157,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -1157,6 +1176,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1171,8 +1191,7 @@
                         "direccCompact" : [ "string" ],
                         "codLocaliza" : "0001"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -1187,8 +1206,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "datosBasicosDireccionTelefonoEmail",
         "operationId" : "datosBasicosDireccionTelefonoEmail",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-datos-basicos-direccion-telefono-email",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1197,7 +1216,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaConsultarDatosBasicosDireccionTelefonoEmail" : {
                     "$ref" : "#/components/schemas/BodyEntradaConsultarDatosBasicosDireccionTelefonoEmail"
                   }
                 }
@@ -1220,7 +1239,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaConsultarDatosBasicosDireccionTelefonoEmail" : {
                       "codPais" : "VE",
                       "tipoId" : "V",
                       "nroId" : 12345678,
@@ -1230,8 +1249,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -1250,6 +1268,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1327,8 +1346,7 @@
                         "sedeNroAptdoPostal" : "string",
                         "habCodCiudad" : 12345678
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -1343,8 +1361,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "personaContactoEmpresa",
         "operationId" : "personaContactoEmpresa",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-persona-contacto-empresa",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1353,7 +1371,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaConsultarPersonaContactoEmpresa" : {
                     "$ref" : "#/components/schemas/BodyEntradaConsultarPersonaContactoEmpresa"
                   }
                 }
@@ -1376,7 +1394,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaConsultarPersonaContactoEmpresa" : {
                       "codPais" : "VE",
                       "tipoId" : "V",
                       "nroId" : 12345678,
@@ -1393,8 +1411,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -1413,6 +1430,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1446,8 +1464,7 @@
                           "tipoContacto" : "string"
                         } ]
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -1462,8 +1479,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarGrupoEconomico",
         "operationId" : "consultarGrupoEconomico",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-grupo-economico",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1502,8 +1519,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -1522,6 +1538,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1546,8 +1563,7 @@
                         "nomMegaGrupo" : 12345678,
                         "codUnidadNeg" : 12345678
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -1562,8 +1578,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarDatosEmpleado",
         "operationId" : "consultarDatosEmpleado",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-datos-empleado",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1602,8 +1618,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -1622,6 +1637,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1651,8 +1667,7 @@
                           "codEmpresaEmpl" : "0108"
                         }
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -1667,8 +1682,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "productoPersonas",
         "operationId" : "productoPersonas",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-producto-personas",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1677,7 +1692,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaConsultarProductosPersonas" : {
                     "$ref" : "#/components/schemas/BodyEntradaConsultarProductosPersonas"
                   }
                 }
@@ -1700,7 +1715,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaConsultarProductosPersonas" : {
                       "codPaisV" : "VE",
                       "tipoIdV" : "V",
                       "nroIdV" : 12345678,
@@ -1710,8 +1725,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -1730,6 +1744,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1747,8 +1762,7 @@
                         "producto" : "02",
                         "nomComProduc" : 12345678
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -1763,8 +1777,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "cuentasOficinasActivas",
         "operationId" : "cuentasOficinasActivas",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-cuentas-oficinas-activas",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1773,7 +1787,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaConsultarCuentasOficinasActivas" : {
                     "$ref" : "#/components/schemas/BodyEntradaConsultarCuentasOficinasActivas"
                   }
                 }
@@ -1796,7 +1810,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaConsultarCuentasOficinasActivas" : {
                       "codPaisEntrada" : "VE",
                       "tipoIdEntrada" : "V",
                       "nroIdEntrada" : 12345678,
@@ -1806,8 +1820,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -1826,6 +1839,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1845,8 +1859,7 @@
                           "oficSafeAcepta" : 12345678
                         } ]
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -1861,8 +1874,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "relacionCuentaCliente",
         "operationId" : "relacionCuentaCliente",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-relacion-cuenta-cliente",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1871,7 +1884,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaConsultarRelacionCuentaCliente" : {
                     "$ref" : "#/components/schemas/BodyEntradaConsultarRelacionCuentaCliente"
                   }
                 }
@@ -1894,7 +1907,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaConsultarRelacionCuentaCliente" : {
                       "nroCuenta" : 1242034900,
                       "codPais" : "VE",
                       "tipoId" : "V",
@@ -1905,8 +1918,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -1917,11 +1929,15 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaConsultarRelacionCuentaCliente" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarRelacionCuentaCliente"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1931,9 +1947,9 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      }
-                    },
-                    "summary" : "Ejemplo generado"
+                      },
+                      "bodySalidaConsultarRelacionCuentaCliente" : { }
+                    }
                   }
                 }
               }
@@ -1948,8 +1964,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "indicadorActualizacionPersonas",
         "operationId" : "indicadorActualizacionPersonas",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-indicador-actualizacion-personas",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1958,7 +1974,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaConsultarIndicadoresActualizacionPersonas" : {
                     "$ref" : "#/components/schemas/BodyEntradaConsultarIndicadoresActualizacionPersonas"
                   }
                 }
@@ -1981,7 +1997,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaConsultarIndicadoresActualizacionPersonas" : {
                       "nroPer" : 12345678,
                       "codPais" : "VE",
                       "tipoIdPpal" : "V",
@@ -1991,8 +2007,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -2011,6 +2026,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2034,8 +2050,7 @@
                         "oficEntregRecaUnif" : 12345678,
                         "fchProxActExped" : "20251226"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -2050,8 +2065,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "datosBasicos",
         "operationId" : "datosBasicos",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-datos-basicos",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2060,7 +2075,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaConsultarDatosBasicos" : {
                     "$ref" : "#/components/schemas/BodyEntradaConsultarDatosBasicos"
                   }
                 }
@@ -2083,7 +2098,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaConsultarDatosBasicos" : {
                       "nroPer" : 12345678,
                       "codPais" : "VE",
                       "tipoId" : "V",
@@ -2093,8 +2108,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -2113,6 +2127,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2132,8 +2147,7 @@
                         "primerApell" : "Pérez",
                         "segundoNom" : "Carlos"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -2148,8 +2162,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "grupoMegaGrupo",
         "operationId" : "grupoMegaGrupo",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-grupo-mega-grupo",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2158,7 +2172,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaConsultarGrupoMegaGrupo" : {
                     "$ref" : "#/components/schemas/BodyEntradaConsultarGrupoMegaGrupo"
                   }
                 }
@@ -2181,7 +2195,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaConsultarGrupoMegaGrupo" : {
                       "datosCliente" : {
                         "codigoPais" : "VE",
                         "tipoIdentificacion" : "V",
@@ -2193,8 +2207,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -2213,6 +2226,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2229,8 +2243,7 @@
                         "grupoNom" : "string",
                         "megaGrupoNom" : 12345678
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -2245,8 +2258,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "detalleProductoCliente",
         "operationId" : "detalleProductoCliente",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-detalle-producto-cliente",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2255,7 +2268,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaConsultarDetalleProductoCliente" : {
                     "$ref" : "#/components/schemas/BodyEntradaConsultarDetalleProductoCliente"
                   }
                 }
@@ -2278,7 +2291,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaConsultarDetalleProductoCliente" : {
                       "codProduc" : "02",
                       "codTipoProduc" : "02"
                     }
@@ -2286,8 +2299,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -2306,6 +2318,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2339,8 +2352,7 @@
                         "codGrupo" : "0001",
                         "nroPer" : 12345678
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -2355,8 +2367,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "reportadoSudeban",
         "operationId" : "reportadoSudeban",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-reportado-sudeban",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2365,7 +2377,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaConsultarReportadoSudeban" : {
                     "$ref" : "#/components/schemas/BodyEntradaConsultarReportadoSudeban"
                   }
                 }
@@ -2388,7 +2400,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaConsultarReportadoSudeban" : {
                       "codPais" : "VE",
                       "tipoIdPpal" : "V",
                       "nroIdPpal" : 12345678,
@@ -2398,8 +2410,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -2410,11 +2421,15 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaConsultarReportadoSudeban" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarReportadoSudeban"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2424,9 +2439,9 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      }
-                    },
-                    "summary" : "Ejemplo generado"
+                      },
+                      "bodySalidaConsultarReportadoSudeban" : { }
+                    }
                   }
                 }
               }
@@ -2441,8 +2456,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "datosNoClientes",
         "operationId" : "datosNoClientes",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-datos-no-clientes",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2451,7 +2466,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaConsultarDatosNoClientes" : {
                     "$ref" : "#/components/schemas/BodyEntradaConsultarDatosNoClientes"
                   }
                 }
@@ -2474,7 +2489,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaConsultarDatosNoClientes" : {
                       "nroPerNoClte" : 12345678,
                       "codPais" : "VE",
                       "tipoId" : "V",
@@ -2484,8 +2499,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -2504,6 +2518,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2559,8 +2574,7 @@
                         "direcc" : 12345678,
                         "codAreaCelular" : "0001"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -2575,8 +2589,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarAutorizacionesCliente",
         "operationId" : "consultarAutorizacionesCliente",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-autorizaciones-cliente",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2585,7 +2599,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaConsultarAutorizacionesCliente" : {
                     "$ref" : "#/components/schemas/BodyEntradaConsultarAutorizacionesCliente"
                   }
                 }
@@ -2608,7 +2622,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaConsultarAutorizacionesCliente" : {
                       "codPais" : "VE",
                       "tipoId" : "V",
                       "nroId" : 12345678,
@@ -2621,8 +2635,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -2641,6 +2654,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2673,8 +2687,7 @@
                           "descriPaisesDestino" : 12345678
                         } ]
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -2689,8 +2702,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "personaPEP",
         "operationId" : "personaPEP",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-persona-pep",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2699,7 +2712,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaConsultarPersonaPEP" : {
                     "$ref" : "#/components/schemas/BodyEntradaConsultarPersonaPEP"
                   }
                 }
@@ -2722,7 +2735,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaConsultarPersonaPEP" : {
                       "tipoConsulta" : "string",
                       "nroPer" : 12345678,
                       "paisId" : 12345678,
@@ -2734,8 +2747,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -2754,6 +2766,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2795,8 +2808,7 @@
                         "indicApoder" : 12345678,
                         "fchActualIndicios" : "20251226"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -2811,8 +2823,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "autorizacionesNoCliente",
         "operationId" : "autorizacionesNoCliente",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-autorizaciones-no-cliente",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2821,7 +2833,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaConsultarAutorizacionesNoCliente" : {
                     "$ref" : "#/components/schemas/BodyEntradaConsultarAutorizacionesNoCliente"
                   }
                 }
@@ -2844,7 +2856,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaConsultarAutorizacionesNoCliente" : {
                       "paisIdNoClte" : 12345678,
                       "tipoIdNoClte" : "V",
                       "nroIdNoClte" : 12345678,
@@ -2855,8 +2867,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -2875,6 +2886,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2899,8 +2911,7 @@
                         "indicAutoriClte" : 12345678,
                         "carnetFnarioCapt" : "string"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -2915,8 +2926,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "roles",
         "operationId" : "roles",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-roles",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2925,7 +2936,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaConsultarRoles" : {
                     "$ref" : "#/components/schemas/BodyEntradaConsultarRoles"
                   }
                 }
@@ -2948,7 +2959,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaConsultarRoles" : {
                       "codPais" : "VE",
                       "tipoId" : "V",
                       "nroId" : 12345678,
@@ -2959,8 +2970,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -2979,6 +2989,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -3003,8 +3014,7 @@
                         "rol" : "string",
                         "roles" : [ "string" ]
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -3019,8 +3029,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "tablaEquivalencia",
         "operationId" : "tablaEquivalencia",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-tabla-equivalencia-reclamos",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3029,7 +3039,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaTablaEquivalenciaReclamos" : {
                     "$ref" : "#/components/schemas/BodyEntradaTablaEquivalenciaReclamos"
                   }
                 }
@@ -3052,15 +3062,16 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
-                      "parametrosEntrada" : { }
+                    "bodyEntradaTablaEquivalenciaReclamos" : {
+                      "parametrosEntrada" : {
+                        "id" : "string"
+                      }
                     }
                   }
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -3079,6 +3090,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -3090,10 +3102,11 @@
                         "horaSalidaMensaje" : "135046"
                       },
                       "bodySalidaTablaEquivalenciaReclamos" : {
-                        "productos" : { }
+                        "productos" : {
+                          "id" : "string"
+                        }
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -3108,8 +3121,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarReclamos",
         "operationId" : "consultarReclamos",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: consultar-reclamos",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3154,8 +3167,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -3174,6 +3186,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -3205,8 +3218,7 @@
                           "fchRequerimS" : "20251226"
                         } ]
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -3221,8 +3233,8 @@
         "tags" : [ "Gestionar Root" ],
         "summary" : "gestionarCantTranSinExpedActualizado",
         "operationId" : "gestionarCantTranSinExpedActualizado",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: gestionar-cant-tran-sin-exp-act",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3231,7 +3243,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaGestionarCantTranSinExpedActualizado" : {
                     "$ref" : "#/components/schemas/BodyEntradaGestionarCantTranSinExpedActualizado"
                   }
                 }
@@ -3254,7 +3266,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaGestionarCantTranSinExpedActualizado" : {
                       "nroPer" : 12345678,
                       "accion" : 12345678
                     }
@@ -3262,8 +3274,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -3282,6 +3293,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -3300,8 +3312,7 @@
                         "fchActualizExpe" : "20251226",
                         "fchProxActExped" : "20251226"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -3316,8 +3327,8 @@
         "tags" : [ "Imprimir Root" ],
         "summary" : "fichaCliente",
         "operationId" : "fichaCliente",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: imprimir-ficha-cliente-pn",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3326,7 +3337,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaImprimirFichaClientePersonaNatural" : {
                     "$ref" : "#/components/schemas/BodyEntradaImprimirFichaClientePersonaNatural"
                   }
                 }
@@ -3349,7 +3360,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaImprimirFichaClientePersonaNatural" : {
                       "rutinaImpresionIn" : {
                         "codPaisId" : 12345678,
                         "tipoId" : "V",
@@ -3361,8 +3372,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -3381,6 +3391,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -3393,20 +3404,32 @@
                       },
                       "bodySalidaImprimirFichaClientePersonaNatural" : {
                         "fichaCliente" : {
-                          "otrosProductosBancarios" : { },
-                          "otrosIngresos" : { },
-                          "repLegalApoderadoAutorizado" : { },
+                          "otrosProductosBancarios" : {
+                            "id" : "string"
+                          },
+                          "otrosIngresos" : {
+                            "id" : "string"
+                          },
+                          "repLegalApoderadoAutorizado" : {
+                            "id" : "string"
+                          },
                           "descripProfes" : 12345678,
                           "nom" : "string",
                           "nomBco" : "string",
                           "email" : "jperez@email.com",
-                          "negocioPropio" : { },
+                          "negocioPropio" : {
+                            "id" : "string"
+                          },
                           "telfHab" : "string",
                           "lugOfic" : 12345678,
                           "direcHab" : 12345678,
                           "fuenteIngresosCliente" : { },
-                          "personaExpuestaPoliticament" : { },
-                          "referenciasBancarias" : { },
+                          "personaExpuestaPoliticament" : {
+                            "id" : "string"
+                          },
+                          "referenciasBancarias" : {
+                            "id" : "string"
+                          },
                           "apell" : 12345678,
                           "nomConyuge" : 12345678,
                           "nomOfic" : 12345678,
@@ -3418,9 +3441,13 @@
                           "condiViv" : 12345678,
                           "descripEdoCivil" : 12345678,
                           "informacionEconFinancClient" : { },
-                          "relacionDependencia" : { },
+                          "relacionDependencia" : {
+                            "id" : "string"
+                          },
                           "fchNac" : "20251226",
-                          "referenciasPersonales" : { },
+                          "referenciasPersonales" : {
+                            "id" : "string"
+                          },
                           "fchElab" : "20251226",
                           "nroCi" : 12345678,
                           "sexo" : "masculino",
@@ -3428,8 +3455,7 @@
                           "idConyuge" : 12345678
                         }
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -3444,8 +3470,8 @@
         "tags" : [ "Incluir Root" ],
         "summary" : "incluirDatosNoClientes",
         "operationId" : "incluirDatosNoClientes",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: incluir-datos-no-clientes",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3454,7 +3480,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaIncluirDatosNoCliente" : {
                     "$ref" : "#/components/schemas/BodyEntradaIncluirDatosNoCliente"
                   }
                 }
@@ -3477,7 +3503,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaIncluirDatosNoCliente" : {
                       "codPais" : "VE",
                       "tipoId" : "V",
                       "nroId" : 12345678,
@@ -3520,8 +3546,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -3540,6 +3565,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -3553,8 +3579,7 @@
                       "bodySalidaIncluirDatosNoCliente" : {
                         "nroPerNoClte" : 12345678
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -3569,8 +3594,8 @@
         "tags" : [ "Ingresar Root" ],
         "summary" : "ingresarAutorizacionesClientes",
         "operationId" : "ingresarAutorizacionesClientes",
-        "description" : "\n\n\uD83D\uDD17 Programa: GIPW114Z\n\n\uD83D\uDD17 Service: ingresar-autorizaciones-cliente",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3579,7 +3604,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaIngresarAutorizacionesCliente" : {
                     "$ref" : "#/components/schemas/BodyEntradaIngresarAutorizacionesCliente"
                   }
                 }
@@ -3602,7 +3627,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaIngresarAutorizacionesCliente" : {
                       "nroPersona" : 12345678,
                       "tipoIdentificacion" : "V",
                       "nroIdentificacion" : 12345678,
@@ -3627,8 +3652,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -3639,11 +3663,15 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaIngresarAutorizacionesCliente" : {
+                      "$ref" : "#/components/schemas/BodySalidaIngresarAutorizacionesCliente"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -3653,9 +3681,9 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      }
-                    },
-                    "summary" : "Ejemplo generado"
+                      },
+                      "bodySalidaIngresarAutorizacionesCliente" : { }
+                    }
                   }
                 }
               }
@@ -3670,8 +3698,8 @@
         "tags" : [ "Ingresar Root" ],
         "summary" : "ingresarLocalizacionNacionalCompc",
         "operationId" : "ingresarLocalizacionNacionalCompc",
-        "description" : "\n\n\uD83D\uDD17 Programa: GIPWC32X\n\n\uD83D\uDD17 Service: ingresar-localizacion-nacional-compactada",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3680,7 +3708,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaIngresarLocalizacionNacionalCompactada" : {
                     "$ref" : "#/components/schemas/BodyEntradaIngresarLocalizacionNacionalCompactada"
                   }
                 }
@@ -3703,7 +3731,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaIngresarLocalizacionNacionalCompactada" : {
                       "codPaisV" : "VE",
                       "tipoIdV" : "V",
                       "nroIdV" : 12345678,
@@ -3716,8 +3744,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -3736,6 +3763,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -3749,8 +3777,7 @@
                       "bodySalidaIngresarLocalizacionNacionalCompactada" : {
                         "codLocaliza" : "0001"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -3765,8 +3792,8 @@
         "tags" : [ "Ingresar Root" ],
         "summary" : "ingresarTelefonosCliente",
         "operationId" : "ingresarTelefonosCliente",
-        "description" : "\n\n\uD83D\uDD17 Programa: GIPW107X\n\n\uD83D\uDD17 Service: ingresar-telefonos-cliente",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3775,7 +3802,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaIngresarTelefonosCliente" : {
                     "$ref" : "#/components/schemas/BodyEntradaIngresarTelefonosCliente"
                   }
                 }
@@ -3798,21 +3825,22 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaIngresarTelefonosCliente" : {
                       "beanParametrosEntrada" : {
                         "codPaisId" : 12345678,
                         "tipId" : 12345678,
                         "nroId" : 12345678,
                         "nroPer" : 12345678,
-                        "vectorTelefonos" : [ { } ]
+                        "vectorTelefonos" : [ {
+                          "id" : "string"
+                        } ]
                       }
                     }
                   }
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -3831,6 +3859,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -3843,11 +3872,12 @@
                       },
                       "bodySalidaIngresarTelefonosCliente" : {
                         "paramSalida" : {
-                          "resultados" : [ { } ]
+                          "resultados" : [ {
+                            "id" : "string"
+                          } ]
                         }
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -3862,8 +3892,8 @@
         "tags" : [ "Ingresar Root" ],
         "summary" : "ingresarProducto",
         "operationId" : "ingresarProducto",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: ingresar-producto",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3872,7 +3902,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaIngresarProducto" : {
                     "$ref" : "#/components/schemas/BodyEntradaIngresarProducto"
                   }
                 }
@@ -3895,7 +3925,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaIngresarProducto" : {
                       "codPaisV" : "VE",
                       "tipoIdV" : "V",
                       "nroIdV" : 12345678,
@@ -3925,8 +3955,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -3937,11 +3966,15 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaIngresarProducto" : {
+                      "$ref" : "#/components/schemas/BodySalidaIngresarProducto"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -3951,9 +3984,9 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      }
-                    },
-                    "summary" : "Ejemplo generado"
+                      },
+                      "bodySalidaIngresarProducto" : { }
+                    }
                   }
                 }
               }
@@ -3968,8 +4001,8 @@
         "tags" : [ "Ingresar Root" ],
         "summary" : "ingresarAutorizacionesNoClientes",
         "operationId" : "ingresarAutorizacionesNoClientes",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: ingresar-autorzaciones-datos-no-cliente",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3978,7 +4011,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaIngresarAutorizacionesNoCliente" : {
                     "$ref" : "#/components/schemas/BodyEntradaIngresarAutorizacionesNoCliente"
                   }
                 }
@@ -4001,7 +4034,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaIngresarAutorizacionesNoCliente" : {
                       "nroPersonaNoCliente" : 12345678,
                       "paisIdNoClte" : 12345678,
                       "tipoIdentificacion" : "V",
@@ -4014,8 +4047,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -4026,11 +4058,15 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaIngresarAutorizacionesNoCliente" : {
+                      "$ref" : "#/components/schemas/BodySalidaIngresarAutorizacionesNoCliente"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -4040,9 +4076,9 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      }
-                    },
-                    "summary" : "Ejemplo generado"
+                      },
+                      "bodySalidaIngresarAutorizacionesNoCliente" : { }
+                    }
                   }
                 }
               }
@@ -4057,8 +4093,8 @@
         "tags" : [ "Ingresar Root" ],
         "summary" : "ingresarDatosBasicos",
         "operationId" : "ingresarDatosBasicos",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: ingresar-datos-basicos",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -4067,7 +4103,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaIngresarDatosBasicos" : {
                     "$ref" : "#/components/schemas/BodyEntradaIngresarDatosBasicos"
                   }
                 }
@@ -4090,7 +4126,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaIngresarDatosBasicos" : {
                       "rolPersona" : 12345678,
                       "codPais" : "VE",
                       "primerApellRs" : "Pérez",
@@ -4108,8 +4144,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -4128,6 +4163,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -4142,8 +4178,7 @@
                         "tipoPer" : 12345678,
                         "nroPer" : 12345678
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -4158,8 +4193,8 @@
         "tags" : [ "Ingresar Root" ],
         "summary" : "ingresarDatosSocioDemograficos",
         "operationId" : "ingresarDatosSocioDemograficos",
-        "description" : "\n\n\uD83D\uDD17 Programa: GIPW022X\n\n\uD83D\uDD17 Service: ingresar-datos-sociodemograficos",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -4168,7 +4203,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaIngresarDatosSocioDemograficos" : {
                     "$ref" : "#/components/schemas/BodyEntradaIngresarDatosSocioDemograficos"
                   }
                 }
@@ -4191,7 +4226,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaIngresarDatosSocioDemograficos" : {
                       "codigoPais" : "VE",
                       "tipoIdentificacion" : "V",
                       "numeroIdentificacion" : 12345678,
@@ -4263,8 +4298,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -4283,6 +4317,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -4297,8 +4332,7 @@
                         "txRetorno" : "string",
                         "nroPer" : 12345678
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -4324,9 +4358,9 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "type" : "string",
             "maxLength" : 4,
-            "minLength" : 1
+            "minLength" : 1,
+            "type" : "string"
           },
           "identificacionUsuario" : {
             "type" : "string"
@@ -4549,7 +4583,8 @@
         }
       },
       "ResponseActualizarDatosNoClientes" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "BodyEntradaActualizarLocalizacionNacionalCompactada" : {
         "type" : "object",
@@ -4595,7 +4630,8 @@
         }
       },
       "ResponseActualizarLocalizacionNacionalCompactada" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "BodyEntradaActualizarPersonaContactoEmpresa" : {
         "type" : "object",
@@ -4754,7 +4790,8 @@
         }
       },
       "ResponseActualizarPjReferido" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "BodyEntradaActualizarRoles" : {
         "type" : "object",
@@ -4807,11 +4844,8 @@
         }
       },
       "ResponseActualizarRoles" : {
-        "type" : "object"
-      },
-      "BeanTelefonosActualizarTelefonoCliente" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Clase sin propiedades definidas"
       },
       "BeanEntradaActualizarTelefonoCliente" : {
         "type" : "object",
@@ -4857,6 +4891,33 @@
           }
         }
       },
+      "BeanTelefonosActualizarTelefonoCliente" : {
+        "type" : "object",
+        "properties" : {
+          "tipoTelf" : {
+            "type" : "integer"
+          },
+          "codArea" : {
+            "type" : "string"
+          },
+          "nroTelf" : {
+            "type" : "string"
+          },
+          "nroExt" : {
+            "type" : "string"
+          },
+          "nroSuc" : {
+            "type" : "string"
+          },
+          "codAreaPais" : {
+            "type" : "string"
+          },
+          "codLocalizaTelf" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
       "BodyEntradaActualizarTelefonoCliente" : {
         "type" : "object",
         "properties" : {
@@ -4874,7 +4935,8 @@
         }
       },
       "CleanerActualizarTelefonoCliente" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "RequestActualizarTelefonoCliente" : {
         "type" : "object",
@@ -4934,7 +4996,8 @@
         }
       },
       "ResponseAnularAutorizacionesCliente" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "BodyEntradaReclamosCuentasDeposito" : {
         "type" : "object",
@@ -5205,7 +5268,8 @@
       },
       "Transacciones" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "BodyEntradaReclamosTarjetaEfectivo" : {
         "type" : "object",
@@ -5317,11 +5381,12 @@
             "type" : "string"
           }
         },
-        "required" : [ "nroCi" ]
+        "required" : [ "tipoId", "nroCi" ]
       },
       "SalidaReclamos" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "BodySalidaReclamosTarjetaEfectivo" : {
         "type" : "object",
@@ -5332,7 +5397,8 @@
         }
       },
       "CleanerBodyEntradaReclamosTarjetaEfectivo" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "RequestReclamosTarjetaEfectivo" : {
         "type" : "object",
@@ -5473,7 +5539,8 @@
         }
       },
       "CleanerBodySalidaAutorizacionesCliente" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "RequestConsultarAutorizacionesCliente" : {
         "type" : "object",
@@ -5640,7 +5707,8 @@
         }
       },
       "CleanerBodySalidaCuentasOficinasActivas" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "RequestConsultarCuentasOficinasActivas" : {
         "type" : "object",
@@ -6359,7 +6427,8 @@
         }
       },
       "CleanerBodySalidaConsutlarDetalleProductoCliente" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "DetalleCuentas" : {
         "type" : "object",
@@ -6457,15 +6526,22 @@
           }
         }
       },
-      "SalidaConsultarDetalleProductoCliente" : {
-        "type" : "object",
-        "additionalProperties" : true
-      },
       "ResponseConsultarDetalleProductoCliente" : {
         "type" : "object",
         "properties" : {
           "bodySalidaDetalleProductoCliente" : {
             "$ref" : "#/components/schemas/SalidaConsultarDetalleProductoCliente"
+          }
+        }
+      },
+      "SalidaConsultarDetalleProductoCliente" : {
+        "type" : "object",
+        "properties" : {
+          "detalleClienteProductos" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/DetalleCuentas"
+            }
           }
         }
       },
@@ -6725,7 +6801,8 @@
         }
       },
       "CleanerConsultarLocalizacionNacionalCompactada" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "RequestConsultarLocalizacionNacionalCompactada" : {
         "type" : "object",
@@ -6870,7 +6947,8 @@
         }
       },
       "CleanerBodySalidaPersonaContactoEmpresa" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "RequestConsultarPersonaContactoEmpresa" : {
         "type" : "object",
@@ -7026,7 +7104,8 @@
         }
       },
       "CleanerBodySalidaConsultarPersonaPep" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "RequestConsultarPersonaPEP" : {
         "type" : "object",
@@ -7087,7 +7166,8 @@
         }
       },
       "CleanerBodySalidaProductoPersona" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "DetalleProducto" : {
         "type" : "object",
@@ -7122,7 +7202,8 @@
       },
       "SalidaConsultarProductoPersona" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "ResponseConsultarProductosPersonas" : {
         "type" : "object",
@@ -7288,7 +7369,8 @@
         }
       },
       "BodySalidaReclamoCleaner" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "RequestConsultarReclamos" : {
         "type" : "object",
@@ -7303,7 +7385,8 @@
       },
       "SalidaConsultarReclamo" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "ResponseConsultarReclamos" : {
         "type" : "object",
@@ -7386,7 +7469,8 @@
         }
       },
       "ResponseConsultarReportadoSudeban" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "BodyEntradaConsultarRoles" : {
         "type" : "object",
@@ -7467,7 +7551,8 @@
         }
       },
       "CleanerBodySalidaConsultarRoles" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "RequestConsultarRoles" : {
         "type" : "object",
@@ -7493,7 +7578,8 @@
       },
       "ParametrosEntrada" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "BodyEntradaTablaEquivalenciaReclamos" : {
         "type" : "object",
@@ -7505,7 +7591,8 @@
       },
       "ParametroSalida" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "BodySalidaTablaEquivalenciaReclamos" : {
         "type" : "object",
@@ -7516,7 +7603,8 @@
         }
       },
       "BodySalidaTablaEquivalenciasReclamosCleaner" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "RequestTablaEquivalenciaReclamos" : {
         "type" : "object",
@@ -7564,7 +7652,8 @@
       },
       "BeanResultado" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "BeanParamSalida" : {
         "type" : "object",
@@ -7594,7 +7683,8 @@
         }
       },
       "CleanerConsultarTelefonosCliente" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "RequestConsultarTelefonosDetallado" : {
         "type" : "object",
@@ -7695,43 +7785,43 @@
       },
       "OtrosProductosBancarios" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "OtrosIngresos" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "RepLegalApoderadoAutorizado" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "NegocioPropio" : {
         "type" : "object",
-        "additionalProperties" : true
-      },
-      "FuenteIngresosCliente" : {
-        "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "PersonaExpuestaPoliticament" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "ReferenciaBancaria" : {
         "type" : "object",
-        "additionalProperties" : true
-      },
-      "InformacionEconFinancClient" : {
-        "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "RelacionDependencia" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "ReferenciaPersonal" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "BeanRutinaImpresionSalida" : {
         "type" : "object",
@@ -7849,17 +7939,48 @@
           }
         }
       },
+      "FuenteIngresosCliente" : {
+        "type" : "object",
+        "properties" : {
+          "negProcio" : {
+            "type" : "string"
+          },
+          "otrosIng" : {
+            "type" : "string"
+          },
+          "relacDependencia" : {
+            "type" : "string"
+          }
+        }
+      },
+      "InformacionEconFinancClient" : {
+        "type" : "object",
+        "properties" : {
+          "activEspec" : {
+            "type" : "string"
+          },
+          "categEspec" : {
+            "type" : "string"
+          },
+          "descripActEcon" : {
+            "type" : "string"
+          }
+        }
+      },
       "Proveedores" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "RegistroMercantil" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "ProductoActivo" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "BodyEntradaImprimirFichaClientePersonaNatural" : {
         "type" : "object",
@@ -7878,7 +7999,8 @@
         }
       },
       "CleanerBodySalidaImprimirFichaClientePersonaNatural" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "RequestImprimirFichaClientePersonaNatural" : {
         "type" : "object",
@@ -8145,7 +8267,8 @@
         }
       },
       "ResponseIngresarAutorizacionesCliente" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "BodyEntradaIngresarAutorizacionesNoCliente" : {
         "type" : "object",
@@ -8188,7 +8311,8 @@
         }
       },
       "ResponseIngresarAutorizacionesNoCliente" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "BodyEntradaIngresarDatosBasicos" : {
         "type" : "object",
@@ -8698,11 +8822,13 @@
         }
       },
       "ResponseIngresarProducto" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "BeanTelefono" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "BeanParamEntradaIngresarTelefonoClientes" : {
         "type" : "object",
@@ -8757,7 +8883,8 @@
         }
       },
       "CleanerIngresarTelefonosCliente" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "RequestIngresarTelefonosCliente" : {
         "type" : "object",
@@ -8780,7 +8907,8 @@
       },
       "SendRequestRest" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "Actualizar" : {
         "type" : "object",
@@ -8865,10 +8993,6 @@
           }
         }
       },
-      "Logger" : {
-        "type" : "object",
-        "additionalProperties" : true
-      },
       "InitEnviroment" : {
         "type" : "object",
         "properties" : {
@@ -8878,35 +9002,87 @@
         }
       },
       "ActualizarImpl" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "AnularImp" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "CapturarImp" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "ConsultarImp" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "GestionarImp" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "ImprimirImp" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "IncluirImp" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "IngresarImp" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BodySalidaActualizarDatosNoClientes" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaActualizarPersonaContactoEmpresa" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaActualizarRoles" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaActualizarPjReferido" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaActualizarLocalizacionNacionalCompactada" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaAnularAutorizacionesCliente" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaConsultarRelacionCuentaCliente" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaConsultarReportadoSudeban" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaIngresarAutorizacionesCliente" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaIngresarProducto" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaIngresarAutorizacionesNoCliente" : {
+        "type" : "object",
+        "properties" : { }
       }
     },
     "securitySchemes" : {
       "bearerAuth" : {
+        "bearerFormat" : "JWT",
         "scheme" : "bearer",
-        "type" : "http",
-        "bearerFormat" : "JWT"
+        "type" : "http"
       }
     }
   },

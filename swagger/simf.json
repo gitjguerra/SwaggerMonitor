@@ -9,14 +9,14 @@
     "url" : "/simf"
   } ],
   "tags" : [ {
-    "description" : "Operaciones Consultar Root",
-    "name" : "Consultar Root"
+    "name" : "Consultar Root",
+    "description" : "Operaciones Consultar Root"
   }, {
-    "description" : "Operaciones Registrar Root",
-    "name" : "Registrar Root"
+    "name" : "Registrar Root",
+    "description" : "Operaciones Registrar Root"
   }, {
-    "description" : "Operaciones Validar Root",
-    "name" : "Validar Root"
+    "name" : "Validar Root",
+    "description" : "Operaciones Validar Root"
   } ],
   "paths" : {
     "/consultar/transferencias-simf" : {
@@ -24,8 +24,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarTransferenciasSimf",
         "operationId" : "consultarTransferenciasSimf",
-        "description" : "\n\n\uD83D\uDD17 Programa: BTRS010Z\n\n\uD83D\uDD17 Service: consultar-transferencias-simf",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -34,7 +34,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaConsultarTransferenciasSimf" : {
                     "$ref" : "#/components/schemas/BodyEntradaConsultarTransferenciasSimf"
                   }
                 }
@@ -57,7 +57,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaConsultarTransferenciasSimf" : {
                       "codigoMonedaEnt" : "VES",
                       "numeroCuentaEnt" : "string",
                       "nacIdOrdenanteEnt" : 12345678,
@@ -70,8 +70,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -90,6 +89,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -103,8 +103,7 @@
                       "bodySalidaConsultarTransferenciasSimf" : {
                         "resulValid" : 12345678
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -119,8 +118,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarTablaBanco",
         "operationId" : "consultarTablaBanco",
-        "description" : "\n\n\uD83D\uDD17 Programa: BTRW830X\n\n\uD83D\uDD17 Service: consultar-tabla-banco",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -129,7 +128,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaConsultarTablaBanco" : {
                     "$ref" : "#/components/schemas/BodyEntradaConsultarTablaBanco"
                   }
                 }
@@ -152,15 +151,14 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaConsultarTablaBanco" : {
                       "codBco" : "0001"
                     }
                   }
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -179,6 +177,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -194,8 +193,7 @@
                         "codBco" : [ "string" ],
                         "nomBco" : [ "string" ]
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -210,8 +208,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "consultarTablaBancoAmpliada",
         "operationId" : "consultarTablaBancoAmpliada",
-        "description" : "\n\n\uD83D\uDD17 Programa: BTR050DC\n\n\uD83D\uDD17 Service: consultar-tabla-bancos-ampliadas",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -220,7 +218,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaConsultarTablaBancoAmpliada" : {
                     "$ref" : "#/components/schemas/BodyEntradaConsultarTablaBancoAmpliada"
                   }
                 }
@@ -243,7 +241,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaConsultarTablaBancoAmpliada" : {
                       "codSudeban" : "0001",
                       "codAba" : "0001",
                       "bcoPignora" : "string",
@@ -256,8 +254,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -276,6 +273,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -289,7 +287,9 @@
                       "bodySalidaConsultarTablaBancoAmpliada" : {
                         "cantReg" : 12345678,
                         "paginacion" : {
-                          "apVectPp" : [ { } ]
+                          "apVectPp" : [ {
+                            "id" : "string"
+                          } ]
                         },
                         "bancos" : [ {
                           "codBcoAba" : "0001",
@@ -325,8 +325,7 @@
                           "numTelex2" : "string"
                         } ]
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -341,8 +340,8 @@
         "tags" : [ "Registrar Root" ],
         "summary" : "registrarBancoCompraDivisas",
         "operationId" : "registrarBancoCompraDivisas",
-        "description" : "\n\n\uD83D\uDD17 Programa: BOCS013Z\n\n\uD83D\uDD17 Service: registrar-banco-compra-divisas",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -351,7 +350,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaRegistrarBancoCompraDivisas" : {
                     "$ref" : "#/components/schemas/BodyEntradaRegistrarBancoCompraDivisas"
                   }
                 }
@@ -374,7 +373,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaRegistrarBancoCompraDivisas" : {
                       "codSubCanalEnt" : "09",
                       "codigoMonedaEnt" : "VES",
                       "numeroPersonaEnt" : 12345678,
@@ -397,8 +396,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -417,6 +415,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -431,8 +430,7 @@
                         "nroConsecMbu" : "string",
                         "idMoviBcv" : 12345678
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -447,8 +445,8 @@
         "tags" : [ "Registrar Root" ],
         "summary" : "registrarBancoVendeDivisas",
         "operationId" : "registrarBancoVendeDivisas",
-        "description" : "\n\n\uD83D\uDD17 Programa: BOCS012Z\n\n\uD83D\uDD17 Service: registrar-banco-vende-divisas",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -457,7 +455,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaRegistrarBancoVendeDivisas" : {
                     "$ref" : "#/components/schemas/BodyEntradaRegistrarBancoVendeDivisas"
                   }
                 }
@@ -480,7 +478,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaRegistrarBancoVendeDivisas" : {
                       "codSubCanalEnt" : "09",
                       "codigoMonedaEnt" : "VES",
                       "numeroPersonaEnt" : 12345678,
@@ -503,8 +501,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -523,6 +520,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -537,8 +535,7 @@
                         "nroConsecMbu" : "string",
                         "idMovBcv" : 12345678
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -553,8 +550,8 @@
         "tags" : [ "Registrar Root" ],
         "summary" : "registrarRefenciasDebitoInmediato",
         "operationId" : "registrarRefenciasDebitoInmediato",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: registrar-referencia-debito-inmediato",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -563,7 +560,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaRegistrarReferenciasDebitoInmediato" : {
                     "$ref" : "#/components/schemas/BodyEntradaRegistrarReferenciasDebitoInmediato"
                   }
                 }
@@ -586,7 +583,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaRegistrarReferenciasDebitoInmediato" : {
                       "refNro" : 12345678,
                       "nroPer" : 12345678,
                       "codInteg" : "0001",
@@ -602,8 +599,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -614,11 +610,15 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaRegistrarReferenciasDebitoInmediato" : {
+                      "$ref" : "#/components/schemas/BodySalidaRegistrarReferenciasDebitoInmediato"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -628,9 +628,9 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      }
-                    },
-                    "summary" : "Ejemplo generado"
+                      },
+                      "bodySalidaRegistrarReferenciasDebitoInmediato" : { }
+                    }
                   }
                 }
               }
@@ -645,8 +645,8 @@
         "tags" : [ "Validar Root" ],
         "summary" : "validarClienteCompraVentaDivisas",
         "operationId" : "validarClienteCompraVentaDivisas",
-        "description" : "\n\n\uD83D\uDD17 Programa: BOCS011Z\n\n\uD83D\uDD17 Service: validar-cliente-compra-venta-divisas",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -655,7 +655,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaValidarClienteCompraVentaDivisas" : {
                     "$ref" : "#/components/schemas/BodyEntradaValidarClienteCompraVentaDivisas"
                   }
                 }
@@ -678,7 +678,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaValidarClienteCompraVentaDivisas" : {
                       "codSubCanalEnt" : "09",
                       "tipoOperEnt" : 12345678,
                       "codMonedaEnt" : "VES",
@@ -690,8 +690,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -710,6 +709,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -730,8 +730,7 @@
                         "mtoMaxMes" : "VES",
                         "porcComis" : "string"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -757,9 +756,9 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "type" : "string",
             "maxLength" : 4,
-            "minLength" : 1
+            "minLength" : 1,
+            "type" : "string"
           },
           "identificacionUsuario" : {
             "type" : "string"
@@ -894,11 +893,13 @@
         }
       },
       "ResponseConsultarTablaBanco" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "BeanVectorPaginacion" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "BeanAreaPaginacion" : {
         "type" : "object",
@@ -1022,7 +1023,8 @@
         }
       },
       "BodyBancoCleaner" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "BodyEntradaConsultarTablaBancoAmpliada" : {
         "type" : "object",
@@ -1208,7 +1210,8 @@
             "type" : "number",
             "format" : "double"
           }
-        }
+        },
+        "required" : [ "nombreClienteEnt" ]
       },
       "BodySalidaRegistrarBancoCompraDivisas" : {
         "type" : "object",
@@ -1304,7 +1307,8 @@
             "type" : "number",
             "format" : "double"
           }
-        }
+        },
+        "required" : [ "nombreClienteEnt" ]
       },
       "BodySalidaRegistrarBancoVendeDivisas" : {
         "type" : "object",
@@ -1386,7 +1390,8 @@
         }
       },
       "ResponseRegistrarReferenciasDebitoInmediato" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "BodyEntradaValidarClienteCompraVentaDivisas" : {
         "type" : "object",
@@ -1411,7 +1416,8 @@
             "type" : "number",
             "format" : "double"
           }
-        }
+        },
+        "required" : [ "tipoOperEnt", "codMonedaEnt" ]
       },
       "BodySalidaValidarClienteCompraVentaDivisas" : {
         "type" : "object",
@@ -1468,7 +1474,8 @@
       },
       "SendRequestRest" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "Consultar" : {
         "type" : "object",
@@ -1494,10 +1501,6 @@
           }
         }
       },
-      "Logger" : {
-        "type" : "object",
-        "additionalProperties" : true
-      },
       "InitEnviroment" : {
         "type" : "object",
         "properties" : {
@@ -1507,20 +1510,27 @@
         }
       },
       "ConsultarInterface" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "RegistrarInterface" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "ValidateInterface" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BodySalidaRegistrarReferenciasDebitoInmediato" : {
+        "type" : "object",
+        "properties" : { }
       }
     },
     "securitySchemes" : {
       "bearerAuth" : {
+        "bearerFormat" : "JWT",
         "scheme" : "bearer",
-        "type" : "http",
-        "bearerFormat" : "JWT"
+        "type" : "http"
       }
     }
   },

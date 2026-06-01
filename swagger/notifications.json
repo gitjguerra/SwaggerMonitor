@@ -1,0 +1,4281 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "API notifications",
+    "version" : "1.0",
+    "description" : "Generado dinámicamente"
+  },
+  "servers" : [ {
+    "url" : "/notifications"
+  } ],
+  "tags" : [ {
+    "name" : "Actualizar Root",
+    "description" : "Operaciones Actualizar Root"
+  }, {
+    "name" : "Consultar Root",
+    "description" : "Operaciones Consultar Root"
+  }, {
+    "name" : "Eliminar Root",
+    "description" : "Operaciones Eliminar Root"
+  }, {
+    "name" : "Ingresar Root",
+    "description" : "Operaciones Ingresar Root"
+  } ],
+  "paths" : {
+    "/actualizar/integradora" : {
+      "post" : {
+        "tags" : [ "Actualizar Root" ],
+        "summary" : "actualizarIntegradora",
+        "operationId" : "actualizarIntegradora",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaActualizarIntegradora" : {
+                    "$ref" : "#/components/schemas/BeanIntegradora"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaActualizarIntegradora" : {
+                      "id" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaActualizarIntegradora" : {
+                      "$ref" : "#/components/schemas/BodySalidaActualizarIntegradora"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaActualizarIntegradora" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/actualizar/notificacion-correo" : {
+      "post" : {
+        "tags" : [ "Actualizar Root" ],
+        "summary" : "actualizarNotificacionCorreo",
+        "operationId" : "actualizarNotificacionCorreo",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaActualizarNotificacionCorreo" : {
+                    "$ref" : "#/components/schemas/BeanNotificacionCorreo"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaActualizarNotificacionCorreo" : {
+                      "id" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaActualizarNotificacionCorreo" : {
+                      "$ref" : "#/components/schemas/BodySalidaActualizarNotificacionCorreo"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaActualizarNotificacionCorreo" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/actualizar/notificacion-sms" : {
+      "post" : {
+        "tags" : [ "Actualizar Root" ],
+        "summary" : "actualizarNotificacionSms",
+        "operationId" : "actualizarNotificacionSms",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaActualizarNotificacionSms" : {
+                    "$ref" : "#/components/schemas/BeanNotificacionSms"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaActualizarNotificacionSms" : {
+                      "id" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaActualizarNotificacionSms" : {
+                      "$ref" : "#/components/schemas/BodySalidaActualizarNotificacionSms"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaActualizarNotificacionSms" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/actualizar/plantilla" : {
+      "post" : {
+        "tags" : [ "Actualizar Root" ],
+        "summary" : "actualizarPlantilla",
+        "operationId" : "actualizarPlantilla",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaActualizarPlantilla" : {
+                    "$ref" : "#/components/schemas/BeanPlantilla"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaActualizarPlantilla" : {
+                      "id" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaActualizarPlantilla" : {
+                      "$ref" : "#/components/schemas/BodySalidaActualizarPlantilla"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaActualizarPlantilla" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/actualizar/tipo-notificacion" : {
+      "post" : {
+        "tags" : [ "Actualizar Root" ],
+        "summary" : "actualizarTipoNotificacion",
+        "operationId" : "actualizarTipoNotificacion",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaActualizarTipoNotificacion" : {
+                    "$ref" : "#/components/schemas/BeanTipoNotificacion"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaActualizarTipoNotificacion" : {
+                      "id" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaActualizarTipoNotificacion" : {
+                      "$ref" : "#/components/schemas/BodySalidaActualizarTipoNotificacion"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaActualizarTipoNotificacion" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/actualizar/variable" : {
+      "post" : {
+        "tags" : [ "Actualizar Root" ],
+        "summary" : "actualizarVariable",
+        "operationId" : "actualizarVariable",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaActualizarVariable" : {
+                    "$ref" : "#/components/schemas/BeanVariable"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaActualizarVariable" : {
+                      "id" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaActualizarVariable" : {
+                      "$ref" : "#/components/schemas/BodySalidaActualizarVariable"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaActualizarVariable" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/actualizar/accion" : {
+      "post" : {
+        "tags" : [ "Actualizar Root" ],
+        "summary" : "actualizarAccion",
+        "operationId" : "actualizarAccion",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaActualizarAccion" : {
+                    "$ref" : "#/components/schemas/BeanAccion"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaActualizarAccion" : {
+                      "id" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaActualizarAccion" : {
+                      "$ref" : "#/components/schemas/BodySalidaActualizarAccion"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaActualizarAccion" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/actualizar/cobros" : {
+      "post" : {
+        "tags" : [ "Actualizar Root" ],
+        "summary" : "actualizarCobros",
+        "operationId" : "actualizarCobros",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaCobros" : {
+                    "$ref" : "#/components/schemas/BodyEntradaCobros"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaCobros" : {
+                      "id" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaActualizarCobros" : {
+                      "$ref" : "#/components/schemas/BodySalidaActualizarCobros"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaActualizarCobros" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/actualizar/plantilla-variables" : {
+      "post" : {
+        "tags" : [ "Actualizar Root" ],
+        "summary" : "actualizarPlantillaVariables",
+        "operationId" : "actualizarPlantillaVariables",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaPlantillaVariables" : {
+                    "$ref" : "#/components/schemas/BodyEntradaPlantillaVariables"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaPlantillaVariables" : {
+                      "id" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaActualizarPlantillaVariable" : {
+                      "$ref" : "#/components/schemas/BodySalidaActualizarPlantillaVariable"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaActualizarPlantillaVariable" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/consultar/integradoras" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "listarIntegradoras",
+        "operationId" : "listarIntegradoras",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaConsultarIntegradora" : {
+                    "$ref" : "#/components/schemas/BodyEntradaConsultarIntegradora"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaConsultarIntegradora" : { }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaConsultarIntegradora" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarIntegradora"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaConsultarIntegradora" : {
+                        "integradoras" : [ {
+                          "id" : "string"
+                        } ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/consultar/notificacion-correo" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "listarNotificacionCorreo",
+        "operationId" : "listarNotificacionCorreo",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaConsultarNotificacionCorreo" : {
+                    "$ref" : "#/components/schemas/BodyEntradaConsultarNotificacionCorreo"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaConsultarNotificacionCorreo" : { }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaConsultarNotificacionCorreo" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarNotificacionCorreo"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaConsultarNotificacionCorreo" : {
+                        "notificacionesCorreo" : [ {
+                          "id" : "string"
+                        } ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/consultar/notificacion-sms" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "listarNotificacionSms",
+        "operationId" : "listarNotificacionSms",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaConsultarNotificacionSms" : {
+                    "$ref" : "#/components/schemas/BodyEntradaConsultarNotificacionSms"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaConsultarNotificacionSms" : { }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaConsultarNotificacionSms" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarNotificacionSms"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaConsultarNotificacionSms" : {
+                        "notificacionesSms" : [ {
+                          "id" : "string"
+                        } ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/consultar/plantillas" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "listarPlantillas",
+        "operationId" : "listarPlantillas",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaConsultarPlantilla" : {
+                    "$ref" : "#/components/schemas/BodyEntradaConsultarPlantilla"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaConsultarPlantilla" : { }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaConsultarPlantilla" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarPlantilla"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaConsultarPlantilla" : {
+                        "plantillas" : [ {
+                          "id" : "string"
+                        } ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/consultar/tipo-notificacion" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "listarTipoNotificacion",
+        "operationId" : "listarTipoNotificacion",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaConsultarTipoNotificacion" : {
+                    "$ref" : "#/components/schemas/BodyEntradaConsultarTipoNotificacion"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaConsultarTipoNotificacion" : { }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaConsultarTipoNotificacion" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarTipoNotificacion"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaConsultarTipoNotificacion" : {
+                        "tipoNotificaciones" : [ {
+                          "id" : "string"
+                        } ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/consultar/variables" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "listarVariables",
+        "operationId" : "listarVariables",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaConsultarVariable" : {
+                    "$ref" : "#/components/schemas/BodyEntradaConsultarVariable"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaConsultarVariable" : { }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaConsultarVariable" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarVariable"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaConsultarVariable" : {
+                        "variables" : [ {
+                          "id" : "string"
+                        } ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/consultar/acciones" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "listarAcciones",
+        "operationId" : "listarAcciones",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaConsultarAccion" : {
+                    "$ref" : "#/components/schemas/BodyEntradaConsultarAccion"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaConsultarAccion" : { }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaConsultarAccion" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarAccion"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaConsultarAccion" : {
+                        "acciones" : [ {
+                          "id" : "string"
+                        } ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/consultar/cobros" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "listarCobros",
+        "operationId" : "listarCobros",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaConsultarCobros" : {
+                    "$ref" : "#/components/schemas/BodyEntradaConsultarCobros"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaConsultarCobros" : { }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaConsultarCobros" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarCobros"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaConsultarCobros" : {
+                        "cobros" : [ {
+                          "id" : "string"
+                        } ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/consultar/plantilla-variables" : {
+      "post" : {
+        "tags" : [ "Consultar Root" ],
+        "summary" : "listarPlantillaVariables",
+        "operationId" : "listarPlantillaVariables",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaConsultarPlantillaVariables" : {
+                    "$ref" : "#/components/schemas/BodyEntradaConsultarPlantillaVariables"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaConsultarPlantillaVariables" : { }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaConsultarPlantillaVariables" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarPlantillaVariables"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaConsultarPlantillaVariables" : {
+                        "plantillaVariables" : [ {
+                          "id" : "string"
+                        } ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/eliminar/integradoras" : {
+      "post" : {
+        "tags" : [ "Eliminar Root" ],
+        "summary" : "eliminarIntegradoras",
+        "operationId" : "eliminarIntegradoras",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaEliminarIntegradora" : {
+                    "$ref" : "#/components/schemas/BodyEntradaEliminarIntegradora"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaEliminarIntegradora" : {
+                      "integradoras" : [ {
+                        "id" : "string"
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaEliminarIntegradora" : {
+                      "$ref" : "#/components/schemas/BodySalidaEliminarIntegradora"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaEliminarIntegradora" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/eliminar/notificacion-correo" : {
+      "post" : {
+        "tags" : [ "Eliminar Root" ],
+        "summary" : "eliminarNotificacionCorreo",
+        "operationId" : "eliminarNotificacionCorreo",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaEliminarNotificacionCorreo" : {
+                    "$ref" : "#/components/schemas/BodyEntradaEliminarNotificacionCorreo"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaEliminarNotificacionCorreo" : {
+                      "notificacionesCorreo" : [ {
+                        "id" : "string"
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaEliminarNotificacionCorreo" : {
+                      "$ref" : "#/components/schemas/BodySalidaEliminarNotificacionCorreo"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaEliminarNotificacionCorreo" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/eliminar/notificacion-sms" : {
+      "post" : {
+        "tags" : [ "Eliminar Root" ],
+        "summary" : "eliminarNotificacionSms",
+        "operationId" : "eliminarNotificacionSms",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaEliminarNotificacionSms" : {
+                    "$ref" : "#/components/schemas/BodyEntradaEliminarNotificacionSms"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaEliminarNotificacionSms" : {
+                      "notificacionesSms" : [ {
+                        "id" : "string"
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaEliminarNotificacionSms" : {
+                      "$ref" : "#/components/schemas/BodySalidaEliminarNotificacionSms"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaEliminarNotificacionSms" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/eliminar/plantillas" : {
+      "post" : {
+        "tags" : [ "Eliminar Root" ],
+        "summary" : "eliminarPlantilla",
+        "operationId" : "eliminarPlantilla",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaEliminarPlantilla" : {
+                    "$ref" : "#/components/schemas/BodyEntradaEliminarPlantilla"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaEliminarPlantilla" : {
+                      "plantillas" : [ {
+                        "id" : "string"
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaEliminarPlantilla" : {
+                      "$ref" : "#/components/schemas/BodySalidaEliminarPlantilla"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaEliminarPlantilla" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/eliminar/tipo-notificacion" : {
+      "post" : {
+        "tags" : [ "Eliminar Root" ],
+        "summary" : "eliminarTipoNotificacion",
+        "operationId" : "eliminarTipoNotificacion",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaEliminarTipoNotificacion" : {
+                    "$ref" : "#/components/schemas/BodyEntradaEliminarTipoNotificacion"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaEliminarTipoNotificacion" : {
+                      "tipoNotificaciones" : [ {
+                        "id" : "string"
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaEliminarTipoNotificacion" : {
+                      "$ref" : "#/components/schemas/BodySalidaEliminarTipoNotificacion"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaEliminarTipoNotificacion" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/eliminar/variables" : {
+      "post" : {
+        "tags" : [ "Eliminar Root" ],
+        "summary" : "eliminarVariables",
+        "operationId" : "eliminarVariables",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaEliminarVariable" : {
+                    "$ref" : "#/components/schemas/BodyEntradaEliminarVariable"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaEliminarVariable" : {
+                      "variables" : [ {
+                        "id" : "string"
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaEliminarVariable" : {
+                      "$ref" : "#/components/schemas/BodySalidaEliminarVariable"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaEliminarVariable" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/eliminar/acciones" : {
+      "post" : {
+        "tags" : [ "Eliminar Root" ],
+        "summary" : "eliminarAcciones",
+        "operationId" : "eliminarAcciones",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaEliminarAccion" : {
+                    "$ref" : "#/components/schemas/BodyEntradaEliminarAccion"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaEliminarAccion" : {
+                      "acciones" : [ {
+                        "id" : "string"
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaEliminarAccion" : {
+                      "$ref" : "#/components/schemas/BodySalidaEliminarAccion"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaEliminarAccion" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/ingresar/integradora" : {
+      "post" : {
+        "tags" : [ "Ingresar Root" ],
+        "summary" : "insertarIntegradora",
+        "operationId" : "insertarIntegradora",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaInsertarIntegradora" : {
+                    "$ref" : "#/components/schemas/BeanIntegradora"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaInsertarIntegradora" : {
+                      "id" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaIngresarIntegradora" : {
+                      "$ref" : "#/components/schemas/BodySalidaIngresarIntegradora"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaIngresarIntegradora" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/ingresar/notificacion-correo" : {
+      "post" : {
+        "tags" : [ "Ingresar Root" ],
+        "summary" : "insertarNotificacionCorreo",
+        "operationId" : "insertarNotificacionCorreo",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaInsertarNotificacionCorreo" : {
+                    "$ref" : "#/components/schemas/BeanNotificacionCorreo"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaInsertarNotificacionCorreo" : {
+                      "id" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaIngresarNotificacionCorreo" : {
+                      "$ref" : "#/components/schemas/BodySalidaIngresarNotificacionCorreo"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaIngresarNotificacionCorreo" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/ingresar/notificacion-sms" : {
+      "post" : {
+        "tags" : [ "Ingresar Root" ],
+        "summary" : "insertarNotificacionSms",
+        "operationId" : "insertarNotificacionSms",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaInsertarNotificacionSms" : {
+                    "$ref" : "#/components/schemas/BeanNotificacionSms"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaInsertarNotificacionSms" : {
+                      "id" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaIngresarNotificacionSms" : {
+                      "$ref" : "#/components/schemas/BodySalidaIngresarNotificacionSms"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaIngresarNotificacionSms" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/ingresar/plantilla" : {
+      "post" : {
+        "tags" : [ "Ingresar Root" ],
+        "summary" : "insertarPlantilla",
+        "operationId" : "insertarPlantilla",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaInsertarPlantilla" : {
+                    "$ref" : "#/components/schemas/BeanPlantilla"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaInsertarPlantilla" : {
+                      "id" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaIngresarPlantilla" : {
+                      "$ref" : "#/components/schemas/BodySalidaIngresarPlantilla"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaIngresarPlantilla" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/ingresar/tipo-notificacion" : {
+      "post" : {
+        "tags" : [ "Ingresar Root" ],
+        "summary" : "insertarTipoNotificacion",
+        "operationId" : "insertarTipoNotificacion",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaInsertarTipoNotificacion" : {
+                    "$ref" : "#/components/schemas/BeanTipoNotificacion"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaInsertarTipoNotificacion" : {
+                      "id" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaIngresarTipoNotificacion" : {
+                      "$ref" : "#/components/schemas/BodySalidaIngresarTipoNotificacion"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaIngresarTipoNotificacion" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/ingresar/variable" : {
+      "post" : {
+        "tags" : [ "Ingresar Root" ],
+        "summary" : "insertarVariable",
+        "operationId" : "insertarVariable",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaInsertarVariable" : {
+                    "$ref" : "#/components/schemas/BeanVariable"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaInsertarVariable" : {
+                      "id" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaIngresarVariable" : {
+                      "$ref" : "#/components/schemas/BodySalidaIngresarVariable"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaIngresarVariable" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/ingresar/accion" : {
+      "post" : {
+        "tags" : [ "Ingresar Root" ],
+        "summary" : "insertarAccion",
+        "operationId" : "insertarAccion",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaInsertarAccion" : {
+                    "$ref" : "#/components/schemas/BeanAccion"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaInsertarAccion" : {
+                      "id" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaIngresarAccion" : {
+                      "$ref" : "#/components/schemas/BodySalidaIngresarAccion"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaIngresarAccion" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/ingresar/cobros" : {
+      "post" : {
+        "tags" : [ "Ingresar Root" ],
+        "summary" : "insertarCobros",
+        "operationId" : "insertarCobros",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaCobros" : {
+                    "$ref" : "#/components/schemas/BodyEntradaCobros"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaCobros" : {
+                      "id" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaIngresarCobros" : {
+                      "$ref" : "#/components/schemas/BodySalidaIngresarCobros"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaIngresarCobros" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/ingresar/plantilla-variables" : {
+      "post" : {
+        "tags" : [ "Ingresar Root" ],
+        "summary" : "insertarPlantillaVariables",
+        "operationId" : "insertarPlantillaVariables",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaPlantillaVariables" : {
+                    "$ref" : "#/components/schemas/BodyEntradaPlantillaVariables"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "summary" : "Ejemplo generado",
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaPlantillaVariables" : {
+                      "id" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaIngresarPlantillaVariable" : {
+                      "$ref" : "#/components/schemas/BodySalidaIngresarPlantillaVariable"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "summary" : "Ejemplo generado",
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      },
+                      "bodySalidaIngresarPlantillaVariable" : { }
+                    }
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "HeaderEntrada" : {
+        "type" : "object",
+        "properties" : {
+          "identificadorUnicoGlobal" : {
+            "type" : "string"
+          },
+          "identificacionCanal" : {
+            "type" : "string"
+          },
+          "identificacionSubCanal" : {
+            "type" : "string"
+          },
+          "siglaAplicacion" : {
+            "maxLength" : 4,
+            "minLength" : 1,
+            "type" : "string"
+          },
+          "identificacionUsuario" : {
+            "type" : "string"
+          },
+          "direccionIpConsumidor" : {
+            "type" : "string"
+          },
+          "direccionIpCliente" : {
+            "type" : "string"
+          },
+          "fechaEnvioMensaje" : {
+            "type" : "string"
+          },
+          "horaEnvioMensaje" : {
+            "type" : "string"
+          },
+          "atributoPagineo" : {
+            "type" : "string"
+          },
+          "claveBusqueda" : {
+            "type" : "string"
+          },
+          "cantidadRegistros" : {
+            "type" : "integer"
+          }
+        },
+        "example" : {
+          "identificadorUnicoGlobal" : "string",
+          "identificacionCanal" : "0006",
+          "identificacionSubCanal" : "01",
+          "siglaAplicacion" : "ABC",
+          "identificacionUsuario" : "user",
+          "direccionIpConsumidor" : "127.0.0.1",
+          "direccionIpCliente" : "127.0.0.1",
+          "fechaEnvioMensaje" : "20260101",
+          "horaEnvioMensaje" : "120000",
+          "atributoPagineo" : "N",
+          "claveBusqueda" : "clave",
+          "cantidadRegistros" : 0
+        }
+      },
+      "HeaderSalida" : {
+        "type" : "object",
+        "properties" : {
+          "tipoMensaje" : {
+            "example" : "F",
+            "type" : "string"
+          },
+          "mensajeProgramadorSistema" : {
+            "type" : "string"
+          },
+          "codigoMensajeProgramador" : {
+            "type" : "string"
+          },
+          "mensajeUsuario" : {
+            "type" : "string"
+          },
+          "codigoMensajeUsuario" : {
+            "type" : "string"
+          },
+          "fechaSalidaMensaje" : {
+            "type" : "string"
+          },
+          "horaSalidaMensaje" : {
+            "type" : "string"
+          }
+        },
+        "example" : {
+          "tipoMensaje" : "F",
+          "mensajeProgramadorSistema" : "Procesado correctamente",
+          "codigoMensajeProgramador" : "0000",
+          "mensajeUsuario" : "Operación exitosa",
+          "codigoMensajeUsuario" : "0000",
+          "fechaSalidaMensaje" : "20260101",
+          "horaSalidaMensaje" : "120000"
+        }
+      },
+      "BeanAccion" : {
+        "type" : "object",
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
+      },
+      "RequestActualizarAccion" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BeanAccion"
+          }
+        }
+      },
+      "ResponseActualizarAccion" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BodySalidaConsultarAccion" : {
+        "type" : "object",
+        "properties" : {
+          "acciones" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanAccion"
+            }
+          }
+        }
+      },
+      "RequestConsultarAccion" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          }
+        }
+      },
+      "ResponseConsultarAccion" : {
+        "type" : "object",
+        "properties" : {
+          "headerSalida" : {
+            "$ref" : "#/components/schemas/HeaderSalida"
+          },
+          "bodySalidaConsultarAcciones" : {
+            "$ref" : "#/components/schemas/BodySalidaConsultarAccion"
+          }
+        }
+      },
+      "BodyEntradaEliminarAccion" : {
+        "type" : "object",
+        "properties" : {
+          "acciones" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanAccion"
+            }
+          }
+        },
+        "required" : [ "acciones" ]
+      },
+      "RequestEliminarAccion" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaEliminarAccion"
+          }
+        }
+      },
+      "ResponseEliminarAccion" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "RequestIngresarAccion" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BeanAccion"
+          }
+        }
+      },
+      "ResponseIngresarAccion" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BodyEntradaCobros" : {
+        "type" : "object",
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
+      },
+      "RequestActualizarCobros" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaCobros"
+          }
+        }
+      },
+      "ResponseActualizarCobros" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BeanCobro" : {
+        "type" : "object",
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
+      },
+      "BodySalidaConsultarCobros" : {
+        "type" : "object",
+        "properties" : {
+          "cobros" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanCobro"
+            }
+          }
+        }
+      },
+      "RequestConsultarCobros" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          }
+        }
+      },
+      "ResponseConsultarCobros" : {
+        "type" : "object",
+        "properties" : {
+          "headerSalida" : {
+            "$ref" : "#/components/schemas/HeaderSalida"
+          },
+          "bodySalidaConsultarCobros" : {
+            "$ref" : "#/components/schemas/BodySalidaConsultarCobros"
+          }
+        }
+      },
+      "RequestIngresarCobros" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaCobros"
+          }
+        }
+      },
+      "ResponseIngresarCobros" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BeanIntegradora" : {
+        "type" : "object",
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
+      },
+      "RequestActualizarIntegradora" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BeanIntegradora"
+          }
+        }
+      },
+      "ResponseActualizarIntegradora" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BodySalidaConsultarIntegradora" : {
+        "type" : "object",
+        "properties" : {
+          "integradoras" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanIntegradora"
+            }
+          }
+        }
+      },
+      "RequestConsultarIntegradora" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          }
+        }
+      },
+      "ResponseConsultarIntegradora" : {
+        "type" : "object",
+        "properties" : {
+          "headerSalida" : {
+            "$ref" : "#/components/schemas/HeaderSalida"
+          },
+          "bodySalidaConsultarIntegradoras" : {
+            "$ref" : "#/components/schemas/BodySalidaConsultarIntegradora"
+          }
+        }
+      },
+      "BodyEntradaEliminarIntegradora" : {
+        "type" : "object",
+        "properties" : {
+          "integradoras" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanIntegradora"
+            }
+          }
+        },
+        "required" : [ "integradoras" ]
+      },
+      "RequestEliminarIntegradora" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaEliminarIntegradora"
+          }
+        }
+      },
+      "ResponseEliminarIntegradora" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "RequestIngresarIntegradora" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BeanIntegradora"
+          }
+        }
+      },
+      "ResponseIngresarIntegradora" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BeanNotificacionCorreo" : {
+        "type" : "object",
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
+      },
+      "RequestActualizarNotificacionCorreo" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BeanNotificacionCorreo"
+          }
+        }
+      },
+      "ResponseActualizarNotificacionCorreo" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BodySalidaConsultarNotificacionCorreo" : {
+        "type" : "object",
+        "properties" : {
+          "notificacionesCorreo" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanNotificacionCorreo"
+            }
+          }
+        }
+      },
+      "RequestConsultarNotificacionCorreo" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          }
+        }
+      },
+      "ResponseConsultarNotificacionCorreo" : {
+        "type" : "object",
+        "properties" : {
+          "headerSalida" : {
+            "$ref" : "#/components/schemas/HeaderSalida"
+          },
+          "bodySalidaConsultarNotificacionesCorreo" : {
+            "$ref" : "#/components/schemas/BodySalidaConsultarNotificacionCorreo"
+          }
+        }
+      },
+      "BodyEntradaEliminarNotificacionCorreo" : {
+        "type" : "object",
+        "properties" : {
+          "notificacionesCorreo" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanNotificacionCorreo"
+            }
+          }
+        },
+        "required" : [ "notificacionesCorreo" ]
+      },
+      "RequestEliminarNotificacionCorreo" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaEliminarNotificacionCorreo"
+          }
+        }
+      },
+      "ResponseEliminarNotificacionCorreo" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "RequestIngresarNotificacionCorreo" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BeanNotificacionCorreo"
+          }
+        }
+      },
+      "ResponseIngresarNotificacionCorreo" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BeanNotificacionSms" : {
+        "type" : "object",
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
+      },
+      "RequestActualizarNotificacionSms" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BeanNotificacionSms"
+          }
+        }
+      },
+      "ResponseActualizarNotificacionSms" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BodySalidaConsultarNotificacionSms" : {
+        "type" : "object",
+        "properties" : {
+          "notificacionesSms" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanNotificacionSms"
+            }
+          }
+        }
+      },
+      "RequestConsultarNotificacionSms" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          }
+        }
+      },
+      "ResponseConsultarNotificacionSms" : {
+        "type" : "object",
+        "properties" : {
+          "headerSalida" : {
+            "$ref" : "#/components/schemas/HeaderSalida"
+          },
+          "bodySalidaConsultarNotificacionesSms" : {
+            "$ref" : "#/components/schemas/BodySalidaConsultarNotificacionSms"
+          }
+        }
+      },
+      "BodyEntradaEliminarNotificacionSms" : {
+        "type" : "object",
+        "properties" : {
+          "notificacionesSms" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanNotificacionSms"
+            }
+          }
+        },
+        "required" : [ "notificacionesSms" ]
+      },
+      "RequestEliminarNotificacionSms" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaEliminarNotificacionSms"
+          }
+        }
+      },
+      "ResponseEliminarNotificacionSms" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "RequestIngresarNotificacionSms" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BeanNotificacionSms"
+          }
+        }
+      },
+      "ResponseIngresarNotificacionSms" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BeanPlantilla" : {
+        "type" : "object",
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
+      },
+      "RequestActualizarPlantilla" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BeanPlantilla"
+          }
+        }
+      },
+      "ResponseActualizarPlantilla" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BodySalidaConsultarPlantilla" : {
+        "type" : "object",
+        "properties" : {
+          "plantillas" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanPlantilla"
+            }
+          }
+        }
+      },
+      "RequestConsultarPlantilla" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          }
+        }
+      },
+      "ResponseConsultarPlantilla" : {
+        "type" : "object",
+        "properties" : {
+          "headerSalida" : {
+            "$ref" : "#/components/schemas/HeaderSalida"
+          },
+          "bodySalidaConsultarPlantillas" : {
+            "$ref" : "#/components/schemas/BodySalidaConsultarPlantilla"
+          }
+        }
+      },
+      "BodyEntradaEliminarPlantilla" : {
+        "type" : "object",
+        "properties" : {
+          "plantillas" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanPlantilla"
+            }
+          }
+        },
+        "required" : [ "plantillas" ]
+      },
+      "RequestEliminarPlantilla" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaEliminarPlantilla"
+          }
+        }
+      },
+      "ResponseEliminarPlantilla" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "RequestIngresarPlantilla" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BeanPlantilla"
+          }
+        }
+      },
+      "ResponseIngresarPlantilla" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BodyEntradaPlantillaVariables" : {
+        "type" : "object",
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
+      },
+      "RequestActualizarPlantillaVariable" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaPlantillaVariables"
+          }
+        }
+      },
+      "ResponseActualizarPlantillaVariable" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BeanPlantillaVariable" : {
+        "type" : "object",
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
+      },
+      "BodySalidaConsultarPlantillaVariables" : {
+        "type" : "object",
+        "properties" : {
+          "plantillaVariables" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanPlantillaVariable"
+            }
+          }
+        }
+      },
+      "RequestConsultarPlantillaVariables" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          }
+        }
+      },
+      "ResponseConsultarPlantillaVariables" : {
+        "type" : "object",
+        "properties" : {
+          "headerSalida" : {
+            "$ref" : "#/components/schemas/HeaderSalida"
+          },
+          "bodySalidaConsultarPlantillaVariables" : {
+            "$ref" : "#/components/schemas/BodySalidaConsultarPlantillaVariables"
+          }
+        }
+      },
+      "RequestIngresarPlantillaVariable" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaPlantillaVariables"
+          }
+        }
+      },
+      "ResponseIngresarPlantillaVariable" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BeanTipoNotificacion" : {
+        "type" : "object",
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
+      },
+      "RequestActualizarTipoNotificacion" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BeanTipoNotificacion"
+          }
+        }
+      },
+      "ResponseActualizarTipoNotificacion" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BodySalidaConsultarTipoNotificacion" : {
+        "type" : "object",
+        "properties" : {
+          "tipoNotificaciones" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanTipoNotificacion"
+            }
+          }
+        }
+      },
+      "RequestConsultarTipoNotificacion" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          }
+        }
+      },
+      "ResponseConsultarTipoNotificacion" : {
+        "type" : "object",
+        "properties" : {
+          "headerSalida" : {
+            "$ref" : "#/components/schemas/HeaderSalida"
+          },
+          "bodySalidaConsultarTipoNotificaciones" : {
+            "$ref" : "#/components/schemas/BodySalidaConsultarTipoNotificacion"
+          }
+        }
+      },
+      "BodyEntradaEliminarTipoNotificacion" : {
+        "type" : "object",
+        "properties" : {
+          "tipoNotificaciones" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanTipoNotificacion"
+            }
+          }
+        }
+      },
+      "RequestEliminarTipoNotificacion" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaEliminarTipoNotificacion"
+          }
+        }
+      },
+      "ResponseEliminarTipoNotificacion" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "RequestIngresarTipoNotificacion" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BeanTipoNotificacion"
+          }
+        }
+      },
+      "ResponseIngresarTipoNotificacion" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BeanVariable" : {
+        "type" : "object",
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
+      },
+      "RequestActualizarVariable" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BeanVariable"
+          }
+        }
+      },
+      "ResponseActualizarVariable" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BodySalidaConsultarVariable" : {
+        "type" : "object",
+        "properties" : {
+          "variables" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanVariable"
+            }
+          }
+        }
+      },
+      "RequestConsultarVariable" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          }
+        }
+      },
+      "ResponseConsultarVariable" : {
+        "type" : "object",
+        "properties" : {
+          "headerSalida" : {
+            "$ref" : "#/components/schemas/HeaderSalida"
+          },
+          "bodySalidaConsultarVariables" : {
+            "$ref" : "#/components/schemas/BodySalidaConsultarVariable"
+          }
+        }
+      },
+      "BodyEntradaEliminarVariable" : {
+        "type" : "object",
+        "properties" : {
+          "variables" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanVariable"
+            }
+          }
+        },
+        "required" : [ "variables" ]
+      },
+      "RequestEliminarVariable" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaEliminarVariable"
+          }
+        }
+      },
+      "ResponseEliminarVariable" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "RequestIngresarVariable" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BeanVariable"
+          }
+        }
+      },
+      "ResponseIngresarVariable" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "HikariDataSource" : {
+        "type" : "object",
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
+      },
+      "ClientAccion" : {
+        "type" : "object",
+        "properties" : {
+          "log" : {
+            "$ref" : "#/components/schemas/Logger"
+          },
+          "sentencias" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          },
+          "ds" : {
+            "$ref" : "#/components/schemas/HikariDataSource"
+          }
+        }
+      },
+      "ClientCobro" : {
+        "type" : "object",
+        "properties" : {
+          "log" : {
+            "$ref" : "#/components/schemas/Logger"
+          },
+          "sentencias" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          },
+          "ds" : {
+            "$ref" : "#/components/schemas/HikariDataSource"
+          }
+        }
+      },
+      "ClientIntegradora" : {
+        "type" : "object",
+        "properties" : {
+          "log" : {
+            "$ref" : "#/components/schemas/Logger"
+          },
+          "sentencias" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          },
+          "ds" : {
+            "$ref" : "#/components/schemas/HikariDataSource"
+          }
+        }
+      },
+      "ClientNotificacionCorreo" : {
+        "type" : "object",
+        "properties" : {
+          "log" : {
+            "$ref" : "#/components/schemas/Logger"
+          },
+          "sentencias" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          },
+          "ds" : {
+            "$ref" : "#/components/schemas/HikariDataSource"
+          }
+        }
+      },
+      "ClientNotificacionSms" : {
+        "type" : "object",
+        "properties" : {
+          "log" : {
+            "$ref" : "#/components/schemas/Logger"
+          },
+          "sentencias" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          },
+          "ds" : {
+            "$ref" : "#/components/schemas/HikariDataSource"
+          }
+        }
+      },
+      "ClientPlantilla" : {
+        "type" : "object",
+        "properties" : {
+          "log" : {
+            "$ref" : "#/components/schemas/Logger"
+          },
+          "sentencias" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          },
+          "ds" : {
+            "$ref" : "#/components/schemas/HikariDataSource"
+          }
+        }
+      },
+      "ClientPlantillaVariable" : {
+        "type" : "object",
+        "properties" : {
+          "log" : {
+            "$ref" : "#/components/schemas/Logger"
+          },
+          "sentencias" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          },
+          "ds" : {
+            "$ref" : "#/components/schemas/HikariDataSource"
+          }
+        }
+      },
+      "ClientTipoNotificacion" : {
+        "type" : "object",
+        "properties" : {
+          "log" : {
+            "$ref" : "#/components/schemas/Logger"
+          },
+          "sentencias" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          },
+          "ds" : {
+            "$ref" : "#/components/schemas/HikariDataSource"
+          }
+        }
+      },
+      "ClientVariable" : {
+        "type" : "object",
+        "properties" : {
+          "log" : {
+            "$ref" : "#/components/schemas/Logger"
+          },
+          "sentencias" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          },
+          "ds" : {
+            "$ref" : "#/components/schemas/HikariDataSource"
+          }
+        }
+      },
+      "ActualizarImpl" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "ConsultarImpl" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "EliminarImpl" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "IngresarImpl" : {
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BeanAplicacion" : {
+        "type" : "object",
+        "properties" : {
+          "siglaAplic" : {
+            "type" : "string"
+          },
+          "nomAplic" : {
+            "type" : "string"
+          },
+          "edoReg" : {
+            "type" : "string"
+          }
+        }
+      },
+      "AccionDAO" : {
+        "type" : "object",
+        "properties" : {
+          "ds" : {
+            "$ref" : "#/components/schemas/HikariDataSource"
+          }
+        }
+      },
+      "DataSource" : {
+        "type" : "object",
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
+      },
+      "AplicacionDAO" : {
+        "type" : "object",
+        "properties" : {
+          "ds" : {
+            "$ref" : "#/components/schemas/DataSource"
+          }
+        }
+      },
+      "CobroDAO" : {
+        "type" : "object",
+        "properties" : {
+          "ds" : {
+            "$ref" : "#/components/schemas/HikariDataSource"
+          }
+        }
+      },
+      "IntegradoraDAO" : {
+        "type" : "object",
+        "properties" : {
+          "ds" : {
+            "$ref" : "#/components/schemas/HikariDataSource"
+          }
+        }
+      },
+      "NotificacionCorreoDAO" : {
+        "type" : "object",
+        "properties" : {
+          "ds" : {
+            "$ref" : "#/components/schemas/HikariDataSource"
+          }
+        }
+      },
+      "NotificacionSmsDAO" : {
+        "type" : "object",
+        "properties" : {
+          "ds" : {
+            "$ref" : "#/components/schemas/HikariDataSource"
+          }
+        }
+      },
+      "PlantillaDAO" : {
+        "type" : "object",
+        "properties" : {
+          "ds" : {
+            "$ref" : "#/components/schemas/HikariDataSource"
+          }
+        }
+      },
+      "PlantillaVariableDAO" : {
+        "type" : "object",
+        "properties" : {
+          "ds" : {
+            "$ref" : "#/components/schemas/HikariDataSource"
+          }
+        }
+      },
+      "TipoNotificacionDAO" : {
+        "type" : "object",
+        "properties" : {
+          "ds" : {
+            "$ref" : "#/components/schemas/HikariDataSource"
+          }
+        }
+      },
+      "VariableDAO" : {
+        "type" : "object",
+        "properties" : {
+          "ds" : {
+            "$ref" : "#/components/schemas/HikariDataSource"
+          }
+        }
+      },
+      "BodySalidaActualizarIntegradora" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaActualizarNotificacionCorreo" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaActualizarNotificacionSms" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaActualizarPlantilla" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaActualizarTipoNotificacion" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaActualizarVariable" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaActualizarAccion" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaActualizarCobros" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaActualizarPlantillaVariable" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodyEntradaConsultarIntegradora" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodyEntradaConsultarNotificacionCorreo" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodyEntradaConsultarNotificacionSms" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodyEntradaConsultarPlantilla" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodyEntradaConsultarTipoNotificacion" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodyEntradaConsultarVariable" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodyEntradaConsultarAccion" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodyEntradaConsultarCobros" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodyEntradaConsultarPlantillaVariables" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaEliminarIntegradora" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaEliminarNotificacionCorreo" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaEliminarNotificacionSms" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaEliminarPlantilla" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaEliminarTipoNotificacion" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaEliminarVariable" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaEliminarAccion" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaIngresarIntegradora" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaIngresarNotificacionCorreo" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaIngresarNotificacionSms" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaIngresarPlantilla" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaIngresarTipoNotificacion" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaIngresarVariable" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaIngresarAccion" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaIngresarCobros" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaIngresarPlantillaVariable" : {
+        "type" : "object",
+        "properties" : { }
+      }
+    },
+    "securitySchemes" : {
+      "bearerAuth" : {
+        "bearerFormat" : "JWT",
+        "scheme" : "bearer",
+        "type" : "http"
+      }
+    }
+  },
+  "security" : [ {
+    "bearerAuth" : [ ]
+  } ]
+}

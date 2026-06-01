@@ -9,17 +9,17 @@
     "url" : "/inversiones"
   } ],
   "tags" : [ {
-    "description" : "Operaciones Buscar Root",
-    "name" : "Buscar Root"
+    "name" : "Buscar Root",
+    "description" : "Operaciones Buscar Root"
   }, {
-    "description" : "Operaciones Consultar Root",
-    "name" : "Consultar Root"
+    "name" : "Consultar Root",
+    "description" : "Operaciones Consultar Root"
   }, {
-    "description" : "Operaciones Crear Root",
-    "name" : "Crear Root"
+    "name" : "Crear Root",
+    "description" : "Operaciones Crear Root"
   }, {
-    "description" : "Operaciones Validar Root",
-    "name" : "Validar Root"
+    "name" : "Validar Root",
+    "description" : "Operaciones Validar Root"
   } ],
   "paths" : {
     "/buscar/inventarios" : {
@@ -27,8 +27,8 @@
         "tags" : [ "Buscar Root" ],
         "summary" : "inventarios",
         "operationId" : "inventarios",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: busqueda-de-inventarios",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -37,7 +37,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaBuscarInventarios" : {
                     "$ref" : "#/components/schemas/BodyEntradaBuscarInventarios"
                   }
                 }
@@ -60,7 +60,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaBuscarInventarios" : {
                       "tipoIdentificacion" : "V",
                       "cedulaRif" : 12345678,
                       "numeroPersona" : 12345678,
@@ -74,8 +74,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -94,6 +93,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -139,8 +139,7 @@
                         "fechaCtaMercantil" : "20251226",
                         "indCierreMele" : 12345678
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -155,8 +154,8 @@
         "tags" : [ "Consultar Root" ],
         "summary" : "operacionesRechazadas",
         "operationId" : "operacionesRechazadas",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -164,6 +163,9 @@
                 "properties" : {
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaConsultarOperacionesRechazadas" : {
+                    "$ref" : "#/components/schemas/BodyEntradaConsultarOperacionesRechazadas"
                   }
                 }
               },
@@ -184,13 +186,13 @@
                       "atributoPagineo" : "",
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
-                    }
+                    },
+                    "bodyEntradaConsultarOperacionesRechazadas" : { }
                   }
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -201,11 +203,15 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaConsultarOperacionesRechazadas" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarOperacionesRechazadas"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -215,9 +221,9 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      }
-                    },
-                    "summary" : "Ejemplo generado"
+                      },
+                      "bodySalidaConsultarOperacionesRechazadas" : { }
+                    }
                   }
                 }
               }
@@ -232,8 +238,8 @@
         "tags" : [ "Crear Root" ],
         "summary" : "ordenCompraVenta",
         "operationId" : "ordenCompraVenta",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: crear-orden-compra-venta",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -242,7 +248,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaCrearOrdenCompraVenta" : {
                     "$ref" : "#/components/schemas/BodyEntradaCrearOrdenCompraVenta"
                   }
                 }
@@ -265,7 +271,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaCrearOrdenCompraVenta" : {
                       "codigoEmpresa" : "0108",
                       "codigoProducto" : "02",
                       "numeroPersona" : 12345678,
@@ -317,8 +323,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -337,6 +342,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -355,8 +361,7 @@
                           "idMovimientoBcvSal" : 12345678
                         }
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -371,8 +376,8 @@
         "tags" : [ "Validar Root" ],
         "summary" : "datosClientes",
         "operationId" : "datosClientes",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: validar-datos-clientes",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -381,7 +386,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaValidarDatosCliente" : {
                     "$ref" : "#/components/schemas/BodyEntradaValidarDatosCliente"
                   }
                 }
@@ -404,7 +409,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaValidarDatosCliente" : {
                       "tipoIdentificacion" : "V",
                       "cedulaRif" : 12345678,
                       "numeroPersona" : 12345678,
@@ -414,8 +419,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -434,6 +438,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -455,8 +460,7 @@
                           "codigoSwift" : "0001"
                         } ]
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -482,9 +486,9 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "type" : "string",
             "maxLength" : 4,
-            "minLength" : 1
+            "minLength" : 1,
+            "type" : "string"
           },
           "identificacionUsuario" : {
             "type" : "string"
@@ -900,7 +904,8 @@
         }
       },
       "ResponseConsultarOperacionesRechazadas" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "BeanSalidaMenudeo" : {
         "type" : "object",
@@ -1174,7 +1179,8 @@
         }
       },
       "CleanValidarDatosCliente" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "RequestValidarDatosCliente" : {
         "type" : "object",
@@ -1197,7 +1203,8 @@
       },
       "SendRequestRest" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "Buscar" : {
         "type" : "object",
@@ -1233,11 +1240,13 @@
       },
       "User" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "Smtp" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "ProcessInversiones" : {
         "type" : "object",
@@ -1250,10 +1259,6 @@
           }
         }
       },
-      "Logger" : {
-        "type" : "object",
-        "additionalProperties" : true
-      },
       "InitEnviroment" : {
         "type" : "object",
         "properties" : {
@@ -1263,23 +1268,35 @@
         }
       },
       "BuscarImpl" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "ConsultarImpl" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "CrearImpl" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "ValidarImpl" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BodyEntradaConsultarOperacionesRechazadas" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaConsultarOperacionesRechazadas" : {
+        "type" : "object",
+        "properties" : { }
       }
     },
     "securitySchemes" : {
       "bearerAuth" : {
+        "bearerFormat" : "JWT",
         "scheme" : "bearer",
-        "type" : "http",
-        "bearerFormat" : "JWT"
+        "type" : "http"
       }
     }
   },

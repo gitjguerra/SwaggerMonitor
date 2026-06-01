@@ -18,8 +18,8 @@
         "tags" : [ "Security" ],
         "summary" : "create",
         "operationId" : "create",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -28,7 +28,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaCreateJWT" : {
                     "$ref" : "#/components/schemas/BodyEntradaCreateJWT"
                   }
                 }
@@ -51,7 +51,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaCreateJWT" : {
                       "metainfo" : 12345678,
                       "applid" : 12345678
                     }
@@ -59,8 +59,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -79,6 +78,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -90,10 +90,11 @@
                         "horaSalidaMensaje" : "135046"
                       },
                       "bodySalidaCreateJWT" : {
-                        "createResponseToken" : { }
+                        "createResponseToken" : {
+                          "id" : "string"
+                        }
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -108,8 +109,8 @@
         "tags" : [ "Security" ],
         "summary" : "validate",
         "operationId" : "validate",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -149,8 +150,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -161,11 +161,15 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaValidateJWT" : {
+                      "$ref" : "#/components/schemas/BodySalidaValidateJWT"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -175,9 +179,9 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      }
-                    },
-                    "summary" : "Ejemplo generado"
+                      },
+                      "bodySalidaValidateJWT" : { }
+                    }
                   }
                 }
               }
@@ -192,8 +196,8 @@
         "tags" : [ "Security" ],
         "summary" : "readQR",
         "operationId" : "readQR",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -202,7 +206,7 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntrada" : {
+                  "bodyEntradaReadQR" : {
                     "$ref" : "#/components/schemas/BodyEntradaReadQR"
                   }
                 }
@@ -225,15 +229,14 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntrada" : {
+                    "bodyEntradaReadQR" : {
                       "qr" : "string"
                     }
                   }
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -244,11 +247,15 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
+                    },
+                    "bodySalidaDecryptQR" : {
+                      "$ref" : "#/components/schemas/BodySalidaDecryptQR"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -258,9 +265,9 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      }
-                    },
-                    "summary" : "Ejemplo generado"
+                      },
+                      "bodySalidaDecryptQR" : { }
+                    }
                   }
                 }
               }
@@ -275,8 +282,8 @@
         "tags" : [ "Security" ],
         "summary" : "generateQrRsa",
         "operationId" : "generateQrRsa",
-        "description" : "❌ Backend no encontrado\n\n\uD83D\uDD17 Service: null",
         "requestBody" : {
+          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -320,8 +327,7 @@
                 }
               }
             }
-          },
-          "required" : true
+          }
         },
         "responses" : {
           "200" : {
@@ -340,6 +346,7 @@
                 },
                 "examples" : {
                   "default" : {
+                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -353,8 +360,7 @@
                       "bodySalidaGenerateQR" : {
                         "qr" : "string"
                       }
-                    },
-                    "summary" : "Ejemplo generado"
+                    }
                   }
                 }
               }
@@ -380,8 +386,8 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "minLength" : 1,
             "maxLength" : 4,
+            "minLength" : 1,
             "type" : "string"
           },
           "identificacionUsuario" : {
@@ -428,8 +434,8 @@
         "type" : "object",
         "properties" : {
           "tipoMensaje" : {
-            "type" : "string",
-            "example" : "F"
+            "example" : "F",
+            "type" : "string"
           },
           "mensajeProgramadorSistema" : {
             "type" : "string"
@@ -473,11 +479,13 @@
       },
       "Identificacion" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "Productos" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "BodySalidaProductosCelular" : {
         "type" : "object",
@@ -504,11 +512,13 @@
       },
       "TipoCuentas" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "InfoMsg" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "RequestProductosCelular" : {
         "type" : "object",
@@ -542,7 +552,8 @@
       },
       "CreateResponseToken" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "BodySalidaCreateJWT" : {
         "type" : "object",
@@ -701,7 +712,8 @@
           "totp" : {
             "type" : "string"
           }
-        }
+        },
+        "required" : [ "name" ]
       },
       "BodySalidaGenerateQR" : {
         "type" : "object",
@@ -782,7 +794,8 @@
       },
       "SendRequestRest" : {
         "type" : "object",
-        "additionalProperties" : true
+        "description" : "Objeto no resuelto dinámicamente",
+        "properties" : { }
       },
       "DataCliente" : {
         "type" : "object",
@@ -801,20 +814,31 @@
         }
       },
       "IDASS" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "JsonWebToken" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
       },
       "QuickResponse" : {
-        "type" : "object"
+        "type" : "object",
+        "description" : "Clase sin propiedades definidas"
+      },
+      "BodySalidaValidateJWT" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaDecryptQR" : {
+        "type" : "object",
+        "properties" : { }
       }
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "type" : "http",
+        "bearerFormat" : "JWT",
         "scheme" : "bearer",
-        "bearerFormat" : "JWT"
+        "type" : "http"
       }
     }
   },
