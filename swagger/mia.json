@@ -9,8 +9,8 @@
     "url" : "/mia"
   } ],
   "tags" : [ {
-    "name" : "Security",
-    "description" : "Operaciones Security"
+    "description" : "Operaciones Security",
+    "name" : "Security"
   } ],
   "paths" : {
     "/security/create-jwt" : {
@@ -19,7 +19,6 @@
         "summary" : "create",
         "operationId" : "create",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -35,7 +34,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -52,17 +50,20 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaCreateJWT" : {
-                      "metainfo" : 12345678,
-                      "applid" : 12345678
+                      "metainfo" : "string",
+                      "applid" : "string"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -71,14 +72,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaCreateJWT" : {
-                      "$ref" : "#/components/schemas/BodySalidaCreateJWT"
+                    "bodySalidaCreate" : {
+                      "$ref" : "#/components/schemas/BodySalidaCreate"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -89,17 +89,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaCreateJWT" : {
-                        "createResponseToken" : {
-                          "id" : "string"
-                        }
-                      }
-                    }
+                      "bodySalidaCreate" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -110,7 +106,6 @@
         "summary" : "validate",
         "operationId" : "validate",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -126,7 +121,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -143,17 +137,20 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaValidateJWT" : {
-                      "metainfo" : 12345678,
-                      "applid" : 12345678
+                      "metainfo" : "string",
+                      "applid" : "string"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -162,14 +159,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaValidateJWT" : {
-                      "$ref" : "#/components/schemas/BodySalidaValidateJWT"
+                    "bodySalidaValidate" : {
+                      "$ref" : "#/components/schemas/BodySalidaValidate"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -180,13 +176,19 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaValidateJWT" : { }
-                    }
+                      "bodySalidaValidate" : {
+                        "CreateResponseToken" : {
+                          "codigo" : "01",
+                          "descripcion" : "Descripción generada",
+                          "token" : "string"
+                        }
+                      }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -197,7 +199,6 @@
         "summary" : "readQR",
         "operationId" : "readQR",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -213,7 +214,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -232,14 +232,17 @@
                     "bodyEntradaReadQR" : {
                       "qr" : "string"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -248,14 +251,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaDecryptQR" : {
-                      "$ref" : "#/components/schemas/BodySalidaDecryptQR"
+                    "bodySalidaReadQR" : {
+                      "$ref" : "#/components/schemas/BodySalidaReadQR"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -266,13 +268,20 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaDecryptQR" : { }
-                    }
+                      "bodySalidaReadQR" : {
+                        "id" : 123456,
+                        "phone" : "string",
+                        "bank" : "string",
+                        "amount" : "string",
+                        "name" : "string",
+                        "totp" : "string"
+                      }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -283,7 +292,6 @@
         "summary" : "generateQrRsa",
         "operationId" : "generateQrRsa",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -299,7 +307,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -316,21 +323,24 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaEncryptQR" : {
-                      "id" : 12345678,
+                      "id" : 123456,
                       "phone" : "string",
                       "bank" : "string",
                       "amount" : "string",
                       "name" : "string",
                       "totp" : "string"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -339,14 +349,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaGenerateQR" : {
-                      "$ref" : "#/components/schemas/BodySalidaGenerateQR"
+                    "bodySalidaGenerateQrRsa" : {
+                      "$ref" : "#/components/schemas/BodySalidaGenerateQrRsa"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -357,15 +366,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaGenerateQR" : {
-                        "qr" : "string"
-                      }
-                    }
+                      "bodySalidaGenerateQrRsa" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -386,8 +393,8 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "maxLength" : 4,
             "minLength" : 1,
+            "maxLength" : 4,
             "type" : "string"
           },
           "identificacionUsuario" : {
@@ -434,8 +441,8 @@
         "type" : "object",
         "properties" : {
           "tipoMensaje" : {
-            "example" : "F",
-            "type" : "string"
+            "type" : "string",
+            "example" : "F"
           },
           "mensajeProgramadorSistema" : {
             "type" : "string"
@@ -466,6 +473,35 @@
           "horaSalidaMensaje" : "120000"
         }
       },
+      "ClientResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer"
+          },
+          "message" : {
+            "type" : "string"
+          },
+          "headerSalida" : {
+            "$ref" : "#/components/schemas/HeaderSalida"
+          },
+          "bodySalida" : {
+            "description" : "Contenido dinámico de la respuesta",
+            "type" : "object"
+          }
+        }
+      },
+      "Client" : {
+        "type" : "object",
+        "properties" : {
+          "codigoMensajeProgramador" : {
+            "type" : "integer"
+          },
+          "mensajeProgramador" : {
+            "type" : "string"
+          }
+        }
+      },
       "BodyEntradaProductosCelular" : {
         "type" : "object",
         "properties" : {
@@ -479,13 +515,45 @@
       },
       "Identificacion" : {
         "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
+        "properties" : {
+          "codigoPais" : {
+            "type" : "string"
+          },
+          "tipoIdentificacion" : {
+            "type" : "string"
+          },
+          "numeroIdentificacion" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "TipoCuentas" : {
+        "type" : "object",
+        "properties" : {
+          "tipoProducto" : {
+            "type" : "string"
+          },
+          "numeroCuenta" : {
+            "type" : "string"
+          }
+        }
       },
       "Productos" : {
         "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
+        "properties" : {
+          "cuentaCorriente" : {
+            "$ref" : "#/components/schemas/TipoCuentas"
+          },
+          "cuentaAhorro" : {
+            "$ref" : "#/components/schemas/TipoCuentas"
+          },
+          "cuentaEspecial" : {
+            "$ref" : "#/components/schemas/TipoCuentas"
+          },
+          "tarjetaCredito" : {
+            "$ref" : "#/components/schemas/TipoCuentas"
+          }
+        }
       },
       "BodySalidaProductosCelular" : {
         "type" : "object",
@@ -509,16 +577,6 @@
             "$ref" : "#/components/schemas/Productos"
           }
         }
-      },
-      "TipoCuentas" : {
-        "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
-      },
-      "InfoMsg" : {
-        "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
       },
       "RequestProductosCelular" : {
         "type" : "object",
@@ -552,8 +610,17 @@
       },
       "CreateResponseToken" : {
         "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
+        "properties" : {
+          "codigo" : {
+            "type" : "string"
+          },
+          "descripcion" : {
+            "type" : "string"
+          },
+          "token" : {
+            "type" : "string"
+          }
+        }
       },
       "BodySalidaCreateJWT" : {
         "type" : "object",
@@ -676,7 +743,8 @@
             "$ref" : "#/components/schemas/InfoMsg"
           },
           "bodyEntradaValidateJWT" : {
-            "$ref" : "#/components/schemas/BodyEntradaValidate"
+            "$ref" : "#/components/schemas/BodyEntradaValidate",
+            "name" : "bodyEntradaValidateJWT"
           }
         }
       },
@@ -712,8 +780,7 @@
           "totp" : {
             "type" : "string"
           }
-        },
-        "required" : [ "name" ]
+        }
       },
       "BodySalidaGenerateQR" : {
         "type" : "object",
@@ -738,7 +805,8 @@
         "type" : "object",
         "properties" : {
           "bodySalidaEncryptQR" : {
-            "$ref" : "#/components/schemas/BodySalidaGenerateQR"
+            "$ref" : "#/components/schemas/BodySalidaGenerateQR",
+            "name" : "bodySalidaEncryptQR"
           }
         }
       },
@@ -788,14 +856,10 @@
         "type" : "object",
         "properties" : {
           "bodySalidaDecryptQR" : {
-            "$ref" : "#/components/schemas/BodySalidaReadQR"
+            "$ref" : "#/components/schemas/BodySalidaReadQR",
+            "name" : "bodySalidaDecryptQR"
           }
         }
-      },
-      "SendRequestRest" : {
-        "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
       },
       "DataCliente" : {
         "type" : "object",
@@ -815,30 +879,33 @@
       },
       "IDASS" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "JsonWebToken" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "QuickResponse" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
-      "BodySalidaValidateJWT" : {
+      "BodySalidaCreate" : {
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaDecryptQR" : {
+      "BodySalidaGenerateQrRsa" : {
         "type" : "object",
         "properties" : { }
       }
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "bearerFormat" : "JWT",
+        "type" : "http",
         "scheme" : "bearer",
-        "type" : "http"
+        "bearerFormat" : "JWT"
       }
     }
   },

@@ -9,17 +9,17 @@
     "url" : "/inversiones"
   } ],
   "tags" : [ {
-    "name" : "Buscar Root",
-    "description" : "Operaciones Buscar Root"
+    "description" : "Operaciones Buscar Root",
+    "name" : "Buscar Root"
   }, {
-    "name" : "Consultar Root",
-    "description" : "Operaciones Consultar Root"
+    "description" : "Operaciones Consultar Root",
+    "name" : "Consultar Root"
   }, {
-    "name" : "Crear Root",
-    "description" : "Operaciones Crear Root"
+    "description" : "Operaciones Crear Root",
+    "name" : "Crear Root"
   }, {
-    "name" : "Validar Root",
-    "description" : "Operaciones Validar Root"
+    "description" : "Operaciones Validar Root",
+    "name" : "Validar Root"
   } ],
   "paths" : {
     "/buscar/inventarios" : {
@@ -28,7 +28,6 @@
         "summary" : "inventarios",
         "operationId" : "inventarios",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -44,7 +43,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -62,22 +60,25 @@
                     },
                     "bodyEntradaBuscarInventarios" : {
                       "tipoIdentificacion" : "V",
-                      "cedulaRif" : 12345678,
-                      "numeroPersona" : 12345678,
-                      "tipoOperacion" : 12345678,
-                      "codigoMoneda" : "VES",
-                      "mtoPacto" : "VES",
-                      "subCanal" : "09",
-                      "tasaSubastaUsd" : 36.75
+                      "cedulaRif" : "string",
+                      "numeroPersona" : 12345,
+                      "tipoOperacion" : "string",
+                      "codigoMoneda" : "01",
+                      "mtoPacto" : 1500.75,
+                      "subCanal" : "string",
+                      "tasaSubastaUsd" : "string"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -86,14 +87,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaBuscarInventarios" : {
-                      "$ref" : "#/components/schemas/BodySalidaBuscarInventarios"
+                    "bodySalidaInventarios" : {
+                      "$ref" : "#/components/schemas/BodySalidaInventarios"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -104,47 +104,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaBuscarInventarios" : {
-                        "cantDiasCtaMercantil" : 12345678,
-                        "tasaCambio" : 36.75,
-                        "tasaComisionCompra" : 36.75,
-                        "montoTransferencia" : 12345678,
-                        "tasaSwift" : 36.75,
-                        "tasaCompraUsd" : 36.75,
-                        "tasaCompraEur" : 36.75,
-                        "horaCierre" : 12345678,
-                        "indCierreMelp" : 12345678,
-                        "indCierreCanal" : 12345678,
-                        "horaApertura" : 12345678,
-                        "tasaTransferencia" : 12345678,
-                        "nroTlfnCliente" : "string",
-                        "nombreCliente" : 12345678,
-                        "montoComision" : "VES",
-                        "codigoProducto" : "02",
-                        "montoMultiploSolicitud" : 12345678,
-                        "tasaVentaEur" : 12345678,
-                        "emailCliente" : "jperez@email.com",
-                        "tasaComisionVenta" : 36.75,
-                        "tasaCompraUsdEur" : 36.75,
-                        "montoMinPacto" : "VES",
-                        "tasaVentaUsd" : 12345678,
-                        "tasaVentaUsdEur" : 12345678,
-                        "codMonedaIsoUsd" : "VES",
-                        "montoSwift" : "VES",
-                        "codMonedaIsoEur" : "VES",
-                        "codigoEmpresa" : "0108",
-                        "montoOperacionNeto" : 12345678,
-                        "montoMaxPacto" : "VES",
-                        "montoOperacionBs" : 12345678,
-                        "fechaCtaMercantil" : "20251226",
-                        "indCierreMele" : 12345678
-                      }
-                    }
+                      "bodySalidaInventarios" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -155,7 +121,6 @@
         "summary" : "operacionesRechazadas",
         "operationId" : "operacionesRechazadas",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -171,7 +136,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -188,14 +152,17 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaConsultarOperacionesRechazadas" : { }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -204,14 +171,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaConsultarOperacionesRechazadas" : {
-                      "$ref" : "#/components/schemas/BodySalidaConsultarOperacionesRechazadas"
+                    "bodySalidaOperacionesRechazadas" : {
+                      "$ref" : "#/components/schemas/BodySalidaOperacionesRechazadas"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -222,13 +188,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaConsultarOperacionesRechazadas" : { }
-                    }
+                      "bodySalidaOperacionesRechazadas" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -239,7 +205,6 @@
         "summary" : "ordenCompraVenta",
         "operationId" : "ordenCompraVenta",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -255,7 +220,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -274,59 +238,62 @@
                     "bodyEntradaCrearOrdenCompraVenta" : {
                       "codigoEmpresa" : "0108",
                       "codigoProducto" : "02",
-                      "numeroPersona" : 12345678,
+                      "numeroPersona" : 12345,
                       "tipoIdentificacion" : "V",
-                      "cedulaRif" : 12345678,
-                      "tipoOperacion" : 12345678,
-                      "mtoPacto" : "VES",
-                      "codigoMoneda" : "VES",
-                      "cuentaBolivares" : "string",
-                      "cuentaDivisas" : "string",
-                      "mtoOperacionBs" : 12345678,
-                      "mtoComision" : "VES",
-                      "tasaComisionCompra" : 36.75,
-                      "tasaComisionVenta" : 36.75,
-                      "tasaCambio" : 36.75,
-                      "tasaCompraUsd" : 36.75,
-                      "tasaCompraEur" : 36.75,
-                      "tasaCompraUsdEur" : 36.75,
-                      "tasaVentaUsd" : 12345678,
-                      "tasaVentaEur" : 12345678,
-                      "tasaVentaUsdEur" : 12345678,
-                      "cantDiasCtaMercantil" : 12345678,
-                      "fechaCtaMercantil" : "20251226",
-                      "codMonedaIsoUsd" : "VES",
-                      "codMonedaIsoEur" : "VES",
-                      "subCanal" : "09",
-                      "codigoSegmento" : "0001",
+                      "cedulaRif" : "string",
+                      "tipoOperacion" : "string",
+                      "mtoPacto" : 1500.75,
+                      "codigoMoneda" : "01",
+                      "cuentaBolivares" : "01020123456789012345",
+                      "cuentaDivisas" : "01020123456789012345",
+                      "mtoOperacionBs" : 1500.75,
+                      "mtoComision" : 1500.75,
+                      "tasaComisionCompra" : "string",
+                      "tasaComisionVenta" : "string",
+                      "tasaCambio" : "string",
+                      "tasaCompraUsd" : "string",
+                      "tasaCompraEur" : "string",
+                      "tasaCompraUsdEur" : "string",
+                      "tasaVentaUsd" : "string",
+                      "tasaVentaEur" : "string",
+                      "tasaVentaUsdEur" : "string",
+                      "cantDiasCtaMercantil" : 7,
+                      "fechaCtaMercantil" : "20260602",
+                      "codMonedaIsoUsd" : "01",
+                      "codMonedaIsoEur" : "01",
+                      "subCanal" : "string",
+                      "codigoSegmento" : "01",
                       "origenFondos" : "string",
                       "destinoFondos" : "string",
-                      "actividadEconomica" : 12345678,
+                      "actividadEconomica" : "string",
                       "dna" : "string",
                       "sesscookie" : "string",
-                      "horaApertura" : 12345678,
-                      "horaCierre" : 12345678,
-                      "nombreCliente" : 12345678,
-                      "nroTlfnCliente" : "string",
-                      "emailCliente" : "jperez@email.com",
-                      "mtoSwift" : "VES",
-                      "mtoTransferencia" : 12345678,
-                      "tasaSwift" : 36.75,
-                      "tasaTransferencia" : 12345678,
-                      "ctaExtranjera" : "string",
+                      "horaApertura" : "114058",
+                      "horaCierre" : "114058",
+                      "nombreCliente" : "string",
+                      "nroTlfnCliente" : 12345,
+                      "emailCliente" : "juan.perez@mercantil.com",
+                      "mtoSwift" : 1500.75,
+                      "mtoTransferencia" : 1500.75,
+                      "tasaSwift" : "string",
+                      "tasaTransferencia" : "string",
+                      "ctaExtranjera" : "01020123456789012345",
                       "bcoExtranjero" : "string",
-                      "codSwift" : "0001",
-                      "codAba" : "0001",
-                      "codSwiftCorr" : "0001"
+                      "codSwift" : "01",
+                      "codAba" : "01",
+                      "codSwiftCorr" : "01"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -335,14 +302,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaCrearOrdenCompraVenta" : {
-                      "$ref" : "#/components/schemas/BodySalidaCrearOrdenCompraVenta"
+                    "bodySalidaOrdenCompraVenta" : {
+                      "$ref" : "#/components/schemas/BodySalidaOrdenCompraVenta"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -353,20 +319,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaCrearOrdenCompraVenta" : {
-                        "numeroOrden" : "string",
-                        "datosControl" : "string",
-                        "salidaMenudeo" : {
-                          "nroConsecMbuSal" : "string",
-                          "idMovimientoBcvSal" : 12345678
-                        }
-                      }
-                    }
+                      "bodySalidaOrdenCompraVenta" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -377,7 +336,6 @@
         "summary" : "datosClientes",
         "operationId" : "datosClientes",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -393,7 +351,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -411,18 +368,21 @@
                     },
                     "bodyEntradaValidarDatosCliente" : {
                       "tipoIdentificacion" : "V",
-                      "cedulaRif" : 12345678,
-                      "numeroPersona" : 12345678,
-                      "subCanal" : "09"
+                      "cedulaRif" : "string",
+                      "numeroPersona" : 12345,
+                      "subCanal" : "string"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -431,14 +391,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaValidarDatosCliente" : {
-                      "$ref" : "#/components/schemas/BodySalidaValidarDatosCliente"
+                    "bodySalidaDatosClientes" : {
+                      "$ref" : "#/components/schemas/BodySalidaDatosClientes"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -449,23 +408,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaValidarDatosCliente" : {
-                        "cantidadOperaciones" : 12345678,
-                        "instruccionPago" : [ {
-                          "codigoSwiftCorr" : "0001",
-                          "codigoAba" : "0001",
-                          "codigoMoneda" : "VES",
-                          "bancoExtranjero" : "string",
-                          "cuentaExtranjera" : "string",
-                          "codigoSwift" : "0001"
-                        } ]
-                      }
-                    }
+                      "bodySalidaDatosClientes" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -486,8 +435,8 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "maxLength" : 4,
             "minLength" : 1,
+            "maxLength" : 4,
             "type" : "string"
           },
           "identificacionUsuario" : {
@@ -534,8 +483,8 @@
         "type" : "object",
         "properties" : {
           "tipoMensaje" : {
-            "example" : "F",
-            "type" : "string"
+            "type" : "string",
+            "example" : "F"
           },
           "mensajeProgramadorSistema" : {
             "type" : "string"
@@ -564,6 +513,35 @@
           "codigoMensajeUsuario" : "0000",
           "fechaSalidaMensaje" : "20260101",
           "horaSalidaMensaje" : "120000"
+        }
+      },
+      "ClientResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer"
+          },
+          "message" : {
+            "type" : "string"
+          },
+          "headerSalida" : {
+            "$ref" : "#/components/schemas/HeaderSalida"
+          },
+          "bodySalida" : {
+            "description" : "Contenido dinámico de la respuesta",
+            "type" : "object"
+          }
+        }
+      },
+      "Client" : {
+        "type" : "object",
+        "properties" : {
+          "codigoMensajeProgramador" : {
+            "type" : "integer"
+          },
+          "mensajeProgramador" : {
+            "type" : "string"
+          }
         }
       },
       "BodyEntradaBuscarInventarios" : {
@@ -605,120 +583,153 @@
         "properties" : {
           "cantDiasCtaMercantil" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "name" : "cantDiasCtaMercantil"
           },
           "tasaCambio" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "tasaCambio"
           },
           "tasaComisionCompra" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "name" : "tasaComisionCompra"
           },
           "montoTransferencia" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "name" : "montoTransferencia"
           },
           "tasaSwift" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "name" : "tasaSwift"
           },
           "tasaCompraUsd" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "tasaCompraUsd"
           },
           "tasaCompraEur" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "tasaCompraEur"
           },
           "horaCierre" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "name" : "horaCierre"
           },
           "indCierreMelp" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "indCierreMelp"
           },
           "indCierreCanal" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "indCierreCanal"
           },
           "horaApertura" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "name" : "horaApertura"
           },
           "tasaTransferencia" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "name" : "tasaTransferencia"
           },
           "nroTlfnCliente" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "nroTlfnCliente"
           },
           "nombreCliente" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "nombreCliente"
           },
           "montoComision" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "name" : "montoComision"
           },
           "codigoProducto" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "codigoProducto"
           },
           "montoMultiploSolicitud" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "name" : "montoMultiploSolicitud"
           },
           "tasaVentaEur" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "tasaVentaEur"
           },
           "emailCliente" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "emailCliente"
           },
           "tasaComisionVenta" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "name" : "tasaComisionVenta"
           },
           "tasaCompraUsdEur" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "tasaCompraUsdEur"
           },
           "montoMinPacto" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "name" : "montoMinPacto"
           },
           "tasaVentaUsd" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "tasaVentaUsd"
           },
           "tasaVentaUsdEur" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "tasaVentaUsdEur"
           },
           "codMonedaIsoUsd" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "name" : "codMonedaIsoUsd"
           },
           "montoSwift" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "name" : "montoSwift"
           },
           "codMonedaIsoEur" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "name" : "codMonedaIsoEur"
           },
           "codigoEmpresa" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "codigoEmpresa"
           },
           "montoOperacionNeto" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "name" : "montoOperacionNeto"
           },
           "montoMaxPacto" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "name" : "montoMaxPacto"
           },
           "montoOperacionBs" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "name" : "montoOperacionBs"
           },
           "fechaCtaMercantil" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "name" : "fechaCtaMercantil"
           },
           "indCierreMele" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "indCierreMele"
           }
         }
       },
@@ -737,7 +748,8 @@
         "type" : "object",
         "properties" : {
           "bodySalidaBuscarInventarios" : {
-            "$ref" : "#/components/schemas/BodySalidaBuscarInventarios"
+            "$ref" : "#/components/schemas/BodySalidaBuscarInventarios",
+            "name" : "bodySalidaBuscarInventarios"
           }
         }
       },
@@ -905,17 +917,20 @@
       },
       "ResponseConsultarOperacionesRechazadas" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "BeanSalidaMenudeo" : {
         "type" : "object",
         "properties" : {
           "nroConsecMbuSal" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "name" : "nroConsecMbuSal"
           },
           "idMovimientoBcvSal" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "idMovimientoBcvSal"
           }
         }
       },
@@ -1091,13 +1106,16 @@
         "properties" : {
           "numeroOrden" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "name" : "numeroOrden"
           },
           "datosControl" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "datosControl"
           },
           "salidaMenudeo" : {
-            "$ref" : "#/components/schemas/BeanSalidaMenudeo"
+            "$ref" : "#/components/schemas/BeanSalidaMenudeo",
+            "name" : "salidaMenudeo"
           }
         }
       },
@@ -1116,7 +1134,8 @@
         "type" : "object",
         "properties" : {
           "bodySalidaCrearOrdenCompraVenta" : {
-            "$ref" : "#/components/schemas/BodySalidaCrearOrdenCompraVenta"
+            "$ref" : "#/components/schemas/BodySalidaCrearOrdenCompraVenta",
+            "name" : "bodySalidaCrearOrdenCompraVenta"
           }
         }
       },
@@ -1124,22 +1143,28 @@
         "type" : "object",
         "properties" : {
           "codigoSwiftCorr" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "codigoSwiftCorr"
           },
           "codigoAba" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "codigoAba"
           },
           "codigoMoneda" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "codigoMoneda"
           },
           "bancoExtranjero" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "bancoExtranjero"
           },
           "cuentaExtranjera" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "cuentaExtranjera"
           },
           "codigoSwift" : {
-            "type" : "string"
+            "type" : "string",
+            "name" : "codigoSwift"
           }
         }
       },
@@ -1168,19 +1193,22 @@
         "properties" : {
           "cantidadOperaciones" : {
             "type" : "number",
-            "format" : "double"
+            "format" : "double",
+            "name" : "cantidadOperaciones"
           },
           "instruccionPago" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/BeanInstruccionPagos"
-            }
+            },
+            "name" : "instruccionPago"
           }
         }
       },
       "CleanValidarDatosCliente" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "RequestValidarDatosCliente" : {
         "type" : "object",
@@ -1197,14 +1225,10 @@
         "type" : "object",
         "properties" : {
           "bodySalidaValidarDatosCliente" : {
-            "$ref" : "#/components/schemas/BodySalidaValidarDatosCliente"
+            "$ref" : "#/components/schemas/BodySalidaValidarDatosCliente",
+            "name" : "bodySalidaValidarDatosCliente"
           }
         }
-      },
-      "SendRequestRest" : {
-        "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
       },
       "Buscar" : {
         "type" : "object",
@@ -1238,16 +1262,6 @@
           }
         }
       },
-      "User" : {
-        "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
-      },
-      "Smtp" : {
-        "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
-      },
       "ProcessInversiones" : {
         "type" : "object",
         "properties" : {
@@ -1269,34 +1283,50 @@
       },
       "BuscarImpl" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "ConsultarImpl" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "CrearImpl" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "ValidarImpl" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
+      },
+      "BodySalidaInventarios" : {
+        "type" : "object",
+        "properties" : { }
       },
       "BodyEntradaConsultarOperacionesRechazadas" : {
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaConsultarOperacionesRechazadas" : {
+      "BodySalidaOperacionesRechazadas" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaOrdenCompraVenta" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaDatosClientes" : {
         "type" : "object",
         "properties" : { }
       }
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "bearerFormat" : "JWT",
+        "type" : "http",
         "scheme" : "bearer",
-        "type" : "http"
+        "bearerFormat" : "JWT"
       }
     }
   },

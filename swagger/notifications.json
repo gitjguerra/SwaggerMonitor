@@ -9,17 +9,17 @@
     "url" : "/notifications"
   } ],
   "tags" : [ {
-    "name" : "Actualizar Root",
-    "description" : "Operaciones Actualizar Root"
+    "description" : "Operaciones Actualizar Root",
+    "name" : "Actualizar Root"
   }, {
-    "name" : "Consultar Root",
-    "description" : "Operaciones Consultar Root"
+    "description" : "Operaciones Consultar Root",
+    "name" : "Consultar Root"
   }, {
-    "name" : "Eliminar Root",
-    "description" : "Operaciones Eliminar Root"
+    "description" : "Operaciones Eliminar Root",
+    "name" : "Eliminar Root"
   }, {
-    "name" : "Ingresar Root",
-    "description" : "Operaciones Ingresar Root"
+    "description" : "Operaciones Ingresar Root",
+    "name" : "Ingresar Root"
   } ],
   "paths" : {
     "/actualizar/integradora" : {
@@ -28,7 +28,6 @@
         "summary" : "actualizarIntegradora",
         "operationId" : "actualizarIntegradora",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -44,7 +43,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -61,16 +59,25 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaActualizarIntegradora" : {
-                      "id" : "string"
+                      "codIntegradora" : "01",
+                      "nomIntegradora" : "string",
+                      "fchHhCreaReg" : "20260602",
+                      "fchHhModifReg" : "20260602",
+                      "edoReg" : "DC",
+                      "codUsu" : "01",
+                      "fchHhModifEdoReg" : "20260602"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -86,7 +93,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -98,12 +104,12 @@
                         "horaSalidaMensaje" : "135046"
                       },
                       "bodySalidaActualizarIntegradora" : { }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -114,7 +120,6 @@
         "summary" : "actualizarNotificacionCorreo",
         "operationId" : "actualizarNotificacionCorreo",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -130,7 +135,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -147,16 +151,35 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaActualizarNotificacionCorreo" : {
-                      "id" : "string"
+                      "clvTabla" : "string",
+                      "siglaAplic" : "string",
+                      "tipoTrans" : "string",
+                      "correoOrigen" : "juan.perez@mercantil.com",
+                      "correoDestino" : "juan.perez@mercantil.com",
+                      "edoNoti" : "DC",
+                      "msje" : "string",
+                      "idPlanti" : "string",
+                      "tipoId" : "V",
+                      "nroId" : 12345678,
+                      "nroCtaCobro" : "01020123456789012345",
+                      "fchHhCreaReg" : "20260602",
+                      "fchHhModifReg" : "20260602",
+                      "edoReg" : "DC",
+                      "fchHhModifEdoReg" : "20260602",
+                      "codIntegradora" : "01",
+                      "idAccion" : "string"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -172,7 +195,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -184,12 +206,12 @@
                         "horaSalidaMensaje" : "135046"
                       },
                       "bodySalidaActualizarNotificacionCorreo" : { }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -200,7 +222,6 @@
         "summary" : "actualizarNotificacionSms",
         "operationId" : "actualizarNotificacionSms",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -216,7 +237,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -233,16 +253,37 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaActualizarNotificacionSms" : {
-                      "id" : "string"
+                      "clvTabla" : "string",
+                      "siglaAplic" : "string",
+                      "tipoTrans" : "string",
+                      "codCorto" : "01",
+                      "telefRemitente" : "string",
+                      "telefDest" : "string",
+                      "edoNoti" : "DC",
+                      "msje" : "string",
+                      "idPlanti" : "string",
+                      "tipoId" : "V",
+                      "nroId" : 12345678,
+                      "nroPer" : 12345,
+                      "nroCtaCobro" : "01020123456789012345",
+                      "fchHhCreaReg" : "20260602",
+                      "fchHhModifReg" : "20260602",
+                      "edoReg" : "DC",
+                      "fchHhModifEdoReg" : "20260602",
+                      "codIntegradora" : "01",
+                      "idAccion" : "string"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -258,7 +299,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -270,12 +310,12 @@
                         "horaSalidaMensaje" : "135046"
                       },
                       "bodySalidaActualizarNotificacionSms" : { }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -286,7 +326,6 @@
         "summary" : "actualizarPlantilla",
         "operationId" : "actualizarPlantilla",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -302,7 +341,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -319,16 +357,28 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaActualizarPlantilla" : {
-                      "id" : "string"
+                      "idPlanti" : "string",
+                      "descripPlanti" : "Descripción generada",
+                      "codIntegradora" : "01",
+                      "codNoti" : "01",
+                      "fchHhCreaReg" : "20260602",
+                      "fchHhModifReg" : "20260602",
+                      "edoReg" : "DC",
+                      "codUsu" : "01",
+                      "fchHhModifEdoReg" : "20260602",
+                      "estrucMsje" : "string"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -344,7 +394,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -356,12 +405,12 @@
                         "horaSalidaMensaje" : "135046"
                       },
                       "bodySalidaActualizarPlantilla" : { }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -372,7 +421,6 @@
         "summary" : "actualizarTipoNotificacion",
         "operationId" : "actualizarTipoNotificacion",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -388,7 +436,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -405,16 +452,25 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaActualizarTipoNotificacion" : {
-                      "id" : "string"
+                      "codNoti" : "01",
+                      "tipoNoti" : "string",
+                      "fchHhCreaReg" : "20260602",
+                      "fchHhModifReg" : "20260602",
+                      "edoReg" : "DC",
+                      "codUsu" : "01",
+                      "fchHhModifEdoReg" : "20260602"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -430,7 +486,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -442,12 +497,12 @@
                         "horaSalidaMensaje" : "135046"
                       },
                       "bodySalidaActualizarTipoNotificacion" : { }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -458,7 +513,6 @@
         "summary" : "actualizarVariable",
         "operationId" : "actualizarVariable",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -474,7 +528,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -491,16 +544,24 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaActualizarVariable" : {
-                      "id" : "string"
+                      "idVarble" : "string",
+                      "valorVarble" : "string",
+                      "descripVarble" : "Descripción generada",
+                      "edoReg" : "DC",
+                      "fchHhModifEdoReg" : "20260602",
+                      "fchHhCreaReg" : "20260602"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -516,7 +577,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -528,12 +588,12 @@
                         "horaSalidaMensaje" : "135046"
                       },
                       "bodySalidaActualizarVariable" : { }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -544,7 +604,6 @@
         "summary" : "actualizarAccion",
         "operationId" : "actualizarAccion",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -560,7 +619,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -577,16 +635,23 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaActualizarAccion" : {
-                      "id" : "string"
+                      "idAccion" : "string",
+                      "descripAccion" : "Descripción generada",
+                      "edoReg" : "DC",
+                      "fchHhModifEdoReg" : "20260602",
+                      "fchHhCreaReg" : "20260602"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -602,7 +667,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -614,12 +678,12 @@
                         "horaSalidaMensaje" : "135046"
                       },
                       "bodySalidaActualizarAccion" : { }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -630,7 +694,6 @@
         "summary" : "actualizarCobros",
         "operationId" : "actualizarCobros",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -646,7 +709,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -663,16 +725,24 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaCobros" : {
-                      "id" : "string"
+                      "cobros" : [ {
+                        "idAccion" : "string",
+                        "idPlanti" : "string",
+                        "indicCobro" : "string",
+                        "fchHhModifEdoReg" : "20260602"
+                      } ]
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -688,7 +758,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -700,12 +769,12 @@
                         "horaSalidaMensaje" : "135046"
                       },
                       "bodySalidaActualizarCobros" : { }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -716,7 +785,6 @@
         "summary" : "actualizarPlantillaVariables",
         "operationId" : "actualizarPlantillaVariables",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -732,7 +800,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -749,16 +816,22 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaPlantillaVariables" : {
-                      "id" : "string"
+                      "plantillaVariables" : [ {
+                        "idPlanti" : "string",
+                        "idVarble" : "string"
+                      } ]
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -767,14 +840,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaActualizarPlantillaVariable" : {
-                      "$ref" : "#/components/schemas/BodySalidaActualizarPlantillaVariable"
+                    "bodySalidaActualizarPlantillaVariables" : {
+                      "$ref" : "#/components/schemas/BodySalidaActualizarPlantillaVariables"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -785,13 +857,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaActualizarPlantillaVariable" : { }
-                    }
+                      "bodySalidaActualizarPlantillaVariables" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -802,7 +874,6 @@
         "summary" : "listarIntegradoras",
         "operationId" : "listarIntegradoras",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -818,7 +889,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -835,14 +905,17 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaConsultarIntegradora" : { }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -851,14 +924,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaConsultarIntegradora" : {
-                      "$ref" : "#/components/schemas/BodySalidaConsultarIntegradora"
+                    "bodySalidaListarIntegradoras" : {
+                      "$ref" : "#/components/schemas/BodySalidaListarIntegradoras"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -869,17 +941,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaConsultarIntegradora" : {
-                        "integradoras" : [ {
-                          "id" : "string"
-                        } ]
-                      }
-                    }
+                      "bodySalidaListarIntegradoras" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -890,7 +958,6 @@
         "summary" : "listarNotificacionCorreo",
         "operationId" : "listarNotificacionCorreo",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -906,7 +973,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -923,14 +989,17 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaConsultarNotificacionCorreo" : { }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -939,14 +1008,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaConsultarNotificacionCorreo" : {
-                      "$ref" : "#/components/schemas/BodySalidaConsultarNotificacionCorreo"
+                    "bodySalidaListarNotificacionCorreo" : {
+                      "$ref" : "#/components/schemas/BodySalidaListarNotificacionCorreo"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -957,17 +1025,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaConsultarNotificacionCorreo" : {
-                        "notificacionesCorreo" : [ {
-                          "id" : "string"
-                        } ]
-                      }
-                    }
+                      "bodySalidaListarNotificacionCorreo" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -978,7 +1042,6 @@
         "summary" : "listarNotificacionSms",
         "operationId" : "listarNotificacionSms",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -994,7 +1057,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1011,14 +1073,17 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaConsultarNotificacionSms" : { }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1027,14 +1092,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaConsultarNotificacionSms" : {
-                      "$ref" : "#/components/schemas/BodySalidaConsultarNotificacionSms"
+                    "bodySalidaListarNotificacionSms" : {
+                      "$ref" : "#/components/schemas/BodySalidaListarNotificacionSms"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1045,17 +1109,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaConsultarNotificacionSms" : {
-                        "notificacionesSms" : [ {
-                          "id" : "string"
-                        } ]
-                      }
-                    }
+                      "bodySalidaListarNotificacionSms" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1066,7 +1126,6 @@
         "summary" : "listarPlantillas",
         "operationId" : "listarPlantillas",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1082,7 +1141,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1099,14 +1157,17 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaConsultarPlantilla" : { }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1115,14 +1176,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaConsultarPlantilla" : {
-                      "$ref" : "#/components/schemas/BodySalidaConsultarPlantilla"
+                    "bodySalidaListarPlantillas" : {
+                      "$ref" : "#/components/schemas/BodySalidaListarPlantillas"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1133,17 +1193,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaConsultarPlantilla" : {
-                        "plantillas" : [ {
-                          "id" : "string"
-                        } ]
-                      }
-                    }
+                      "bodySalidaListarPlantillas" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1154,7 +1210,6 @@
         "summary" : "listarTipoNotificacion",
         "operationId" : "listarTipoNotificacion",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1170,7 +1225,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1187,14 +1241,17 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaConsultarTipoNotificacion" : { }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1203,14 +1260,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaConsultarTipoNotificacion" : {
-                      "$ref" : "#/components/schemas/BodySalidaConsultarTipoNotificacion"
+                    "bodySalidaListarTipoNotificacion" : {
+                      "$ref" : "#/components/schemas/BodySalidaListarTipoNotificacion"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1221,17 +1277,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaConsultarTipoNotificacion" : {
-                        "tipoNotificaciones" : [ {
-                          "id" : "string"
-                        } ]
-                      }
-                    }
+                      "bodySalidaListarTipoNotificacion" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1242,7 +1294,6 @@
         "summary" : "listarVariables",
         "operationId" : "listarVariables",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1258,7 +1309,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1275,14 +1325,17 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaConsultarVariable" : { }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1291,14 +1344,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaConsultarVariable" : {
-                      "$ref" : "#/components/schemas/BodySalidaConsultarVariable"
+                    "bodySalidaListarVariables" : {
+                      "$ref" : "#/components/schemas/BodySalidaListarVariables"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1309,17 +1361,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaConsultarVariable" : {
-                        "variables" : [ {
-                          "id" : "string"
-                        } ]
-                      }
-                    }
+                      "bodySalidaListarVariables" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1330,7 +1378,6 @@
         "summary" : "listarAcciones",
         "operationId" : "listarAcciones",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1346,7 +1393,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1363,14 +1409,17 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaConsultarAccion" : { }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1379,14 +1428,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaConsultarAccion" : {
-                      "$ref" : "#/components/schemas/BodySalidaConsultarAccion"
+                    "bodySalidaListarAcciones" : {
+                      "$ref" : "#/components/schemas/BodySalidaListarAcciones"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1397,17 +1445,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaConsultarAccion" : {
-                        "acciones" : [ {
-                          "id" : "string"
-                        } ]
-                      }
-                    }
+                      "bodySalidaListarAcciones" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1418,7 +1462,6 @@
         "summary" : "listarCobros",
         "operationId" : "listarCobros",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1434,7 +1477,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1451,14 +1493,17 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaConsultarCobros" : { }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1467,14 +1512,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaConsultarCobros" : {
-                      "$ref" : "#/components/schemas/BodySalidaConsultarCobros"
+                    "bodySalidaListarCobros" : {
+                      "$ref" : "#/components/schemas/BodySalidaListarCobros"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1485,17 +1529,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaConsultarCobros" : {
-                        "cobros" : [ {
-                          "id" : "string"
-                        } ]
-                      }
-                    }
+                      "bodySalidaListarCobros" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1506,7 +1546,6 @@
         "summary" : "listarPlantillaVariables",
         "operationId" : "listarPlantillaVariables",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1522,7 +1561,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1539,14 +1577,17 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaConsultarPlantillaVariables" : { }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1555,14 +1596,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaConsultarPlantillaVariables" : {
-                      "$ref" : "#/components/schemas/BodySalidaConsultarPlantillaVariables"
+                    "bodySalidaListarPlantillaVariables" : {
+                      "$ref" : "#/components/schemas/BodySalidaListarPlantillaVariables"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1573,17 +1613,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaConsultarPlantillaVariables" : {
-                        "plantillaVariables" : [ {
-                          "id" : "string"
-                        } ]
-                      }
-                    }
+                      "bodySalidaListarPlantillaVariables" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1594,7 +1630,6 @@
         "summary" : "eliminarIntegradoras",
         "operationId" : "eliminarIntegradoras",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1610,7 +1645,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1628,17 +1662,26 @@
                     },
                     "bodyEntradaEliminarIntegradora" : {
                       "integradoras" : [ {
-                        "id" : "string"
+                        "codIntegradora" : "01",
+                        "nomIntegradora" : "string",
+                        "fchHhCreaReg" : "20260602",
+                        "fchHhModifReg" : "20260602",
+                        "edoReg" : "DC",
+                        "codUsu" : "01",
+                        "fchHhModifEdoReg" : "20260602"
                       } ]
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1647,14 +1690,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaEliminarIntegradora" : {
-                      "$ref" : "#/components/schemas/BodySalidaEliminarIntegradora"
+                    "bodySalidaEliminarIntegradoras" : {
+                      "$ref" : "#/components/schemas/BodySalidaEliminarIntegradoras"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1665,13 +1707,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaEliminarIntegradora" : { }
-                    }
+                      "bodySalidaEliminarIntegradoras" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1682,7 +1724,6 @@
         "summary" : "eliminarNotificacionCorreo",
         "operationId" : "eliminarNotificacionCorreo",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1698,7 +1739,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1716,17 +1756,36 @@
                     },
                     "bodyEntradaEliminarNotificacionCorreo" : {
                       "notificacionesCorreo" : [ {
-                        "id" : "string"
+                        "clvTabla" : "string",
+                        "siglaAplic" : "string",
+                        "tipoTrans" : "string",
+                        "correoOrigen" : "juan.perez@mercantil.com",
+                        "correoDestino" : "juan.perez@mercantil.com",
+                        "edoNoti" : "DC",
+                        "msje" : "string",
+                        "idPlanti" : "string",
+                        "tipoId" : "V",
+                        "nroId" : 12345678,
+                        "nroCtaCobro" : "01020123456789012345",
+                        "fchHhCreaReg" : "20260602",
+                        "fchHhModifReg" : "20260602",
+                        "edoReg" : "DC",
+                        "fchHhModifEdoReg" : "20260602",
+                        "codIntegradora" : "01",
+                        "idAccion" : "string"
                       } ]
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1742,7 +1801,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1754,12 +1812,12 @@
                         "horaSalidaMensaje" : "135046"
                       },
                       "bodySalidaEliminarNotificacionCorreo" : { }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1770,7 +1828,6 @@
         "summary" : "eliminarNotificacionSms",
         "operationId" : "eliminarNotificacionSms",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1786,7 +1843,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1804,17 +1860,38 @@
                     },
                     "bodyEntradaEliminarNotificacionSms" : {
                       "notificacionesSms" : [ {
-                        "id" : "string"
+                        "clvTabla" : "string",
+                        "siglaAplic" : "string",
+                        "tipoTrans" : "string",
+                        "codCorto" : "01",
+                        "telefRemitente" : "string",
+                        "telefDest" : "string",
+                        "edoNoti" : "DC",
+                        "msje" : "string",
+                        "idPlanti" : "string",
+                        "tipoId" : "V",
+                        "nroId" : 12345678,
+                        "nroPer" : 12345,
+                        "nroCtaCobro" : "01020123456789012345",
+                        "fchHhCreaReg" : "20260602",
+                        "fchHhModifReg" : "20260602",
+                        "edoReg" : "DC",
+                        "fchHhModifEdoReg" : "20260602",
+                        "codIntegradora" : "01",
+                        "idAccion" : "string"
                       } ]
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1830,7 +1907,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1842,12 +1918,12 @@
                         "horaSalidaMensaje" : "135046"
                       },
                       "bodySalidaEliminarNotificacionSms" : { }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1858,7 +1934,6 @@
         "summary" : "eliminarPlantilla",
         "operationId" : "eliminarPlantilla",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1874,7 +1949,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1892,17 +1966,29 @@
                     },
                     "bodyEntradaEliminarPlantilla" : {
                       "plantillas" : [ {
-                        "id" : "string"
+                        "idPlanti" : "string",
+                        "descripPlanti" : "Descripción generada",
+                        "codIntegradora" : "01",
+                        "codNoti" : "01",
+                        "fchHhCreaReg" : "20260602",
+                        "fchHhModifReg" : "20260602",
+                        "edoReg" : "DC",
+                        "codUsu" : "01",
+                        "fchHhModifEdoReg" : "20260602",
+                        "estrucMsje" : "string"
                       } ]
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1918,7 +2004,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -1930,12 +2015,12 @@
                         "horaSalidaMensaje" : "135046"
                       },
                       "bodySalidaEliminarPlantilla" : { }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -1946,7 +2031,6 @@
         "summary" : "eliminarTipoNotificacion",
         "operationId" : "eliminarTipoNotificacion",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1962,7 +2046,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -1980,17 +2063,26 @@
                     },
                     "bodyEntradaEliminarTipoNotificacion" : {
                       "tipoNotificaciones" : [ {
-                        "id" : "string"
+                        "codNoti" : "01",
+                        "tipoNoti" : "string",
+                        "fchHhCreaReg" : "20260602",
+                        "fchHhModifReg" : "20260602",
+                        "edoReg" : "DC",
+                        "codUsu" : "01",
+                        "fchHhModifEdoReg" : "20260602"
                       } ]
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2006,7 +2098,6 @@
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2018,12 +2109,12 @@
                         "horaSalidaMensaje" : "135046"
                       },
                       "bodySalidaEliminarTipoNotificacion" : { }
-                    }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -2034,7 +2125,6 @@
         "summary" : "eliminarVariables",
         "operationId" : "eliminarVariables",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2050,7 +2140,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -2068,17 +2157,25 @@
                     },
                     "bodyEntradaEliminarVariable" : {
                       "variables" : [ {
-                        "id" : "string"
+                        "idVarble" : "string",
+                        "valorVarble" : "string",
+                        "descripVarble" : "Descripción generada",
+                        "edoReg" : "DC",
+                        "fchHhModifEdoReg" : "20260602",
+                        "fchHhCreaReg" : "20260602"
                       } ]
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2087,14 +2184,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaEliminarVariable" : {
-                      "$ref" : "#/components/schemas/BodySalidaEliminarVariable"
+                    "bodySalidaEliminarVariables" : {
+                      "$ref" : "#/components/schemas/BodySalidaEliminarVariables"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2105,13 +2201,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaEliminarVariable" : { }
-                    }
+                      "bodySalidaEliminarVariables" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -2122,7 +2218,6 @@
         "summary" : "eliminarAcciones",
         "operationId" : "eliminarAcciones",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2138,7 +2233,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -2156,17 +2250,24 @@
                     },
                     "bodyEntradaEliminarAccion" : {
                       "acciones" : [ {
-                        "id" : "string"
+                        "idAccion" : "string",
+                        "descripAccion" : "Descripción generada",
+                        "edoReg" : "DC",
+                        "fchHhModifEdoReg" : "20260602",
+                        "fchHhCreaReg" : "20260602"
                       } ]
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2175,14 +2276,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaEliminarAccion" : {
-                      "$ref" : "#/components/schemas/BodySalidaEliminarAccion"
+                    "bodySalidaEliminarAcciones" : {
+                      "$ref" : "#/components/schemas/BodySalidaEliminarAcciones"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2193,13 +2293,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaEliminarAccion" : { }
-                    }
+                      "bodySalidaEliminarAcciones" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -2210,7 +2310,6 @@
         "summary" : "insertarIntegradora",
         "operationId" : "insertarIntegradora",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2226,7 +2325,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -2243,16 +2341,25 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaInsertarIntegradora" : {
-                      "id" : "string"
+                      "codIntegradora" : "01",
+                      "nomIntegradora" : "string",
+                      "fchHhCreaReg" : "20260602",
+                      "fchHhModifReg" : "20260602",
+                      "edoReg" : "DC",
+                      "codUsu" : "01",
+                      "fchHhModifEdoReg" : "20260602"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2261,14 +2368,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaIngresarIntegradora" : {
-                      "$ref" : "#/components/schemas/BodySalidaIngresarIntegradora"
+                    "bodySalidaInsertarIntegradora" : {
+                      "$ref" : "#/components/schemas/BodySalidaInsertarIntegradora"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2279,13 +2385,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaIngresarIntegradora" : { }
-                    }
+                      "bodySalidaInsertarIntegradora" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -2296,7 +2402,6 @@
         "summary" : "insertarNotificacionCorreo",
         "operationId" : "insertarNotificacionCorreo",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2312,7 +2417,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -2329,16 +2433,35 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaInsertarNotificacionCorreo" : {
-                      "id" : "string"
+                      "clvTabla" : "string",
+                      "siglaAplic" : "string",
+                      "tipoTrans" : "string",
+                      "correoOrigen" : "juan.perez@mercantil.com",
+                      "correoDestino" : "juan.perez@mercantil.com",
+                      "edoNoti" : "DC",
+                      "msje" : "string",
+                      "idPlanti" : "string",
+                      "tipoId" : "V",
+                      "nroId" : 12345678,
+                      "nroCtaCobro" : "01020123456789012345",
+                      "fchHhCreaReg" : "20260602",
+                      "fchHhModifReg" : "20260602",
+                      "edoReg" : "DC",
+                      "fchHhModifEdoReg" : "20260602",
+                      "codIntegradora" : "01",
+                      "idAccion" : "string"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2347,14 +2470,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaIngresarNotificacionCorreo" : {
-                      "$ref" : "#/components/schemas/BodySalidaIngresarNotificacionCorreo"
+                    "bodySalidaInsertarNotificacionCorreo" : {
+                      "$ref" : "#/components/schemas/BodySalidaInsertarNotificacionCorreo"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2365,13 +2487,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaIngresarNotificacionCorreo" : { }
-                    }
+                      "bodySalidaInsertarNotificacionCorreo" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -2382,7 +2504,6 @@
         "summary" : "insertarNotificacionSms",
         "operationId" : "insertarNotificacionSms",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2398,7 +2519,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -2415,16 +2535,37 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaInsertarNotificacionSms" : {
-                      "id" : "string"
+                      "clvTabla" : "string",
+                      "siglaAplic" : "string",
+                      "tipoTrans" : "string",
+                      "codCorto" : "01",
+                      "telefRemitente" : "string",
+                      "telefDest" : "string",
+                      "edoNoti" : "DC",
+                      "msje" : "string",
+                      "idPlanti" : "string",
+                      "tipoId" : "V",
+                      "nroId" : 12345678,
+                      "nroPer" : 12345,
+                      "nroCtaCobro" : "01020123456789012345",
+                      "fchHhCreaReg" : "20260602",
+                      "fchHhModifReg" : "20260602",
+                      "edoReg" : "DC",
+                      "fchHhModifEdoReg" : "20260602",
+                      "codIntegradora" : "01",
+                      "idAccion" : "string"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2433,14 +2574,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaIngresarNotificacionSms" : {
-                      "$ref" : "#/components/schemas/BodySalidaIngresarNotificacionSms"
+                    "bodySalidaInsertarNotificacionSms" : {
+                      "$ref" : "#/components/schemas/BodySalidaInsertarNotificacionSms"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2451,13 +2591,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaIngresarNotificacionSms" : { }
-                    }
+                      "bodySalidaInsertarNotificacionSms" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -2468,7 +2608,6 @@
         "summary" : "insertarPlantilla",
         "operationId" : "insertarPlantilla",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2484,7 +2623,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -2501,16 +2639,28 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaInsertarPlantilla" : {
-                      "id" : "string"
+                      "idPlanti" : "string",
+                      "descripPlanti" : "Descripción generada",
+                      "codIntegradora" : "01",
+                      "codNoti" : "01",
+                      "fchHhCreaReg" : "20260602",
+                      "fchHhModifReg" : "20260602",
+                      "edoReg" : "DC",
+                      "codUsu" : "01",
+                      "fchHhModifEdoReg" : "20260602",
+                      "estrucMsje" : "string"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2519,14 +2669,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaIngresarPlantilla" : {
-                      "$ref" : "#/components/schemas/BodySalidaIngresarPlantilla"
+                    "bodySalidaInsertarPlantilla" : {
+                      "$ref" : "#/components/schemas/BodySalidaInsertarPlantilla"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2537,13 +2686,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaIngresarPlantilla" : { }
-                    }
+                      "bodySalidaInsertarPlantilla" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -2554,7 +2703,6 @@
         "summary" : "insertarTipoNotificacion",
         "operationId" : "insertarTipoNotificacion",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2570,7 +2718,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -2587,16 +2734,25 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaInsertarTipoNotificacion" : {
-                      "id" : "string"
+                      "codNoti" : "01",
+                      "tipoNoti" : "string",
+                      "fchHhCreaReg" : "20260602",
+                      "fchHhModifReg" : "20260602",
+                      "edoReg" : "DC",
+                      "codUsu" : "01",
+                      "fchHhModifEdoReg" : "20260602"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2605,14 +2761,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaIngresarTipoNotificacion" : {
-                      "$ref" : "#/components/schemas/BodySalidaIngresarTipoNotificacion"
+                    "bodySalidaInsertarTipoNotificacion" : {
+                      "$ref" : "#/components/schemas/BodySalidaInsertarTipoNotificacion"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2623,13 +2778,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaIngresarTipoNotificacion" : { }
-                    }
+                      "bodySalidaInsertarTipoNotificacion" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -2640,7 +2795,6 @@
         "summary" : "insertarVariable",
         "operationId" : "insertarVariable",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2656,7 +2810,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -2673,16 +2826,24 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaInsertarVariable" : {
-                      "id" : "string"
+                      "idVarble" : "string",
+                      "valorVarble" : "string",
+                      "descripVarble" : "Descripción generada",
+                      "edoReg" : "DC",
+                      "fchHhModifEdoReg" : "20260602",
+                      "fchHhCreaReg" : "20260602"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2691,14 +2852,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaIngresarVariable" : {
-                      "$ref" : "#/components/schemas/BodySalidaIngresarVariable"
+                    "bodySalidaInsertarVariable" : {
+                      "$ref" : "#/components/schemas/BodySalidaInsertarVariable"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2709,13 +2869,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaIngresarVariable" : { }
-                    }
+                      "bodySalidaInsertarVariable" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -2726,7 +2886,6 @@
         "summary" : "insertarAccion",
         "operationId" : "insertarAccion",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2742,7 +2901,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -2759,16 +2917,23 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaInsertarAccion" : {
-                      "id" : "string"
+                      "idAccion" : "string",
+                      "descripAccion" : "Descripción generada",
+                      "edoReg" : "DC",
+                      "fchHhModifEdoReg" : "20260602",
+                      "fchHhCreaReg" : "20260602"
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2777,14 +2942,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaIngresarAccion" : {
-                      "$ref" : "#/components/schemas/BodySalidaIngresarAccion"
+                    "bodySalidaInsertarAccion" : {
+                      "$ref" : "#/components/schemas/BodySalidaInsertarAccion"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2795,13 +2959,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaIngresarAccion" : { }
-                    }
+                      "bodySalidaInsertarAccion" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -2812,7 +2976,6 @@
         "summary" : "insertarCobros",
         "operationId" : "insertarCobros",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2828,7 +2991,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -2845,16 +3007,24 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaCobros" : {
-                      "id" : "string"
+                      "cobros" : [ {
+                        "idAccion" : "string",
+                        "idPlanti" : "string",
+                        "indicCobro" : "string",
+                        "fchHhModifEdoReg" : "20260602"
+                      } ]
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2863,14 +3033,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaIngresarCobros" : {
-                      "$ref" : "#/components/schemas/BodySalidaIngresarCobros"
+                    "bodySalidaInsertarCobros" : {
+                      "$ref" : "#/components/schemas/BodySalidaInsertarCobros"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2881,13 +3050,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaIngresarCobros" : { }
-                    }
+                      "bodySalidaInsertarCobros" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -2898,7 +3067,6 @@
         "summary" : "insertarPlantillaVariables",
         "operationId" : "insertarPlantillaVariables",
         "requestBody" : {
-          "required" : true,
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2914,7 +3082,6 @@
               },
               "examples" : {
                 "default" : {
-                  "summary" : "Ejemplo generado",
                   "value" : {
                     "headerEntrada" : {
                       "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
@@ -2931,16 +3098,22 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaPlantillaVariables" : {
-                      "id" : "string"
+                      "plantillaVariables" : [ {
+                        "idPlanti" : "string",
+                        "idVarble" : "string"
+                      } ]
                     }
-                  }
+                  },
+                  "summary" : "Ejemplo generado"
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "200" : {
+            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2949,14 +3122,13 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaIngresarPlantillaVariable" : {
-                      "$ref" : "#/components/schemas/BodySalidaIngresarPlantillaVariable"
+                    "bodySalidaInsertarPlantillaVariables" : {
+                      "$ref" : "#/components/schemas/BodySalidaInsertarPlantillaVariables"
                     }
                   }
                 },
                 "examples" : {
                   "default" : {
-                    "summary" : "Ejemplo generado",
                     "value" : {
                       "headerSalida" : {
                         "tipoMensaje" : "I",
@@ -2967,13 +3139,13 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaIngresarPlantillaVariable" : { }
-                    }
+                      "bodySalidaInsertarPlantillaVariables" : { }
+                    },
+                    "summary" : "Ejemplo generado"
                   }
                 }
               }
-            },
-            "description" : "Operación exitosa"
+            }
           }
         }
       }
@@ -2994,8 +3166,8 @@
             "type" : "string"
           },
           "siglaAplicacion" : {
-            "maxLength" : 4,
             "minLength" : 1,
+            "maxLength" : 4,
             "type" : "string"
           },
           "identificacionUsuario" : {
@@ -3042,8 +3214,8 @@
         "type" : "object",
         "properties" : {
           "tipoMensaje" : {
-            "example" : "F",
-            "type" : "string"
+            "type" : "string",
+            "example" : "F"
           },
           "mensajeProgramadorSistema" : {
             "type" : "string"
@@ -3074,10 +3246,57 @@
           "horaSalidaMensaje" : "120000"
         }
       },
+      "ClientResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer"
+          },
+          "message" : {
+            "type" : "string"
+          },
+          "headerSalida" : {
+            "$ref" : "#/components/schemas/HeaderSalida"
+          },
+          "bodySalida" : {
+            "description" : "Contenido dinámico de la respuesta",
+            "type" : "object"
+          }
+        }
+      },
+      "Client" : {
+        "type" : "object",
+        "properties" : {
+          "codigoMensajeProgramador" : {
+            "type" : "integer"
+          },
+          "mensajeProgramador" : {
+            "type" : "string"
+          }
+        }
+      },
       "BeanAccion" : {
         "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
+        "properties" : {
+          "idAccion" : {
+            "type" : "integer",
+            "name" : "idAccion"
+          },
+          "descripAccion" : {
+            "type" : "string",
+            "name" : "descripAccion"
+          },
+          "edoReg" : {
+            "type" : "string",
+            "name" : "edoReg"
+          },
+          "fchHhModifEdoReg" : {
+            "type" : "string"
+          },
+          "fchHhCreaReg" : {
+            "type" : "string"
+          }
+        }
       },
       "RequestActualizarAccion" : {
         "type" : "object",
@@ -3092,7 +3311,8 @@
       },
       "ResponseActualizarAccion" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "BodySalidaConsultarAccion" : {
         "type" : "object",
@@ -3101,7 +3321,8 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/BeanAccion"
-            }
+            },
+            "name" : "acciones"
           }
         }
       },
@@ -3120,7 +3341,8 @@
             "$ref" : "#/components/schemas/HeaderSalida"
           },
           "bodySalidaConsultarAcciones" : {
-            "$ref" : "#/components/schemas/BodySalidaConsultarAccion"
+            "$ref" : "#/components/schemas/BodySalidaConsultarAccion",
+            "name" : "bodySalidaConsultarAcciones"
           }
         }
       },
@@ -3131,10 +3353,10 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/BeanAccion"
-            }
+            },
+            "name" : "acciones"
           }
-        },
-        "required" : [ "acciones" ]
+        }
       },
       "RequestEliminarAccion" : {
         "type" : "object",
@@ -3149,7 +3371,8 @@
       },
       "ResponseEliminarAccion" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "RequestIngresarAccion" : {
         "type" : "object",
@@ -3164,12 +3387,37 @@
       },
       "ResponseIngresarAccion" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
+      },
+      "BeanCobro" : {
+        "type" : "object",
+        "properties" : {
+          "idAccion" : {
+            "type" : "integer"
+          },
+          "idPlanti" : {
+            "type" : "string"
+          },
+          "indicCobro" : {
+            "type" : "string"
+          },
+          "fchHhModifEdoReg" : {
+            "type" : "string"
+          }
+        }
       },
       "BodyEntradaCobros" : {
         "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
+        "properties" : {
+          "cobros" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanCobro"
+            },
+            "name" : "cobros"
+          }
+        }
       },
       "RequestActualizarCobros" : {
         "type" : "object",
@@ -3184,12 +3432,8 @@
       },
       "ResponseActualizarCobros" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
-      },
-      "BeanCobro" : {
-        "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "BodySalidaConsultarCobros" : {
         "type" : "object",
@@ -3198,7 +3442,8 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/BeanCobro"
-            }
+            },
+            "name" : "cobros"
           }
         }
       },
@@ -3217,7 +3462,8 @@
             "$ref" : "#/components/schemas/HeaderSalida"
           },
           "bodySalidaConsultarCobros" : {
-            "$ref" : "#/components/schemas/BodySalidaConsultarCobros"
+            "$ref" : "#/components/schemas/BodySalidaConsultarCobros",
+            "name" : "bodySalidaConsultarCobros"
           }
         }
       },
@@ -3234,12 +3480,38 @@
       },
       "ResponseIngresarCobros" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "BeanIntegradora" : {
         "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
+        "properties" : {
+          "codIntegradora" : {
+            "type" : "integer",
+            "name" : "codIntegradora"
+          },
+          "nomIntegradora" : {
+            "type" : "string",
+            "name" : "nomIntegradora"
+          },
+          "fchHhCreaReg" : {
+            "type" : "string"
+          },
+          "fchHhModifReg" : {
+            "type" : "string"
+          },
+          "edoReg" : {
+            "type" : "string",
+            "name" : "edoReg"
+          },
+          "codUsu" : {
+            "type" : "string",
+            "name" : "codUsu"
+          },
+          "fchHhModifEdoReg" : {
+            "type" : "string"
+          }
+        }
       },
       "RequestActualizarIntegradora" : {
         "type" : "object",
@@ -3254,7 +3526,8 @@
       },
       "ResponseActualizarIntegradora" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "BodySalidaConsultarIntegradora" : {
         "type" : "object",
@@ -3263,7 +3536,8 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/BeanIntegradora"
-            }
+            },
+            "name" : "integradoras"
           }
         }
       },
@@ -3282,7 +3556,8 @@
             "$ref" : "#/components/schemas/HeaderSalida"
           },
           "bodySalidaConsultarIntegradoras" : {
-            "$ref" : "#/components/schemas/BodySalidaConsultarIntegradora"
+            "$ref" : "#/components/schemas/BodySalidaConsultarIntegradora",
+            "name" : "bodySalidaConsultarIntegradoras"
           }
         }
       },
@@ -3293,10 +3568,10 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/BeanIntegradora"
-            }
+            },
+            "name" : "integradoras"
           }
-        },
-        "required" : [ "integradoras" ]
+        }
       },
       "RequestEliminarIntegradora" : {
         "type" : "object",
@@ -3311,7 +3586,8 @@
       },
       "ResponseEliminarIntegradora" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "RequestIngresarIntegradora" : {
         "type" : "object",
@@ -3326,12 +3602,80 @@
       },
       "ResponseIngresarIntegradora" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "BeanNotificacionCorreo" : {
         "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
+        "properties" : {
+          "clvTabla" : {
+            "type" : "integer",
+            "name" : "clvTabla"
+          },
+          "siglaAplic" : {
+            "type" : "string",
+            "name" : "siglaAplic"
+          },
+          "tipoTrans" : {
+            "type" : "string",
+            "name" : "tipoTrans"
+          },
+          "correoOrigen" : {
+            "type" : "string",
+            "name" : "correoOrigen"
+          },
+          "correoDestino" : {
+            "type" : "string",
+            "name" : "correoDestino"
+          },
+          "edoNoti" : {
+            "type" : "string",
+            "name" : "edoNoti"
+          },
+          "msje" : {
+            "type" : "string",
+            "name" : "msje"
+          },
+          "idPlanti" : {
+            "type" : "string",
+            "name" : "idPlanti"
+          },
+          "tipoId" : {
+            "type" : "string",
+            "name" : "tipoId"
+          },
+          "nroId" : {
+            "type" : "number",
+            "format" : "double",
+            "name" : "nroId"
+          },
+          "nroCtaCobro" : {
+            "type" : "number",
+            "format" : "double",
+            "name" : "nroCtaCobro"
+          },
+          "fchHhCreaReg" : {
+            "type" : "string"
+          },
+          "fchHhModifReg" : {
+            "type" : "string"
+          },
+          "edoReg" : {
+            "type" : "string",
+            "name" : "edoReg"
+          },
+          "fchHhModifEdoReg" : {
+            "type" : "string"
+          },
+          "codIntegradora" : {
+            "type" : "integer",
+            "name" : "codIntegradora"
+          },
+          "idAccion" : {
+            "type" : "integer",
+            "name" : "idAccion"
+          }
+        }
       },
       "RequestActualizarNotificacionCorreo" : {
         "type" : "object",
@@ -3346,7 +3690,8 @@
       },
       "ResponseActualizarNotificacionCorreo" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "BodySalidaConsultarNotificacionCorreo" : {
         "type" : "object",
@@ -3355,7 +3700,8 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/BeanNotificacionCorreo"
-            }
+            },
+            "name" : "notificacionesCorreo"
           }
         }
       },
@@ -3374,7 +3720,8 @@
             "$ref" : "#/components/schemas/HeaderSalida"
           },
           "bodySalidaConsultarNotificacionesCorreo" : {
-            "$ref" : "#/components/schemas/BodySalidaConsultarNotificacionCorreo"
+            "$ref" : "#/components/schemas/BodySalidaConsultarNotificacionCorreo",
+            "name" : "bodySalidaConsultarNotificacionesCorreo"
           }
         }
       },
@@ -3385,10 +3732,10 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/BeanNotificacionCorreo"
-            }
+            },
+            "name" : "notificacionesCorreo"
           }
-        },
-        "required" : [ "notificacionesCorreo" ]
+        }
       },
       "RequestEliminarNotificacionCorreo" : {
         "type" : "object",
@@ -3403,7 +3750,8 @@
       },
       "ResponseEliminarNotificacionCorreo" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "RequestIngresarNotificacionCorreo" : {
         "type" : "object",
@@ -3418,12 +3766,89 @@
       },
       "ResponseIngresarNotificacionCorreo" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "BeanNotificacionSms" : {
         "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
+        "properties" : {
+          "clvTabla" : {
+            "type" : "integer",
+            "name" : "clvTabla"
+          },
+          "siglaAplic" : {
+            "type" : "string",
+            "name" : "siglaAplic"
+          },
+          "tipoTrans" : {
+            "type" : "string",
+            "name" : "tipoTrans"
+          },
+          "codCorto" : {
+            "type" : "integer",
+            "name" : "codCorto"
+          },
+          "telefRemitente" : {
+            "type" : "string",
+            "name" : "telefRemitente"
+          },
+          "telefDest" : {
+            "type" : "string",
+            "name" : "telefDest"
+          },
+          "edoNoti" : {
+            "type" : "string",
+            "name" : "edoNoti"
+          },
+          "msje" : {
+            "type" : "string",
+            "name" : "msje"
+          },
+          "idPlanti" : {
+            "type" : "string",
+            "name" : "idPlanti"
+          },
+          "tipoId" : {
+            "type" : "string",
+            "name" : "tipoId"
+          },
+          "nroId" : {
+            "type" : "number",
+            "format" : "double",
+            "name" : "nroId"
+          },
+          "nroPer" : {
+            "type" : "number",
+            "format" : "double",
+            "name" : "nroPer"
+          },
+          "nroCtaCobro" : {
+            "type" : "number",
+            "format" : "double",
+            "name" : "nroCtaCobro"
+          },
+          "fchHhCreaReg" : {
+            "type" : "string"
+          },
+          "fchHhModifReg" : {
+            "type" : "string"
+          },
+          "edoReg" : {
+            "type" : "string",
+            "name" : "edoReg"
+          },
+          "fchHhModifEdoReg" : {
+            "type" : "string"
+          },
+          "codIntegradora" : {
+            "type" : "integer",
+            "name" : "codIntegradora"
+          },
+          "idAccion" : {
+            "type" : "integer",
+            "name" : "idAccion"
+          }
+        }
       },
       "RequestActualizarNotificacionSms" : {
         "type" : "object",
@@ -3438,7 +3863,8 @@
       },
       "ResponseActualizarNotificacionSms" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "BodySalidaConsultarNotificacionSms" : {
         "type" : "object",
@@ -3447,7 +3873,8 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/BeanNotificacionSms"
-            }
+            },
+            "name" : "notificacionesSms"
           }
         }
       },
@@ -3466,7 +3893,8 @@
             "$ref" : "#/components/schemas/HeaderSalida"
           },
           "bodySalidaConsultarNotificacionesSms" : {
-            "$ref" : "#/components/schemas/BodySalidaConsultarNotificacionSms"
+            "$ref" : "#/components/schemas/BodySalidaConsultarNotificacionSms",
+            "name" : "bodySalidaConsultarNotificacionesSms"
           }
         }
       },
@@ -3477,10 +3905,10 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/BeanNotificacionSms"
-            }
+            },
+            "name" : "notificacionesSms"
           }
-        },
-        "required" : [ "notificacionesSms" ]
+        }
       },
       "RequestEliminarNotificacionSms" : {
         "type" : "object",
@@ -3495,7 +3923,8 @@
       },
       "ResponseEliminarNotificacionSms" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "RequestIngresarNotificacionSms" : {
         "type" : "object",
@@ -3510,12 +3939,50 @@
       },
       "ResponseIngresarNotificacionSms" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "BeanPlantilla" : {
         "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
+        "properties" : {
+          "idPlanti" : {
+            "type" : "string",
+            "name" : "idPlanti"
+          },
+          "descripPlanti" : {
+            "type" : "string",
+            "name" : "descripPlanti"
+          },
+          "codIntegradora" : {
+            "type" : "integer",
+            "name" : "codIntegradora"
+          },
+          "codNoti" : {
+            "type" : "integer",
+            "name" : "codNoti"
+          },
+          "fchHhCreaReg" : {
+            "type" : "string"
+          },
+          "fchHhModifReg" : {
+            "type" : "string"
+          },
+          "edoReg" : {
+            "type" : "string",
+            "name" : "edoReg"
+          },
+          "codUsu" : {
+            "type" : "string",
+            "name" : "codUsu"
+          },
+          "fchHhModifEdoReg" : {
+            "type" : "string"
+          },
+          "estrucMsje" : {
+            "type" : "string",
+            "name" : "estrucMsje"
+          }
+        }
       },
       "RequestActualizarPlantilla" : {
         "type" : "object",
@@ -3530,7 +3997,8 @@
       },
       "ResponseActualizarPlantilla" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "BodySalidaConsultarPlantilla" : {
         "type" : "object",
@@ -3539,7 +4007,8 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/BeanPlantilla"
-            }
+            },
+            "name" : "plantillas"
           }
         }
       },
@@ -3558,7 +4027,8 @@
             "$ref" : "#/components/schemas/HeaderSalida"
           },
           "bodySalidaConsultarPlantillas" : {
-            "$ref" : "#/components/schemas/BodySalidaConsultarPlantilla"
+            "$ref" : "#/components/schemas/BodySalidaConsultarPlantilla",
+            "name" : "bodySalidaConsultarPlantillas"
           }
         }
       },
@@ -3569,10 +4039,10 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/BeanPlantilla"
-            }
+            },
+            "name" : "plantillas"
           }
-        },
-        "required" : [ "plantillas" ]
+        }
       },
       "RequestEliminarPlantilla" : {
         "type" : "object",
@@ -3587,7 +4057,8 @@
       },
       "ResponseEliminarPlantilla" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "RequestIngresarPlantilla" : {
         "type" : "object",
@@ -3602,12 +4073,31 @@
       },
       "ResponseIngresarPlantilla" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
+      },
+      "BeanPlantillaVariable" : {
+        "type" : "object",
+        "properties" : {
+          "idPlanti" : {
+            "type" : "string"
+          },
+          "idVarble" : {
+            "type" : "integer"
+          }
+        }
       },
       "BodyEntradaPlantillaVariables" : {
         "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
+        "properties" : {
+          "plantillaVariables" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanPlantillaVariable"
+            },
+            "name" : "plantillaVariables"
+          }
+        }
       },
       "RequestActualizarPlantillaVariable" : {
         "type" : "object",
@@ -3622,12 +4112,8 @@
       },
       "ResponseActualizarPlantillaVariable" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
-      },
-      "BeanPlantillaVariable" : {
-        "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "BodySalidaConsultarPlantillaVariables" : {
         "type" : "object",
@@ -3636,7 +4122,8 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/BeanPlantillaVariable"
-            }
+            },
+            "name" : "plantillaVariables"
           }
         }
       },
@@ -3655,7 +4142,8 @@
             "$ref" : "#/components/schemas/HeaderSalida"
           },
           "bodySalidaConsultarPlantillaVariables" : {
-            "$ref" : "#/components/schemas/BodySalidaConsultarPlantillaVariables"
+            "$ref" : "#/components/schemas/BodySalidaConsultarPlantillaVariables",
+            "name" : "bodySalidaConsultarPlantillaVariables"
           }
         }
       },
@@ -3672,12 +4160,38 @@
       },
       "ResponseIngresarPlantillaVariable" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "BeanTipoNotificacion" : {
         "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
+        "properties" : {
+          "codNoti" : {
+            "type" : "integer",
+            "name" : "codNoti"
+          },
+          "tipoNoti" : {
+            "type" : "string",
+            "name" : "tipoNoti"
+          },
+          "fchHhCreaReg" : {
+            "type" : "string"
+          },
+          "fchHhModifReg" : {
+            "type" : "string"
+          },
+          "edoReg" : {
+            "type" : "string",
+            "name" : "edoReg"
+          },
+          "codUsu" : {
+            "type" : "string",
+            "name" : "codUsu"
+          },
+          "fchHhModifEdoReg" : {
+            "type" : "string"
+          }
+        }
       },
       "RequestActualizarTipoNotificacion" : {
         "type" : "object",
@@ -3692,7 +4206,8 @@
       },
       "ResponseActualizarTipoNotificacion" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "BodySalidaConsultarTipoNotificacion" : {
         "type" : "object",
@@ -3701,7 +4216,8 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/BeanTipoNotificacion"
-            }
+            },
+            "name" : "tipoNotificaciones"
           }
         }
       },
@@ -3720,7 +4236,8 @@
             "$ref" : "#/components/schemas/HeaderSalida"
           },
           "bodySalidaConsultarTipoNotificaciones" : {
-            "$ref" : "#/components/schemas/BodySalidaConsultarTipoNotificacion"
+            "$ref" : "#/components/schemas/BodySalidaConsultarTipoNotificacion",
+            "name" : "bodySalidaConsultarTipoNotificaciones"
           }
         }
       },
@@ -3731,7 +4248,8 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/BeanTipoNotificacion"
-            }
+            },
+            "name" : "tipoNotificaciones"
           }
         }
       },
@@ -3748,7 +4266,8 @@
       },
       "ResponseEliminarTipoNotificacion" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "RequestIngresarTipoNotificacion" : {
         "type" : "object",
@@ -3763,12 +4282,35 @@
       },
       "ResponseIngresarTipoNotificacion" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "BeanVariable" : {
         "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
+        "properties" : {
+          "idVarble" : {
+            "type" : "integer",
+            "name" : "idVarble"
+          },
+          "valorVarble" : {
+            "type" : "string",
+            "name" : "valorVarble"
+          },
+          "descripVarble" : {
+            "type" : "string",
+            "name" : "descripVarble"
+          },
+          "edoReg" : {
+            "type" : "string",
+            "name" : "edoReg"
+          },
+          "fchHhModifEdoReg" : {
+            "type" : "string"
+          },
+          "fchHhCreaReg" : {
+            "type" : "string"
+          }
+        }
       },
       "RequestActualizarVariable" : {
         "type" : "object",
@@ -3783,7 +4325,8 @@
       },
       "ResponseActualizarVariable" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "BodySalidaConsultarVariable" : {
         "type" : "object",
@@ -3792,7 +4335,8 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/BeanVariable"
-            }
+            },
+            "name" : "variables"
           }
         }
       },
@@ -3811,7 +4355,8 @@
             "$ref" : "#/components/schemas/HeaderSalida"
           },
           "bodySalidaConsultarVariables" : {
-            "$ref" : "#/components/schemas/BodySalidaConsultarVariable"
+            "$ref" : "#/components/schemas/BodySalidaConsultarVariable",
+            "name" : "bodySalidaConsultarVariables"
           }
         }
       },
@@ -3822,10 +4367,10 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/BeanVariable"
-            }
+            },
+            "name" : "variables"
           }
-        },
-        "required" : [ "variables" ]
+        }
       },
       "RequestEliminarVariable" : {
         "type" : "object",
@@ -3840,7 +4385,8 @@
       },
       "ResponseEliminarVariable" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "RequestIngresarVariable" : {
         "type" : "object",
@@ -3855,12 +4401,8 @@
       },
       "ResponseIngresarVariable" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
-      },
-      "HikariDataSource" : {
-        "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "ClientAccion" : {
         "type" : "object",
@@ -3869,10 +4411,7 @@
             "$ref" : "#/components/schemas/Logger"
           },
           "sentencias" : {
-            "type" : "object",
-            "additionalProperties" : {
-              "type" : "string"
-            }
+            "$ref" : "#/components/schemas/String,String"
           },
           "ds" : {
             "$ref" : "#/components/schemas/HikariDataSource"
@@ -3886,10 +4425,7 @@
             "$ref" : "#/components/schemas/Logger"
           },
           "sentencias" : {
-            "type" : "object",
-            "additionalProperties" : {
-              "type" : "string"
-            }
+            "$ref" : "#/components/schemas/String,String"
           },
           "ds" : {
             "$ref" : "#/components/schemas/HikariDataSource"
@@ -3903,10 +4439,7 @@
             "$ref" : "#/components/schemas/Logger"
           },
           "sentencias" : {
-            "type" : "object",
-            "additionalProperties" : {
-              "type" : "string"
-            }
+            "$ref" : "#/components/schemas/String,String"
           },
           "ds" : {
             "$ref" : "#/components/schemas/HikariDataSource"
@@ -3920,10 +4453,7 @@
             "$ref" : "#/components/schemas/Logger"
           },
           "sentencias" : {
-            "type" : "object",
-            "additionalProperties" : {
-              "type" : "string"
-            }
+            "$ref" : "#/components/schemas/String,String"
           },
           "ds" : {
             "$ref" : "#/components/schemas/HikariDataSource"
@@ -3937,10 +4467,7 @@
             "$ref" : "#/components/schemas/Logger"
           },
           "sentencias" : {
-            "type" : "object",
-            "additionalProperties" : {
-              "type" : "string"
-            }
+            "$ref" : "#/components/schemas/String,String"
           },
           "ds" : {
             "$ref" : "#/components/schemas/HikariDataSource"
@@ -3954,10 +4481,7 @@
             "$ref" : "#/components/schemas/Logger"
           },
           "sentencias" : {
-            "type" : "object",
-            "additionalProperties" : {
-              "type" : "string"
-            }
+            "$ref" : "#/components/schemas/String,String"
           },
           "ds" : {
             "$ref" : "#/components/schemas/HikariDataSource"
@@ -3971,10 +4495,7 @@
             "$ref" : "#/components/schemas/Logger"
           },
           "sentencias" : {
-            "type" : "object",
-            "additionalProperties" : {
-              "type" : "string"
-            }
+            "$ref" : "#/components/schemas/String,String"
           },
           "ds" : {
             "$ref" : "#/components/schemas/HikariDataSource"
@@ -3988,10 +4509,7 @@
             "$ref" : "#/components/schemas/Logger"
           },
           "sentencias" : {
-            "type" : "object",
-            "additionalProperties" : {
-              "type" : "string"
-            }
+            "$ref" : "#/components/schemas/String,String"
           },
           "ds" : {
             "$ref" : "#/components/schemas/HikariDataSource"
@@ -4005,10 +4523,7 @@
             "$ref" : "#/components/schemas/Logger"
           },
           "sentencias" : {
-            "type" : "object",
-            "additionalProperties" : {
-              "type" : "string"
-            }
+            "$ref" : "#/components/schemas/String,String"
           },
           "ds" : {
             "$ref" : "#/components/schemas/HikariDataSource"
@@ -4017,19 +4532,23 @@
       },
       "ActualizarImpl" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "ConsultarImpl" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "EliminarImpl" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "IngresarImpl" : {
         "type" : "object",
-        "description" : "Clase sin propiedades definidas"
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "BeanAplicacion" : {
         "type" : "object",
@@ -4052,11 +4571,6 @@
             "$ref" : "#/components/schemas/HikariDataSource"
           }
         }
-      },
-      "DataSource" : {
-        "type" : "object",
-        "description" : "Objeto no resuelto dinámicamente",
-        "properties" : { }
       },
       "AplicacionDAO" : {
         "type" : "object",
@@ -4130,6 +4644,497 @@
           }
         }
       },
+      "BodyEntradaConsultarSaldo" : {
+        "type" : "object",
+        "properties" : {
+          "codigoTransaccion" : {
+            "type" : "string"
+          },
+          "indicadorReverso" : {
+            "type" : "string"
+          },
+          "codigoTerminal" : {
+            "type" : "string"
+          },
+          "numeroTarjeta" : {
+            "type" : "string"
+          },
+          "fechaVencimiento" : {
+            "type" : "string"
+          },
+          "tipoCuenta" : {
+            "type" : "string"
+          },
+          "numeroCuenta" : {
+            "type" : "string"
+          },
+          "indicadorCobro" : {
+            "type" : "string"
+          },
+          "numeroCedula" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "inicValCedula" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "longitudValCedula" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "codigoMoneda" : {
+            "type" : "string"
+          },
+          "codigoSubCanal" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "BodySalidaConsultarSaldo" : {
+        "type" : "object",
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
+      },
+      "RequestConsultarSaldoCuenta" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntradaConsultarSaldo" : {
+            "$ref" : "#/components/schemas/BodyEntradaConsultarSaldo"
+          }
+        }
+      },
+      "ResponseConsultarSaldoCuenta" : {
+        "type" : "object",
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
+      },
+      "BeanWsError" : {
+        "type" : "object",
+        "properties" : {
+          "codigo" : {
+            "type" : "integer"
+          },
+          "descrip" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BeanwsResult" : {
+        "type" : "object",
+        "properties" : {
+          "resulId" : {
+            "type" : "integer"
+          },
+          "descrip" : {
+            "type" : "string"
+          },
+          "idConversation" : {
+            "type" : "integer"
+          },
+          "campos" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BodyEntradaObtenerCampos" : {
+        "type" : "object",
+        "properties" : {
+          "conversationId" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "RequestObtenerCampos" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaObtenerCampos"
+          }
+        }
+      },
+      "ResponseConsultarCampos" : {
+        "type" : "object",
+        "properties" : {
+          "error" : {
+            "$ref" : "#/components/schemas/BeanWsError"
+          },
+          "resul" : {
+            "$ref" : "#/components/schemas/BeanwsResult"
+          }
+        }
+      },
+      "BodyEntradaCrearToken" : {
+        "type" : "object",
+        "properties" : {
+          "oauthId" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BodySalidaCrearToken" : {
+        "type" : "object",
+        "properties" : {
+          "token" : {
+            "type" : "string"
+          },
+          "tipotoken" : {
+            "type" : "string"
+          },
+          "exp" : {
+            "type" : "integer"
+          },
+          "scope" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RequestCrearToken" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaCrearToken"
+          }
+        }
+      },
+      "ResponseCrearToken" : {
+        "type" : "object",
+        "properties" : {
+          "bodySalidaCrearToken" : {
+            "$ref" : "#/components/schemas/BodySalidaCrearToken"
+          }
+        }
+      },
+      "BeanCampo" : {
+        "type" : "object",
+        "properties" : {
+          "clave" : {
+            "type" : "string"
+          },
+          "valor" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BodyEntradaIniciarConversacion" : {
+        "type" : "object",
+        "properties" : {
+          "conversationId" : {
+            "type" : "integer"
+          },
+          "campos" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeanCampo"
+            }
+          }
+        }
+      },
+      "RequestIniciarConversacion" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaIniciarConversacion"
+          }
+        }
+      },
+      "ResponseIniciarConversacion" : {
+        "type" : "object",
+        "properties" : {
+          "transId" : {
+            "type" : "string"
+          },
+          "error" : {
+            "$ref" : "#/components/schemas/BeanWsError"
+          },
+          "resul" : {
+            "$ref" : "#/components/schemas/BeanwsResult"
+          }
+        }
+      },
+      "Meta" : {
+        "type" : "object",
+        "properties" : {
+          "timestamp" : {
+            "type" : "string"
+          },
+          "transactionId" : {
+            "type" : "string"
+          },
+          "explain" : {
+            "type" : "string"
+          }
+        }
+      },
+      "ErrorsMessangi" : {
+        "type" : "object",
+        "properties" : {
+          "reason" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BodySalidaSMS" : {
+        "type" : "object",
+        "properties" : {
+          "meta" : {
+            "$ref" : "#/components/schemas/Meta"
+          },
+          "errors" : {
+            "$ref" : "#/components/schemas/ErrorsMessangi"
+          }
+        }
+      },
+      "RequestSMS" : {
+        "type" : "object",
+        "properties" : {
+          "de" : {
+            "type" : "string"
+          },
+          "mensaje" : {
+            "type" : "string"
+          },
+          "para" : {
+            "type" : "string"
+          },
+          "tipo" : {
+            "type" : "string"
+          },
+          "nroPer" : {
+            "type" : "string"
+          },
+          "idExterno" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RequestMessangiSMS" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "canal" : {
+            "type" : "string"
+          },
+          "request" : {
+            "$ref" : "#/components/schemas/RequestSMS"
+          }
+        }
+      },
+      "ResponseMessangi" : {
+        "type" : "object",
+        "properties" : {
+          "meta" : {
+            "$ref" : "#/components/schemas/Meta"
+          },
+          "errors" : {
+            "$ref" : "#/components/schemas/ErrorsMessangi"
+          }
+        }
+      },
+      "Parametro" : {
+        "type" : "object",
+        "properties" : {
+          "clv" : {
+            "type" : "string"
+          },
+          "valor" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BodyEntradaEnviarNotificaciones" : {
+        "type" : "object",
+        "properties" : {
+          "nroPer" : {
+            "type" : "integer"
+          },
+          "tipoId" : {
+            "type" : "string"
+          },
+          "nroCi" : {
+            "type" : "integer"
+          },
+          "codNoti" : {
+            "type" : "integer"
+          },
+          "tipoNoti" : {
+            "type" : "string"
+          },
+          "parametros" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Parametro"
+            }
+          }
+        }
+      },
+      "RequestEnviarNotificaciones" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaEnviarNotificaciones"
+          }
+        }
+      },
+      "BodySalidaOperacionesMultiples" : {
+        "type" : "object",
+        "properties" : {
+          "mensaje" : {
+            "type" : "string"
+          }
+        }
+      },
+      "ExtraInfo" : {
+        "type" : "object",
+        "properties" : {
+          "samwellWebHookName" : {
+            "type" : "string"
+          },
+          "msgiSourceCampaign" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RequestOperacionesMultiples" : {
+        "type" : "object",
+        "properties" : {
+          "owner" : {
+            "type" : "string"
+          },
+          "date" : {
+            "type" : "string"
+          },
+          "mlogId" : {
+            "type" : "string"
+          },
+          "processId" : {
+            "type" : "string"
+          },
+          "origin" : {
+            "type" : "string"
+          },
+          "externalId" : {
+            "type" : "string"
+          },
+          "callback" : {
+            "type" : "string"
+          },
+          "connection" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "text" : {
+            "type" : "string"
+          },
+          "user" : {
+            "type" : "string"
+          },
+          "extraInfo" : {
+            "$ref" : "#/components/schemas/ExtraInfo"
+          }
+        }
+      },
+      "ResponseOperacionesMultiples" : {
+        "type" : "object",
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
+      },
+      "DanaConnectClient" : {
+        "type" : "object",
+        "properties" : {
+          "send" : {
+            "$ref" : "#/components/schemas/SendRequestRest"
+          }
+        }
+      },
+      "Channel" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "authorization" : {
+            "type" : "string"
+          },
+          "from" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Channels" : {
+        "type" : "object",
+        "properties" : {
+          "channel" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Channel"
+            }
+          }
+        }
+      },
+      "BeansNotifications" : {
+        "type" : "object",
+        "properties" : {
+          "pathFileServices" : {
+            "type" : "string"
+          },
+          "messangiChannels" : {
+            "$ref" : "#/components/schemas/Channels"
+          }
+        }
+      },
+      "Messangi" : {
+        "type" : "object",
+        "properties" : {
+          "log" : {
+            "$ref" : "#/components/schemas/Logger"
+          },
+          "bean" : {
+            "$ref" : "#/components/schemas/BeansNotifications"
+          },
+          "canales" : {
+            "$ref" : "#/components/schemas/Channels"
+          }
+        }
+      },
+      "MessangiClient" : {
+        "type" : "object",
+        "properties" : {
+          "send" : {
+            "$ref" : "#/components/schemas/SendRequestRest"
+          }
+        }
+      },
+      "OAuthClient" : {
+        "type" : "object",
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
+      },
+      "DanaConnectImpl" : {
+        "type" : "object",
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
+      },
       "BodySalidaActualizarIntegradora" : {
         "type" : "object",
         "properties" : { }
@@ -4162,7 +5167,7 @@
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaActualizarPlantillaVariable" : {
+      "BodySalidaActualizarPlantillaVariables" : {
         "type" : "object",
         "properties" : { }
       },
@@ -4170,7 +5175,15 @@
         "type" : "object",
         "properties" : { }
       },
+      "BodySalidaListarIntegradoras" : {
+        "type" : "object",
+        "properties" : { }
+      },
       "BodyEntradaConsultarNotificacionCorreo" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaListarNotificacionCorreo" : {
         "type" : "object",
         "properties" : { }
       },
@@ -4178,7 +5191,15 @@
         "type" : "object",
         "properties" : { }
       },
+      "BodySalidaListarNotificacionSms" : {
+        "type" : "object",
+        "properties" : { }
+      },
       "BodyEntradaConsultarPlantilla" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaListarPlantillas" : {
         "type" : "object",
         "properties" : { }
       },
@@ -4186,7 +5207,15 @@
         "type" : "object",
         "properties" : { }
       },
+      "BodySalidaListarTipoNotificacion" : {
+        "type" : "object",
+        "properties" : { }
+      },
       "BodyEntradaConsultarVariable" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaListarVariables" : {
         "type" : "object",
         "properties" : { }
       },
@@ -4194,7 +5223,15 @@
         "type" : "object",
         "properties" : { }
       },
+      "BodySalidaListarAcciones" : {
+        "type" : "object",
+        "properties" : { }
+      },
       "BodyEntradaConsultarCobros" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaListarCobros" : {
         "type" : "object",
         "properties" : { }
       },
@@ -4202,7 +5239,11 @@
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaEliminarIntegradora" : {
+      "BodySalidaListarPlantillaVariables" : {
+        "type" : "object",
+        "properties" : { }
+      },
+      "BodySalidaEliminarIntegradoras" : {
         "type" : "object",
         "properties" : { }
       },
@@ -4222,56 +5263,56 @@
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaEliminarVariable" : {
+      "BodySalidaEliminarVariables" : {
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaEliminarAccion" : {
+      "BodySalidaEliminarAcciones" : {
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaIngresarIntegradora" : {
+      "BodySalidaInsertarIntegradora" : {
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaIngresarNotificacionCorreo" : {
+      "BodySalidaInsertarNotificacionCorreo" : {
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaIngresarNotificacionSms" : {
+      "BodySalidaInsertarNotificacionSms" : {
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaIngresarPlantilla" : {
+      "BodySalidaInsertarPlantilla" : {
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaIngresarTipoNotificacion" : {
+      "BodySalidaInsertarTipoNotificacion" : {
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaIngresarVariable" : {
+      "BodySalidaInsertarVariable" : {
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaIngresarAccion" : {
+      "BodySalidaInsertarAccion" : {
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaIngresarCobros" : {
+      "BodySalidaInsertarCobros" : {
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaIngresarPlantillaVariable" : {
+      "BodySalidaInsertarPlantillaVariables" : {
         "type" : "object",
         "properties" : { }
       }
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "bearerFormat" : "JWT",
+        "type" : "http",
         "scheme" : "bearer",
-        "type" : "http"
+        "bearerFormat" : "JWT"
       }
     }
   },
