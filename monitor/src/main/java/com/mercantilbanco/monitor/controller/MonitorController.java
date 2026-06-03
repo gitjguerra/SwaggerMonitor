@@ -165,7 +165,7 @@ public class MonitorController {
 
 		for (ServerHistory h : list) {
 			labels.add(new java.text.SimpleDateFormat("HH:mm:ss").format(h.getTimestamp()));
-			values.add(h.isUp() ? h.getResponseTime() : null);
+			values.add(h.isUp() ? h.getResponseTime() : 2500);
 		}
 
 		result.put("labels", labels);
@@ -336,6 +336,35 @@ public class MonitorController {
 		}
 
 		return null;
+	}
+
+	// =========================================================
+	// ✅ ESTADO EN VIVO DE SERVIDORES (PARA CARDS)
+	// =========================================================
+	@GetMapping("/api/servers/status")
+	@ResponseBody
+	public List<Map<String, Object>> getServersStatus() {
+
+	    List<Map<String, Object>> result = new ArrayList<>();
+
+	    Map<String, List<ServerInfo>> data = service.getCurrentStatus();
+	    if (data == null) return result;
+
+	    for (List<ServerInfo> servers : data.values()) {
+	        if (servers == null) continue;
+
+	        for (ServerInfo srv : servers) {
+
+	            Map<String, Object> m = new HashMap<>();
+	            m.put("name", srv.getName());
+	            m.put("up", srv.isUp());
+	            m.put("responseTime", srv.getResponseTime());
+
+	            result.add(m);
+	        }
+	    }
+
+	    return result;
 	}
 
 }

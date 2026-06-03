@@ -296,14 +296,11 @@
 					<div class="server-grid">
 
 						<div th:each="srv : ${env.value}">
-
+														
 							<div class="card text-center"
-								th:attr="onclick=|showDetails('${srv.name}', '${srv.host}', '${srv.port}', '${srv.up}', '${srv.responseTime}', '${srv.error}')|"
-								th:classappend="
-				    ${srv.up} ? 
-				        (${srv.responseTime > 1000} ? ' card-warning' : ' card-up')
-				        : ' card-down down-alert'
-				"
+							     th:attr="onclick=|showDetails('${srv.name}', '${srv.host}', '${srv.port}', '${srv.up}', '${srv.responseTime}', '${srv.error}')|,
+							              id=|card-${srv.name}|"
+
 								style="cursor: pointer;">
 
 								<h6 th:text="${srv.name}"></h6>
@@ -611,96 +608,103 @@ function loadEvents() {
 // ======================================================
 // ✅ GRÁFICA MULTI SERVIDOR
 // ======================================================
-let chart;
 
-function loadChartMulti() {
+	let chart = null;
+	let historyData = {};   // ✅ persistente
+	const MAX_POINTS = 20;
 
-    let select = document.getElementById("serverSelect");
-    let selectedOptions = Array.from(select.selectedOptions).map(o => o.value);
+	// 🎨 paleta fija de colores
+	const COLORS = [
+	    "#3b82f6", // azul
+	    "#ef4444", // rojo
+	    "#10b981", // verde
+	    "#f59e0b", // naranja
+	    "#8b5cf6", // morado
+	    "#14b8a6", // teal
+	    "#e11d48", // rosado
+	    "#6366f1", // índigo
+	    "#84cc16", // lima
+	    "#f97316"  // naranja fuerte
+	];
 
-    if (selectedOptions.length === 0) return;
+	function loadChartMulti() {
 
-    Promise.all(
-        selectedOptions.map(name =>
-            fetch('/api/chart/' + name).then(res => res.json())
-        )
-    )
-    .then(results => {
+	    const select = document.getElementById("serverSelect");
+	    const selected = Array.from(select.selectedOptions).map(o => o.value);
 
-        if (!results || results.length === 0) {
-            console.log("No hay datos");
-            return;
-        }
+	    if (selected.length === 0) return;
 
-        const ctx = document.getElementById('responseChart');
+	    Promise.all(
+	        selected.map(name =>
+	            fetch('/api/chart/' + name).then(r => r.json())
+	        )
+	    )
+	    .then(results => {
 
-        if (chart) chart.destroy();
+	        const ctx = document.getElementById("responseChart");
 
-        // ✅ X = SERVIDORES
-        let labels = selectedOptions;
+	        if (chart) chart.destroy();
 
-        // ✅ Y = ÚLTIMO VALOR DE CADA SERVIDOR
-        let values = results.map(r => {
-            if (!r.values || r.values.length === 0) return 0;
-            return r.values[r.values.length - 1];
-        });
+	        let labels = [];
+	        let datasets = [];
 
-        // ✅ COLORES SEMÁFORO
-        let colors = values.map(v => {
-            if (v > 2000) return "#ef4444"; // 🔴 crítico
-            if (v > 1000) return "#eab308"; // 🟡 lento
-            return "#22c55e";               // 🟢 normal
-        });
+	        results.forEach((res, idx) => {
 
-        let combined = labels.map((l, i) => ({
-            name: l,
-            value: values[i],
-            color: colors[i]
-        }));
+	            const name = selected[idx];
 
-        combined.sort((a, b) => b.value - a.value);
+	            if (!historyData[name]) {
+	                historyData[name] = [];
+	            }
 
-        labels = combined.map(c => c.name);
-        values = combined.map(c => c.value);
-        colors = combined.map(c => c.color);
+	            let value = 0;
 
-        // ✅ CREAR GRÁFICA
-        chart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Tiempo de respuesta (ms)',
-                    data: values,
-                    backgroundColor: colors,
-                    borderRadius: 6,
-                    barThickness: 40
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
+	            if (res.values && res.values.length > 0) {
+	                value = res.values[res.values.length - 1];
+	            }
 
-                scales: {
-                    y: {
-                        min: 0,
-                        max: 2500,
-                        ticks: {
-                            callback: value => value + " ms"
-                        }
-                    }
-                },
+	            historyData[name].push(value);
 
-                plugins: {
-                    legend: {
-                        display: true
-                    }
-                }
-            }
-        });
+	            // mantener tamaño fijo
+	            if (historyData[name].length > MAX_POINTS) {
+	                historyData[name].shift();
+	            }
 
-    });
-}
+	            // eje X simple (0..n)
+	            labels = historyData[name].map((_, i) => i);
+
+	            let color = COLORS[idx % COLORS.length];
+
+	            datasets.push({
+	                label: name,
+	                data: historyData[name],
+	                borderColor: color,
+	                fill: false,
+	                tension: 0.2
+	            });
+
+	        });
+
+	        chart = new Chart(ctx, {
+	            type: 'line',
+	            data: {
+	                labels: labels,
+	                datasets: datasets
+	            },
+	            options: {
+	                animation: false,
+	                responsive: true,
+	                maintainAspectRatio: false,
+	                scales: {
+	                    y: {
+	                        beginAtZero: true
+	                    }
+	                }
+	            }
+	        });
+
+	    })
+	    .catch(err => console.error("Chart error", err));
+	}
 
 // ======================================================
 // ✅ SELECTOR SERVIDORES
@@ -753,7 +757,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // ✅ REFRESH AUTOMÁTICO (recomendado)
     setInterval(loadEvents, 5000);
     setInterval(loadAlerts, 5000);
-
+    setInterval(loadChartMulti, 5000);
+    setInterval(updateCards, 5000);
+    
     document.getElementById("serverSelect")
         .addEventListener("change", loadChartMulti);
 
@@ -899,6 +905,58 @@ async function loadSwaggerApis() {
         console.error("Error cargando APIs:", e);
         return [];
     }
+}
+
+
+function updateCards() {
+
+    fetch('/api/servers/status') // 🔥 endpoint ligero
+        .then(res => res.json())
+        .then(data => {
+
+            data.forEach(srv => {
+
+                let card = document.getElementById("card-" + srv.name);
+                if (!card) return;
+
+                // ✅ eliminar clases previas
+                card.classList.remove("card-up", "card-down", "card-warning", "down-alert");
+
+                // ✅ aplicar estado nuevo
+                if (!srv.up) {
+                    card.classList.add("card-down", "down-alert");
+                } else if (srv.responseTime > 1000) {
+                    card.classList.add("card-warning");
+                } else {
+                    card.classList.add("card-up");
+                }
+
+                // ✅ actualizar tiempo
+                let timeText = card.querySelector(".small-text:last-child");
+                if (timeText) {
+                    timeText.innerText = "Tiempo: " + srv.responseTime + " ms";
+                }
+
+                // ✅ actualizar icono
+                let icon = card.querySelector("span");
+                if (icon) {
+                    if (!srv.up) icon.innerText = "🔴";
+                    else if (srv.responseTime > 1000) icon.innerText = "🟡";
+                    else icon.innerText = "🟢";
+                }
+
+                // ✅ actualizar estado texto
+                let statusLabel = card.querySelector(".status-label");
+                if (statusLabel) {
+                    if (!srv.up) statusLabel.innerText = "DOWN";
+                    else if (srv.responseTime > 1000) statusLabel.innerText = "LENTO";
+                    else statusLabel.innerText = "UP";
+                }
+
+            });
+
+        })
+        .catch(err => console.error("Error cards:", err));
 }
 
 

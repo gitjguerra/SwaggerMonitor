@@ -1,8 +1,10 @@
 package com.mercantilbanco.monitor.service;
 
 import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -152,7 +154,20 @@ public class ServerMonitorService {
 
 		long start = System.currentTimeMillis();
 
-		boolean alive = isPortOpen(s);
+		boolean alive;
+
+		boolean socketOk = isPortOpen(s);
+
+		if (!socketOk) {
+			alive = false;
+		} else {
+			// intenta HTTP, pero si falla igual sigue UP
+			long httpTime = checkServerTime(s.getHost(), s.getPort());
+			
+			socketOk = isPortOpen(s);
+			
+			alive = socketOk || httpTime >= 0;			
+		}
 
 		long time = System.currentTimeMillis() - start;
 
@@ -163,23 +178,20 @@ public class ServerMonitorService {
 		s.setLastCheck(new Date());
 		s.setSlow(time > 1000);
 
-		// ✅ SOLO guardar eventos importantes
-		if (previousStatus != alive || (alive && time > 1000)) {
+		// ✅ guardar SIEMPRE
+		ServerHistory h = new ServerHistory();
+		h.setName(s.getName());
+		h.setUp(alive);
+		h.setResponseTime(time);
+		h.setTimestamp(new Date());
 
-			ServerHistory h = new ServerHistory();
-			h.setName(s.getName());
-			h.setUp(alive);
-			h.setResponseTime(time);
-			h.setTimestamp(new Date());
+		historyMap.computeIfAbsent(s.getName(), k -> new ArrayList<>());
+		historyMap.get(s.getName()).add(h);
 
-			historyMap.computeIfAbsent(s.getName(), k -> new ArrayList<>());
-			historyMap.get(s.getName()).add(h);
-
-			// ✅ limitar tamaño (opcional pero recomendado)
-			List<ServerHistory> list = historyMap.get(s.getName());
-			if (list.size() > 50) {
-				list.remove(0);
-			}
+		// limitar
+		List<ServerHistory> list = historyMap.get(s.getName());
+		if (list.size() > 50) {
+			list.remove(0);
 		}
 
 		// ✅ TIEMPO CAÍDO
@@ -208,6 +220,18 @@ public class ServerMonitorService {
 		}
 
 		return s;
+	}
+
+	// ================================
+	// ✅ MÉTODOS PARA EL FRONTEND
+	// ================================
+
+	public List<ServerHistory> getHistory(String name) {
+		return historyMap.getOrDefault(name, new ArrayList<>());
+	}
+
+	public Map<String, List<ServerInfo>> getCurrentStatus() {
+		return currentStatus;
 	}
 
 	private boolean isPortOpen(ServerInfo s) {
@@ -241,18 +265,6 @@ public class ServerMonitorService {
 		}
 	}
 
-	// ================================
-	// ✅ MÉTODOS PARA EL FRONTEND
-	// ================================
-
-	public List<ServerHistory> getHistory(String name) {
-		return historyMap.getOrDefault(name, new ArrayList<>());
-	}
-
-	public Map<String, List<ServerInfo>> getCurrentStatus() {
-		return currentStatus;
-	}
-
 	public double getUptime(String name) {
 
 		List<ServerHistory> list = historyMap.get(name);
@@ -282,6 +294,33 @@ public class ServerMonitorService {
 
 	public Map<String, List<ServerHistory>> getAllHistory() {
 		return historyMap;
+	}
+
+	public long checkServerTime(String host, int port) {
+
+		try {
+			long start = System.currentTimeMillis();
+
+			URL url = new URL("http://" + host + ":" + port);
+
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			conn.setRequestMethod("GET");
+			conn.setConnectTimeout(3000);
+			conn.setReadTimeout(3000);
+
+			int code = conn.getResponseCode();
+
+			long time = System.currentTimeMillis() - start;
+
+			if (code >= 200 && code < 500) {
+				return time;
+			} else {
+				return -1;
+			}
+
+		} catch (Exception e) {
+			return -1;
+		}
 	}
 
 }
