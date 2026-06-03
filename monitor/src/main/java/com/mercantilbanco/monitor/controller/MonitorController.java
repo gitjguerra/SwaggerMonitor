@@ -121,10 +121,12 @@ public class MonitorController {
 		for (String server : history.keySet()) {
 
 			List<ServerHistory> list = history.get(server);
-			if (list == null)
-				continue;
 
+			if (list == null) continue;
+			
 			for (ServerHistory h : list) {
+			
+			    if (h == null) continue;
 
 				Map<String, Object> e = new HashMap<>();
 
@@ -165,7 +167,7 @@ public class MonitorController {
 
 		for (ServerHistory h : list) {
 			labels.add(new java.text.SimpleDateFormat("HH:mm:ss").format(h.getTimestamp()));
-			values.add(h.isUp() ? h.getResponseTime() : 2500);
+			values.add(h.isUp() ? h.getResponseTime() : 1800);
 		}
 
 		result.put("labels", labels);

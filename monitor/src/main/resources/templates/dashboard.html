@@ -662,7 +662,22 @@ function loadEvents() {
 	                value = res.values[res.values.length - 1];
 	            }
 
-	            historyData[name].push(value);
+	            const base = idx * 2;   // 👈 altura del carril
+
+	            const isDown = value >= 1700;
+	            const isSlow = value > 1000 && value < 1700;
+
+	            let scaledValue;
+
+	            if (isDown) {
+	                scaledValue = base;          // 🔴 abajo
+	            } else if (isSlow) {
+	                scaledValue = base + 0.5;    // 🟡 medio
+	            } else {
+	                scaledValue = base + 1;      // 🟢 arriba
+	            }
+
+	            historyData[name].push(scaledValue);
 
 	            // mantener tamaño fijo
 	            if (historyData[name].length > MAX_POINTS) {
@@ -679,7 +694,8 @@ function loadEvents() {
 	                data: historyData[name],
 	                borderColor: color,
 	                fill: false,
-	                tension: 0.2
+	                tension: 0.2,
+	                pointRadius: 2
 	            });
 
 	        });
@@ -695,9 +711,32 @@ function loadEvents() {
 	                responsive: true,
 	                maintainAspectRatio: false,
 	                scales: {
-	                    y: {
-	                        beginAtZero: true
-	                    }
+	                	y: {
+	                	    min: 0,
+	                	    max: selected.length * 2,
+	                	    ticks: {
+	                	        stepSize: 1,
+	                	        callback: function(value) {
+
+	                	            const index = Math.floor(value / 2);
+
+	                	            if (index >= selected.length) return "";
+
+	                	            const serverName = selected[index];
+
+	                	            return value % 2 === 1 
+	                	                ? serverName + " ↑"   // UP
+	                	                : serverName + " ↓";  // DOWN
+	                	        }
+	                	    },
+	                	    grid: {   // ✅ fuera de ticks
+	                	        color: ctx => {
+	                	            return ctx.tick.value % 2 === 0 
+	                	                ? "#e5e7eb"
+	                	                : "#ffffff";
+	                	        }
+	                	    }
+	                	}
 	                }
 	            }
 	        });
