@@ -3,23 +3,23 @@
   "info" : {
     "title" : "API notifications",
     "version" : "1.0",
-    "description" : "Generado dinámicamente"
+    "description" : "Generado dinámicamente por Banco Mercantil"
   },
   "servers" : [ {
     "url" : "/notifications"
   } ],
   "tags" : [ {
-    "description" : "Operaciones Actualizar Root",
-    "name" : "Actualizar Root"
+    "name" : "Actualizar Root",
+    "description" : "Operaciones Actualizar Root"
   }, {
-    "description" : "Operaciones Consultar Root",
-    "name" : "Consultar Root"
+    "name" : "Consultar Root",
+    "description" : "Operaciones Consultar Root"
   }, {
-    "description" : "Operaciones Eliminar Root",
-    "name" : "Eliminar Root"
+    "name" : "Eliminar Root",
+    "description" : "Operaciones Eliminar Root"
   }, {
-    "description" : "Operaciones Ingresar Root",
-    "name" : "Ingresar Root"
+    "name" : "Ingresar Root",
+    "description" : "Operaciones Ingresar Root"
   } ],
   "paths" : {
     "/actualizar/integradora" : {
@@ -61,11 +61,11 @@
                     "bodyEntradaActualizarIntegradora" : {
                       "codIntegradora" : "01",
                       "nomIntegradora" : "string",
-                      "fchHhCreaReg" : "20260602",
-                      "fchHhModifReg" : "20260602",
+                      "fchHhCreaReg" : "20260604",
+                      "fchHhModifReg" : "20260604",
                       "edoReg" : "DC",
                       "codUsu" : "01",
-                      "fchHhModifEdoReg" : "20260602"
+                      "fchHhModifEdoReg" : "20260604"
                     }
                   },
                   "summary" : "Ejemplo generado"
@@ -77,7 +77,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -85,9 +84,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaActualizarIntegradora" : {
-                      "$ref" : "#/components/schemas/BodySalidaActualizarIntegradora"
                     }
                   }
                 },
@@ -102,14 +98,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaActualizarIntegradora" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -162,10 +158,10 @@
                       "tipoId" : "V",
                       "nroId" : 12345678,
                       "nroCtaCobro" : "01020123456789012345",
-                      "fchHhCreaReg" : "20260602",
-                      "fchHhModifReg" : "20260602",
+                      "fchHhCreaReg" : "20260604",
+                      "fchHhModifReg" : "20260604",
                       "edoReg" : "DC",
-                      "fchHhModifEdoReg" : "20260602",
+                      "fchHhModifEdoReg" : "20260604",
                       "codIntegradora" : "01",
                       "idAccion" : "string"
                     }
@@ -179,7 +175,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -187,9 +182,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaActualizarNotificacionCorreo" : {
-                      "$ref" : "#/components/schemas/BodySalidaActualizarNotificacionCorreo"
                     }
                   }
                 },
@@ -204,14 +196,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaActualizarNotificacionCorreo" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -266,10 +258,10 @@
                       "nroId" : 12345678,
                       "nroPer" : 12345,
                       "nroCtaCobro" : "01020123456789012345",
-                      "fchHhCreaReg" : "20260602",
-                      "fchHhModifReg" : "20260602",
+                      "fchHhCreaReg" : "20260604",
+                      "fchHhModifReg" : "20260604",
                       "edoReg" : "DC",
-                      "fchHhModifEdoReg" : "20260602",
+                      "fchHhModifEdoReg" : "20260604",
                       "codIntegradora" : "01",
                       "idAccion" : "string"
                     }
@@ -283,7 +275,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -291,9 +282,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaActualizarNotificacionSms" : {
-                      "$ref" : "#/components/schemas/BodySalidaActualizarNotificacionSms"
                     }
                   }
                 },
@@ -308,14 +296,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaActualizarNotificacionSms" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -361,11 +349,11 @@
                       "descripPlanti" : "Descripción generada",
                       "codIntegradora" : "01",
                       "codNoti" : "01",
-                      "fchHhCreaReg" : "20260602",
-                      "fchHhModifReg" : "20260602",
+                      "fchHhCreaReg" : "20260604",
+                      "fchHhModifReg" : "20260604",
                       "edoReg" : "DC",
                       "codUsu" : "01",
-                      "fchHhModifEdoReg" : "20260602",
+                      "fchHhModifEdoReg" : "20260604",
                       "estrucMsje" : "string"
                     }
                   },
@@ -378,7 +366,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -386,9 +373,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaActualizarPlantilla" : {
-                      "$ref" : "#/components/schemas/BodySalidaActualizarPlantilla"
                     }
                   }
                 },
@@ -403,14 +387,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaActualizarPlantilla" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -454,11 +438,11 @@
                     "bodyEntradaActualizarTipoNotificacion" : {
                       "codNoti" : "01",
                       "tipoNoti" : "string",
-                      "fchHhCreaReg" : "20260602",
-                      "fchHhModifReg" : "20260602",
+                      "fchHhCreaReg" : "20260604",
+                      "fchHhModifReg" : "20260604",
                       "edoReg" : "DC",
                       "codUsu" : "01",
-                      "fchHhModifEdoReg" : "20260602"
+                      "fchHhModifEdoReg" : "20260604"
                     }
                   },
                   "summary" : "Ejemplo generado"
@@ -470,7 +454,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -478,9 +461,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaActualizarTipoNotificacion" : {
-                      "$ref" : "#/components/schemas/BodySalidaActualizarTipoNotificacion"
                     }
                   }
                 },
@@ -495,14 +475,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaActualizarTipoNotificacion" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -548,8 +528,8 @@
                       "valorVarble" : "string",
                       "descripVarble" : "Descripción generada",
                       "edoReg" : "DC",
-                      "fchHhModifEdoReg" : "20260602",
-                      "fchHhCreaReg" : "20260602"
+                      "fchHhModifEdoReg" : "20260604",
+                      "fchHhCreaReg" : "20260604"
                     }
                   },
                   "summary" : "Ejemplo generado"
@@ -561,7 +541,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -569,9 +548,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaActualizarVariable" : {
-                      "$ref" : "#/components/schemas/BodySalidaActualizarVariable"
                     }
                   }
                 },
@@ -586,14 +562,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaActualizarVariable" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -638,8 +614,8 @@
                       "idAccion" : "string",
                       "descripAccion" : "Descripción generada",
                       "edoReg" : "DC",
-                      "fchHhModifEdoReg" : "20260602",
-                      "fchHhCreaReg" : "20260602"
+                      "fchHhModifEdoReg" : "20260604",
+                      "fchHhCreaReg" : "20260604"
                     }
                   },
                   "summary" : "Ejemplo generado"
@@ -651,7 +627,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -659,9 +634,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaActualizarAccion" : {
-                      "$ref" : "#/components/schemas/BodySalidaActualizarAccion"
                     }
                   }
                 },
@@ -676,14 +648,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaActualizarAccion" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -729,7 +701,7 @@
                         "idAccion" : "string",
                         "idPlanti" : "string",
                         "indicCobro" : "string",
-                        "fchHhModifEdoReg" : "20260602"
+                        "fchHhModifEdoReg" : "20260604"
                       } ]
                     }
                   },
@@ -742,7 +714,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -750,9 +721,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaActualizarCobros" : {
-                      "$ref" : "#/components/schemas/BodySalidaActualizarCobros"
                     }
                   }
                 },
@@ -767,14 +735,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaActualizarCobros" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -831,7 +799,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -839,9 +806,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaActualizarPlantillaVariables" : {
-                      "$ref" : "#/components/schemas/BodySalidaActualizarPlantillaVariables"
                     }
                   }
                 },
@@ -856,14 +820,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaActualizarPlantillaVariables" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -881,9 +845,6 @@
                 "properties" : {
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
-                  },
-                  "bodyEntradaConsultarIntegradora" : {
-                    "$ref" : "#/components/schemas/BodyEntradaConsultarIntegradora"
                   }
                 }
               },
@@ -903,8 +864,7 @@
                       "atributoPagineo" : "",
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
-                    },
-                    "bodyEntradaConsultarIntegradora" : { }
+                    }
                   },
                   "summary" : "Ejemplo generado"
                 }
@@ -915,7 +875,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -924,8 +883,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaListarIntegradoras" : {
-                      "$ref" : "#/components/schemas/BodySalidaListarIntegradoras"
+                    "bodySalidaConsultarIntegradoras" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarIntegradora"
                     }
                   }
                 },
@@ -941,13 +900,24 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaListarIntegradoras" : { }
+                      "bodySalidaConsultarIntegradoras" : {
+                        "integradoras" : [ {
+                          "codIntegradora" : "01",
+                          "nomIntegradora" : "string",
+                          "fchHhCreaReg" : "20260604",
+                          "fchHhModifReg" : "20260604",
+                          "edoReg" : "DC",
+                          "codUsu" : "01",
+                          "fchHhModifEdoReg" : "20260604"
+                        } ]
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -965,9 +935,6 @@
                 "properties" : {
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
-                  },
-                  "bodyEntradaConsultarNotificacionCorreo" : {
-                    "$ref" : "#/components/schemas/BodyEntradaConsultarNotificacionCorreo"
                   }
                 }
               },
@@ -987,8 +954,7 @@
                       "atributoPagineo" : "",
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
-                    },
-                    "bodyEntradaConsultarNotificacionCorreo" : { }
+                    }
                   },
                   "summary" : "Ejemplo generado"
                 }
@@ -999,7 +965,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1008,8 +973,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaListarNotificacionCorreo" : {
-                      "$ref" : "#/components/schemas/BodySalidaListarNotificacionCorreo"
+                    "bodySalidaConsultarNotificacionesCorreo" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarNotificacionCorreo"
                     }
                   }
                 },
@@ -1025,13 +990,34 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaListarNotificacionCorreo" : { }
+                      "bodySalidaConsultarNotificacionesCorreo" : {
+                        "notificacionesCorreo" : [ {
+                          "clvTabla" : "string",
+                          "siglaAplic" : "string",
+                          "tipoTrans" : "string",
+                          "correoOrigen" : "juan.perez@mercantil.com",
+                          "correoDestino" : "juan.perez@mercantil.com",
+                          "edoNoti" : "DC",
+                          "msje" : "string",
+                          "idPlanti" : "string",
+                          "tipoId" : "V",
+                          "nroId" : 12345678,
+                          "nroCtaCobro" : "01020123456789012345",
+                          "fchHhCreaReg" : "20260604",
+                          "fchHhModifReg" : "20260604",
+                          "edoReg" : "DC",
+                          "fchHhModifEdoReg" : "20260604",
+                          "codIntegradora" : "01",
+                          "idAccion" : "string"
+                        } ]
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1049,9 +1035,6 @@
                 "properties" : {
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
-                  },
-                  "bodyEntradaConsultarNotificacionSms" : {
-                    "$ref" : "#/components/schemas/BodyEntradaConsultarNotificacionSms"
                   }
                 }
               },
@@ -1071,8 +1054,7 @@
                       "atributoPagineo" : "",
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
-                    },
-                    "bodyEntradaConsultarNotificacionSms" : { }
+                    }
                   },
                   "summary" : "Ejemplo generado"
                 }
@@ -1083,7 +1065,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1092,8 +1073,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaListarNotificacionSms" : {
-                      "$ref" : "#/components/schemas/BodySalidaListarNotificacionSms"
+                    "bodySalidaConsultarNotificacionesSms" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarNotificacionSms"
                     }
                   }
                 },
@@ -1109,13 +1090,36 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaListarNotificacionSms" : { }
+                      "bodySalidaConsultarNotificacionesSms" : {
+                        "notificacionesSms" : [ {
+                          "clvTabla" : "string",
+                          "siglaAplic" : "string",
+                          "tipoTrans" : "string",
+                          "codCorto" : "01",
+                          "telefRemitente" : "string",
+                          "telefDest" : "string",
+                          "edoNoti" : "DC",
+                          "msje" : "string",
+                          "idPlanti" : "string",
+                          "tipoId" : "V",
+                          "nroId" : 12345678,
+                          "nroPer" : 12345,
+                          "nroCtaCobro" : "01020123456789012345",
+                          "fchHhCreaReg" : "20260604",
+                          "fchHhModifReg" : "20260604",
+                          "edoReg" : "DC",
+                          "fchHhModifEdoReg" : "20260604",
+                          "codIntegradora" : "01",
+                          "idAccion" : "string"
+                        } ]
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1133,9 +1137,6 @@
                 "properties" : {
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
-                  },
-                  "bodyEntradaConsultarPlantilla" : {
-                    "$ref" : "#/components/schemas/BodyEntradaConsultarPlantilla"
                   }
                 }
               },
@@ -1155,8 +1156,7 @@
                       "atributoPagineo" : "",
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
-                    },
-                    "bodyEntradaConsultarPlantilla" : { }
+                    }
                   },
                   "summary" : "Ejemplo generado"
                 }
@@ -1167,7 +1167,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1176,8 +1175,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaListarPlantillas" : {
-                      "$ref" : "#/components/schemas/BodySalidaListarPlantillas"
+                    "bodySalidaConsultarPlantillas" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarPlantilla"
                     }
                   }
                 },
@@ -1193,13 +1192,27 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaListarPlantillas" : { }
+                      "bodySalidaConsultarPlantillas" : {
+                        "plantillas" : [ {
+                          "idPlanti" : "string",
+                          "descripPlanti" : "Descripción generada",
+                          "codIntegradora" : "01",
+                          "codNoti" : "01",
+                          "fchHhCreaReg" : "20260604",
+                          "fchHhModifReg" : "20260604",
+                          "edoReg" : "DC",
+                          "codUsu" : "01",
+                          "fchHhModifEdoReg" : "20260604",
+                          "estrucMsje" : "string"
+                        } ]
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1217,9 +1230,6 @@
                 "properties" : {
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
-                  },
-                  "bodyEntradaConsultarTipoNotificacion" : {
-                    "$ref" : "#/components/schemas/BodyEntradaConsultarTipoNotificacion"
                   }
                 }
               },
@@ -1239,8 +1249,7 @@
                       "atributoPagineo" : "",
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
-                    },
-                    "bodyEntradaConsultarTipoNotificacion" : { }
+                    }
                   },
                   "summary" : "Ejemplo generado"
                 }
@@ -1251,7 +1260,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1260,8 +1268,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaListarTipoNotificacion" : {
-                      "$ref" : "#/components/schemas/BodySalidaListarTipoNotificacion"
+                    "bodySalidaConsultarTipoNotificaciones" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarTipoNotificacion"
                     }
                   }
                 },
@@ -1277,13 +1285,24 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaListarTipoNotificacion" : { }
+                      "bodySalidaConsultarTipoNotificaciones" : {
+                        "tipoNotificaciones" : [ {
+                          "codNoti" : "01",
+                          "tipoNoti" : "string",
+                          "fchHhCreaReg" : "20260604",
+                          "fchHhModifReg" : "20260604",
+                          "edoReg" : "DC",
+                          "codUsu" : "01",
+                          "fchHhModifEdoReg" : "20260604"
+                        } ]
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1301,9 +1320,6 @@
                 "properties" : {
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
-                  },
-                  "bodyEntradaConsultarVariable" : {
-                    "$ref" : "#/components/schemas/BodyEntradaConsultarVariable"
                   }
                 }
               },
@@ -1323,8 +1339,7 @@
                       "atributoPagineo" : "",
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
-                    },
-                    "bodyEntradaConsultarVariable" : { }
+                    }
                   },
                   "summary" : "Ejemplo generado"
                 }
@@ -1335,7 +1350,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1344,8 +1358,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaListarVariables" : {
-                      "$ref" : "#/components/schemas/BodySalidaListarVariables"
+                    "bodySalidaConsultarVariables" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarVariable"
                     }
                   }
                 },
@@ -1361,13 +1375,23 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaListarVariables" : { }
+                      "bodySalidaConsultarVariables" : {
+                        "variables" : [ {
+                          "idVarble" : "string",
+                          "valorVarble" : "string",
+                          "descripVarble" : "Descripción generada",
+                          "edoReg" : "DC",
+                          "fchHhModifEdoReg" : "20260604",
+                          "fchHhCreaReg" : "20260604"
+                        } ]
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1385,9 +1409,6 @@
                 "properties" : {
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
-                  },
-                  "bodyEntradaConsultarAccion" : {
-                    "$ref" : "#/components/schemas/BodyEntradaConsultarAccion"
                   }
                 }
               },
@@ -1407,8 +1428,7 @@
                       "atributoPagineo" : "",
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
-                    },
-                    "bodyEntradaConsultarAccion" : { }
+                    }
                   },
                   "summary" : "Ejemplo generado"
                 }
@@ -1419,7 +1439,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1428,8 +1447,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaListarAcciones" : {
-                      "$ref" : "#/components/schemas/BodySalidaListarAcciones"
+                    "bodySalidaConsultarAcciones" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarAccion"
                     }
                   }
                 },
@@ -1445,13 +1464,22 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaListarAcciones" : { }
+                      "bodySalidaConsultarAcciones" : {
+                        "acciones" : [ {
+                          "idAccion" : "string",
+                          "descripAccion" : "Descripción generada",
+                          "edoReg" : "DC",
+                          "fchHhModifEdoReg" : "20260604",
+                          "fchHhCreaReg" : "20260604"
+                        } ]
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1469,9 +1497,6 @@
                 "properties" : {
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
-                  },
-                  "bodyEntradaConsultarCobros" : {
-                    "$ref" : "#/components/schemas/BodyEntradaConsultarCobros"
                   }
                 }
               },
@@ -1491,8 +1516,7 @@
                       "atributoPagineo" : "",
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
-                    },
-                    "bodyEntradaConsultarCobros" : { }
+                    }
                   },
                   "summary" : "Ejemplo generado"
                 }
@@ -1503,7 +1527,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1512,8 +1535,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaListarCobros" : {
-                      "$ref" : "#/components/schemas/BodySalidaListarCobros"
+                    "bodySalidaConsultarCobros" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarCobros"
                     }
                   }
                 },
@@ -1529,13 +1552,21 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaListarCobros" : { }
+                      "bodySalidaConsultarCobros" : {
+                        "cobros" : [ {
+                          "idAccion" : "string",
+                          "idPlanti" : "string",
+                          "indicCobro" : "string",
+                          "fchHhModifEdoReg" : "20260604"
+                        } ]
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1553,9 +1584,6 @@
                 "properties" : {
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
-                  },
-                  "bodyEntradaConsultarPlantillaVariables" : {
-                    "$ref" : "#/components/schemas/BodyEntradaConsultarPlantillaVariables"
                   }
                 }
               },
@@ -1575,8 +1603,7 @@
                       "atributoPagineo" : "",
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
-                    },
-                    "bodyEntradaConsultarPlantillaVariables" : { }
+                    }
                   },
                   "summary" : "Ejemplo generado"
                 }
@@ -1587,7 +1614,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1596,8 +1622,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaListarPlantillaVariables" : {
-                      "$ref" : "#/components/schemas/BodySalidaListarPlantillaVariables"
+                    "bodySalidaConsultarPlantillaVariables" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarPlantillaVariables"
                     }
                   }
                 },
@@ -1613,13 +1639,19 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaListarPlantillaVariables" : { }
+                      "bodySalidaConsultarPlantillaVariables" : {
+                        "plantillaVariables" : [ {
+                          "idPlanti" : "string",
+                          "idVarble" : "string"
+                        } ]
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1664,11 +1696,11 @@
                       "integradoras" : [ {
                         "codIntegradora" : "01",
                         "nomIntegradora" : "string",
-                        "fchHhCreaReg" : "20260602",
-                        "fchHhModifReg" : "20260602",
+                        "fchHhCreaReg" : "20260604",
+                        "fchHhModifReg" : "20260604",
                         "edoReg" : "DC",
                         "codUsu" : "01",
-                        "fchHhModifEdoReg" : "20260602"
+                        "fchHhModifEdoReg" : "20260604"
                       } ]
                     }
                   },
@@ -1681,7 +1713,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1689,9 +1720,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaEliminarIntegradoras" : {
-                      "$ref" : "#/components/schemas/BodySalidaEliminarIntegradoras"
                     }
                   }
                 },
@@ -1706,14 +1734,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaEliminarIntegradoras" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1767,10 +1795,10 @@
                         "tipoId" : "V",
                         "nroId" : 12345678,
                         "nroCtaCobro" : "01020123456789012345",
-                        "fchHhCreaReg" : "20260602",
-                        "fchHhModifReg" : "20260602",
+                        "fchHhCreaReg" : "20260604",
+                        "fchHhModifReg" : "20260604",
                         "edoReg" : "DC",
-                        "fchHhModifEdoReg" : "20260602",
+                        "fchHhModifEdoReg" : "20260604",
                         "codIntegradora" : "01",
                         "idAccion" : "string"
                       } ]
@@ -1785,7 +1813,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1793,9 +1820,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaEliminarNotificacionCorreo" : {
-                      "$ref" : "#/components/schemas/BodySalidaEliminarNotificacionCorreo"
                     }
                   }
                 },
@@ -1810,14 +1834,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaEliminarNotificacionCorreo" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1873,10 +1897,10 @@
                         "nroId" : 12345678,
                         "nroPer" : 12345,
                         "nroCtaCobro" : "01020123456789012345",
-                        "fchHhCreaReg" : "20260602",
-                        "fchHhModifReg" : "20260602",
+                        "fchHhCreaReg" : "20260604",
+                        "fchHhModifReg" : "20260604",
                         "edoReg" : "DC",
-                        "fchHhModifEdoReg" : "20260602",
+                        "fchHhModifEdoReg" : "20260604",
                         "codIntegradora" : "01",
                         "idAccion" : "string"
                       } ]
@@ -1891,7 +1915,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1899,9 +1922,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaEliminarNotificacionSms" : {
-                      "$ref" : "#/components/schemas/BodySalidaEliminarNotificacionSms"
                     }
                   }
                 },
@@ -1916,14 +1936,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaEliminarNotificacionSms" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1970,11 +1990,11 @@
                         "descripPlanti" : "Descripción generada",
                         "codIntegradora" : "01",
                         "codNoti" : "01",
-                        "fchHhCreaReg" : "20260602",
-                        "fchHhModifReg" : "20260602",
+                        "fchHhCreaReg" : "20260604",
+                        "fchHhModifReg" : "20260604",
                         "edoReg" : "DC",
                         "codUsu" : "01",
-                        "fchHhModifEdoReg" : "20260602",
+                        "fchHhModifEdoReg" : "20260604",
                         "estrucMsje" : "string"
                       } ]
                     }
@@ -1988,7 +2008,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1996,9 +2015,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaEliminarPlantilla" : {
-                      "$ref" : "#/components/schemas/BodySalidaEliminarPlantilla"
                     }
                   }
                 },
@@ -2013,14 +2029,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaEliminarPlantilla" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2065,11 +2081,11 @@
                       "tipoNotificaciones" : [ {
                         "codNoti" : "01",
                         "tipoNoti" : "string",
-                        "fchHhCreaReg" : "20260602",
-                        "fchHhModifReg" : "20260602",
+                        "fchHhCreaReg" : "20260604",
+                        "fchHhModifReg" : "20260604",
                         "edoReg" : "DC",
                         "codUsu" : "01",
-                        "fchHhModifEdoReg" : "20260602"
+                        "fchHhModifEdoReg" : "20260604"
                       } ]
                     }
                   },
@@ -2082,7 +2098,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2090,9 +2105,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaEliminarTipoNotificacion" : {
-                      "$ref" : "#/components/schemas/BodySalidaEliminarTipoNotificacion"
                     }
                   }
                 },
@@ -2107,14 +2119,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaEliminarTipoNotificacion" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2161,8 +2173,8 @@
                         "valorVarble" : "string",
                         "descripVarble" : "Descripción generada",
                         "edoReg" : "DC",
-                        "fchHhModifEdoReg" : "20260602",
-                        "fchHhCreaReg" : "20260602"
+                        "fchHhModifEdoReg" : "20260604",
+                        "fchHhCreaReg" : "20260604"
                       } ]
                     }
                   },
@@ -2175,7 +2187,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2183,9 +2194,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaEliminarVariables" : {
-                      "$ref" : "#/components/schemas/BodySalidaEliminarVariables"
                     }
                   }
                 },
@@ -2200,14 +2208,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaEliminarVariables" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2253,8 +2261,8 @@
                         "idAccion" : "string",
                         "descripAccion" : "Descripción generada",
                         "edoReg" : "DC",
-                        "fchHhModifEdoReg" : "20260602",
-                        "fchHhCreaReg" : "20260602"
+                        "fchHhModifEdoReg" : "20260604",
+                        "fchHhCreaReg" : "20260604"
                       } ]
                     }
                   },
@@ -2267,7 +2275,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2275,9 +2282,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaEliminarAcciones" : {
-                      "$ref" : "#/components/schemas/BodySalidaEliminarAcciones"
                     }
                   }
                 },
@@ -2292,14 +2296,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaEliminarAcciones" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2343,11 +2347,11 @@
                     "bodyEntradaInsertarIntegradora" : {
                       "codIntegradora" : "01",
                       "nomIntegradora" : "string",
-                      "fchHhCreaReg" : "20260602",
-                      "fchHhModifReg" : "20260602",
+                      "fchHhCreaReg" : "20260604",
+                      "fchHhModifReg" : "20260604",
                       "edoReg" : "DC",
                       "codUsu" : "01",
-                      "fchHhModifEdoReg" : "20260602"
+                      "fchHhModifEdoReg" : "20260604"
                     }
                   },
                   "summary" : "Ejemplo generado"
@@ -2359,7 +2363,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2367,9 +2370,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaInsertarIntegradora" : {
-                      "$ref" : "#/components/schemas/BodySalidaInsertarIntegradora"
                     }
                   }
                 },
@@ -2384,14 +2384,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaInsertarIntegradora" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2444,10 +2444,10 @@
                       "tipoId" : "V",
                       "nroId" : 12345678,
                       "nroCtaCobro" : "01020123456789012345",
-                      "fchHhCreaReg" : "20260602",
-                      "fchHhModifReg" : "20260602",
+                      "fchHhCreaReg" : "20260604",
+                      "fchHhModifReg" : "20260604",
                       "edoReg" : "DC",
-                      "fchHhModifEdoReg" : "20260602",
+                      "fchHhModifEdoReg" : "20260604",
                       "codIntegradora" : "01",
                       "idAccion" : "string"
                     }
@@ -2461,7 +2461,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2469,9 +2468,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaInsertarNotificacionCorreo" : {
-                      "$ref" : "#/components/schemas/BodySalidaInsertarNotificacionCorreo"
                     }
                   }
                 },
@@ -2486,14 +2482,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaInsertarNotificacionCorreo" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2548,10 +2544,10 @@
                       "nroId" : 12345678,
                       "nroPer" : 12345,
                       "nroCtaCobro" : "01020123456789012345",
-                      "fchHhCreaReg" : "20260602",
-                      "fchHhModifReg" : "20260602",
+                      "fchHhCreaReg" : "20260604",
+                      "fchHhModifReg" : "20260604",
                       "edoReg" : "DC",
-                      "fchHhModifEdoReg" : "20260602",
+                      "fchHhModifEdoReg" : "20260604",
                       "codIntegradora" : "01",
                       "idAccion" : "string"
                     }
@@ -2565,7 +2561,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2573,9 +2568,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaInsertarNotificacionSms" : {
-                      "$ref" : "#/components/schemas/BodySalidaInsertarNotificacionSms"
                     }
                   }
                 },
@@ -2590,14 +2582,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaInsertarNotificacionSms" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2643,11 +2635,11 @@
                       "descripPlanti" : "Descripción generada",
                       "codIntegradora" : "01",
                       "codNoti" : "01",
-                      "fchHhCreaReg" : "20260602",
-                      "fchHhModifReg" : "20260602",
+                      "fchHhCreaReg" : "20260604",
+                      "fchHhModifReg" : "20260604",
                       "edoReg" : "DC",
                       "codUsu" : "01",
-                      "fchHhModifEdoReg" : "20260602",
+                      "fchHhModifEdoReg" : "20260604",
                       "estrucMsje" : "string"
                     }
                   },
@@ -2660,7 +2652,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2668,9 +2659,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaInsertarPlantilla" : {
-                      "$ref" : "#/components/schemas/BodySalidaInsertarPlantilla"
                     }
                   }
                 },
@@ -2685,14 +2673,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaInsertarPlantilla" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2736,11 +2724,11 @@
                     "bodyEntradaInsertarTipoNotificacion" : {
                       "codNoti" : "01",
                       "tipoNoti" : "string",
-                      "fchHhCreaReg" : "20260602",
-                      "fchHhModifReg" : "20260602",
+                      "fchHhCreaReg" : "20260604",
+                      "fchHhModifReg" : "20260604",
                       "edoReg" : "DC",
                       "codUsu" : "01",
-                      "fchHhModifEdoReg" : "20260602"
+                      "fchHhModifEdoReg" : "20260604"
                     }
                   },
                   "summary" : "Ejemplo generado"
@@ -2752,7 +2740,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2760,9 +2747,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaInsertarTipoNotificacion" : {
-                      "$ref" : "#/components/schemas/BodySalidaInsertarTipoNotificacion"
                     }
                   }
                 },
@@ -2777,14 +2761,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaInsertarTipoNotificacion" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2830,8 +2814,8 @@
                       "valorVarble" : "string",
                       "descripVarble" : "Descripción generada",
                       "edoReg" : "DC",
-                      "fchHhModifEdoReg" : "20260602",
-                      "fchHhCreaReg" : "20260602"
+                      "fchHhModifEdoReg" : "20260604",
+                      "fchHhCreaReg" : "20260604"
                     }
                   },
                   "summary" : "Ejemplo generado"
@@ -2843,7 +2827,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2851,9 +2834,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaInsertarVariable" : {
-                      "$ref" : "#/components/schemas/BodySalidaInsertarVariable"
                     }
                   }
                 },
@@ -2868,14 +2848,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaInsertarVariable" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2920,8 +2900,8 @@
                       "idAccion" : "string",
                       "descripAccion" : "Descripción generada",
                       "edoReg" : "DC",
-                      "fchHhModifEdoReg" : "20260602",
-                      "fchHhCreaReg" : "20260602"
+                      "fchHhModifEdoReg" : "20260604",
+                      "fchHhCreaReg" : "20260604"
                     }
                   },
                   "summary" : "Ejemplo generado"
@@ -2933,7 +2913,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2941,9 +2920,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaInsertarAccion" : {
-                      "$ref" : "#/components/schemas/BodySalidaInsertarAccion"
                     }
                   }
                 },
@@ -2958,14 +2934,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaInsertarAccion" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3011,7 +2987,7 @@
                         "idAccion" : "string",
                         "idPlanti" : "string",
                         "indicCobro" : "string",
-                        "fchHhModifEdoReg" : "20260602"
+                        "fchHhModifEdoReg" : "20260604"
                       } ]
                     }
                   },
@@ -3024,7 +3000,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3032,9 +3007,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaInsertarCobros" : {
-                      "$ref" : "#/components/schemas/BodySalidaInsertarCobros"
                     }
                   }
                 },
@@ -3049,14 +3021,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaInsertarCobros" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3113,7 +3085,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3121,9 +3092,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaInsertarPlantillaVariables" : {
-                      "$ref" : "#/components/schemas/BodySalidaInsertarPlantillaVariables"
                     }
                   }
                 },
@@ -3138,14 +3106,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaInsertarPlantillaVariables" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3259,8 +3227,8 @@
             "$ref" : "#/components/schemas/HeaderSalida"
           },
           "bodySalida" : {
-            "description" : "Contenido dinámico de la respuesta",
-            "type" : "object"
+            "type" : "object",
+            "description" : "Contenido dinámico de la respuesta"
           }
         }
       },
@@ -4410,9 +4378,6 @@
           "log" : {
             "$ref" : "#/components/schemas/Logger"
           },
-          "sentencias" : {
-            "$ref" : "#/components/schemas/String,String"
-          },
           "ds" : {
             "$ref" : "#/components/schemas/HikariDataSource"
           }
@@ -4423,9 +4388,6 @@
         "properties" : {
           "log" : {
             "$ref" : "#/components/schemas/Logger"
-          },
-          "sentencias" : {
-            "$ref" : "#/components/schemas/String,String"
           },
           "ds" : {
             "$ref" : "#/components/schemas/HikariDataSource"
@@ -4438,9 +4400,6 @@
           "log" : {
             "$ref" : "#/components/schemas/Logger"
           },
-          "sentencias" : {
-            "$ref" : "#/components/schemas/String,String"
-          },
           "ds" : {
             "$ref" : "#/components/schemas/HikariDataSource"
           }
@@ -4451,9 +4410,6 @@
         "properties" : {
           "log" : {
             "$ref" : "#/components/schemas/Logger"
-          },
-          "sentencias" : {
-            "$ref" : "#/components/schemas/String,String"
           },
           "ds" : {
             "$ref" : "#/components/schemas/HikariDataSource"
@@ -4466,9 +4422,6 @@
           "log" : {
             "$ref" : "#/components/schemas/Logger"
           },
-          "sentencias" : {
-            "$ref" : "#/components/schemas/String,String"
-          },
           "ds" : {
             "$ref" : "#/components/schemas/HikariDataSource"
           }
@@ -4479,9 +4432,6 @@
         "properties" : {
           "log" : {
             "$ref" : "#/components/schemas/Logger"
-          },
-          "sentencias" : {
-            "$ref" : "#/components/schemas/String,String"
           },
           "ds" : {
             "$ref" : "#/components/schemas/HikariDataSource"
@@ -4494,9 +4444,6 @@
           "log" : {
             "$ref" : "#/components/schemas/Logger"
           },
-          "sentencias" : {
-            "$ref" : "#/components/schemas/String,String"
-          },
           "ds" : {
             "$ref" : "#/components/schemas/HikariDataSource"
           }
@@ -4508,9 +4455,6 @@
           "log" : {
             "$ref" : "#/components/schemas/Logger"
           },
-          "sentencias" : {
-            "$ref" : "#/components/schemas/String,String"
-          },
           "ds" : {
             "$ref" : "#/components/schemas/HikariDataSource"
           }
@@ -4521,9 +4465,6 @@
         "properties" : {
           "log" : {
             "$ref" : "#/components/schemas/Logger"
-          },
-          "sentencias" : {
-            "$ref" : "#/components/schemas/String,String"
           },
           "ds" : {
             "$ref" : "#/components/schemas/HikariDataSource"
@@ -5175,15 +5116,7 @@
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaListarIntegradoras" : {
-        "type" : "object",
-        "properties" : { }
-      },
       "BodyEntradaConsultarNotificacionCorreo" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaListarNotificacionCorreo" : {
         "type" : "object",
         "properties" : { }
       },
@@ -5191,15 +5124,7 @@
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaListarNotificacionSms" : {
-        "type" : "object",
-        "properties" : { }
-      },
       "BodyEntradaConsultarPlantilla" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaListarPlantillas" : {
         "type" : "object",
         "properties" : { }
       },
@@ -5207,15 +5132,7 @@
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaListarTipoNotificacion" : {
-        "type" : "object",
-        "properties" : { }
-      },
       "BodyEntradaConsultarVariable" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaListarVariables" : {
         "type" : "object",
         "properties" : { }
       },
@@ -5223,23 +5140,11 @@
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaListarAcciones" : {
-        "type" : "object",
-        "properties" : { }
-      },
       "BodyEntradaConsultarCobros" : {
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaListarCobros" : {
-        "type" : "object",
-        "properties" : { }
-      },
       "BodyEntradaConsultarPlantillaVariables" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaListarPlantillaVariables" : {
         "type" : "object",
         "properties" : { }
       },
@@ -5310,9 +5215,9 @@
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "type" : "http",
         "scheme" : "bearer",
-        "bearerFormat" : "JWT"
+        "bearerFormat" : "JWT",
+        "type" : "http"
       }
     }
   },

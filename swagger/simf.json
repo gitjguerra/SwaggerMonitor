@@ -3,20 +3,20 @@
   "info" : {
     "title" : "API simf",
     "version" : "1.0",
-    "description" : "Generado dinámicamente"
+    "description" : "Generado dinámicamente por Banco Mercantil"
   },
   "servers" : [ {
     "url" : "/simf"
   } ],
   "tags" : [ {
-    "description" : "Operaciones Consultar Root",
-    "name" : "Consultar Root"
+    "name" : "Consultar Root",
+    "description" : "Operaciones Consultar Root"
   }, {
-    "description" : "Operaciones Registrar Root",
-    "name" : "Registrar Root"
+    "name" : "Registrar Root",
+    "description" : "Operaciones Registrar Root"
   }, {
-    "description" : "Operaciones Validar Root",
-    "name" : "Validar Root"
+    "name" : "Validar Root",
+    "description" : "Operaciones Validar Root"
   } ],
   "paths" : {
     "/consultar/transferencias-simf" : {
@@ -74,7 +74,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -108,7 +107,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -162,7 +162,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -198,7 +197,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -258,7 +258,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -312,7 +311,7 @@
                           "nomCalle" : "string",
                           "nomBanco" : "string",
                           "sitBanco" : "string",
-                          "fchaAct" : "20260602",
+                          "fchaAct" : "20260604",
                           "numPer" : "string",
                           "codBcoBcv" : "01",
                           "codBcoSwift" : "01",
@@ -330,7 +329,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -372,7 +372,7 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaRegistrarBancoCompraDivisas" : {
-                      "codSubCanalEnt" : "0006",
+                      "codSubCanalEnt" : "0009",
                       "codigoMonedaEnt" : "01",
                       "numeroPersonaEnt" : 12345,
                       "nacIdOrdenanteEnt" : "string",
@@ -400,7 +400,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -435,7 +434,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -477,7 +477,7 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaRegistrarBancoVendeDivisas" : {
-                      "codSubCanalEnt" : "0006",
+                      "codSubCanalEnt" : "0009",
                       "codigoMonedaEnt" : "01",
                       "numeroPersonaEnt" : 12345,
                       "nacIdOrdenanteEnt" : "string",
@@ -505,7 +505,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -540,7 +539,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -603,7 +603,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -611,9 +610,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaRegistrarRefenciasDebitoInmediato" : {
-                      "$ref" : "#/components/schemas/BodySalidaRegistrarRefenciasDebitoInmediato"
                     }
                   }
                 },
@@ -628,14 +624,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaRegistrarRefenciasDebitoInmediato" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -677,7 +673,7 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaValidarClienteCompraVentaDivisas" : {
-                      "codSubCanalEnt" : "0006",
+                      "codSubCanalEnt" : "0009",
                       "tipoOperEnt" : "string",
                       "codMonedaEnt" : "01",
                       "nroPerEnt" : 12345,
@@ -694,7 +690,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -735,7 +730,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -849,8 +845,8 @@
             "$ref" : "#/components/schemas/HeaderSalida"
           },
           "bodySalida" : {
-            "description" : "Contenido dinámico de la respuesta",
-            "type" : "object"
+            "type" : "object",
+            "description" : "Contenido dinámico de la respuesta"
           }
         }
       },
@@ -1632,9 +1628,9 @@
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "type" : "http",
         "scheme" : "bearer",
-        "bearerFormat" : "JWT"
+        "bearerFormat" : "JWT",
+        "type" : "http"
       }
     }
   },

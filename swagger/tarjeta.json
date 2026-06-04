@@ -3,32 +3,32 @@
   "info" : {
     "title" : "API tarjeta",
     "version" : "1.0",
-    "description" : "Generado dinámicamente"
+    "description" : "Generado dinámicamente por Banco Mercantil"
   },
   "servers" : [ {
     "url" : "/tarjeta"
   } ],
   "tags" : [ {
-    "description" : "Operaciones Actualizar Root",
-    "name" : "Actualizar Root"
+    "name" : "Actualizar Root",
+    "description" : "Operaciones Actualizar Root"
   }, {
-    "description" : "Operaciones Afiliar Root",
-    "name" : "Afiliar Root"
+    "name" : "Afiliar Root",
+    "description" : "Operaciones Afiliar Root"
   }, {
-    "description" : "Operaciones Consultar Root",
-    "name" : "Consultar Root"
+    "name" : "Consultar Root",
+    "description" : "Operaciones Consultar Root"
   }, {
-    "description" : "Operaciones Insertar Root",
-    "name" : "Insertar Root"
+    "name" : "Insertar Root",
+    "description" : "Operaciones Insertar Root"
   }, {
-    "description" : "Operaciones Recibir Root",
-    "name" : "Recibir Root"
+    "name" : "Recibir Root",
+    "description" : "Operaciones Recibir Root"
   }, {
-    "description" : "Operaciones Solicitar Root",
-    "name" : "Solicitar Root"
+    "name" : "Solicitar Root",
+    "description" : "Operaciones Solicitar Root"
   }, {
-    "description" : "Operaciones Suspender Root",
-    "name" : "Suspender Root"
+    "name" : "Suspender Root",
+    "description" : "Operaciones Suspender Root"
   } ],
   "paths" : {
     "/actualizar/pago-cuota" : {
@@ -69,11 +69,11 @@
                     },
                     "bodyEntradaActualizarPagoCuota" : {
                       "nroCedula" : 12345,
-                      "nroTarj" : "4813535992781348",
+                      "nroTarj" : "4285801463638261",
                       "nroContrato" : 12345,
                       "mtoCuo" : 1500.75,
                       "instrumPago" : "string",
-                      "fchFacturacion" : "20260602",
+                      "fchFacturacion" : "20260604",
                       "nroRef" : 12345,
                       "codEstab" : "01",
                       "codBancario" : "01"
@@ -88,7 +88,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -96,9 +95,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaAdelantoCuotaAgendada" : {
-                      "$ref" : "#/components/schemas/BodySalidaAdelantoCuotaAgendada"
                     }
                   }
                 },
@@ -113,14 +109,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaAdelantoCuotaAgendada" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -185,7 +181,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -194,8 +189,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaMosaicAsociados" : {
-                      "$ref" : "#/components/schemas/BodySalidaMosaicAsociados"
+                    "bodySalidaAfiliarMosaicAsociados" : {
+                      "$ref" : "#/components/schemas/BodySalidaAfiliarMosaicAsociados"
                     }
                   }
                 },
@@ -211,13 +206,23 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaMosaicAsociados" : { }
+                      "bodySalidaAfiliarMosaicAsociados" : {
+                        "telf" : {
+                          "codArea" : "01",
+                          "nroTelf" : "02121234567"
+                        },
+                        "fchProcesa" : "20260604",
+                        "msje" : "string",
+                        "cod" : "01",
+                        "codTrader" : "01"
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -272,7 +277,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -280,9 +284,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaConsultarMarca" : {
-                      "$ref" : "#/components/schemas/BodySalidaConsultarMarca"
                     }
                   }
                 },
@@ -297,14 +298,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaConsultarMarca" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -346,7 +347,7 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaCondicionTarjetaMarcaComp" : {
-                      "tarjetaPrepagada" : "4436690467777557",
+                      "tarjetaPrepagada" : "4909789921863611",
                       "codMarcaCompartida" : "01"
                     }
                   },
@@ -359,7 +360,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -367,9 +367,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaCondiciontarjetamarcacompartida" : {
-                      "$ref" : "#/components/schemas/BodySalidaCondiciontarjetamarcacompartida"
                     }
                   }
                 },
@@ -384,14 +381,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaCondiciontarjetamarcacompartida" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -433,7 +430,7 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaSaldoTarjetaLca" : {
-                      "numeroTarjeta" : "4922670762563135",
+                      "numeroTarjeta" : "4932950315734641",
                       "codCedula" : "01",
                       "nroCedula" : 12345,
                       "codigoTipoProducto" : "02"
@@ -448,7 +445,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -457,8 +453,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaConsultarSaldoTarjetaLca" : {
-                      "$ref" : "#/components/schemas/BodySalidaConsultarSaldoTarjetaLca"
+                    "bodySalidaSaldoTarjetaLca" : {
+                      "$ref" : "#/components/schemas/BodySalidaSaldoTarjetaLca"
                     }
                   }
                 },
@@ -474,13 +470,24 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaConsultarSaldoTarjetaLca" : { }
+                      "bodySalidaSaldoTarjetaLca" : {
+                        "saldoActLinCdto" : "string",
+                        "nomClte" : "string",
+                        "saldoActTarj" : "4362460388232720",
+                        "estatusTarj" : "ACTIVO",
+                        "fchVctoTarj" : "20260604",
+                        "maxCupoLinCdto" : "string",
+                        "estatusBloqueoLinCdto" : "ACTIVO",
+                        "mtoVenLinCdto" : 1500.75,
+                        "estatusAceptLinCdto" : "ACTIVO"
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -523,13 +530,13 @@
                     },
                     "bodyEntradaSaldoTarjetaPrepago" : {
                       "codigoTransaccion" : "01",
-                      "numeroTarjeta" : "4967378093424979",
+                      "numeroTarjeta" : "4079846011477936",
                       "serialDispositivo" : "string",
                       "codigoAreaTelefono" : "01",
                       "numeroTelefono" : 12345,
                       "codigoId" : "01",
                       "numeroCedula" : 12345,
-                      "codigoSubcanal" : "0006"
+                      "codigoSubcanal" : "0009"
                     }
                   },
                   "summary" : "Ejemplo generado"
@@ -541,7 +548,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -549,9 +555,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaConsultarSaldoTarjetaPrepago" : {
-                      "$ref" : "#/components/schemas/BodySalidaConsultarSaldoTarjetaPrepago"
                     }
                   }
                 },
@@ -566,14 +569,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaConsultarSaldoTarjetaPrepago" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -616,15 +619,15 @@
                     },
                     "bodyEntradaMovimientosTarjetaPrepago" : {
                       "codigoTransaccion" : "01",
-                      "numeroTarjeta" : "4809141562649787",
-                      "fechaVencimiento" : "20260602",
+                      "numeroTarjeta" : "4127935478285387",
+                      "fechaVencimiento" : "20260604",
                       "funcion" : "string",
                       "numeroCuenta" : "01020123456789012345",
-                      "fechaDesde" : "20260602",
-                      "fechaHasta" : "20260602",
+                      "fechaDesde" : "20260604",
+                      "fechaHasta" : "20260604",
                       "tipoMovimientoDebitoCredito" : "string",
                       "tipoArchivo" : "string",
-                      "codigoSubcanal" : "0006",
+                      "codigoSubcanal" : "0009",
                       "serialDispositivo" : "string",
                       "codigoAreaTelefono" : "01",
                       "numeroTelefono" : 12345,
@@ -642,7 +645,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -651,8 +653,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaConsultarMovimientosTarjetaPrepago" : {
-                      "$ref" : "#/components/schemas/BodySalidaConsultarMovimientosTarjetaPrepago"
+                    "bodySalidaMovimientosTarjetaPrepago" : {
+                      "$ref" : "#/components/schemas/BodySalidaMovimientosTarjetaPrepago"
                     }
                   }
                 },
@@ -668,13 +670,37 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaConsultarMovimientosTarjetaPrepago" : { }
+                      "bodySalidaMovimientosTarjetaPrepago" : {
+                        "clvBusqueda" : "string",
+                        "nroAprob" : 12345,
+                        "cantMaxMovimientos" : 7,
+                        "regMovimientos" : [ {
+                          "hhTrans" : "093134",
+                          "factorDolarBs" : "string",
+                          "statusTrans" : "string",
+                          "indicInfAdic" : "string",
+                          "fchTrans" : "20260604",
+                          "nroRef" : 12345,
+                          "mtoTrans" : 1500.75,
+                          "tipoTrans" : "string",
+                          "clv" : {
+                            "codModalAfili" : "01",
+                            "nroCta" : "01020123456789012345",
+                            "hhPosteo" : "093134",
+                            "fchPosteo" : "20260604",
+                            "nroTarj" : "4938702235509593"
+                          }
+                        } ],
+                        "mtoComis" : 1500.75,
+                        "ordenEntrgDatos" : "string"
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -716,12 +742,12 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaConsultarMovimientosTPagoMovil" : {
-                      "codigoSubCanalInput" : "0006",
+                      "codigoSubCanalInput" : "0009",
                       "codigoServProdInput" : "01",
                       "codigoEstabIecimiento" : "01",
                       "numeroperInput" : 12345,
-                      "fechaDesdeInput" : "20260602",
-                      "fechaHastaInput" : "20260602",
+                      "fechaDesdeInput" : "20260604",
+                      "fechaHastaInput" : "20260604",
                       "cedulaBusquedaInput" : "string",
                       "numerotelefonoBusquedaInput" : 12345,
                       "indicadorTpagoInput" : "string",
@@ -740,7 +766,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -749,8 +774,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaMovimientoTpagoMovilP2C" : {
-                      "$ref" : "#/components/schemas/BodySalidaMovimientoTpagoMovilP2C"
+                    "bodySalidaConsultarMovimientosTPagoMovil" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarMovimientosTPagoMovil"
                     }
                   }
                 },
@@ -766,13 +791,81 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaMovimientoTpagoMovilP2C" : { }
+                      "bodySalidaConsultarMovimientosTPagoMovil" : {
+                        "cantRegProc" : 7,
+                        "movimientos" : [ {
+                          "codSubCanal" : "0009",
+                          "nroDeposRecap" : 12345,
+                          "nomOrigen" : "string",
+                          "serial" : "string",
+                          "indicReg" : "string",
+                          "bcoDestino" : "string",
+                          "movilDestino" : "string",
+                          "nroRef" : 12345,
+                          "indicTrans" : "string",
+                          "mtoComisOrigen" : 1500.75,
+                          "modoEntrada" : "string",
+                          "fchLocal" : "20260604",
+                          "estatusEven" : "ACTIVO",
+                          "nroCtaDestino" : "01020123456789012345",
+                          "descripCodBcoProc" : "Descripción generada",
+                          "codEstab" : "01",
+                          "codCanal" : "0006",
+                          "nroCta" : "01020123456789012345",
+                          "codAutoriza" : "01",
+                          "codMoneda" : "01",
+                          "ref" : "string",
+                          "bcoOrigen" : "string",
+                          "idOrigen" : "string",
+                          "localizaOrigen" : "string",
+                          "fchTransNeg" : "20260604",
+                          "fchDeposRecap" : "20260604",
+                          "tipoCta" : "01020123456789012345",
+                          "formaPago" : "string",
+                          "idTransRed" : "string",
+                          "fchEven" : "20260604",
+                          "hhTrans" : "093134",
+                          "datosOrigen" : "string",
+                          "codServProd" : "01",
+                          "mtoComisDestino" : 1500.75,
+                          "nomAliasFrec" : "string",
+                          "movilOrigen" : "string",
+                          "termIdOrigen" : "string",
+                          "estatusComisDestino" : "ACTIVO",
+                          "nroPer" : 12345,
+                          "estatusComisOrigen" : "ACTIVO",
+                          "codTransMctil" : "01",
+                          "fchTrans" : "20260604",
+                          "termRed" : "string",
+                          "tipoCtaDestino" : "01020123456789012345",
+                          "fchEmisionPago" : "20260604",
+                          "hhEven" : "093134",
+                          "cod" : "01",
+                          "tipoComercio" : "string",
+                          "fchEmisPago" : "20260604",
+                          "email" : "juan.perez@mercantil.com",
+                          "clv" : "string",
+                          "descripTrans" : "Descripción generada",
+                          "tipoTpago" : "string",
+                          "termFncro" : "string",
+                          "hhLocal" : "093134",
+                          "indicFavorito" : "string",
+                          "panDestino" : "string",
+                          "indicPos" : "string",
+                          "nroPerDestino" : 12345,
+                          "mtoTrans" : 1500.75,
+                          "refBco" : "string",
+                          "hhEmisPago" : "093134",
+                          "idDestino" : "string"
+                        } ]
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -828,7 +921,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -837,8 +929,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaTarjetaCreditoActiva" : {
-                      "$ref" : "#/components/schemas/BodySalidaTarjetaCreditoActiva"
+                    "bodySalidaConsultarTarjetaDeCreditoActiva" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarTarjetaDeCreditoActiva"
                     }
                   }
                 },
@@ -854,13 +946,21 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaTarjetaCreditoActiva" : { }
+                      "bodySalidaConsultarTarjetaDeCreditoActiva" : {
+                        "tarjetas" : [ {
+                          "tipoTarjHab" : "4792731007386125",
+                          "limCdto" : "string",
+                          "nroCta" : "01020123456789012345",
+                          "nroTarj" : "4291238003600232"
+                        } ]
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -916,7 +1016,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -925,8 +1024,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaAfiliacionTPago" : {
-                      "$ref" : "#/components/schemas/BodySalidaAfiliacionTPago"
+                    "bodySalidaConsultarAfiliacionTPago" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarAfiliacionTPago"
                     }
                   }
                 },
@@ -942,13 +1041,39 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaAfiliacionTPago" : { }
+                      "bodySalidaConsultarAfiliacionTPago" : {
+                        "codEstab" : "01",
+                        "codEmailEstab" : "juan.perez@mercantil.com",
+                        "direccHabCodPais" : "Av. Francisco de Miranda",
+                        "descripDisp" : "Descripción generada",
+                        "comercioId" : "string",
+                        "establecimiento" : {
+                          "codEstab" : "01",
+                          "nroCodEstab" : 12345
+                        },
+                        "nomEstab" : "string",
+                        "nroCtaDisp" : "01020123456789012345",
+                        "codComisMerca" : "01",
+                        "nomEstado" : "ACTIVO",
+                        "codEstado" : "ACTIVO",
+                        "nroPer" : 12345,
+                        "fchAfilia" : "20260604",
+                        "cantMaxDisp" : 7,
+                        "mtoMaxDisp" : 1500.75,
+                        "deCodPais" : "string",
+                        "codApi" : "01",
+                        "formaPago" : "string",
+                        "direccCompact" : "Av. Francisco de Miranda",
+                        "codComisInter" : "01",
+                        "codSic" : "01"
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -990,12 +1115,12 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaConsultarMovimientosLineaCredito" : {
-                      "numeroTarjeta" : "4976944591738860",
+                      "numeroTarjeta" : "4678156161800845",
                       "codigoTipoProducto" : "02",
                       "codigoId" : "01",
                       "numeroId" : 12345,
-                      "fechaDesde" : "20260602",
-                      "fechaHasta" : "20260602",
+                      "fechaDesde" : "20260604",
+                      "fechaHasta" : "20260604",
                       "tipoConsulta" : "string"
                     }
                   },
@@ -1008,7 +1133,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1039,12 +1163,12 @@
                           "clv" : {
                             "codModalAfili" : "01",
                             "nroCta" : "01020123456789012345",
-                            "hhPosteo" : "114058",
-                            "fchPosteo" : "20260602",
-                            "nroTarj" : "4693770609545225"
+                            "hhPosteo" : "093134",
+                            "fchPosteo" : "20260604",
+                            "nroTarj" : "4117233300245981"
                           },
-                          "fchTrans" : "20260602",
-                          "fchPagoConsumo" : "20260602",
+                          "fchTrans" : "20260604",
+                          "fchPagoConsumo" : "20260604",
                           "glosa" : "string",
                           "nroRef" : 12345,
                           "estatusConsumo" : "ACTIVO",
@@ -1060,7 +1184,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1102,9 +1227,9 @@
                       "cantidadRegistros" : 0
                     },
                     "bodyEntradaLineaCreditoAmpliada" : {
-                      "nroTarj" : "4227047631866738",
-                      "fchUso" : "20260602",
-                      "hhUso" : "114058",
+                      "nroTarj" : "4153075948117931",
+                      "fchUso" : "20260604",
+                      "hhUso" : "093134",
                       "mtoUsoBs" : 1500.75,
                       "mtoUsoDolar" : 1500.75,
                       "mtoComis" : 1500.75,
@@ -1134,7 +1259,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1143,8 +1267,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaConsultarLineaCreditoAmpliada" : {
-                      "$ref" : "#/components/schemas/BodySalidaConsultarLineaCreditoAmpliada"
+                    "bodySalidaLineaCreditoAmpliada" : {
+                      "$ref" : "#/components/schemas/BodySalidaLineaCreditoAmpliada"
                     }
                   }
                 },
@@ -1160,13 +1284,16 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaConsultarLineaCreditoAmpliada" : { }
+                      "bodySalidaLineaCreditoAmpliada" : {
+                        "nroRef" : 12345
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1209,7 +1336,7 @@
                     },
                     "bodyEntradaConsultarCuotasLineaCredito" : {
                       "nroContrato" : 12345,
-                      "nroTarj" : "4887651362880122",
+                      "nroTarj" : "4801477096595759",
                       "codEstab" : "01",
                       "tipoId" : "V",
                       "nroId" : 12345678
@@ -1224,7 +1351,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1252,8 +1378,8 @@
                       },
                       "bodySalidaConsultarCuotasLineaCredito" : {
                         "cuotas" : [ {
-                          "fchCuo" : "20260602",
-                          "fchPagoCuo" : "20260602",
+                          "fchCuo" : "20260604",
+                          "fchPagoCuo" : "20260604",
                           "mtoCuo" : 1500.75,
                           "estatusCuotas" : "ACTIVO"
                         } ]
@@ -1263,7 +1389,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1306,10 +1433,10 @@
                     },
                     "bodyEntradaInsertarAceptaTarjetaLca" : {
                       "customerId" : "string",
-                      "nroTarjeta" : "4435502855308336",
+                      "nroTarjeta" : "4115964156193030",
                       "codTipoProducto" : "02",
                       "versionContrato" : "string",
-                      "fechaAceptacion" : "20260602",
+                      "fechaAceptacion" : "20260604",
                       "dbiDatos" : "string",
                       "dbiBanco" : "string"
                     }
@@ -1323,7 +1450,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1331,9 +1457,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaInsertarAceptaTarjetaLca" : {
-                      "$ref" : "#/components/schemas/BodySalidaInsertarAceptaTarjetaLca"
                     }
                   }
                 },
@@ -1348,14 +1471,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaInsertarAceptaTarjetaLca" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1398,7 +1521,7 @@
                     },
                     "bodyEntradaReposicion" : {
                       "nroPer" : 12345,
-                      "nroTarj" : "4504879050178953",
+                      "nroTarj" : "4479364759951548",
                       "serial" : "string",
                       "motivRepos" : "string"
                     }
@@ -1412,7 +1535,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1420,9 +1542,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaInsertarReposicionMarcaCompartida" : {
-                      "$ref" : "#/components/schemas/BodySalidaInsertarReposicionMarcaCompartida"
                     }
                   }
                 },
@@ -1437,14 +1556,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaInsertarReposicionMarcaCompartida" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1487,7 +1606,7 @@
                     },
                     "bodyEntradaActivarTarjetaMarcaCompartida" : {
                       "nroPer" : 12345,
-                      "nroTarj" : "4341834171123807",
+                      "nroTarj" : "4353024465492184",
                       "indicClteNvo" : "string"
                     }
                   },
@@ -1500,7 +1619,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1534,7 +1652,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1591,7 +1710,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1599,9 +1717,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaRecepcionLotesTarjetas" : {
-                      "$ref" : "#/components/schemas/BodySalidaRecepcionLotesTarjetas"
                     }
                   }
                 },
@@ -1616,14 +1731,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaRecepcionLotesTarjetas" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1684,7 +1799,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1692,9 +1806,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaSolicitarClaveOtpLca" : {
-                      "$ref" : "#/components/schemas/BodySalidaSolicitarClaveOtpLca"
                     }
                   }
                 },
@@ -1709,14 +1820,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaSolicitarClaveOtpLca" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1763,7 +1874,7 @@
                       "numeroIdentificacion" : 12345,
                       "codigoRazon" : "01",
                       "tarjetasASuspender" : {
-                        "numeroTarjeta" : "4855585569852716"
+                        "numeroTarjeta" : "4319294521147170"
                       }
                     }
                   },
@@ -1776,7 +1887,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1785,8 +1895,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaTarjetaDeCredito" : {
-                      "$ref" : "#/components/schemas/BodySalidaTarjetaDeCredito"
+                    "bodySalidaSuspenderTarjetaCredito" : {
+                      "$ref" : "#/components/schemas/BodySalidaSuspenderTarjetaCredito"
                     }
                   }
                 },
@@ -1802,13 +1912,19 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaTarjetaDeCredito" : { }
+                      "bodySalidaSuspenderTarjetaCredito" : {
+                        "tarjetasSuspendidas" : [ {
+                          "descripResp" : "Descripción generada",
+                          "codResp" : "01"
+                        } ]
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1922,8 +2038,8 @@
             "$ref" : "#/components/schemas/HeaderSalida"
           },
           "bodySalida" : {
-            "description" : "Contenido dinámico de la respuesta",
-            "type" : "object"
+            "type" : "object",
+            "description" : "Contenido dinámico de la respuesta"
           }
         }
       },
@@ -3848,10 +3964,6 @@
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaMosaicAsociados" : {
-        "type" : "object",
-        "properties" : { }
-      },
       "BodySalidaConsultarMarca" : {
         "type" : "object",
         "properties" : { }
@@ -3860,31 +3972,7 @@
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaConsultarSaldoTarjetaLca" : {
-        "type" : "object",
-        "properties" : { }
-      },
       "BodySalidaConsultarSaldoTarjetaPrepago" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaConsultarMovimientosTarjetaPrepago" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaMovimientoTpagoMovilP2C" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaTarjetaCreditoActiva" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaAfiliacionTPago" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaConsultarLineaCreditoAmpliada" : {
         "type" : "object",
         "properties" : { }
       },
@@ -3903,17 +3991,13 @@
       "BodySalidaSolicitarClaveOtpLca" : {
         "type" : "object",
         "properties" : { }
-      },
-      "BodySalidaTarjetaDeCredito" : {
-        "type" : "object",
-        "properties" : { }
       }
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "type" : "http",
         "scheme" : "bearer",
-        "bearerFormat" : "JWT"
+        "bearerFormat" : "JWT",
+        "type" : "http"
       }
     }
   },

@@ -3,23 +3,23 @@
   "info" : {
     "title" : "API inversiones",
     "version" : "1.0",
-    "description" : "Generado dinámicamente"
+    "description" : "Generado dinámicamente por Banco Mercantil"
   },
   "servers" : [ {
     "url" : "/inversiones"
   } ],
   "tags" : [ {
-    "description" : "Operaciones Buscar Root",
-    "name" : "Buscar Root"
+    "name" : "Buscar Root",
+    "description" : "Operaciones Buscar Root"
   }, {
-    "description" : "Operaciones Consultar Root",
-    "name" : "Consultar Root"
+    "name" : "Consultar Root",
+    "description" : "Operaciones Consultar Root"
   }, {
-    "description" : "Operaciones Crear Root",
-    "name" : "Crear Root"
+    "name" : "Crear Root",
+    "description" : "Operaciones Crear Root"
   }, {
-    "description" : "Operaciones Validar Root",
-    "name" : "Validar Root"
+    "name" : "Validar Root",
+    "description" : "Operaciones Validar Root"
   } ],
   "paths" : {
     "/buscar/inventarios" : {
@@ -65,7 +65,7 @@
                       "tipoOperacion" : "string",
                       "codigoMoneda" : "01",
                       "mtoPacto" : 1500.75,
-                      "subCanal" : "string",
+                      "subCanal" : "0009",
                       "tasaSubastaUsd" : "string"
                     }
                   },
@@ -78,7 +78,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -87,8 +86,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaInventarios" : {
-                      "$ref" : "#/components/schemas/BodySalidaInventarios"
+                    "bodySalidaBuscarInventarios" : {
+                      "$ref" : "#/components/schemas/BodySalidaBuscarInventarios"
                     }
                   }
                 },
@@ -104,13 +103,48 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaInventarios" : { }
+                      "bodySalidaBuscarInventarios" : {
+                        "cantDiasCtaMercantil" : 7,
+                        "tasaCambio" : "string",
+                        "tasaComisionCompra" : "string",
+                        "montoTransferencia" : "string",
+                        "tasaSwift" : "string",
+                        "tasaCompraUsd" : "string",
+                        "tasaCompraEur" : "string",
+                        "horaCierre" : "093134",
+                        "indCierreMelp" : "string",
+                        "indCierreCanal" : "string",
+                        "horaApertura" : "093134",
+                        "tasaTransferencia" : "string",
+                        "nroTlfnCliente" : 12345,
+                        "nombreCliente" : "string",
+                        "montoComision" : "string",
+                        "codigoProducto" : "02",
+                        "montoMultiploSolicitud" : "string",
+                        "tasaVentaEur" : "string",
+                        "emailCliente" : "juan.perez@mercantil.com",
+                        "tasaComisionVenta" : "string",
+                        "tasaCompraUsdEur" : "string",
+                        "montoMinPacto" : "string",
+                        "tasaVentaUsd" : "string",
+                        "tasaVentaUsdEur" : "string",
+                        "codMonedaIsoUsd" : "01",
+                        "montoSwift" : "string",
+                        "codMonedaIsoEur" : "01",
+                        "codigoEmpresa" : "0108",
+                        "montoOperacionNeto" : "string",
+                        "montoMaxPacto" : "string",
+                        "montoOperacionBs" : "string",
+                        "fechaCtaMercantil" : "20260604",
+                        "indCierreMele" : "string"
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -128,9 +162,6 @@
                 "properties" : {
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
-                  },
-                  "bodyEntradaConsultarOperacionesRechazadas" : {
-                    "$ref" : "#/components/schemas/BodyEntradaConsultarOperacionesRechazadas"
                   }
                 }
               },
@@ -150,8 +181,7 @@
                       "atributoPagineo" : "",
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
-                    },
-                    "bodyEntradaConsultarOperacionesRechazadas" : { }
+                    }
                   },
                   "summary" : "Ejemplo generado"
                 }
@@ -162,7 +192,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -170,9 +199,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaOperacionesRechazadas" : {
-                      "$ref" : "#/components/schemas/BodySalidaOperacionesRechazadas"
                     }
                   }
                 },
@@ -187,14 +213,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaOperacionesRechazadas" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -258,18 +284,18 @@
                       "tasaVentaEur" : "string",
                       "tasaVentaUsdEur" : "string",
                       "cantDiasCtaMercantil" : 7,
-                      "fechaCtaMercantil" : "20260602",
+                      "fechaCtaMercantil" : "20260604",
                       "codMonedaIsoUsd" : "01",
                       "codMonedaIsoEur" : "01",
-                      "subCanal" : "string",
+                      "subCanal" : "0009",
                       "codigoSegmento" : "01",
                       "origenFondos" : "string",
                       "destinoFondos" : "string",
                       "actividadEconomica" : "string",
                       "dna" : "string",
                       "sesscookie" : "string",
-                      "horaApertura" : "114058",
-                      "horaCierre" : "114058",
+                      "horaApertura" : "093134",
+                      "horaCierre" : "093134",
                       "nombreCliente" : "string",
                       "nroTlfnCliente" : 12345,
                       "emailCliente" : "juan.perez@mercantil.com",
@@ -293,7 +319,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -302,8 +327,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaOrdenCompraVenta" : {
-                      "$ref" : "#/components/schemas/BodySalidaOrdenCompraVenta"
+                    "bodySalidaCrearOrdenCompraVenta" : {
+                      "$ref" : "#/components/schemas/BodySalidaCrearOrdenCompraVenta"
                     }
                   }
                 },
@@ -319,13 +344,21 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaOrdenCompraVenta" : { }
+                      "bodySalidaCrearOrdenCompraVenta" : {
+                        "numeroOrden" : 12345,
+                        "datosControl" : "string",
+                        "salidaMenudeo" : {
+                          "nroConsecMbuSal" : 12345,
+                          "idMovimientoBcvSal" : "string"
+                        }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -370,7 +403,7 @@
                       "tipoIdentificacion" : "V",
                       "cedulaRif" : "string",
                       "numeroPersona" : 12345,
-                      "subCanal" : "string"
+                      "subCanal" : "0009"
                     }
                   },
                   "summary" : "Ejemplo generado"
@@ -382,7 +415,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -391,8 +423,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaDatosClientes" : {
-                      "$ref" : "#/components/schemas/BodySalidaDatosClientes"
+                    "bodySalidaValidarDatosCliente" : {
+                      "$ref" : "#/components/schemas/BodySalidaValidarDatosCliente"
                     }
                   }
                 },
@@ -408,13 +440,24 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaDatosClientes" : { }
+                      "bodySalidaValidarDatosCliente" : {
+                        "cantidadOperaciones" : 7,
+                        "instruccionPago" : [ {
+                          "codigoSwiftCorr" : "01",
+                          "codigoAba" : "01",
+                          "codigoMoneda" : "01",
+                          "bancoExtranjero" : "string",
+                          "cuentaExtranjera" : "01020123456789012345",
+                          "codigoSwift" : "01"
+                        } ]
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -528,8 +571,8 @@
             "$ref" : "#/components/schemas/HeaderSalida"
           },
           "bodySalida" : {
-            "description" : "Contenido dinámico de la respuesta",
-            "type" : "object"
+            "type" : "object",
+            "description" : "Contenido dinámico de la respuesta"
           }
         }
       },
@@ -1301,10 +1344,6 @@
         "properties" : { },
         "description" : "Clase sin propiedades o no detectadas"
       },
-      "BodySalidaInventarios" : {
-        "type" : "object",
-        "properties" : { }
-      },
       "BodyEntradaConsultarOperacionesRechazadas" : {
         "type" : "object",
         "properties" : { }
@@ -1312,21 +1351,13 @@
       "BodySalidaOperacionesRechazadas" : {
         "type" : "object",
         "properties" : { }
-      },
-      "BodySalidaOrdenCompraVenta" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaDatosClientes" : {
-        "type" : "object",
-        "properties" : { }
       }
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "type" : "http",
         "scheme" : "bearer",
-        "bearerFormat" : "JWT"
+        "bearerFormat" : "JWT",
+        "type" : "http"
       }
     }
   },

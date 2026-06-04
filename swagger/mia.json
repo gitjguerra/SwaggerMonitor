@@ -3,14 +3,14 @@
   "info" : {
     "title" : "API mia",
     "version" : "1.0",
-    "description" : "Generado dinámicamente"
+    "description" : "Generado dinámicamente por Banco Mercantil"
   },
   "servers" : [ {
     "url" : "/mia"
   } ],
   "tags" : [ {
-    "description" : "Operaciones Security",
-    "name" : "Security"
+    "name" : "Security",
+    "description" : "Operaciones Security"
   } ],
   "paths" : {
     "/security/create-jwt" : {
@@ -63,7 +63,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -72,8 +71,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaCreate" : {
-                      "$ref" : "#/components/schemas/BodySalidaCreate"
+                    "bodySalidaCreateJWT" : {
+                      "$ref" : "#/components/schemas/BodySalidaCreateJWT"
                     }
                   }
                 },
@@ -89,13 +88,20 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaCreate" : { }
+                      "bodySalidaCreateJWT" : {
+                        "createResponseToken" : {
+                          "codigo" : "01",
+                          "descripcion" : "Descripción generada",
+                          "token" : "string"
+                        }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -150,7 +156,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -188,7 +193,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -242,7 +248,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -251,7 +256,7 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaReadQR" : {
+                    "bodySalidaDecryptQR" : {
                       "$ref" : "#/components/schemas/BodySalidaReadQR"
                     }
                   }
@@ -268,7 +273,7 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaReadQR" : {
+                      "bodySalidaDecryptQR" : {
                         "id" : 123456,
                         "phone" : "string",
                         "bank" : "string",
@@ -281,7 +286,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -340,7 +346,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -349,8 +354,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaGenerateQrRsa" : {
-                      "$ref" : "#/components/schemas/BodySalidaGenerateQrRsa"
+                    "bodySalidaEncryptQR" : {
+                      "$ref" : "#/components/schemas/BodySalidaGenerateQR"
                     }
                   }
                 },
@@ -366,13 +371,16 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaGenerateQrRsa" : { }
+                      "bodySalidaEncryptQR" : {
+                        "qr" : "string"
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -486,8 +494,8 @@
             "$ref" : "#/components/schemas/HeaderSalida"
           },
           "bodySalida" : {
-            "description" : "Contenido dinámico de la respuesta",
-            "type" : "object"
+            "type" : "object",
+            "description" : "Contenido dinámico de la respuesta"
           }
         }
       },
@@ -891,21 +899,13 @@
         "type" : "object",
         "properties" : { },
         "description" : "Clase sin propiedades o no detectadas"
-      },
-      "BodySalidaCreate" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaGenerateQrRsa" : {
-        "type" : "object",
-        "properties" : { }
       }
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "type" : "http",
         "scheme" : "bearer",
-        "bearerFormat" : "JWT"
+        "bearerFormat" : "JWT",
+        "type" : "http"
       }
     }
   },

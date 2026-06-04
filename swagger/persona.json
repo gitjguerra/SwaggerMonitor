@@ -3,35 +3,38 @@
   "info" : {
     "title" : "API persona",
     "version" : "1.0",
-    "description" : "Generado dinámicamente"
+    "description" : "Generado dinámicamente por Banco Mercantil"
   },
   "servers" : [ {
     "url" : "/persona"
   } ],
   "tags" : [ {
-    "description" : "Operaciones Actualizar Root",
-    "name" : "Actualizar Root"
+    "name" : "Actualizar Root",
+    "description" : "Operaciones Actualizar Root"
   }, {
-    "description" : "Operaciones Anular Root",
-    "name" : "Anular Root"
+    "name" : "Anular Root",
+    "description" : "Operaciones Anular Root"
   }, {
-    "description" : "Operaciones Capturar Root",
-    "name" : "Capturar Root"
+    "name" : "Capturar Root",
+    "description" : "Operaciones Capturar Root"
   }, {
-    "description" : "Operaciones Consultar Root",
-    "name" : "Consultar Root"
+    "name" : "Consultar Root",
+    "description" : "Operaciones Consultar Root"
   }, {
-    "description" : "Operaciones Gestionar Root",
-    "name" : "Gestionar Root"
+    "name" : "Gestionar Root",
+    "description" : "Operaciones Gestionar Root"
   }, {
-    "description" : "Operaciones Imprimir Root",
-    "name" : "Imprimir Root"
+    "name" : "Imprimir Root",
+    "description" : "Operaciones Imprimir Root"
   }, {
-    "description" : "Operaciones Incluir Root",
-    "name" : "Incluir Root"
+    "name" : "Incluir Root",
+    "description" : "Operaciones Incluir Root"
   }, {
-    "description" : "Operaciones Ingresar Root",
-    "name" : "Ingresar Root"
+    "name" : "Ingresar Root",
+    "description" : "Operaciones Ingresar Root"
+  }, {
+    "name" : "Validar Root",
+    "description" : "Operaciones Validar Root"
   } ],
   "paths" : {
     "/actualizar/datos-no-clientes" : {
@@ -87,7 +90,7 @@
                       "codCalle" : "01",
                       "descripCodCalle" : "Descripción generada",
                       "direcc" : "Av. Francisco de Miranda",
-                      "fchNac" : "20260602",
+                      "fchNac" : "20260604",
                       "nomApto" : "string",
                       "nomEdif" : "string",
                       "codPaisCelular" : "04141234567",
@@ -105,7 +108,7 @@
                       "codMunic" : "01",
                       "codParroq" : "01",
                       "genero" : "M",
-                      "fchReg" : "20260602",
+                      "fchReg" : "20260604",
                       "origenReg" : "string",
                       "nroPerClte" : 12345,
                       "codPaisDirecc" : "Av. Francisco de Miranda"
@@ -120,7 +123,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -129,8 +131,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaDatosNoClientes" : {
-                      "$ref" : "#/components/schemas/BodySalidaDatosNoClientes"
+                    "bodySalidaConsultarDatosNoClientes" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarDatosNoClientes"
                     }
                   }
                 },
@@ -146,13 +148,58 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaDatosNoClientes" : { }
+                      "bodySalidaConsultarDatosNoClientes" : {
+                        "tipoId" : "V",
+                        "nroTelfHab" : "02121234567",
+                        "codCalle" : "01",
+                        "descripCodCalle" : "Descripción generada",
+                        "codMunic" : "01",
+                        "nroCelular" : "04141234567",
+                        "codAreaHabTelf" : "02121234567",
+                        "desParroq" : "Chacao",
+                        "primerNom" : "Juan",
+                        "nomEdif" : "string",
+                        "codAreaTelfOfic" : "02121234567",
+                        "desMunic" : "Libertador",
+                        "codPaisDirecc" : "Av. Francisco de Miranda",
+                        "nroPerNoClte" : 12345,
+                        "apellCasada" : "de Perez",
+                        "desEdo" : "DC",
+                        "genero" : "M",
+                        "primerApell" : "Perez",
+                        "descripNivel" : "Descripción generada",
+                        "codAptdoPostal" : "01",
+                        "desCiudad" : "Caracas",
+                        "email" : "juan.perez@mercantil.com",
+                        "codPaisCelular" : "04141234567",
+                        "segundoApell" : "Gomez",
+                        "nomApto" : "string",
+                        "codEdo" : "01",
+                        "codNivel" : "01",
+                        "nroId" : 12345678,
+                        "codPais" : "VE",
+                        "segundoNom" : "Carlos",
+                        "codCiudad" : "Caracas",
+                        "nroTelfOfic" : "02121234567",
+                        "origenReg" : "string",
+                        "codPaisHabTelf" : "02121234567",
+                        "codOficPaisTelf" : "02121234567",
+                        "nroPerClte" : 12345,
+                        "codZonaPostal" : "01",
+                        "codParroq" : "01",
+                        "fchNac" : "20260604",
+                        "descripPaisDirecc" : "Av. Francisco de Miranda",
+                        "fchReg" : "20260604",
+                        "direcc" : "Av. Francisco de Miranda",
+                        "codAreaCelular" : "04141234567"
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -216,7 +263,7 @@
                       "nroExtContacto" : 12345,
                       "codCelAreaContacto" : "01",
                       "nroCelTelfContacto" : "02121234567",
-                      "fchNacContacto" : "20260602"
+                      "fchNacContacto" : "20260604"
                     }
                   },
                   "summary" : "Ejemplo generado"
@@ -228,7 +275,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -237,8 +283,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaPersonaContactoEmpresa" : {
-                      "$ref" : "#/components/schemas/BodySalidaPersonaContactoEmpresa"
+                    "bodySalidaConsultarPersonaContactoEmpresa" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarPersonaContactoEmpresa"
                     }
                   }
                 },
@@ -254,13 +300,36 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaPersonaContactoEmpresa" : { }
+                      "bodySalidaConsultarPersonaContactoEmpresa" : {
+                        "contactos" : [ {
+                          "tipoID" : "V",
+                          "nroPerMele" : 12345,
+                          "nroExtContacto" : 12345,
+                          "direccContacto" : "Av. Francisco de Miranda",
+                          "nroSuc" : 12345,
+                          "cargoContacto" : "string",
+                          "nroCelContacto" : 12345,
+                          "fchNacimContacto" : "20260604",
+                          "codAreaContacto" : "01",
+                          "nroID" : 12345678,
+                          "descripContacto" : "Descripción generada",
+                          "codCelAreaContacto" : "01",
+                          "nroTelfContacto" : "02121234567",
+                          "idPais" : "string",
+                          "nomContacto" : "string",
+                          "tipoUsuMele" : "string",
+                          "nroPerContacto" : 12345,
+                          "direccEmailContacto" : "juan.perez@mercantil.com",
+                          "tipoContacto" : "string"
+                        } ]
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -309,8 +378,8 @@
                       "rol" : "string",
                       "tipAccion" : "string",
                       "codTrans" : "01",
-                      "fchRolIni" : "20260602",
-                      "fchRolFin" : "20260602"
+                      "fchRolIni" : "20260604",
+                      "fchRolFin" : "20260604"
                     }
                   },
                   "summary" : "Ejemplo generado"
@@ -322,7 +391,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -331,8 +399,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaRoles" : {
-                      "$ref" : "#/components/schemas/BodySalidaRoles"
+                    "bodySalidaConsultarRoles" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarRoles"
                     }
                   }
                 },
@@ -348,13 +416,27 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaRoles" : { }
+                      "bodySalidaConsultarRoles" : {
+                        "rolSuper" : "string",
+                        "superRoles" : [ "string" ],
+                        "fchInicRoles" : [ "string" ],
+                        "statusRol" : "string",
+                        "cantRoles" : 7,
+                        "fchFinRoles" : [ "string" ],
+                        "status" : [ "string" ],
+                        "existeRol" : "string",
+                        "fchRolFin" : "20260604",
+                        "fchRolInic" : "20260604",
+                        "rol" : "string",
+                        "roles" : [ "string" ]
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -417,7 +499,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -425,9 +506,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaRjReferido" : {
-                      "$ref" : "#/components/schemas/BodySalidaRjReferido"
                     }
                   }
                 },
@@ -442,14 +520,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaRjReferido" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -509,7 +587,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -518,8 +595,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaTelefonoCliente" : {
-                      "$ref" : "#/components/schemas/BodySalidaTelefonoCliente"
+                    "bodySalidaActualizarTelefonoCliente" : {
+                      "$ref" : "#/components/schemas/BodySalidaActualizarTelefonoCliente"
                     }
                   }
                 },
@@ -535,13 +612,20 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaTelefonoCliente" : { }
+                      "bodySalidaActualizarTelefonoCliente" : {
+                        "paramSalida" : {
+                          "telefonos" : [ {
+                            "txtRetorno" : "string"
+                          } ]
+                        }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -602,7 +686,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -611,8 +694,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaLocalizacionNacionalCompactada" : {
-                      "$ref" : "#/components/schemas/BodySalidaLocalizacionNacionalCompactada"
+                    "bodySalidaConsultarLocalizacionNacionalCompactada" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarLocalizacionNacionalCompactada"
                     }
                   }
                 },
@@ -628,13 +711,17 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaLocalizacionNacionalCompactada" : { }
+                      "bodySalidaConsultarLocalizacionNacionalCompactada" : {
+                        "direccCompact" : [ "string" ],
+                        "codLocaliza" : "01"
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -693,7 +780,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -702,8 +788,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaAutorizacionesCliente" : {
-                      "$ref" : "#/components/schemas/BodySalidaAutorizacionesCliente"
+                    "bodySalidaConsultarAutorizacionesCliente" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarAutorizacionesCliente"
                     }
                   }
                 },
@@ -719,13 +805,35 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaAutorizacionesCliente" : { }
+                      "bodySalidaConsultarAutorizacionesCliente" : {
+                        "nroAutori" : 12345,
+                        "fchFinAutori" : "20260604",
+                        "idAutori" : "string",
+                        "fchSolicAutori" : "20260604",
+                        "codTipoAutori" : "01",
+                        "fchInicioAutori" : "20260604",
+                        "carnetFnarioCapt" : "string",
+                        "statusAutori" : "string",
+                        "unidadOrgCapt" : "string",
+                        "indicAutoriClte" : "string",
+                        "fchActualiz" : "20260604",
+                        "codCanalAutori" : "0006",
+                        "autorizaciones" : [ {
+                          "codTipoProducAutori" : "01",
+                          "nroCtaAutori" : "01020123456789012345"
+                        } ],
+                        "paisesDestinos" : [ {
+                          "codPaisesDestino" : "VE",
+                          "descriPaisesDestino" : "Descripción generada"
+                        } ]
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -811,20 +919,20 @@
                       "area1250Terminal" : "string",
                       "area1250MtoOper" : 1500.75,
                       "area1250Nroope" : 12345,
-                      "area1250FchTrans" : "20260602",
-                      "area1250FchReal" : "20260602",
-                      "area1250Hora" : "114059",
+                      "area1250FchTrans" : "20260604",
+                      "area1250FchReal" : "20260604",
+                      "area1250Hora" : "093135",
                       "ctaDestinoFondos" : "01020123456789012345",
                       "nombreBeneficiario" : "string",
                       "area1250MtoTotal" : 1500.75,
                       "coCarnet" : "string",
                       "codUnidadCaptura" : "01",
-                      "nroTarjAbra24" : "4007488265356602",
-                      "nroTarjCdto" : "4289527113875393",
+                      "nroTarjAbra24" : "4256737801077637",
+                      "nroTarjCdto" : "4700387337279372",
                       "nroCtaTarjCdto" : "01020123456789012345",
                       "codBanco" : "01",
                       "nombreBanco" : "string",
-                      "fchRequer" : "20260602",
+                      "fchRequer" : "20260604",
                       "mtoDispCajero" : 1500.75,
                       "codigoAccion" : "01"
                     }
@@ -838,7 +946,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -847,8 +954,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaCapturarReclamos" : {
-                      "$ref" : "#/components/schemas/BodySalidaCapturarReclamos"
+                    "bodySalidaReclamosCuentasDeposito" : {
+                      "$ref" : "#/components/schemas/BodySalidaReclamosCuentasDeposito"
                     }
                   }
                 },
@@ -864,13 +971,22 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaCapturarReclamos" : { }
+                      "bodySalidaReclamosCuentasDeposito" : {
+                        "fchDdSoluc" : "20260604",
+                        "tipoRequerimEspec" : "string",
+                        "txReqerimEspec" : "string",
+                        "reclamo" : "string",
+                        "mto" : 1500.75,
+                        "tipoId" : "V",
+                        "nroCi" : 12345
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -889,8 +1005,8 @@
                   "headerEntrada" : {
                     "$ref" : "#/components/schemas/HeaderEntrada"
                   },
-                  "bodyEntradaReclamosTarjetaEfectivo" : {
-                    "$ref" : "#/components/schemas/BodyEntradaReclamosTarjetaEfectivo"
+                  "bodyEntradaCapturarReclamosTarjetaEfectivo" : {
+                    "$ref" : "#/components/schemas/BodyEntradaCapturarReclamosTarjetaEfectivo"
                   }
                 }
               },
@@ -911,7 +1027,7 @@
                       "claveBusqueda" : "",
                       "cantidadRegistros" : 0
                     },
-                    "bodyEntradaReclamosTarjetaEfectivo" : {
+                    "bodyEntradaCapturarReclamosTarjetaEfectivo" : {
                       "tipoId" : "V",
                       "nroCi" : 12345,
                       "nroPersona" : 12345,
@@ -925,7 +1041,7 @@
                       "email" : "juan.perez@mercantil.com",
                       "feEdocta" : "01020123456789012345",
                       "monto" : 1500.75,
-                      "nroTarjEfectivo" : "4356404224327177",
+                      "nroTarjEfectivo" : "4541423363892466",
                       "nroOper" : 12345,
                       "codMedioComunic" : "01",
                       "descripMedioComunic" : "Libertador",
@@ -941,19 +1057,19 @@
                       "desReclamo" : "string",
                       "indNroCliente" : 12345,
                       "transacciones" : [ {
-                        "fchTrans" : "20260602",
-                        "hhTrans" : "114059",
-                        "fchPosteo" : "20260602",
+                        "fchTrans" : "20260604",
+                        "hhTrans" : "093135",
+                        "fchPosteo" : "20260604",
                         "nroTerm" : 12345,
                         "mtoTrans" : 1500.75,
-                        "hhPosteo" : "114059",
-                        "MtoCre" : 1500.75,
+                        "hhPosteo" : "093135",
+                        "mtoCre" : 1500.75,
                         "mtoDeb" : 1500.75,
                         "nroRef" : 12345,
                         "codTrans" : "01",
                         "glosaTrans" : "string",
                         "codCanal" : "0006",
-                        "codSubcanal" : "0006",
+                        "codSubcanal" : "0009",
                         "nroRequerimAnt" : 12345,
                         "cantReconsiderac" : 7
                       } ],
@@ -970,7 +1086,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -979,8 +1094,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaReclamosTarjetaEfectivo" : {
-                      "$ref" : "#/components/schemas/BodySalidaReclamosTarjetaEfectivo"
+                    "bodySalidaCapturarReclamosTarjetaEfectivo" : {
+                      "$ref" : "#/components/schemas/BodySalidaCapturarReclamosTarjetaEfectivo"
                     }
                   }
                 },
@@ -996,7 +1111,7 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaReclamosTarjetaEfectivo" : {
+                      "bodySalidaCapturarReclamosTarjetaEfectivo" : {
                         "salida" : {
                           "tiempoEstimSoluc" : "string",
                           "nomRequerimEspecif" : "string",
@@ -1010,7 +1125,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1069,7 +1185,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1108,7 +1223,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1166,7 +1282,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1201,7 +1316,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1258,7 +1374,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1267,8 +1382,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaDatosBasicosDireccionTelefonoEmail" : {
-                      "$ref" : "#/components/schemas/BodySalidaDatosBasicosDireccionTelefonoEmail"
+                    "bodySalidaConsultarDatosBasicosDireccionTelefonoEmail" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarDatosBasicosDireccionTelefonoEmail"
                     }
                   }
                 },
@@ -1284,13 +1399,80 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaDatosBasicosDireccionTelefonoEmail" : { }
+                      "bodySalidaConsultarDatosBasicosDireccionTelefonoEmail" : {
+                        "nroExtHab" : 12345,
+                        "habDescripCodPais" : "Descripción generada",
+                        "codAreaCiudadOfic" : "Caracas",
+                        "habNomSector" : "string",
+                        "descripFliaProducCIIU3" : "Descripción generada",
+                        "habDireccCompact" : "Av. Francisco de Miranda",
+                        "sedeCodParroq" : "Chacao",
+                        "primerNom" : "Juan",
+                        "sedeCodEdo" : "DC",
+                        "nroTelfHab" : "02121234567",
+                        "direccSedeNomSector" : "Av. Francisco de Miranda",
+                        "codActivoOcup" : "01",
+                        "apellCasada" : "de Perez",
+                        "fchNac" : "20260604",
+                        "emailPer" : "juan.perez@mercantil.com",
+                        "habCodZonaPostal" : "1010",
+                        "direccSedeNomMunic" : "Av. Francisco de Miranda",
+                        "habDescripParroq" : "Chacao",
+                        "habCodSector" : "string",
+                        "codAreaCiudaddHab" : "Caracas",
+                        "sedeDescripCodEdo" : "DC",
+                        "nroExtOfic" : 12345,
+                        "sedeCodUrb" : "string",
+                        "direccHabCodMunic" : "Av. Francisco de Miranda",
+                        "habNroAptdoPostal" : 12345,
+                        "sedeCodPais" : "string",
+                        "habCodEdo" : "DC",
+                        "codAreaPaisOfic" : "VE",
+                        "descripEdoCivil" : "DC",
+                        "edoCivil" : "DC",
+                        "habDescripCodUrb" : "Descripción generada",
+                        "nroTelfOfic" : "02121234567",
+                        "nomComerc" : "string",
+                        "primerApellRs" : "Perez",
+                        "sedeDescripParroq" : "Chacao",
+                        "nroTelfCelular" : "04141234567",
+                        "sedeCodCiudad" : "Caracas",
+                        "direccHabNomMunic" : "Av. Francisco de Miranda",
+                        "sedeDescripCodPais" : "Descripción generada",
+                        "descripTipoPer" : "Descripción generada",
+                        "codFliaProducCIIU3" : "01",
+                        "tipoPer" : "string",
+                        "habDescripCodEdo" : "DC",
+                        "sedeDescripCodCiudad" : "Caracas",
+                        "emailOfic" : "juan.perez@mercantil.com",
+                        "habCodPais" : "string",
+                        "codAreaPaisHab" : "VE",
+                        "codCategCIIU3" : "01",
+                        "direccSedeCodSector" : "Av. Francisco de Miranda",
+                        "direccCompact" : "Av. Francisco de Miranda",
+                        "codAreaPaisCelular" : "04141234567",
+                        "direccSedeCodMunic" : "Av. Francisco de Miranda",
+                        "segundoApell" : "Gomez",
+                        "habDescripCodCiudad" : "Caracas",
+                        "descripActivoOcup" : "Descripción generada",
+                        "sedeDescripCodUrb" : "Descripción generada",
+                        "segundoNom" : "Carlos",
+                        "sedeCodLocaliza" : "string",
+                        "habCodUrb" : "string",
+                        "sedeCodZonaPostal" : "1010",
+                        "habCodParroq" : "Chacao",
+                        "habCodLocaliza" : "string",
+                        "sexo" : "string",
+                        "sedeNroAptdoPostal" : 12345,
+                        "habCodCiudad" : "Caracas"
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1354,7 +1536,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1363,8 +1544,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaPersonaContactoEmpresa" : {
-                      "$ref" : "#/components/schemas/BodySalidaPersonaContactoEmpresa"
+                    "bodySalidaConsultarPersonaContactoEmpresa" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarPersonaContactoEmpresa"
                     }
                   }
                 },
@@ -1380,13 +1561,36 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaPersonaContactoEmpresa" : { }
+                      "bodySalidaConsultarPersonaContactoEmpresa" : {
+                        "contactos" : [ {
+                          "tipoID" : "V",
+                          "nroPerMele" : 12345,
+                          "nroExtContacto" : 12345,
+                          "direccContacto" : "Av. Francisco de Miranda",
+                          "nroSuc" : 12345,
+                          "cargoContacto" : "string",
+                          "nroCelContacto" : 12345,
+                          "fchNacimContacto" : "20260604",
+                          "codAreaContacto" : "01",
+                          "nroID" : 12345678,
+                          "descripContacto" : "Descripción generada",
+                          "codCelAreaContacto" : "01",
+                          "nroTelfContacto" : "02121234567",
+                          "idPais" : "string",
+                          "nomContacto" : "string",
+                          "tipoUsuMele" : "string",
+                          "nroPerContacto" : 12345,
+                          "direccEmailContacto" : "juan.perez@mercantil.com",
+                          "tipoContacto" : "string"
+                        } ]
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1440,7 +1644,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1485,7 +1688,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1539,7 +1743,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1589,7 +1792,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1646,7 +1850,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1655,8 +1858,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaProductoPersonas" : {
-                      "$ref" : "#/components/schemas/BodySalidaProductoPersonas"
+                    "bodySalidaConsultarProductosPersonas" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarProductosPersonas"
                     }
                   }
                 },
@@ -1672,13 +1875,20 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaProductoPersonas" : { }
+                      "bodySalidaConsultarProductosPersonas" : {
+                        "codEmpresaRel" : "0108",
+                        "rolPer" : "string",
+                        "codTipoProduc" : "01",
+                        "producto" : "CUENTA CORRIENTE",
+                        "nomComProduc" : "string"
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1735,7 +1945,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1744,8 +1953,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaCuentasOficinasActivas" : {
-                      "$ref" : "#/components/schemas/BodySalidaCuentasOficinasActivas"
+                    "bodySalidaConsultarCuentasOficinasActivas" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarCuentasOficinasActivas"
                     }
                   }
                 },
@@ -1761,13 +1970,22 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaCuentasOficinasActivas" : { }
+                      "bodySalidaConsultarCuentasOficinasActivas" : {
+                        "oficinasActivas" : [ {
+                          "codSafeAcept" : "01",
+                          "nomOficSafeAcepta" : "string",
+                          "nroctaAcepta" : "01020123456789012345",
+                          "txtDireccAcepta" : "Av. Francisco de Miranda",
+                          "oficSafeAcepta" : "string"
+                        } ]
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1825,7 +2043,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1833,9 +2050,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaRelacionCuentaCliente" : {
-                      "$ref" : "#/components/schemas/BodySalidaRelacionCuentaCliente"
                     }
                   }
                 },
@@ -1850,14 +2064,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaRelacionCuentaCliente" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -1914,7 +2128,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1923,8 +2136,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaIndicadorActualizacionPersonas" : {
-                      "$ref" : "#/components/schemas/BodySalidaIndicadorActualizacionPersonas"
+                    "bodySalidaConsultarIndicadoresActualizacionPersonas" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarIndicadoresActualizacionPersonas"
                     }
                   }
                 },
@@ -1940,13 +2153,26 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaIndicadorActualizacionPersonas" : { }
+                      "bodySalidaConsultarIndicadoresActualizacionPersonas" : {
+                        "codFormaUnif" : "01",
+                        "indExpedActualizado" : "string",
+                        "indEsClte" : "string",
+                        "fchUltActExped" : "20260604",
+                        "tipoPer" : "string",
+                        "fchActMelp" : "20260604",
+                        "tipoPep" : "string",
+                        "codSeg" : "01",
+                        "fchActRecaUnif" : "20260604",
+                        "oficEntregRecaUnif" : "string",
+                        "fchProxActExped" : "20260604"
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2003,7 +2229,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2012,8 +2237,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaDatosBasicos" : {
-                      "$ref" : "#/components/schemas/BodySalidaDatosBasicos"
+                    "bodySalidaConsultarDatosBasicos" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarDatosBasicos"
                     }
                   }
                 },
@@ -2029,13 +2254,22 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaDatosBasicos" : { }
+                      "bodySalidaConsultarDatosBasicos" : {
+                        "segundoApell" : "Gomez",
+                        "primerNom" : "Juan",
+                        "tipoPer" : "string",
+                        "apellCasada" : "de Perez",
+                        "nomComerc" : "string",
+                        "primerApell" : "Perez",
+                        "segundoNom" : "Carlos"
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2094,7 +2328,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2103,8 +2336,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaGrupoMegaGrupo" : {
-                      "$ref" : "#/components/schemas/BodySalidaGrupoMegaGrupo"
+                    "bodySalidaConsultarGrupoMegaGrupo" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarGrupoMegaGrupo"
                     }
                   }
                 },
@@ -2120,13 +2353,19 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaGrupoMegaGrupo" : { }
+                      "bodySalidaConsultarGrupoMegaGrupo" : {
+                        "grupoCod" : "string",
+                        "megaGrupoCod" : "string",
+                        "grupoNom" : "string",
+                        "megaGrupoNom" : "string"
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2181,7 +2420,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2190,8 +2428,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaDetalleProductoCliente" : {
-                      "$ref" : "#/components/schemas/BodySalidaDetalleProductoCliente"
+                    "bodySalidaConsultarDetalleProductoCliente" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarDetalleProductoCliente"
                     }
                   }
                 },
@@ -2207,13 +2445,36 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaDetalleProductoCliente" : { }
+                      "bodySalidaConsultarDetalleProductoCliente" : {
+                        "codUsoProduc" : "01",
+                        "mtoPromMtoCta" : 1500.75,
+                        "fchInicio" : "20260604",
+                        "codSitProduc" : "01",
+                        "idProducRel" : "string",
+                        "fchActualizExpe" : "20260604",
+                        "tipoExoneracion" : "string",
+                        "nomComProduc" : "string",
+                        "codProducRel" : "01",
+                        "indicCtaMenor" : "01020123456789012345",
+                        "tipoExento" : "string",
+                        "codFirma" : "01",
+                        "indicCtaNomina" : "01020123456789012345",
+                        "fchNacMenor" : "20260604",
+                        "codEmpresaRel" : "0108",
+                        "fchFinRel" : "20260604",
+                        "rolPer" : "string",
+                        "nroSuc" : 12345,
+                        "fchUltActReg" : "20260604",
+                        "codGrupo" : "01",
+                        "nroPer" : 12345
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2270,7 +2531,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2278,9 +2538,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaReportadoSudeban" : {
-                      "$ref" : "#/components/schemas/BodySalidaReportadoSudeban"
                     }
                   }
                 },
@@ -2295,14 +2552,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaReportadoSudeban" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2359,7 +2616,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2368,8 +2624,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaDatosNoClientes" : {
-                      "$ref" : "#/components/schemas/BodySalidaDatosNoClientes"
+                    "bodySalidaConsultarDatosNoClientes" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarDatosNoClientes"
                     }
                   }
                 },
@@ -2385,13 +2641,58 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaDatosNoClientes" : { }
+                      "bodySalidaConsultarDatosNoClientes" : {
+                        "tipoId" : "V",
+                        "nroTelfHab" : "02121234567",
+                        "codCalle" : "01",
+                        "descripCodCalle" : "Descripción generada",
+                        "codMunic" : "01",
+                        "nroCelular" : "04141234567",
+                        "codAreaHabTelf" : "02121234567",
+                        "desParroq" : "Chacao",
+                        "primerNom" : "Juan",
+                        "nomEdif" : "string",
+                        "codAreaTelfOfic" : "02121234567",
+                        "desMunic" : "Libertador",
+                        "codPaisDirecc" : "Av. Francisco de Miranda",
+                        "nroPerNoClte" : 12345,
+                        "apellCasada" : "de Perez",
+                        "desEdo" : "DC",
+                        "genero" : "M",
+                        "primerApell" : "Perez",
+                        "descripNivel" : "Descripción generada",
+                        "codAptdoPostal" : "01",
+                        "desCiudad" : "Caracas",
+                        "email" : "juan.perez@mercantil.com",
+                        "codPaisCelular" : "04141234567",
+                        "segundoApell" : "Gomez",
+                        "nomApto" : "string",
+                        "codEdo" : "01",
+                        "codNivel" : "01",
+                        "nroId" : 12345678,
+                        "codPais" : "VE",
+                        "segundoNom" : "Carlos",
+                        "codCiudad" : "Caracas",
+                        "nroTelfOfic" : "02121234567",
+                        "origenReg" : "string",
+                        "codPaisHabTelf" : "02121234567",
+                        "codOficPaisTelf" : "02121234567",
+                        "nroPerClte" : 12345,
+                        "codZonaPostal" : "01",
+                        "codParroq" : "01",
+                        "fchNac" : "20260604",
+                        "descripPaisDirecc" : "Av. Francisco de Miranda",
+                        "fchReg" : "20260604",
+                        "direcc" : "Av. Francisco de Miranda",
+                        "codAreaCelular" : "04141234567"
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2451,7 +2752,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2479,16 +2779,16 @@
                       },
                       "bodySalidaConsultarAutorizacionesCliente" : {
                         "nroAutori" : 12345,
-                        "fchFinAutori" : "20260602",
+                        "fchFinAutori" : "20260604",
                         "idAutori" : "string",
-                        "fchSolicAutori" : "20260602",
+                        "fchSolicAutori" : "20260604",
                         "codTipoAutori" : "01",
-                        "fchInicioAutori" : "20260602",
+                        "fchInicioAutori" : "20260604",
                         "carnetFnarioCapt" : "string",
                         "statusAutori" : "string",
                         "unidadOrgCapt" : "string",
                         "indicAutoriClte" : "string",
-                        "fchActualiz" : "20260602",
+                        "fchActualiz" : "20260604",
                         "codCanalAutori" : "0006",
                         "autorizaciones" : [ {
                           "codTipoProducAutori" : "01",
@@ -2504,7 +2804,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2563,7 +2864,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2572,8 +2872,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaPersonaPEP" : {
-                      "$ref" : "#/components/schemas/BodySalidaPersonaPEP"
+                    "bodySalidaConsultarPersonaPEP" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarPersonaPEP"
                     }
                   }
                 },
@@ -2589,13 +2889,44 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaPersonaPEP" : { }
+                      "bodySalidaConsultarPersonaPEP" : {
+                        "tipoPep" : "string",
+                        "enteAdscripcion" : "string",
+                        "indicTelf" : "02121234567",
+                        "nomCorporacion" : "string",
+                        "indicDireccPostal" : "Av. Francisco de Miranda",
+                        "codPaisNacAlterna" : "VE",
+                        "recaudaciones" : [ {
+                          "serialVersionUID" : "string",
+                          "fchEntrgReca" : "20260604",
+                          "indicAcept" : "string",
+                          "codTipoReca" : "01",
+                          "nomTipoReca" : "string"
+                        } ],
+                        "nomPepAsociado" : "string",
+                        "indicDirecc" : "Av. Francisco de Miranda",
+                        "indicTransfer" : "string",
+                        "indicResd" : "string",
+                        "indicClasifEmpresa" : "string",
+                        "codigPaisConstit" : "VE",
+                        "codPartdoPolitico" : "01",
+                        "codPaisCorporacion" : "VE",
+                        "fchInicIndicios" : "20260604",
+                        "fchRenuncia2Nac" : "20260604",
+                        "codCargoEnGob" : "01",
+                        "codCargoEnPartdoPolitico" : "01",
+                        "tipoPer" : "string",
+                        "nomPaisConstit" : "string",
+                        "indicApoder" : "string",
+                        "fchActualIndicios" : "20260604"
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2653,7 +2984,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2662,8 +2992,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaAutorizacionesNoCliente" : {
-                      "$ref" : "#/components/schemas/BodySalidaAutorizacionesNoCliente"
+                    "bodySalidaConsultarAutorizacionesNoCliente" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarAutorizacionesNoCliente"
                     }
                   }
                 },
@@ -2679,13 +3009,27 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaAutorizacionesNoCliente" : { }
+                      "bodySalidaConsultarAutorizacionesNoCliente" : {
+                        "fchInicAutori" : "20260604",
+                        "fchActualiz" : "20260604",
+                        "fchFinAutori" : "20260604",
+                        "idAutori" : "string",
+                        "nroAutori" : 12345,
+                        "statusAutori" : "string",
+                        "codTipoAutori" : "01",
+                        "codCanalAutori" : "0006",
+                        "fchSolicAutori" : "20260604",
+                        "unidadOrgCapt" : "string",
+                        "indicAutoriClte" : "string",
+                        "carnetFnarioCapt" : "string"
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2743,7 +3087,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2752,8 +3095,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaRoles" : {
-                      "$ref" : "#/components/schemas/BodySalidaRoles"
+                    "bodySalidaConsultarRoles" : {
+                      "$ref" : "#/components/schemas/BodySalidaConsultarRoles"
                     }
                   }
                 },
@@ -2769,13 +3112,27 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaRoles" : { }
+                      "bodySalidaConsultarRoles" : {
+                        "rolSuper" : "string",
+                        "superRoles" : [ "string" ],
+                        "fchInicRoles" : [ "string" ],
+                        "statusRol" : "string",
+                        "cantRoles" : 7,
+                        "fchFinRoles" : [ "string" ],
+                        "status" : [ "string" ],
+                        "existeRol" : "string",
+                        "fchRolFin" : "20260604",
+                        "fchRolInic" : "20260604",
+                        "rol" : "string",
+                        "roles" : [ "string" ]
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2820,7 +3177,7 @@
                       "parametrosEntrada" : {
                         "codTipoProduc" : "01",
                         "codCanal" : "0006",
-                        "codSubCanal" : "0006",
+                        "codSubCanal" : "0009",
                         "codRequerimEsp" : "01",
                         "codSubRequerimEsp" : "01",
                         "codTipCliente" : "01"
@@ -2836,7 +3193,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2845,8 +3201,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaTablaEquivalencia" : {
-                      "$ref" : "#/components/schemas/BodySalidaTablaEquivalencia"
+                    "bodySalidaTablaEquivalenciaReclamos" : {
+                      "$ref" : "#/components/schemas/BodySalidaTablaEquivalenciaReclamos"
                     }
                   }
                 },
@@ -2862,13 +3218,22 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaTablaEquivalencia" : { }
+                      "bodySalidaTablaEquivalenciaReclamos" : {
+                        "productos" : {
+                          "descripProducUni" : "Descripción generada",
+                          "descripRequerimUni" : "Descripción generada",
+                          "codRequerimUni" : "01",
+                          "codProducUni" : "01",
+                          "subRequerimUni" : "string"
+                        }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -2928,7 +3293,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2938,7 +3302,7 @@
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
                     "bodySalidaConsultarReclamos" : {
-                      "$ref" : "#/components/schemas/BodySalidaConsultarReclamos"
+                      "$ref" : "#/components/schemas/SalidaConsultarReclamo"
                     }
                   }
                 },
@@ -2955,24 +3319,16 @@
                         "horaSalidaMensaje" : "135046"
                       },
                       "bodySalidaConsultarReclamos" : {
-                        "tipoIdS" : "V",
-                        "nroCiS" : 12345,
-                        "indCliente" : "string",
-                        "nombreCliente" : "string",
-                        "vectNroRequerimS" : [ {
-                          "nroRequerimS" : 12345
-                        } ],
-                        "vectTxtStatusS" : [ {
-                          "txtStatusS" : "string"
-                        } ],
-                        "vectTxtUnidSolucS" : [ {
-                          "txtUnidSolucS" : "string"
-                        } ],
-                        "VectMtoProcedenteS" : [ {
-                          "MtoProcedenteS" : 1500.75
-                        } ],
-                        "vectFchRequerimS" : [ {
-                          "fchRequerimS" : "20260602"
+                        "tipoID" : "V",
+                        "nroId" : 12345678,
+                        "nomClte" : "string",
+                        "indicClte" : "string",
+                        "reclamos" : [ {
+                          "nroReclamo" : 12345,
+                          "mtoReclamo" : 1500.75,
+                          "fchSolic" : "20260604",
+                          "estatus" : "ACTIVO",
+                          "nota" : "string"
                         } ]
                       }
                     },
@@ -2980,7 +3336,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3035,7 +3392,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3066,15 +3422,16 @@
                         "topeTrxPermite" : "string",
                         "contIntentos" : "string",
                         "indActualizExpe" : "string",
-                        "fchActualizExpe" : "20260602",
-                        "fchProxActExped" : "20260602"
+                        "fchActualizExpe" : "20260604",
+                        "fchProxActExped" : "20260604"
                       }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3133,7 +3490,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3142,8 +3498,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaFichaCliente" : {
-                      "$ref" : "#/components/schemas/BodySalidaFichaCliente"
+                    "bodySalidaImprimirFichaClientePersonaNatural" : {
+                      "$ref" : "#/components/schemas/BodySalidaImprimirFichaClientePersonaNatural"
                     }
                   }
                 },
@@ -3159,13 +3515,113 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaFichaCliente" : { }
+                      "bodySalidaImprimirFichaClientePersonaNatural" : {
+                        "fichaCliente" : {
+                          "otrosProductosBancarios" : {
+                            "origenFondos" : "string",
+                            "destinoFondos" : "string",
+                            "motivo" : "string",
+                            "productosActivos" : [ {
+                              "nomMoneda" : "string",
+                              "nomCta" : "01020123456789012345",
+                              "nroCta" : "01020123456789012345"
+                            } ]
+                          },
+                          "otrosIngresos" : {
+                            "otroIngresoN" : "string",
+                            "actGeneradora" : "string"
+                          },
+                          "repLegalApoderadoAutorizado" : {
+                            "idRepApoAut" : "string",
+                            "nroDoc" : 12345,
+                            "lugarRepApoAut" : "string",
+                            "nomRepApoAut" : "string",
+                            "fchRepApoAut" : "20260604",
+                            "telefRepApoAut" : "string"
+                          },
+                          "descripProfes" : "Descripción generada",
+                          "nom" : "string",
+                          "nomBco" : "string",
+                          "email" : "juan.perez@mercantil.com",
+                          "negocioPropio" : {
+                            "idNegPropio" : "string",
+                            "proveedores" : [ {
+                              "paisProv" : "string",
+                              "nomProv" : "string"
+                            } ],
+                            "raRegPropio" : "string",
+                            "mtnNegPropio" : "string",
+                            "registroMercantil" : {
+                              "nrRegPropio" : "string",
+                              "liNegPropio" : "string",
+                              "reRegPropio" : "string",
+                              "finegPropio" : "string"
+                            },
+                            "negPropio" : "string",
+                            "tiregPropio" : "string",
+                            "fchNegPropio" : "20260604",
+                            "clientes" : [ { } ],
+                            "direcRegPropio" : "string"
+                          },
+                          "telfHab" : "02121234567",
+                          "lugOfic" : "string",
+                          "direcHab" : "string",
+                          "fuenteIngresosCliente" : { },
+                          "personaExpuestaPoliticament" : {
+                            "idPerPep" : "string",
+                            "cargPerPep" : "string",
+                            "perPep" : "string",
+                            "paisPerPep" : "string",
+                            "entePerPep" : "string"
+                          },
+                          "referenciasBancarias" : {
+                            "nomProduc" : "string",
+                            "cifras" : "string",
+                            "nomBco" : "string",
+                            "nroProduc" : 12345
+                          },
+                          "apell" : "string",
+                          "nomConyuge" : "string",
+                          "nomOfic" : "string",
+                          "fteIngConyuge" : "string",
+                          "nroRifBco" : 12345,
+                          "lugarNac" : "string",
+                          "descripSegunNac" : "Descripción generada",
+                          "cargaFlia" : "string",
+                          "condiViv" : "string",
+                          "descripEdoCivil" : "DC",
+                          "informacionEconFinancClient" : { },
+                          "relacionDependencia" : {
+                            "diEmpRelac" : "string",
+                            "mtEmpRelacN" : "string",
+                            "idEmpRelac" : "string",
+                            "tiEmpRelac" : "string",
+                            "nbEmpRelac" : "string",
+                            "raEmpRelac" : "string",
+                            "feEmpRelac" : "string",
+                            "caEmpRelac" : "string"
+                          },
+                          "fchNac" : "20260604",
+                          "referenciasPersonales" : {
+                            "nomApellPer" : "string",
+                            "telLocPer" : "string",
+                            "telCelPer" : "string",
+                            "nroPer" : 12345
+                          },
+                          "fchElab" : "20260604",
+                          "nroCi" : 12345,
+                          "sexo" : "string",
+                          "descripNac" : "Descripción generada",
+                          "idConyuge" : "string"
+                        }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3222,7 +3678,7 @@
                       "codCalle" : "01",
                       "descripCodCalle" : "Descripción generada",
                       "direcc" : "Av. Francisco de Miranda",
-                      "fchNac" : "20260602",
+                      "fchNac" : "20260604",
                       "nomApto" : "string",
                       "nomEdif" : "string",
                       "codPaisCelular" : "04141234567",
@@ -3240,7 +3696,7 @@
                       "codMunic" : "01",
                       "codParroq" : "01",
                       "genero" : "M",
-                      "fchReg" : "20260602",
+                      "fchReg" : "20260604",
                       "origenReg" : "string",
                       "nroPerClte" : 12345,
                       "codPaisDirecc" : "Av. Francisco de Miranda"
@@ -3255,7 +3711,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3264,8 +3719,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaIncluirDatosNoClientes" : {
-                      "$ref" : "#/components/schemas/BodySalidaIncluirDatosNoClientes"
+                    "bodySalidaIncluirDatosNoCliente" : {
+                      "$ref" : "#/components/schemas/BodySalidaIncluirDatosNoCliente"
                     }
                   }
                 },
@@ -3281,13 +3736,16 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaIncluirDatosNoClientes" : { }
+                      "bodySalidaIncluirDatosNoCliente" : {
+                        "nroPerNoClte" : 12345
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3343,8 +3801,8 @@
                       "arregloCuentasAutorizadas" : {
                         "cuentasAutorizadasCliente" : "01020123456789012345"
                       },
-                      "fechaInicioAutorizacion" : "20260602",
-                      "fechaFinalAutorizacion" : "20260602",
+                      "fechaInicioAutorizacion" : "20260604",
+                      "fechaFinalAutorizacion" : "20260604",
                       "arregloPaisesDestinos" : {
                         "codigoPaisesDestino" : "VE"
                       }
@@ -3359,7 +3817,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3367,9 +3824,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaIngresarAutorizacionesClientes" : {
-                      "$ref" : "#/components/schemas/BodySalidaIngresarAutorizacionesClientes"
                     }
                   }
                 },
@@ -3384,14 +3838,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaIngresarAutorizacionesClientes" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3451,7 +3905,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3460,8 +3913,8 @@
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
                     },
-                    "bodySalidaIngresarLocalizacionNacionalCompc" : {
-                      "$ref" : "#/components/schemas/BodySalidaIngresarLocalizacionNacionalCompc"
+                    "bodySalidaIngresarLocalizacionNacionalCompactada" : {
+                      "$ref" : "#/components/schemas/BodySalidaIngresarLocalizacionNacionalCompactada"
                     }
                   }
                 },
@@ -3477,13 +3930,16 @@
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
                       },
-                      "bodySalidaIngresarLocalizacionNacionalCompc" : { }
+                      "bodySalidaIngresarLocalizacionNacionalCompactada" : {
+                        "codLocaliza" : "01"
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3551,7 +4007,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3590,7 +4045,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3667,7 +4123,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3675,9 +4130,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaIngresarProducto" : {
-                      "$ref" : "#/components/schemas/BodySalidaIngresarProducto"
                     }
                   }
                 },
@@ -3692,14 +4144,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaIngresarProducto" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3759,7 +4211,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3767,9 +4218,6 @@
                   "properties" : {
                     "headerSalida" : {
                       "$ref" : "#/components/schemas/HeaderSalida"
-                    },
-                    "bodySalidaIngresarAutorizacionesNoClientes" : {
-                      "$ref" : "#/components/schemas/BodySalidaIngresarAutorizacionesNoClientes"
                     }
                   }
                 },
@@ -3784,14 +4232,14 @@
                         "codigoMensajeUsuario" : "0000",
                         "fechaSalidaMensaje" : "20251226",
                         "horaSalidaMensaje" : "135046"
-                      },
-                      "bodySalidaIngresarAutorizacionesNoClientes" : { }
+                      }
                     },
                     "summary" : "Ejemplo generado"
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3856,7 +4304,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -3891,7 +4338,8 @@
                   }
                 }
               }
-            }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -3942,7 +4390,7 @@
                       "primerApellido" : "Perez",
                       "segundoApellido" : "Gomez",
                       "apellidoCasada" : "string",
-                      "fechaNacimiento" : "20260602",
+                      "fechaNacimiento" : "20260604",
                       "lugarNacimiento" : "string",
                       "codigoNacionalidad" : "01",
                       "sexo" : "string",
@@ -3954,7 +4402,7 @@
                       "categoriaOcupacional" : "string",
                       "codigoProfesion" : "01",
                       "nivelEducativo" : "string",
-                      "fechaIngresoLaboral" : "20260602",
+                      "fechaIngresoLaboral" : "20260604",
                       "aniosAntiguedadLaboral" : "string",
                       "porcentajePropiedadEmpresa" : "string",
                       "codigosDescripcionCargo" : "01",
@@ -3977,8 +4425,8 @@
                       "carnetEjecutivoRelacion" : "string",
                       "codigoActivo" : "01",
                       "codigoCondicionActivo" : "01",
-                      "fechaCondicionActivo" : "20260602",
-                      "fechaAdquisicionActivo" : "20260602",
+                      "fechaCondicionActivo" : "20260604",
+                      "fechaAdquisicionActivo" : "20260604",
                       "nombreAcreedorActivo" : "DC",
                       "telefonoAcreedorActivo" : "DC",
                       "rolPersona" : "string",
@@ -3988,7 +4436,7 @@
                       "numeroIdentificacionAnteriorNatural" : 12345,
                       "tipoIdentificacionRif" : "V",
                       "numeroIdentificacionRif" : 12345,
-                      "fechaVigenciaRegistroMercantil" : "20260602",
+                      "fechaVigenciaRegistroMercantil" : "20260604",
                       "folio" : "string",
                       "circunscripcionRegistro" : "string",
                       "numeroTribunal" : 12345,
@@ -3998,7 +4446,7 @@
                       "capitalPagado" : "string",
                       "tipoEmpresa" : "string",
                       "cantidadEmpleados" : 7,
-                      "fechaUltimaActualizacion" : "20260602"
+                      "fechaUltimaActualizacion" : "20260604"
                     }
                   },
                   "summary" : "Ejemplo generado"
@@ -4010,7 +4458,6 @@
         },
         "responses" : {
           "200" : {
-            "description" : "Operación exitosa",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -4045,7 +4492,90 @@
                   }
                 }
               }
+            },
+            "description" : "Operación exitosa"
+          }
+        }
+      }
+    },
+    "/validar/correo-electronico" : {
+      "post" : {
+        "tags" : [ "Validar Root" ],
+        "summary" : "correoElectronico",
+        "operationId" : "correoElectronico",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "headerEntrada" : {
+                    "$ref" : "#/components/schemas/HeaderEntrada"
+                  },
+                  "bodyEntradaValidarCorreoElectronico" : {
+                    "$ref" : "#/components/schemas/BodyEntradaValidarCorreoElectronico"
+                  }
+                }
+              },
+              "examples" : {
+                "default" : {
+                  "value" : {
+                    "headerEntrada" : {
+                      "identificadorUnicoGlobal" : "f215a700-4fdb-45ec-8540-7b030663afb3",
+                      "identificacionCanal" : "0006",
+                      "identificacionSubCanal" : "01",
+                      "siglaAplicacion" : "OLB",
+                      "identificacionUsuario" : "",
+                      "direccionIpConsumidor" : "10.0.12.48",
+                      "direccionIpCliente" : "10.0.12.48",
+                      "fechaEnvioMensaje" : "20251226",
+                      "horaEnvioMensaje" : "135046",
+                      "atributoPagineo" : "",
+                      "claveBusqueda" : "",
+                      "cantidadRegistros" : 0
+                    },
+                    "bodyEntradaValidarCorreoElectronico" : {
+                      "correo" : "juan.perez@mercantil.com"
+                    }
+                  },
+                  "summary" : "Ejemplo generado"
+                }
+              }
             }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "headerSalida" : {
+                      "$ref" : "#/components/schemas/HeaderSalida"
+                    }
+                  }
+                },
+                "examples" : {
+                  "default" : {
+                    "value" : {
+                      "headerSalida" : {
+                        "tipoMensaje" : "I",
+                        "mensajeProgramadorSistema" : "Procesado correctamente",
+                        "codigoMensajeProgramador" : "0000",
+                        "mensajeUsuario" : "Operación exitosa",
+                        "codigoMensajeUsuario" : "0000",
+                        "fechaSalidaMensaje" : "20251226",
+                        "horaSalidaMensaje" : "135046"
+                      }
+                    },
+                    "summary" : "Ejemplo generado"
+                  }
+                }
+              }
+            },
+            "description" : "Operación exitosa"
           }
         }
       }
@@ -4159,8 +4689,8 @@
             "$ref" : "#/components/schemas/HeaderSalida"
           },
           "bodySalida" : {
-            "description" : "Contenido dinámico de la respuesta",
-            "type" : "object"
+            "type" : "object",
+            "description" : "Contenido dinámico de la respuesta"
           }
         }
       },
@@ -5049,10 +5579,10 @@
             "type" : "integer",
             "name" : "hhPosteo"
           },
-          "MtoCre" : {
+          "mtoCre" : {
             "type" : "number",
             "format" : "double",
-            "name" : "MtoCre"
+            "name" : "mtoCre"
           },
           "mtoDeb" : {
             "type" : "number",
@@ -5088,7 +5618,7 @@
           }
         }
       },
-      "BodyEntradaReclamosTarjetaEfectivo" : {
+      "BodyEntradaCapturarReclamosTarjetaEfectivo" : {
         "type" : "object",
         "properties" : {
           "tipoId" : {
@@ -5225,7 +5755,7 @@
           }
         }
       },
-      "BodySalidaReclamosTarjetaEfectivo" : {
+      "BodySalidaCapturarReclamosTarjetaEfectivo" : {
         "type" : "object",
         "properties" : {
           "salida" : {
@@ -5233,32 +5763,23 @@
           }
         }
       },
-      "CleanerBodyEntradaReclamosTarjetaEfectivo" : {
-        "type" : "object",
-        "properties" : { },
-        "description" : "Clase sin propiedades o no detectadas"
-      },
-      "RequestReclamosTarjetaEfectivo" : {
+      "RequestCapturarReclamosTarjetaEfectivo" : {
         "type" : "object",
         "properties" : {
           "headerEntrada" : {
             "$ref" : "#/components/schemas/HeaderEntrada"
           },
           "bodyEntrada" : {
-            "$ref" : "#/components/schemas/BodyEntradaReclamosTarjetaEfectivo"
+            "$ref" : "#/components/schemas/BodyEntradaCapturarReclamosTarjetaEfectivo"
           }
         }
       },
-      "ResponseReclamosTarjetaEfectivo" : {
+      "ResponseCapturarReclamosTarjetaEfectivo" : {
         "type" : "object",
         "properties" : {
           "bodySalidaCapturarReclamosTarjetaEfectivo" : {
             "$ref" : "#/components/schemas/SalidaReclamos",
             "name" : "bodySalidaCapturarReclamosTarjetaEfectivo"
-          },
-          "bodyEntradaCapturarReclamosTarjetaEfectivo" : {
-            "$ref" : "#/components/schemas/BodyEntradaReclamosTarjetaEfectivo",
-            "name" : "bodyEntradaCapturarReclamosTarjetaEfectivo"
           }
         }
       },
@@ -9532,6 +10053,30 @@
           }
         }
       },
+      "BodyEntradaValidarCorreoElectronico" : {
+        "type" : "object",
+        "properties" : {
+          "correo" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RequestValidarCorreoElectronico" : {
+        "type" : "object",
+        "properties" : {
+          "headerEntrada" : {
+            "$ref" : "#/components/schemas/HeaderEntrada"
+          },
+          "bodyEntrada" : {
+            "$ref" : "#/components/schemas/BodyEntradaValidarCorreoElectronico"
+          }
+        }
+      },
+      "ResponseValidarCorreoElectronico" : {
+        "type" : "object",
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
+      },
       "Actualizar" : {
         "type" : "object",
         "properties" : {
@@ -9607,6 +10152,14 @@
           }
         }
       },
+      "Validar" : {
+        "type" : "object",
+        "properties" : {
+          "send" : {
+            "$ref" : "#/components/schemas/SendRequestRest"
+          }
+        }
+      },
       "BeanPersona" : {
         "type" : "object",
         "properties" : {
@@ -9663,47 +10216,12 @@
         "properties" : { },
         "description" : "Clase sin propiedades o no detectadas"
       },
-      "BodySalidaDatosNoClientes" : {
+      "ValidarImpl" : {
         "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaPersonaContactoEmpresa" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaRoles" : {
-        "type" : "object",
-        "properties" : { }
+        "properties" : { },
+        "description" : "Clase sin propiedades o no detectadas"
       },
       "BodySalidaRjReferido" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaTelefonoCliente" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaLocalizacionNacionalCompactada" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaAutorizacionesCliente" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaCapturarReclamos" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaDatosBasicosDireccionTelefonoEmail" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaProductoPersonas" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaCuentasOficinasActivas" : {
         "type" : "object",
         "properties" : { }
       },
@@ -9711,51 +10229,11 @@
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaIndicadorActualizacionPersonas" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaDatosBasicos" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaGrupoMegaGrupo" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaDetalleProductoCliente" : {
-        "type" : "object",
-        "properties" : { }
-      },
       "BodySalidaReportadoSudeban" : {
         "type" : "object",
         "properties" : { }
       },
-      "BodySalidaPersonaPEP" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaAutorizacionesNoCliente" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaTablaEquivalencia" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaFichaCliente" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaIncluirDatosNoClientes" : {
-        "type" : "object",
-        "properties" : { }
-      },
       "BodySalidaIngresarAutorizacionesClientes" : {
-        "type" : "object",
-        "properties" : { }
-      },
-      "BodySalidaIngresarLocalizacionNacionalCompc" : {
         "type" : "object",
         "properties" : { }
       },
@@ -9766,13 +10244,17 @@
       "BodySalidaIngresarAutorizacionesNoClientes" : {
         "type" : "object",
         "properties" : { }
+      },
+      "BodySalidaCorreoElectronico" : {
+        "type" : "object",
+        "properties" : { }
       }
     },
     "securitySchemes" : {
       "bearerAuth" : {
-        "type" : "http",
         "scheme" : "bearer",
-        "bearerFormat" : "JWT"
+        "bearerFormat" : "JWT",
+        "type" : "http"
       }
     }
   },
