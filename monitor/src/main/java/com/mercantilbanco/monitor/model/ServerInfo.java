@@ -19,5 +19,6 @@ public class ServerInfo {
     private boolean firstCheck = true;
     private String error;
     private boolean slow;
+    private String slackWebhook;
 
 }

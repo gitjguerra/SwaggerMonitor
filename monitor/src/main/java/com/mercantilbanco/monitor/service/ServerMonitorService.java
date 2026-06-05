@@ -97,7 +97,10 @@ public class ServerMonitorService {
 						String monitoringAttr = s.getAttribute("monitoring");
 						si.setMonitoring("true".equalsIgnoreCase(monitoringAttr));
 
+						si.setSlackWebhook(s.getAttribute("slackWebhook"));
+
 						list.add(si);
+
 					}
 
 					servers.put(envName, list);
@@ -163,10 +166,10 @@ public class ServerMonitorService {
 		} else {
 			// intenta HTTP, pero si falla igual sigue UP
 			long httpTime = checkServerTime(s.getHost(), s.getPort());
-			
+
 			socketOk = isPortOpen(s);
-			
-			alive = socketOk || httpTime >= 0;			
+
+			alive = socketOk || httpTime >= 0;
 		}
 
 		long time = System.currentTimeMillis() - start;
@@ -209,12 +212,12 @@ public class ServerMonitorService {
 
 			String estado = alive ? "✅ RECUPERADO" : "🚨 CAIDO";
 
-			String msg = "Servidor " + estado + ":\n" + "Nombre: " + s.getName() + "\n" + "Host: " + s.getHost() + ":"
+			String msg = "Servidor " + estado + ":\n" + "Nombre Servidor: " + s.getName() + "\n" + "Host: " + s.getHost() + ":"
 					+ s.getPort();
 
 			System.out.println("📢 Enviando alerta Slack:\n" + msg);
 
-			slackAlertService.sendAlert(msg);
+			slackAlertService.sendAlert(s.getSlackWebhook(), msg);
 
 			s.setFirstCheck(false);
 		}

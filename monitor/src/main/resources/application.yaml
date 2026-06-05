@@ -20,6 +20,4 @@ monitor:
      external-dir: C:/DevEnvironment/src/java/monitor-workspace/swagger
 
 slack:
-  enabled: false
-  webhook:
-    url: https://hooks.slack.com/services/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
+  enabled: true
