@@ -17,7 +17,7 @@ monitor:
   servers:
      file: servers.xml
   swagger:
-     external-dir: C:/DevEnvironment/src/java/monitor-workspace/swagger
+     external-dir: C:/SwaggerGenerator/openapi-json-files
 
 slack:
   enabled: true
