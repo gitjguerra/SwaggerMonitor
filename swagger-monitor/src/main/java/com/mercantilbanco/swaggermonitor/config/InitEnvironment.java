@@ -18,7 +18,9 @@ public class InitEnvironment {
 
             Properties props = new Properties();
 
-            // ✅ path dinámico del XML
+            // =====================================================
+            // ✅ PATH DEL XML
+            // =====================================================
             String pathFile = Utils.getFileAppConfig(
                     BusinessCard.APP.getValue()
             );
@@ -43,14 +45,18 @@ public class InitEnvironment {
                 );
 
                 // =====================================================
-                // ✅ CONFIGURACIONES
+                // ✅ CONFIGURACIÓN
                 // =====================================================
                 String refresh = props.getProperty(
                         BusinessCard.REFRESH.getValue()
                 );
 
-                String slack = props.getProperty(
+                String slackEnabled = props.getProperty(
                         BusinessCard.SLACK_ENABLED.getValue()
+                );
+
+                String slackWebhook = props.getProperty(
+                        BusinessCard.SLACK_WEBHOOK.getValue()
                 );
 
                 // =====================================================
@@ -81,7 +87,6 @@ public class InitEnvironment {
 
                 if (!"true".equalsIgnoreCase(testEnv)) {
 
-                    // ✅ validar log solo si aplica
                     if (pathLog != null && !pathLog.trim().isEmpty()) {
                         FileUtility.validatePaths(pathLog);
                         Utils.setConfigLog4j(pathLog);
@@ -111,10 +116,17 @@ public class InitEnvironment {
                     );
                 }
 
-                if (slack != null) {
+                if (slackEnabled != null) {
                     System.setProperty(
                             BusinessCard.SLACK_ENABLED.getValue(),
-                            slack
+                            slackEnabled
+                    );
+                }
+
+                if (slackWebhook != null && !slackWebhook.trim().isEmpty()) {
+                    System.setProperty(
+                            BusinessCard.SLACK_WEBHOOK.getValue(),
+                            slackWebhook
                     );
                 }
 

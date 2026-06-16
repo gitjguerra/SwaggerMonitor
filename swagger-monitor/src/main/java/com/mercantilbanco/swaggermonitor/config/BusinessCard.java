@@ -33,8 +33,9 @@ public enum BusinessCard {
     // =========================================================
 
     REFRESH("monitorRefresh"),
-    SLACK_ENABLED("slackEnabled");
-
+    SLACK_ENABLED("slackEnabled"),
+	SLACK_WEBHOOK("slackWebhookUrl");
+	
     private final String value;
 
     BusinessCard(String value) {
