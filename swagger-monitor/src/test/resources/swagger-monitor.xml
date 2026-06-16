@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+
+<properties>
+
+    <entry key="pathLog4jFile">src/test/resources/log4j2.xml</entry>
+    <entry key="pathSwaggerOutput">target/test-swagger/</entry>
+    <entry key="pathServersFile">src/test/resources/servers.xml</entry>
+
+</properties>
