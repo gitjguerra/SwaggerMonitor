@@ -18,26 +18,40 @@ public class InitEnvironment {
 
             Properties props = new Properties();
 
-            String pathFile = Utils.getFileAppConfig("swagger-monitor");
+            // ✅ path dinámico del XML
+            String pathFile = Utils.getFileAppConfig(
+                    BusinessCard.APP.getValue()
+            );
 
             try (InputStream is = new FileInputStream(pathFile)) {
 
                 props.loadFromXML(is);
 
+                // =====================================================
+                // ✅ PATHS
+                // =====================================================
                 String pathLog = Utils.resolvePath(
-                        props.getProperty("pathLog4jFile")
+                        props.getProperty(BusinessCard.LOG4J.getValue())
                 );
 
                 String pathSwagger = Utils.resolvePath(
-                        props.getProperty("pathSwaggerOutput")
+                        props.getProperty(BusinessCard.SWAGGER_OUTPUT.getValue())
                 );
 
                 String pathServers = Utils.resolvePath(
-                        props.getProperty("pathServersFile")
+                        props.getProperty(BusinessCard.SERVERS_FILE.getValue())
                 );
 
-                String refresh = props.getProperty("monitorRefresh");
-                String slack = props.getProperty("slackEnabled");
+                // =====================================================
+                // ✅ CONFIGURACIONES
+                // =====================================================
+                String refresh = props.getProperty(
+                        BusinessCard.REFRESH.getValue()
+                );
+
+                String slack = props.getProperty(
+                        BusinessCard.SLACK_ENABLED.getValue()
+                );
 
                 // =====================================================
                 // ✅ VALIDACIONES BÁSICAS
@@ -51,7 +65,7 @@ public class InitEnvironment {
                 }
 
                 // =====================================================
-                // ✅ VALIDACIÓN DE EXISTENCIA (🔥 NUEVO)
+                // ✅ VALIDACIÓN DE EXISTENCIA
                 // =====================================================
                 FileUtility.validatePaths(
                         pathSwagger,
@@ -61,11 +75,18 @@ public class InitEnvironment {
                 // =====================================================
                 // ✅ ENTORNO DE TEST
                 // =====================================================
-                String testEnv = props.getProperty("testEnvironment");
+                String testEnv = props.getProperty(
+                        BusinessCard.TEST_ENVIRONMENT.getValue()
+                );
 
                 if (!"true".equalsIgnoreCase(testEnv)) {
-                    FileUtility.validatePaths(pathLog); // ✅ opcional pero recomendado
-                    Utils.setConfigLog4j(pathLog);
+
+                    // ✅ validar log solo si aplica
+                    if (pathLog != null && !pathLog.trim().isEmpty()) {
+                        FileUtility.validatePaths(pathLog);
+                        Utils.setConfigLog4j(pathLog);
+                    }
+
                 } else {
                     System.out.println("⚠️ Log4j no inicializado en entorno de test");
                 }
@@ -73,15 +94,28 @@ public class InitEnvironment {
                 // =====================================================
                 // ✅ SYSTEM PROPERTIES (OSBA)
                 // =====================================================
-                System.setProperty("pathSwaggerOutput", pathSwagger);
-                System.setProperty("pathServersFile", pathServers);
+                System.setProperty(
+                        BusinessCard.SWAGGER_OUTPUT.getValue(),
+                        pathSwagger
+                );
+
+                System.setProperty(
+                        BusinessCard.SERVERS_FILE.getValue(),
+                        pathServers
+                );
 
                 if (refresh != null) {
-                    System.setProperty("monitorRefresh", refresh);
+                    System.setProperty(
+                            BusinessCard.REFRESH.getValue(),
+                            refresh
+                    );
                 }
 
                 if (slack != null) {
-                    System.setProperty("slackEnabled", slack);
+                    System.setProperty(
+                            BusinessCard.SLACK_ENABLED.getValue(),
+                            slack
+                    );
                 }
 
                 System.out.println("✅ Swagger Monitor configurado");
@@ -90,11 +124,15 @@ public class InitEnvironment {
 
         } catch (ExceptionFile e) {
 
-            throw new RuntimeException("❌ Error en paths configurados: " + e.getMessage(), e);
+            throw new RuntimeException(
+                    "❌ Error en paths configurados: " + e.getMessage(), e
+            );
 
         } catch (Exception e) {
 
-            throw new RuntimeException("❌ Error cargando configuración monitor", e);
+            throw new RuntimeException(
+                    "❌ Error cargando configuración monitor", e
+            );
         }
     }
 }
