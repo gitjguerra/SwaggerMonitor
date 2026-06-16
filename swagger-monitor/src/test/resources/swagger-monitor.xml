@@ -3,8 +3,24 @@
 
 <properties>
 
-    <entry key="pathLog4jFile">src/test/resources/log4j2.xml</entry>
-    <entry key="pathSwaggerOutput">target/test-swagger/</entry>
-    <entry key="pathServersFile">src/test/resources/servers.xml</entry>
+    <comment>Swagger Monitor</comment>
+
+    <!-- ENTORNO -->
+    <entry key="testEnvironment">true</entry>
+
+    <!-- LOG -->
+    <entry key="pathLog4jFile">${BM_HOME}/appl/swagger-monitor/config/log4j2.xml</entry>
+
+    <!-- SWAGGER OUTPUT (FUENTE DE LOS JSON) -->
+    <entry key="pathSwaggerOutput">C:/SwaggerGenerator/openapi-json-files</entry>
+
+    <!-- SERVERS -->
+    <entry key="pathServersFile">${BM_HOME}/appl/swagger-monitor/config/servers.xml</entry>
+
+    <!-- REFRESH -->
+    <entry key="monitorRefresh">10</entry>
+
+    <!-- SLACK -->
+    <entry key="slackEnabled">true</entry>
 
 </properties>

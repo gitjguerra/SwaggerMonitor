@@ -1,6 +1,5 @@
 package com.mercantilbanco.swaggermonitor.service;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -9,58 +8,74 @@ import java.nio.file.*;
 @Service
 public class SwaggerWatcherService {
 
-	// ✅ ahora sí lee desde application.yaml
-	@Value("${monitor.swagger.external-dir:}")
-	private String dir;
+    @PostConstruct
+    public void startWatcher() {
 
-	@PostConstruct
-	public void startWatcher() {
+        new Thread(() -> {
 
-		new Thread(() -> {
+            try {
 
-			try {
+                String dir = getSwaggerDir();
 
-				String dir = System.getProperty("pathSwaggerOutput");
+                WatchService watchService =
+                        FileSystems.getDefault().newWatchService();
 
-				if (dir == null || dir.trim().isEmpty()) {
-					System.out.println("⚠️ Swagger watcher desactivado: no hay ruta configurada");
-					return;
-				}
+                Path path = Paths.get(dir);
 
-				WatchService watchService = FileSystems.getDefault().newWatchService();
+                // ✅ crear carpeta si no existe
+                if (!path.toFile().exists()) {
+                    path.toFile().mkdirs();
+                }
 
-				Path path = Paths.get(dir.trim());
+                path.register(
+                        watchService,
+                        StandardWatchEventKinds.ENTRY_CREATE,
+                        StandardWatchEventKinds.ENTRY_DELETE,
+                        StandardWatchEventKinds.ENTRY_MODIFY
+                );
 
-				if (!path.toFile().exists()) {
-					path.toFile().mkdirs();
-				}
+                System.out.println("👀 Watcher activo en: " + dir);
 
-				path.register(watchService, StandardWatchEventKinds.ENTRY_CREATE, StandardWatchEventKinds.ENTRY_DELETE,
-						StandardWatchEventKinds.ENTRY_MODIFY);
+                while (true) {
 
-				System.out.println("👀 Watcher activo en: " + dir);
+                    WatchKey key = watchService.take();
 
-				while (true) {
+                    for (WatchEvent<?> event : key.pollEvents()) {
 
-					WatchKey key = watchService.take();
+                        Path fileName = (Path) event.context();
 
-					for (WatchEvent<?> event : key.pollEvents()) {
+                        if (fileName.toString().endsWith(".json")) {
 
-						Path fileName = (Path) event.context();
+                            System.out.println(
+                                    "🔥 Cambio detectado: "
+                                            + event.kind().name()
+                                            + " → "
+                                            + fileName
+                            );
+                        }
+                    }
 
-						if (fileName.toString().endsWith(".json")) {
+                    key.reset();
+                }
 
-							System.out.println("🔥 Cambio detectado: " + event.kind().name() + " → " + fileName);
-						}
-					}
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-					key.reset();
-				}
+        }).start();
+    }
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+    // =========================================================
+    // ✅ OBTENER DIRECTORIO SWAGGER (OSBA)
+    // =========================================================
+    private String getSwaggerDir() {
 
-		}).start();
-	}
+        String dir = System.getProperty("pathSwaggerOutput");
+
+        if (dir == null || dir.trim().isEmpty()) {
+            throw new RuntimeException("❌ pathSwaggerOutput no configurado");
+        }
+
+        return dir.trim();
+    }
 }

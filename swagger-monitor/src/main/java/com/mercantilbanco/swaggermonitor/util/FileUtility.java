@@ -1,7 +1,9 @@
 package com.mercantilbanco.swaggermonitor.util;
 
+import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
 import com.mercantilbanco.swaggermonitor.exception.ExceptionFile;
 
 /**
@@ -12,40 +14,62 @@ public class FileUtility {
     private FileUtility() {}
 
     /**
-     * METODO ENCARGADO DE VALIDAR LAS RUTAS.
+     * ✅ VALIDA QUE TODOS LOS PATH EXISTAN
      */
     public static void validatePaths(String... paths) throws ExceptionFile {
 
         for (int i = 0; i < paths.length; i++) {
 
-            if (!isValidatePath(paths[i])) {
-                throw new ExceptionFile("EL PATH NO DEFINIDO EN LA POSICION [" + (i + 1) + "]");
+            String path = paths[i];
+
+            if (!isValidatePath(path)) {
+
+                throw new ExceptionFile(
+                        "❌ Path inválido o no existe [" + path + "] en posición " + (i + 1)
+                );
             }
         }
     }
 
     /**
-     * METODO ENCARGADO DE VALIDAR EXISTENCIA.
+     * ✅ VALIDA EXISTENCIA DEL PATH
      */
     public static boolean isValidatePath(String path) {
 
-        if (path == null || path.trim().isEmpty()) return false;
+        if (path == null || path.trim().isEmpty()) {
+            return false;
+        }
 
-        Path tmpPath = Paths.get(path);
-        return tmpPath.toFile().exists();
+        try {
+
+            Path tmpPath = Paths.get(path.trim());
+
+            return tmpPath.toFile().exists();
+
+        } catch (InvalidPathException e) {
+
+            System.out.println("⚠️ Path inválido: " + path);
+            return false;
+        }
     }
 
     /**
-     * METODO ENCARGADO DE VALIDAR SI ES ARCHIVO.
+     * ✅ VALIDA SI ES ARCHIVO
      */
     public static boolean isFile(Path path) {
-        return path.toFile().exists();
+
+        if (path == null) return false;
+
+        return path.toFile().exists() && path.toFile().isFile();
     }
 
     /**
-     * METODO ENCARGADO DE VALIDAR SI ES DIRECTORIO.
+     * ✅ VALIDA SI ES DIRECTORIO
      */
     public static boolean isDirectory(Path path) {
-        return path.toFile().isDirectory();
+
+        if (path == null) return false;
+
+        return path.toFile().exists() && path.toFile().isDirectory();
     }
 }

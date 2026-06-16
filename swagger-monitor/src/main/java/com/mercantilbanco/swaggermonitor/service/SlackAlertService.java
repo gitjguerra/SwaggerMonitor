@@ -2,42 +2,69 @@ package com.mercantilbanco.swaggermonitor.service;
 
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.beans.factory.annotation.Value;
+
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
 public class SlackAlertService {
 
-	@Value("${slack.enabled:true}")
-	private boolean slackEnabled;
+    private boolean slackEnabled;
 
-	public void sendAlert(String webhookUrl, String message) {
+    // =========================================================
+    // ✅ INIT OSBA
+    // =========================================================
+    @PostConstruct
+    public void init() {
 
-		if (!slackEnabled) {
-			System.out.println("⚠️ Slack deshabilitado, no se envía alerta");
-			return;
-		}
+        String value = System.getProperty("slackEnabled");
 
-		if (webhookUrl == null || webhookUrl.isEmpty()) {
-			System.out.println("⚠️ Servidor sin webhook configurado");
-			return;
-		}
+        if (value == null || value.trim().isEmpty()) {
+            slackEnabled = true; // ✅ default
+        } else {
+            slackEnabled = Boolean.parseBoolean(value);
+        }
+    }
 
-		try {
-			RestTemplate restTemplate = new RestTemplate();
-			Map<String, String> body = new HashMap<>();
+    // =========================================================
+    // ✅ SEND ALERT
+    // =========================================================
+    public void sendAlert(String webhookUrl, String message) {
 
-			String formattedMessage = "Hola Usuario mercantil " + message;
-			body.put("text", formattedMessage);
+        if (!slackEnabled) {
+            System.out.println("⚠️ Slack deshabilitado, no se envía alerta");
+            return;
+        }
 
-			String response = restTemplate.postForObject(webhookUrl, body, String.class);
+        if (webhookUrl == null || webhookUrl.trim().isEmpty()) {
+            System.out.println("⚠️ Servidor sin webhook configurado");
+            return;
+        }
 
-			System.out.println("✅ Slack enviado correctamente: " + response);
+        try {
 
-		} catch (Exception e) {
-			System.err.println("❌ Error enviando Slack");
-			e.printStackTrace();
-		}
-	}
+            RestTemplate restTemplate = new RestTemplate();
+
+            Map<String, String> body = new HashMap<>();
+
+            String formattedMessage = "Hola Usuario mercantil " + message;
+
+            body.put("text", formattedMessage);
+
+            String response = restTemplate.postForObject(
+                    webhookUrl,
+                    body,
+                    String.class
+            );
+
+            System.out.println("✅ Slack enviado correctamente: " + response);
+
+        } catch (Exception e) {
+
+            System.err.println("❌ Error enviando Slack");
+            e.printStackTrace();
+        }
+    }
 }
