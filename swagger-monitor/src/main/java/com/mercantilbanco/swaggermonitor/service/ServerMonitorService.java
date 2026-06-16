@@ -30,271 +30,269 @@ import com.mercantilbanco.swaggermonitor.model.ServerInfo;
 @Service
 public class ServerMonitorService {
 
-    @Autowired
-    private SlackAlertService slackAlertService;
+	@Autowired
+	private SlackAlertService slackAlertService;
 
-    private Map<String, List<ServerInfo>> currentStatus = new HashMap<>();
-    private Map<String, List<ServerInfo>> servers = new HashMap<>();
+	private Map<String, List<ServerInfo>> currentStatus = new HashMap<>();
+	private Map<String, List<ServerInfo>> servers = new HashMap<>();
 
-    // ✅ HISTÓRICO
-    private Map<String, List<ServerHistory>> historyMap = new HashMap<>();
+	// ✅ HISTÓRICO
+	private Map<String, List<ServerHistory>> historyMap = new HashMap<>();
 
-    // ✅ TIEMPO CAÍDO
-    private Map<String, Date> downSince = new HashMap<>();
+	// ✅ TIEMPO CAÍDO
+	private Map<String, Date> downSince = new HashMap<>();
 
-    private ExecutorService executor = Executors.newFixedThreadPool(10);
+	private ExecutorService executor = Executors.newFixedThreadPool(10);
 
-    @PostConstruct
-    public void loadServers() {
+	@PostConstruct
+	public void loadServers() {
 
-        try {
+		try {
 
-            String pathFile = getServersFile();
+			String pathFile = getServersFile();
 
-            try (InputStream is = loadInputStream(pathFile)) {
+			try (InputStream is = loadInputStream(pathFile)) {
 
-                Document doc = DocumentBuilderFactory.newInstance()
-                        .newDocumentBuilder()
-                        .parse(is);
+				Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(is);
 
-                NodeList envList = doc.getElementsByTagName("environment");
+				NodeList envList = doc.getElementsByTagName("environment");
 
-                for (int i = 0; i < envList.getLength(); i++) {
+				for (int i = 0; i < envList.getLength(); i++) {
 
-                    Element env = (Element) envList.item(i);
-                    String envName = env.getAttribute("name");
+					Element env = (Element) envList.item(i);
+					String envName = env.getAttribute("name");
 
-                    List<ServerInfo> list = new ArrayList<>();
+					List<ServerInfo> list = new ArrayList<>();
 
-                    NodeList serverList = env.getElementsByTagName("server");
+					NodeList serverList = env.getElementsByTagName("server");
 
-                    for (int j = 0; j < serverList.getLength(); j++) {
+					for (int j = 0; j < serverList.getLength(); j++) {
 
-                        Element s = (Element) serverList.item(j);
+						Element s = (Element) serverList.item(j);
 
-                        ServerInfo si = new ServerInfo();
-                        si.setName(s.getAttribute("name"));
-                        si.setHost(s.getAttribute("host"));
-                        si.setPort(Integer.parseInt(s.getAttribute("port")));
+						ServerInfo si = new ServerInfo();
+						si.setName(s.getAttribute("name"));
+						si.setHost(s.getAttribute("host"));
+						si.setPort(Integer.parseInt(s.getAttribute("port")));
 
-                        String monitoringAttr = s.getAttribute("monitoring");
-                        si.setMonitoring("true".equalsIgnoreCase(monitoringAttr));
+						String monitoringAttr = s.getAttribute("monitoring");
+						si.setMonitoring("true".equalsIgnoreCase(monitoringAttr));
 
-                        si.setSlackWebhook(s.getAttribute("slackWebhook"));
+						si.setSlackWebhook(s.getAttribute("slackWebhook"));
 
-                        list.add(si);
-                    }
+						list.add(si);
+					}
 
-                    servers.put(envName, list);
-                }
+					servers.put(envName, list);
+				}
 
-                System.out.println("✅ Servers cargados: " + servers.size());
+				System.out.println("✅ Servers cargados: " + servers.size());
 
-            }
+			}
 
-        } catch (Exception e) {
-            System.err.println("❌ Error cargando XML servidores");
-            e.printStackTrace();
-        }
-    }
+		} catch (Exception e) {
+			System.err.println("❌ Error cargando XML servidores");
+			e.printStackTrace();
+		}
+	}
 
-    @Cacheable("serverStatus")
-    public Map<String, List<ServerInfo>> checkAll() {
+	@Cacheable("serverStatus")
+	public Map<String, List<ServerInfo>> checkAll() {
 
-        Map<String, List<ServerInfo>> result = new HashMap<>();
+		Map<String, List<ServerInfo>> result = new HashMap<>();
 
-        for (String env : servers.keySet()) {
+		for (String env : servers.keySet()) {
 
-            List<Future<ServerInfo>> futures = new ArrayList<>();
+			List<Future<ServerInfo>> futures = new ArrayList<>();
 
-            for (ServerInfo s : servers.get(env)) {
+			for (ServerInfo s : servers.get(env)) {
 
-                futures.add(executor.submit(() -> processServer(s)));
-            }
+				futures.add(executor.submit(() -> processServer(s)));
+			}
 
-            List<ServerInfo> updated = new ArrayList<>();
+			List<ServerInfo> updated = new ArrayList<>();
 
-            for (Future<ServerInfo> f : futures) {
-                try {
-                    updated.add(f.get());
-                } catch (Exception e) {
-                    System.err.println("Error en hilo");
-                    e.printStackTrace();
-                }
-            }
+			for (Future<ServerInfo> f : futures) {
+				try {
+					updated.add(f.get());
+				} catch (Exception e) {
+					System.err.println("Error en hilo");
+					e.printStackTrace();
+				}
+			}
 
-            result.put(env, updated);
-        }
+			result.put(env, updated);
+		}
 
-        currentStatus = result;
-        return result;
-    }
+		currentStatus = result;
+		return result;
+	}
 
-    private ServerInfo processServer(ServerInfo s) {
+	private ServerInfo processServer(ServerInfo s) {
 
-        long start = System.currentTimeMillis();
+		long start = System.currentTimeMillis();
 
-        boolean socketOk = isPortOpen(s);
-        boolean alive = socketOk;
+		boolean socketOk = isPortOpen(s);
+		boolean alive = socketOk;
 
-        if (socketOk) {
-            long httpTime = checkServerTime(s.getHost(), s.getPort());
-            alive = socketOk || httpTime >= 0;
-        }
+		if (socketOk) {
+			long httpTime = checkServerTime(s.getHost(), s.getPort());
+			alive = socketOk || httpTime >= 0;
+		}
 
-        long time = System.currentTimeMillis() - start;
-        boolean previousStatus = s.isUp();
+		long time = System.currentTimeMillis() - start;
+		boolean previousStatus = s.isUp();
 
-        s.setUp(alive);
-        s.setResponseTime(time);
-        s.setLastCheck(new Date());
-        s.setSlow(time > 1000);
+		s.setUp(alive);
+		s.setResponseTime(time);
+		s.setLastCheck(new Date());
+		s.setSlow(time > 1000);
 
-        // ✅ HISTÓRICO
-        ServerHistory h = new ServerHistory();
-        h.setName(s.getName());
-        h.setUp(alive);
-        h.setResponseTime(time);
-        h.setTimestamp(new Date());
+		// ✅ HISTÓRICO
+		ServerHistory h = new ServerHistory();
+		h.setName(s.getName());
+		h.setUp(alive);
+		h.setResponseTime(time);
+		h.setTimestamp(new Date());
 
-        historyMap.computeIfAbsent(s.getName(), k -> new ArrayList<>());
-        historyMap.get(s.getName()).add(h);
+		historyMap.computeIfAbsent(s.getName(), k -> new ArrayList<>());
+		historyMap.get(s.getName()).add(h);
 
-        if (historyMap.get(s.getName()).size() > 50) {
-            historyMap.get(s.getName()).remove(0);
-        }
+		if (historyMap.get(s.getName()).size() > 50) {
+			historyMap.get(s.getName()).remove(0);
+		}
 
-        // ✅ TIEMPO CAÍDO
-        if (!alive) {
-            downSince.putIfAbsent(s.getName(), new Date());
-        } else {
-            downSince.remove(s.getName());
-        }
+		// ✅ TIEMPO CAÍDO
+		if (!alive) {
+			downSince.putIfAbsent(s.getName(), new Date());
+		} else {
+			downSince.remove(s.getName());
+		}
 
-        // ✅ ALERTA
-        if (s.isMonitoring() && (s.isFirstCheck() || previousStatus != alive)) {
+		// ✅ ALERTA
+		if (s.isMonitoring() && (s.isFirstCheck() || previousStatus != alive)) {
 
-            String estado = alive ? "✅ RECUPERADO" : "🚨 CAIDO";
+			String estado = alive ? "✅ RECUPERADO" : "🚨 CAIDO";
 
-            String msg = "Servidor " + estado + ":\n"
-                    + "Nombre: " + s.getName() + "\n"
-                    + "Host: " + s.getHost() + ":" + s.getPort();
+			String msg = "Servidor " + estado + ":\n" + "Nombre: " + s.getName() + "\n" + "Host: " + s.getHost() + ":"
+					+ s.getPort();
 
-            slackAlertService.sendAlert(s.getSlackWebhook(), msg);
+			slackAlertService.sendAlert(s.getSlackWebhook(), msg);
 
-            s.setFirstCheck(false);
-        }
+			s.setFirstCheck(false);
+		}
 
-        return s;
-    }
+		return s;
+	}
 
-    // =========================================================
-    // ✅ MÉTODOS PARA CONTROLLER
-    // =========================================================
+	// =========================================================
+	// ✅ MÉTODOS PARA CONTROLLER
+	// =========================================================
 
-    public List<ServerHistory> getHistory(String name) {
-        return historyMap.getOrDefault(name, new ArrayList<>());
-    }
+	public List<ServerHistory> getHistory(String name) {
 
-    public Map<String, List<ServerInfo>> getCurrentStatus() {
-        return currentStatus;
-    }
+		List<ServerHistory> list = historyMap.getOrDefault(name, new ArrayList<>());
 
-    public Map<String, List<ServerHistory>> getAllHistory() {
-        return historyMap;
-    }
+		return new ArrayList<>(list);
+	}
 
-    public double getUptime(String name) {
+	public Map<String, List<ServerInfo>> getCurrentStatus() {
+		return currentStatus;
+	}
 
-        List<ServerHistory> list = historyMap.get(name);
+	public Map<String, List<ServerHistory>> getAllHistory() {
+		return historyMap;
+	}
 
-        if (list == null || list.size() < 2) return 100;
+	public double getUptime(String name) {
 
-        long upCount = list.stream().filter(ServerHistory::isUp).count();
+		List<ServerHistory> list = historyMap.get(name);
 
-        return (upCount * 100.0) / list.size();
-    }
+		if (list == null || list.size() < 2)
+			return 100;
 
-    public String getDownTime(String name) {
+		long upCount = list.stream().filter(ServerHistory::isUp).count();
 
-        if (!downSince.containsKey(name)) return "0 min";
+		return (upCount * 100.0) / list.size();
+	}
 
-        long diff = System.currentTimeMillis() - downSince.get(name).getTime();
+	public String getDownTime(String name) {
 
-        return (diff / (1000 * 60)) + " min";
-    }
+		if (!downSince.containsKey(name))
+			return "0 min";
 
-    // =========================================================
-    // ✅ UTILIDADES
-    // =========================================================
-    private boolean isPortOpen(ServerInfo s) {
+		long diff = System.currentTimeMillis() - downSince.get(name).getTime();
 
-        try (Socket socket = new Socket()) {
-            socket.connect(new InetSocketAddress(s.getHost(), s.getPort()), 2000);
-            s.setError("");
-            return true;
+		return (diff / (1000 * 60)) + " min";
+	}
 
-        } catch (Exception e) {
-            s.setError(e.getClass().getSimpleName());
-            return false;
-        }
-    }
+	// =========================================================
+	// ✅ UTILIDADES
+	// =========================================================
+	private boolean isPortOpen(ServerInfo s) {
 
-    public long checkServerTime(String host, int port) {
+		try (Socket socket = new Socket()) {
+			socket.connect(new InetSocketAddress(s.getHost(), s.getPort()), 2000);
+			s.setError("");
+			return true;
 
-        try {
+		} catch (Exception e) {
+			s.setError(e.getClass().getSimpleName());
+			return false;
+		}
+	}
 
-            long start = System.currentTimeMillis();
+	public long checkServerTime(String host, int port) {
 
-            URL url = new URL("http://" + host + ":" + port);
+		try {
 
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setConnectTimeout(3000);
-            conn.setReadTimeout(3000);
+			long start = System.currentTimeMillis();
 
-            int code = conn.getResponseCode();
+			URL url = new URL("http://" + host + ":" + port);
 
-            return (code >= 200 && code < 500)
-                    ? System.currentTimeMillis() - start
-                    : -1;
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			conn.setConnectTimeout(3000);
+			conn.setReadTimeout(3000);
 
-        } catch (Exception e) {
-            return -1;
-        }
-    }
+			int code = conn.getResponseCode();
 
-    private InputStream loadInputStream(String pathFile) {
+			return (code >= 200 && code < 500) ? System.currentTimeMillis() - start : -1;
 
-        try {
+		} catch (Exception e) {
+			return -1;
+		}
+	}
 
-            System.out.println("✅ Cargando servers.xml: " + pathFile);
+	private InputStream loadInputStream(String pathFile) {
 
-            return new java.io.FileInputStream(pathFile.trim());
+		try {
 
-        } catch (Exception e) {
+			System.out.println("✅ Cargando servers.xml: " + pathFile);
 
-            System.out.println("⚠️ Usando servers.xml interno...");
+			return new java.io.FileInputStream(pathFile.trim());
 
-            InputStream is = getClass()
-                    .getClassLoader()
-                    .getResourceAsStream("servers.xml");
+		} catch (Exception e) {
 
-            if (is == null) {
-                throw new RuntimeException("❌ No se encontró servers.xml");
-            }
+			System.out.println("⚠️ Usando servers.xml interno...");
 
-            return is;
-        }
-    }
+			InputStream is = getClass().getClassLoader().getResourceAsStream("servers.xml");
 
-    private String getServersFile() {
+			if (is == null) {
+				throw new RuntimeException("❌ No se encontró servers.xml");
+			}
 
-        String path = System.getProperty("pathServersFile");
+			return is;
+		}
+	}
 
-        if (path == null || path.trim().isEmpty()) {
-            throw new RuntimeException("❌ pathServersFile no configurado");
-        }
+	private String getServersFile() {
 
-        return path.trim();
-    }
+		String path = System.getProperty("pathServersFile");
+
+		if (path == null || path.trim().isEmpty()) {
+			throw new RuntimeException("❌ pathServersFile no configurado");
+		}
+
+		return path.trim();
+	}
 }

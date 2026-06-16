@@ -23,258 +23,271 @@ import com.mercantilbanco.swaggermonitor.service.ServerMonitorService;
 @Controller
 public class SwaggerMonitorController {
 
-    @Autowired
-    private ServerMonitorService service;
+	@Autowired
+	private ServerMonitorService service;
+
+	@GetMapping("/")
+	public String dashboard(Model model) {
+		model.addAttribute("data", service.checkAll());
+		return "dashboard";
+	}
 
-    @GetMapping("/")
-    public String dashboard(Model model) {
-        model.addAttribute("data", service.checkAll());
-        return "dashboard";
-    }
+	@GetMapping("/api/history/{name}")
+	@ResponseBody
+	public List<ServerHistory> getHistory(@PathVariable String name) {
+		return service.getHistory(name);
+	}
 
-    @GetMapping("/api/history/{name}")
-    @ResponseBody
-    public List<ServerHistory> getHistory(@PathVariable String name) {
-        return service.getHistory(name);
-    }
+	@GetMapping("/api/metrics/{name}")
+	@ResponseBody
+	public Map<String, Object> getMetrics(@PathVariable String name) {
 
-    @GetMapping("/api/metrics/{name}")
-    @ResponseBody
-    public Map<String, Object> getMetrics(@PathVariable String name) {
+		Map<String, Object> m = new HashMap<>();
+		m.put("uptime", service.getUptime(name));
+		m.put("downtime", service.getDownTime(name));
 
-        Map<String, Object> m = new HashMap<>();
-        m.put("uptime", service.getUptime(name));
-        m.put("downtime", service.getDownTime(name));
+		return m;
+	}
 
-        return m;
-    }
+	@GetMapping("/api/alerts")
+	@ResponseBody
+	public List<Alert> getAlerts() {
 
-    @GetMapping("/api/alerts")
-    @ResponseBody
-    public List<Alert> getAlerts() {
+		List<Alert> alerts = new ArrayList<>();
 
-        List<Alert> alerts = new ArrayList<>();
+		Map<String, List<ServerInfo>> data = service.getCurrentStatus();
+		if (data == null)
+			return alerts;
 
-        Map<String, List<ServerInfo>> data = service.getCurrentStatus();
-        if (data == null) return alerts;
+		for (List<ServerInfo> servers : data.values()) {
+			if (servers == null)
+				continue;
 
-        for (List<ServerInfo> servers : data.values()) {
-            if (servers == null) continue;
+			for (ServerInfo srv : servers) {
 
-            for (ServerInfo srv : servers) {
+				if (srv == null)
+					continue;
 
-                if (srv == null) continue;
+				if (!srv.isUp()) {
+					alerts.add(new Alert(srv.getName(), "DOWN", "Servidor caído", System.currentTimeMillis()));
+				} else if (srv.getResponseTime() > 1000) {
+					alerts.add(new Alert(srv.getName(), "SLOW", "Respuesta lenta (" + srv.getResponseTime() + " ms)",
+							System.currentTimeMillis()));
+				}
 
-                if (!srv.isUp()) {
-                    alerts.add(new Alert(srv.getName(), "DOWN", "Servidor caído", System.currentTimeMillis()));
-                } else if (srv.getResponseTime() > 1000) {
-                    alerts.add(new Alert(srv.getName(), "SLOW",
-                            "Respuesta lenta (" + srv.getResponseTime() + " ms)",
-                            System.currentTimeMillis()));
-                }
+				if (srv.getError() != null && !srv.getError().isEmpty()) {
+					alerts.add(new Alert(srv.getName(), "ERROR", srv.getError(), System.currentTimeMillis()));
+				}
+			}
+		}
 
-                if (srv.getError() != null && !srv.getError().isEmpty()) {
-                    alerts.add(new Alert(srv.getName(), "ERROR", srv.getError(), System.currentTimeMillis()));
-                }
-            }
-        }
+		return alerts;
+	}
 
-        return alerts;
-    }
+	@GetMapping("/api/events")
+	@ResponseBody
+	public List<Map<String, Object>> getEvents() {
 
-    @GetMapping("/api/events")
-    @ResponseBody
-    public List<Map<String, Object>> getEvents() {
+		List<Map<String, Object>> events = new ArrayList<>();
 
-        List<Map<String, Object>> events = new ArrayList<>();
+		Map<String, List<ServerHistory>> history = service.getAllHistory();
+		if (history == null)
+			return events;
 
-        Map<String, List<ServerHistory>> history = service.getAllHistory();
-        if (history == null) return events;
+		for (String server : history.keySet()) {
 
-        for (String server : history.keySet()) {
+			List<ServerHistory> list = history.get(server);
+			if (list == null)
+				continue;
 
-            List<ServerHistory> list = history.get(server);
-            if (list == null) continue;
+			for (ServerHistory h : list) {
 
-            for (ServerHistory h : list) {
+				if (h == null)
+					continue;
 
-                if (h == null) continue;
+				Map<String, Object> e = new HashMap<>();
+				e.put("server", server);
+				e.put("time", h.getTimestamp());
 
-                Map<String, Object> e = new HashMap<>();
-                e.put("server", server);
-                e.put("time", h.getTimestamp());
+				if (!h.isUp()) {
+					e.put("type", "DOWN");
+					e.put("message", "Servidor se cayó");
+				} else if (h.getResponseTime() > 1000) {
+					e.put("type", "SLOW");
+					e.put("message", "Se detectó lentitud");
+				} else {
+					e.put("type", "RECOVER");
+					e.put("message", "Servidor recuperado");
+				}
 
-                if (!h.isUp()) {
-                    e.put("type", "DOWN");
-                    e.put("message", "Servidor se cayó");
-                } else if (h.getResponseTime() > 1000) {
-                    e.put("type", "SLOW");
-                    e.put("message", "Se detectó lentitud");
-                } else {
-                    e.put("type", "RECOVER");
-                    e.put("message", "Servidor recuperado");
-                }
+				events.add(e);
+			}
+		}
 
-                events.add(e);
-            }
-        }
+		return events;
+	}
 
-        return events;
-    }
+	@GetMapping("/api/chart/{name}")
+	@ResponseBody
+	public Map<String, Object> getChartByServer(@PathVariable String name) {
 
-    @GetMapping("/api/chart/{name}")
-    @ResponseBody
-    public Map<String, Object> getChartByServer(@PathVariable String name) {
+		Map<String, Object> result = new HashMap<>();
 
-        Map<String, Object> result = new HashMap<>();
+		List<ServerHistory> listSafe = new ArrayList<>(service.getHistory(name));
 
-        List<ServerHistory> list = service.getHistory(name);
+		List<String> labels = new ArrayList<>();
+		List<Long> values = new ArrayList<>();
 
-        List<String> labels = new ArrayList<>();
-        List<Long> values = new ArrayList<>();
+		if (listSafe == null || listSafe.isEmpty()) {
+			result.put("labels", labels);
+			result.put("values", values);
+			return result;
+		}
 
-        for (ServerHistory h : list) {
-            labels.add(new java.text.SimpleDateFormat("HH:mm:ss").format(h.getTimestamp()));
-            values.add(h.isUp() ? h.getResponseTime() : 1800);
-        }
+		for (ServerHistory h : listSafe) {
 
-        result.put("labels", labels);
-        result.put("values", values);
+			if (h == null)
+				continue;
 
-        return result;
-    }
+			labels.add(new java.text.SimpleDateFormat("HH:mm:ss").format(h.getTimestamp()));
 
-    @GetMapping("/api/servers")
-    @ResponseBody
-    public List<String> getServers() {
+			values.add(h.isUp() ? h.getResponseTime() : 1800);
+		}
 
-        List<String> list = new ArrayList<>();
+		result.put("labels", labels);
+		result.put("values", values);
 
-        Map<String, List<ServerInfo>> data = service.getCurrentStatus();
-        if (data == null) return list;
+		return result;
+	}
 
-        for (List<ServerInfo> servers : data.values()) {
-            for (ServerInfo s : servers) {
-                list.add(s.getName());
-            }
-        }
+	@GetMapping("/api/servers")
+	@ResponseBody
+	public List<String> getServers() {
 
-        return list;
-    }
+		List<String> list = new ArrayList<>();
 
-    @GetMapping("/api/swagger/files")
-    public ResponseEntity<List<String>> getSwaggerFiles() {
+		Map<String, List<ServerInfo>> data = service.getCurrentStatus();
+		if (data == null)
+			return list;
 
-        java.util.Set<String> result = new java.util.LinkedHashSet<>();
+		for (List<ServerInfo> servers : data.values()) {
+			for (ServerInfo s : servers) {
+				list.add(s.getName());
+			}
+		}
 
-        try {
+		return list;
+	}
 
-            String swaggerDir = getSwaggerDir();
-            File folder = new File(swaggerDir);
+	@GetMapping("/api/swagger/files")
+	public ResponseEntity<List<String>> getSwaggerFiles() {
 
-            if (folder.exists() && folder.isDirectory()) {
-                for (File file : folder.listFiles()) {
-                    if (file.getName().endsWith(".json")) {
-                        result.add(file.getName().replace(".json", "").toUpperCase());
-                    }
-                }
-            }
+		java.util.Set<String> result = new java.util.LinkedHashSet<>();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+		try {
 
-        List<String> sorted = new ArrayList<>(result);
-        java.util.Collections.sort(sorted);
+			String swaggerDir = getSwaggerDir();
+			File folder = new File(swaggerDir);
 
-        return ResponseEntity.ok()
-                .cacheControl(CacheControl.noStore())
-                .header("Pragma", "no-cache")
-                .header("Expires", "0")
-                .body(sorted);
-    }
+			if (folder.exists() && folder.isDirectory()) {
+				for (File file : folder.listFiles()) {
+					if (file.getName().endsWith(".json")) {
+						result.add(file.getName().replace(".json", "").toUpperCase());
+					}
+				}
+			}
 
-    @GetMapping("/swagger/{name}.json")
-    @ResponseBody
-    public ResponseEntity<String> getSwagger(@PathVariable String name) {
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-        try {
+		List<String> sorted = new ArrayList<>(result);
+		java.util.Collections.sort(sorted);
 
-            String swaggerDir = getSwaggerDir();
+		return ResponseEntity.ok().cacheControl(CacheControl.noStore()).header("Pragma", "no-cache")
+				.header("Expires", "0").body(sorted);
+	}
 
-            File file = findSwaggerFileIgnoreCase(swaggerDir, name);
+	@GetMapping("/swagger/{name}.json")
+	@ResponseBody
+	public ResponseEntity<String> getSwagger(@PathVariable String name) {
 
-            if (file != null && file.exists()) {
+		try {
 
-                String content = new String(
-                        java.nio.file.Files.readAllBytes(file.toPath()),
-                        java.nio.charset.StandardCharsets.UTF_8
-                );
+			String swaggerDir = getSwaggerDir();
 
-                return ResponseEntity.ok()
-                        .header("Content-Type", "application/json;charset=UTF-8")
-                        .body(content);
-            }
+			File file = findSwaggerFileIgnoreCase(swaggerDir, name);
 
-            return ResponseEntity.notFound().build();
+			if (file != null && file.exists()) {
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseEntity.internalServerError().build();
-        }
-    }
+				String content = new String(java.nio.file.Files.readAllBytes(file.toPath()),
+						java.nio.charset.StandardCharsets.UTF_8);
 
-    private File findSwaggerFileIgnoreCase(String dir, String name) {
+				return ResponseEntity.ok().header("Content-Type", "application/json;charset=UTF-8").body(content);
+			}
 
-        File folder = new File(dir);
-        if (!folder.exists() || !folder.isDirectory()) return null;
+			return ResponseEntity.notFound().build();
 
-        File[] files = folder.listFiles();
-        if (files == null) return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.internalServerError().build();
+		}
+	}
 
-        String target = name + ".json";
+	private File findSwaggerFileIgnoreCase(String dir, String name) {
 
-        for (File f : files) {
-            if (f.getName().equalsIgnoreCase(target)) {
-                return f;
-            }
-        }
+		File folder = new File(dir);
+		if (!folder.exists() || !folder.isDirectory())
+			return null;
 
-        return null;
-    }
+		File[] files = folder.listFiles();
+		if (files == null)
+			return null;
 
-    private String getSwaggerDir() {
+		String target = name + ".json";
 
-        String dir = System.getProperty("pathSwaggerOutput");
+		for (File f : files) {
+			if (f.getName().equalsIgnoreCase(target)) {
+				return f;
+			}
+		}
 
-        if (dir == null || dir.trim().isEmpty()) {
-            throw new RuntimeException("❌ pathSwaggerOutput no configurado");
-        }
+		return null;
+	}
 
-        return dir;
-    }
+	private String getSwaggerDir() {
 
-    @GetMapping("/api/servers/status")
-    @ResponseBody
-    public List<Map<String, Object>> getServersStatus() {
+		String dir = System.getProperty("pathSwaggerOutput");
 
-        List<Map<String, Object>> result = new ArrayList<>();
+		if (dir == null || dir.trim().isEmpty()) {
+			throw new RuntimeException("❌ pathSwaggerOutput no configurado");
+		}
 
-        Map<String, List<ServerInfo>> data = service.getCurrentStatus();
-        if (data == null) return result;
+		return dir;
+	}
 
-        for (List<ServerInfo> servers : data.values()) {
-            for (ServerInfo srv : servers) {
+	@GetMapping("/api/servers/status")
+	@ResponseBody
+	public List<Map<String, Object>> getServersStatus() {
 
-                Map<String, Object> m = new HashMap<>();
-                m.put("name", srv.getName());
-                m.put("up", srv.isUp());
-                m.put("responseTime", srv.getResponseTime());
+		List<Map<String, Object>> result = new ArrayList<>();
 
-                result.add(m);
-            }
-        }
+		Map<String, List<ServerInfo>> data = service.getCurrentStatus();
+		if (data == null)
+			return result;
 
-        return result;
-    }
+		for (List<ServerInfo> servers : data.values()) {
+			for (ServerInfo srv : servers) {
+
+				Map<String, Object> m = new HashMap<>();
+				m.put("name", srv.getName());
+				m.put("up", srv.isUp());
+				m.put("responseTime", srv.getResponseTime());
+
+				result.add(m);
+			}
+		}
+
+		return result;
+	}
 }
