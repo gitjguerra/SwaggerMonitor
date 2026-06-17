@@ -150,13 +150,13 @@ public class SwaggerWatcherService {
 	private void logEvent(WatchEvent<?> event, Path fileName) {
 
 		if (event == null || event.kind() == null) {
-			log.warn("⚠️ Evento inválido recibido");
+			log.warn("Evento inválido recibido");
 			return;
 		}
 
 		String eventType = event.kind().name();
 
-		log.info("🔥 Cambio detectado: {} → {}", eventType, fileName);
+		log.info("Cambio detectado: {} → {}", eventType, fileName);
 	}
 
 }
