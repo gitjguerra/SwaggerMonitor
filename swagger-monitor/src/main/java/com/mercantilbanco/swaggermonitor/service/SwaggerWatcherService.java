@@ -44,7 +44,7 @@ public class SwaggerWatcherService {
 
 			registerWatcher(path, watchService);
 
-			log.info("👀 Watcher activo en: {}", dir);
+			log.info("Watcher activo en: {}", dir);
 
 			processEvents(watchService);
 
