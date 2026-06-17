@@ -1,20 +1,27 @@
 package com.mercantilbanco.swaggermonitor.controller;
 
 import java.io.File;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Set;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.CacheControl;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
-
+import com.mercantilbanco.swaggermonitor.exception.ControllerException;
 import com.mercantilbanco.swaggermonitor.model.Alert;
 import com.mercantilbanco.swaggermonitor.model.ServerHistory;
 import com.mercantilbanco.swaggermonitor.model.ServerInfo;
@@ -23,8 +30,23 @@ import com.mercantilbanco.swaggermonitor.service.ServerMonitorService;
 @Controller
 public class SwaggerMonitorController {
 
-	@Autowired
-	private ServerMonitorService service;
+	private static final Logger log = LogManager.getLogger(SwaggerMonitorController.class);
+
+	private final ServerMonitorService service;
+	private static final String MENSAJE = "message";
+	private static final String JSON_EXTENSION = ".json";
+	private static final String MSG_DOWN = "Servidor se cayó";
+	private static final String MSG_SLOW = "Se detectó lentitud";
+	private static final String MSG_RECOVER = "Servidor recuperado";
+
+	private static final String TYPE_DOWN = "DOWN";
+	private static final String TYPE_SLOW = "SLOW";
+	private static final String TYPE_RECOVER = "RECOVER";
+
+	// ✅ Constructor Injection
+	public SwaggerMonitorController(ServerMonitorService service) {
+		this.service = service;
+	}
 
 	@GetMapping("/")
 	public String dashboard(Model model) {
@@ -32,71 +54,63 @@ public class SwaggerMonitorController {
 		return "dashboard";
 	}
 
-	@GetMapping("/api/history/{name}")
 	@ResponseBody
+	@GetMapping("/api/history/{name}")
 	public List<ServerHistory> getHistory(@PathVariable String name) {
 		return service.getHistory(name);
 	}
 
-	@GetMapping("/api/metrics/{name}")
 	@ResponseBody
+	@GetMapping("/api/metrics/{name}")
 	public Map<String, Object> getMetrics(@PathVariable String name) {
 
 		Map<String, Object> m = new HashMap<>();
 		m.put("uptime", service.getUptime(name));
 		m.put("downtime", service.getDownTime(name));
-
 		return m;
 	}
 
-	@GetMapping("/api/alerts")
 	@ResponseBody
+	@GetMapping("/api/alerts")
 	public List<Alert> getAlerts() {
 
 		List<Alert> alerts = new ArrayList<>();
 
 		Map<String, List<ServerInfo>> data = service.getCurrentStatus();
-		if (data == null)
+
+		if (data == null) {
 			return alerts;
+		}
 
 		for (List<ServerInfo> servers : data.values()) {
+
 			if (servers == null)
 				continue;
 
 			for (ServerInfo srv : servers) {
 
-				if (srv == null)
-					continue;
-
-				if (!srv.isUp()) {
-					alerts.add(new Alert(srv.getName(), "DOWN", "Servidor caído", System.currentTimeMillis()));
-				} else if (srv.getResponseTime() > 1000) {
-					alerts.add(new Alert(srv.getName(), "SLOW", "Respuesta lenta (" + srv.getResponseTime() + " ms)",
-							System.currentTimeMillis()));
-				}
-
-				if (srv.getError() != null && !srv.getError().isEmpty()) {
-					alerts.add(new Alert(srv.getName(), "ERROR", srv.getError(), System.currentTimeMillis()));
-				}
+				processServerAlert(srv, alerts);
 			}
 		}
 
 		return alerts;
 	}
 
-	@GetMapping("/api/events")
 	@ResponseBody
+	@GetMapping("/api/events")
 	public List<Map<String, Object>> getEvents() {
 
 		List<Map<String, Object>> events = new ArrayList<>();
-
 		Map<String, List<ServerHistory>> history = service.getAllHistory();
+
 		if (history == null)
 			return events;
 
-		for (String server : history.keySet()) {
+		for (Map.Entry<String, List<ServerHistory>> entry : history.entrySet()) {
 
-			List<ServerHistory> list = history.get(server);
+			String server = entry.getKey();
+			List<ServerHistory> list = entry.getValue();
+
 			if (list == null)
 				continue;
 
@@ -110,14 +124,14 @@ public class SwaggerMonitorController {
 				e.put("time", h.getTimestamp());
 
 				if (!h.isUp()) {
-					e.put("type", "DOWN");
-					e.put("message", "Servidor se cayó");
+					e.put("type", TYPE_DOWN);
+					e.put(MENSAJE, MSG_DOWN);
 				} else if (h.getResponseTime() > 1000) {
-					e.put("type", "SLOW");
-					e.put("message", "Se detectó lentitud");
+					e.put("type", TYPE_SLOW);
+					e.put(MENSAJE, MSG_SLOW);
 				} else {
-					e.put("type", "RECOVER");
-					e.put("message", "Servidor recuperado");
+					e.put("type", TYPE_RECOVER);
+					e.put(MENSAJE, MSG_RECOVER);
 				}
 
 				events.add(e);
@@ -127,18 +141,19 @@ public class SwaggerMonitorController {
 		return events;
 	}
 
-	@GetMapping("/api/chart/{name}")
 	@ResponseBody
+	@GetMapping("/api/chart/{name}")
 	public Map<String, Object> getChartByServer(@PathVariable String name) {
 
 		Map<String, Object> result = new HashMap<>();
 
-		List<ServerHistory> listSafe = new ArrayList<>(service.getHistory(name));
+		List<ServerHistory> rawList = service.getHistory(name);
+		List<ServerHistory> listSafe = (rawList != null) ? new ArrayList<>(rawList) : new ArrayList<>();
 
 		List<String> labels = new ArrayList<>();
 		List<Long> values = new ArrayList<>();
 
-		if (listSafe == null || listSafe.isEmpty()) {
+		if (listSafe.isEmpty()) {
 			result.put("labels", labels);
 			result.put("values", values);
 			return result;
@@ -149,8 +164,7 @@ public class SwaggerMonitorController {
 			if (h == null)
 				continue;
 
-			labels.add(new java.text.SimpleDateFormat("HH:mm:ss").format(h.getTimestamp()));
-
+			labels.add(new SimpleDateFormat("HH:mm:ss").format(h.getTimestamp()));
 			values.add(h.isUp() ? h.getResponseTime() : 1800);
 		}
 
@@ -160,17 +174,20 @@ public class SwaggerMonitorController {
 		return result;
 	}
 
-	@GetMapping("/api/servers")
 	@ResponseBody
+	@GetMapping("/api/servers")
 	public List<String> getServers() {
 
 		List<String> list = new ArrayList<>();
-
 		Map<String, List<ServerInfo>> data = service.getCurrentStatus();
+
 		if (data == null)
 			return list;
 
 		for (List<ServerInfo> servers : data.values()) {
+			if (servers == null)
+				continue;
+
 			for (ServerInfo s : servers) {
 				list.add(s.getName());
 			}
@@ -179,10 +196,11 @@ public class SwaggerMonitorController {
 		return list;
 	}
 
+	@ResponseBody
 	@GetMapping("/api/swagger/files")
 	public ResponseEntity<List<String>> getSwaggerFiles() {
 
-		java.util.Set<String> result = new java.util.LinkedHashSet<>();
+		Set<String> result = new LinkedHashSet<>();
 
 		try {
 
@@ -190,53 +208,58 @@ public class SwaggerMonitorController {
 			File folder = new File(swaggerDir);
 
 			if (folder.exists() && folder.isDirectory()) {
-				for (File file : folder.listFiles()) {
-					if (file.getName().endsWith(".json")) {
-						result.add(file.getName().replace(".json", "").toUpperCase());
+
+				File[] files = folder.listFiles();
+
+				if (files != null) {
+					for (File file : files) {
+						if (file.getName().endsWith(JSON_EXTENSION)) {
+							result.add(file.getName().replace(JSON_EXTENSION, "").toUpperCase());
+						}
 					}
 				}
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("❌ Error obteniendo archivos swagger", e);
+			throw new ControllerException("Error leyendo archivos swagger", e);
 		}
 
 		List<String> sorted = new ArrayList<>(result);
-		java.util.Collections.sort(sorted);
+		Collections.sort(sorted);
 
 		return ResponseEntity.ok().cacheControl(CacheControl.noStore()).header("Pragma", "no-cache")
 				.header("Expires", "0").body(sorted);
 	}
 
-	@GetMapping("/swagger/{name}.json")
 	@ResponseBody
+	@GetMapping("/swagger/{name}.json")
 	public ResponseEntity<String> getSwagger(@PathVariable String name) {
 
 		try {
 
 			String swaggerDir = getSwaggerDir();
-
 			File file = findSwaggerFileIgnoreCase(swaggerDir, name);
 
 			if (file != null && file.exists()) {
 
-				String content = new String(java.nio.file.Files.readAllBytes(file.toPath()),
-						java.nio.charset.StandardCharsets.UTF_8);
+				String content = new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
 
 				return ResponseEntity.ok().header("Content-Type", "application/json;charset=UTF-8").body(content);
 			}
 
-			return ResponseEntity.notFound().build();
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			return ResponseEntity.internalServerError().build();
+			log.error("❌ Error obteniendo swagger", e);
+			throw new ControllerException("Error leyendo swagger", e);
 		}
 	}
 
 	private File findSwaggerFileIgnoreCase(String dir, String name) {
 
 		File folder = new File(dir);
+
 		if (!folder.exists() || !folder.isDirectory())
 			return null;
 
@@ -244,7 +267,7 @@ public class SwaggerMonitorController {
 		if (files == null)
 			return null;
 
-		String target = name + ".json";
+		String target = name + JSON_EXTENSION;
 
 		for (File f : files) {
 			if (f.getName().equalsIgnoreCase(target)) {
@@ -260,23 +283,26 @@ public class SwaggerMonitorController {
 		String dir = System.getProperty("pathSwaggerOutput");
 
 		if (dir == null || dir.trim().isEmpty()) {
-			throw new RuntimeException("❌ pathSwaggerOutput no configurado");
+			throw new ControllerException("❌ pathSwaggerOutput no configurado");
 		}
 
 		return dir;
 	}
 
-	@GetMapping("/api/servers/status")
 	@ResponseBody
+	@GetMapping("/api/servers/status")
 	public List<Map<String, Object>> getServersStatus() {
 
 		List<Map<String, Object>> result = new ArrayList<>();
-
 		Map<String, List<ServerInfo>> data = service.getCurrentStatus();
+
 		if (data == null)
 			return result;
 
 		for (List<ServerInfo> servers : data.values()) {
+			if (servers == null)
+				continue;
+
 			for (ServerInfo srv : servers) {
 
 				Map<String, Object> m = new HashMap<>();
@@ -290,4 +316,30 @@ public class SwaggerMonitorController {
 
 		return result;
 	}
+
+	private void processServerAlert(ServerInfo srv, List<Alert> alerts) {
+
+		if (srv == null)
+			return;
+
+		long now = System.currentTimeMillis();
+
+		if (!srv.isUp()) {
+			alerts.add(new Alert(srv.getName(), "DOWN", "Servidor caído", now));
+			return;
+		}
+
+		if (srv.getResponseTime() > 1000) {
+			alerts.add(new Alert(srv.getName(), "SLOW", "Respuesta lenta (" + srv.getResponseTime() + " ms)", now));
+		}
+
+		if (hasError(srv)) {
+			alerts.add(new Alert(srv.getName(), "ERROR", srv.getError(), now));
+		}
+	}
+
+	private boolean hasError(ServerInfo srv) {
+		return srv.getError() != null && !srv.getError().isEmpty();
+	}
+
 }

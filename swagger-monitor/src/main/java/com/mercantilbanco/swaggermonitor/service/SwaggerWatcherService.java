@@ -1,81 +1,162 @@
 package com.mercantilbanco.swaggermonitor.service;
 
-import org.springframework.stereotype.Service;
-
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardWatchEventKinds;
+import java.nio.file.WatchEvent;
+import java.nio.file.WatchKey;
+import java.nio.file.WatchService;
 import javax.annotation.PostConstruct;
-import java.nio.file.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Service;
+import com.mercantilbanco.swaggermonitor.exception.WatcherException;
 
 @Service
 public class SwaggerWatcherService {
 
-    @PostConstruct
-    public void startWatcher() {
+	private static final Logger log = LogManager.getLogger(SwaggerWatcherService.class);
 
-        new Thread(() -> {
+	@PostConstruct
+	public void startWatcher() {
 
-            try {
+		// ✅ Sonar: usar method reference
+		Thread watcherThread = new Thread(this::runWatcher);
 
-                String dir = getSwaggerDir();
+		watcherThread.setName("swagger-watcher-thread");
+		watcherThread.setDaemon(true);
+		watcherThread.start();
+	}
 
-                WatchService watchService =
-                        FileSystems.getDefault().newWatchService();
+	// =========================================================
+	// ✅ LÓGICA PRINCIPAL
+	// =========================================================
+	private void runWatcher() {
 
-                Path path = Paths.get(dir);
+		try {
 
-                // ✅ crear carpeta si no existe
-                if (!path.toFile().exists()) {
-                    path.toFile().mkdirs();
-                }
+			String dir = getSwaggerDir();
+			Path path = prepareDirectory(dir);
 
-                path.register(
-                        watchService,
-                        StandardWatchEventKinds.ENTRY_CREATE,
-                        StandardWatchEventKinds.ENTRY_DELETE,
-                        StandardWatchEventKinds.ENTRY_MODIFY
-                );
+			WatchService watchService = FileSystems.getDefault().newWatchService();
 
-                System.out.println("👀 Watcher activo en: " + dir);
+			registerWatcher(path, watchService);
 
-                while (true) {
+			log.info("👀 Watcher activo en: {}", dir);
 
-                    WatchKey key = watchService.take();
+			processEvents(watchService);
 
-                    for (WatchEvent<?> event : key.pollEvents()) {
+		} catch (IOException | InterruptedException e) {
 
-                        Path fileName = (Path) event.context();
+			log.error("❌ Error en SwaggerWatcherService", e);
 
-                        if (fileName.toString().endsWith(".json")) {
+			// ✅ Sonar: excepción específica
+			Thread.currentThread().interrupt();
+		}
+	}
 
-                            System.out.println(
-                                    "🔥 Cambio detectado: "
-                                            + event.kind().name()
-                                            + " → "
-                                            + fileName
-                            );
-                        }
-                    }
+	// =========================================================
+	// ✅ PREPARAR DIRECTORIO
+	// =========================================================
+	private Path prepareDirectory(String dir) {
 
-                    key.reset();
-                }
+		Path path = Paths.get(dir);
 
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+		if (!path.toFile().exists()) {
+			path.toFile().mkdirs();
+			log.info("📁 Carpeta creada automáticamente: {}", dir);
+		}
 
-        }).start();
-    }
+		return path;
+	}
 
-    // =========================================================
-    // ✅ OBTENER DIRECTORIO SWAGGER (OSBA)
-    // =========================================================
-    private String getSwaggerDir() {
+	// =========================================================
+	// ✅ REGISTRAR WATCHER
+	// =========================================================
+	private void registerWatcher(Path path, WatchService watchService) throws IOException {
 
-        String dir = System.getProperty("pathSwaggerOutput");
+		if (path != null && watchService != null) { // ✅ invocación condicional
 
-        if (dir == null || dir.trim().isEmpty()) {
-            throw new RuntimeException("❌ pathSwaggerOutput no configurado");
-        }
+			path.register(watchService, StandardWatchEventKinds.ENTRY_CREATE, StandardWatchEventKinds.ENTRY_DELETE,
+					StandardWatchEventKinds.ENTRY_MODIFY);
 
-        return dir.trim();
-    }
+		} else {
+			throw new WatcherException("❌ Path o WatchService inválido");
+		}
+	}
+
+	// =========================================================
+	// ✅ PROCESAR EVENTOS
+	// =========================================================
+	private void processEvents(WatchService watchService) throws InterruptedException {
+
+		while (true) {
+
+			WatchKey key = watchService.take();
+
+			handleEvents(key);
+
+			if (!key.reset()) {
+				log.warn("⚠️ WatchKey inválido, deteniendo watcher");
+				break;
+			}
+		}
+	}
+
+	// =========================================================
+	// ✅ MANEJAR EVENTOS
+	// =========================================================
+	private void handleEvents(WatchKey key) {
+
+		if (key == null) {
+			log.warn("⚠️ WatchKey nulo recibido");
+			return;
+		}
+
+		for (WatchEvent<?> event : key.pollEvents()) {
+
+			Path fileName = (Path) event.context();
+
+			if (isJsonFile(fileName)) {
+				logEvent(event, fileName);
+			}
+
+		}
+	}
+
+	// =========================================================
+	// ✅ VALIDACIÓN
+	// =========================================================
+	private boolean isJsonFile(Path fileName) {
+		return fileName != null && fileName.toString().endsWith(".json");
+	}
+
+	// =========================================================
+	// ✅ OBTENER DIRECTORIO SWAGGER
+	// =========================================================
+	private String getSwaggerDir() {
+
+		String dir = System.getProperty("pathSwaggerOutput");
+
+		if (dir == null || dir.trim().isEmpty()) {
+			throw new WatcherException("❌ pathSwaggerOutput no configurado");
+		}
+
+		return dir.trim();
+	}
+
+	private void logEvent(WatchEvent<?> event, Path fileName) {
+
+		if (event == null || event.kind() == null) {
+			log.warn("⚠️ Evento inválido recibido");
+			return;
+		}
+
+		String eventType = event.kind().name();
+
+		log.info("🔥 Cambio detectado: {} → {}", eventType, fileName);
+	}
+
 }

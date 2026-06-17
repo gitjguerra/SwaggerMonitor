@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * CLASE ENCARGADA DE: <strong>XXX</strong>.
+ * CLASE ENCARGADA DE: <strong>Historico del status de servidores</strong>.
  * @author <strong>JOSE GUERRA</strong>
  * <hr><code>Copyright 20/05/2026. Banco Mercantil, All rights reserved.</code>
  */

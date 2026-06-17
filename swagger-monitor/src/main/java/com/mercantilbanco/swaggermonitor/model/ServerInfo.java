@@ -4,6 +4,11 @@ import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * CLASE ENCARGADA DE: <strong>campos a mostrar por server</strong>.
+ * @author <strong>JOSE GUERRA</strong>
+ * <hr><code>Copyright 20/05/2026. Banco Mercantil, All rights reserved.</code>
+ */
 @Getter
 @Setter
 public class ServerInfo {

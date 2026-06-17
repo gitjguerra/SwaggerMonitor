@@ -2,69 +2,67 @@ package com.mercantilbanco.swaggermonitor.service;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.annotation.PostConstruct;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
 public class SlackAlertService {
 
-    private boolean slackEnabled;
+	private static final Logger log = LogManager.getLogger(SlackAlertService.class);
+	private boolean slackEnabled;
 
-    // =========================================================
-    // ✅ INIT OSBA
-    // =========================================================
-    @PostConstruct
-    public void init() {
+	// =========================================================
+	// ✅ INIT OSBA
+	// =========================================================
+	@PostConstruct
+	public void init() {
 
-        String value = System.getProperty("slackEnabled");
+		String value = System.getProperty("slackEnabled");
 
-        if (value == null || value.trim().isEmpty()) {
-            slackEnabled = true; // ✅ default
-        } else {
-            slackEnabled = Boolean.parseBoolean(value);
-        }
-    }
+		if (value == null || value.trim().isEmpty()) {
+			slackEnabled = true; // ✅ default
+		} else {
+			slackEnabled = Boolean.parseBoolean(value);
+		}
+	}
 
-    // =========================================================
-    // ✅ SEND ALERT
-    // =========================================================
-    public void sendAlert(String webhookUrl, String message) {
+	// =========================================================
+	// ✅ SEND ALERT
+	// =========================================================
 
-        if (!slackEnabled) {
-            System.out.println("⚠️ Slack deshabilitado, no se envía alerta");
-            return;
-        }
+	public void sendAlert(String webhookUrl, String message) {
 
-        if (webhookUrl == null || webhookUrl.trim().isEmpty()) {
-            System.out.println("⚠️ Servidor sin webhook configurado");
-            return;
-        }
+		if (!slackEnabled) {
+			log.warn("⚠️ Slack deshabilitado, no se envía alerta");
+			return;
+		}
 
-        try {
+		if (webhookUrl == null || webhookUrl.trim().isEmpty()) {
+			log.warn("⚠️ Servidor sin webhook configurado");
+			return;
+		}
 
-            RestTemplate restTemplate = new RestTemplate();
+		try {
 
-            Map<String, String> body = new HashMap<>();
+			RestTemplate restTemplate = new RestTemplate();
 
-            String formattedMessage = "Hola Usuario mercantil " + message;
+			Map<String, String> body = new HashMap<>();
 
-            body.put("text", formattedMessage);
+			String formattedMessage = "Hola Usuario mercantil " + message;
 
-            String response = restTemplate.postForObject(
-                    webhookUrl,
-                    body,
-                    String.class
-            );
+			body.put("text", formattedMessage);
 
-            System.out.println("✅ Slack enviado correctamente: " + response);
+			String response = restTemplate.postForObject(webhookUrl, body, String.class);
 
-        } catch (Exception e) {
+			log.info("✅ Slack enviado correctamente: {}", response);
 
-            System.err.println("❌ Error enviando Slack");
-            e.printStackTrace();
-        }
-    }
+		} catch (Exception e) {
+
+			log.error("❌ Error enviando Slack", e); // ✅ incluye stacktrace correctamente
+		}
+	}
+
 }
