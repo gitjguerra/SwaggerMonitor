@@ -263,6 +263,43 @@
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+
+<style>
+	/* IMPACTO / DEPENDENCIAS */
+	.kpi-card .kpi-value {
+		font-size: 26px;
+		font-weight: bold;
+		color: #0b4ea2;
+	}
+
+	.kpi-card .kpi-label {
+		font-size: 11px;
+		color: #6b7280;
+	}
+
+	.heat-baja {
+		background-color: #d4edda !important;
+	}
+
+	.heat-media {
+		background-color: #fff3cd !important;
+	}
+
+	.heat-alta, .heat-critica {
+		background-color: #f8d7da !important;
+	}
+
+	#impactoGraph {
+		height: 420px;
+		border: 1px solid #d1d5db;
+		border-radius: 8px;
+	}
+
+	.nav-tabs {
+		margin: 10px 10px 0 10px;
+	}
+</style>
 
 </head>
 
@@ -281,6 +318,21 @@
 
 	</div>
 
+
+	<!-- ✅ PESTAÑAS -->
+	<ul class="nav nav-tabs" id="mainTabs" role="tablist">
+		<li class="nav-item" role="presentation">
+			<button class="nav-link active" id="tab-monitoreo-btn" data-bs-toggle="tab"
+				data-bs-target="#tab-monitoreo" type="button" role="tab">Monitoreo</button>
+		</li>
+		<li class="nav-item" role="presentation">
+			<button class="nav-link" id="tab-impacto-btn" data-bs-toggle="tab"
+				data-bs-target="#tab-impacto" type="button" role="tab">Impacto / Dependencias</button>
+		</li>
+	</ul>
+
+	<div class="tab-content">
+	<div class="tab-pane fade show active" id="tab-monitoreo" role="tabpanel">
 
 	<div class="dashboard">
 
@@ -367,6 +419,103 @@
 
 	</div>
 
+	</div>
+	<!-- /tab-monitoreo -->
+
+	<div class="tab-pane fade" id="tab-impacto" role="tabpanel">
+
+		<div class="container-fluid" style="padding: 10px;">
+
+			<div id="impactoFallbackAlert" class="alert alert-warning small-text" style="display:none;">
+				⚠️ BM_HOME no está configurado o no se encontró <code>appl/osba/config/restservices.xml</code>;
+				mostrando el último análisis de respaldo embebido.
+			</div>
+
+			<!-- ✅ KPIs -->
+			<div class="row g-2 mb-2">
+				<div class="col">
+					<div class="card text-center kpi-card">
+						<div class="kpi-value" id="kpiDominios">-</div>
+						<div class="kpi-label">Dominios analizados</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card text-center kpi-card">
+						<div class="kpi-value" id="kpiServicios">-</div>
+						<div class="kpi-label">Servicios totales (restservices)</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card text-center kpi-card">
+						<div class="kpi-value" id="kpiDependencias">-</div>
+						<div class="kpi-label">Dependencias identificadas</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card text-center kpi-card">
+						<div class="kpi-value" id="kpiCriticos">-</div>
+						<div class="kpi-label">Servicios críticos / altos</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card text-center kpi-card">
+						<div class="kpi-value" id="kpiSpof">-</div>
+						<div class="kpi-label">Posibles SPOF</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- ✅ SELECTOR DE DOMINIO -->
+			<div class="mb-2 d-flex align-items-center gap-2">
+				<label class="small-text mb-0">Vista por dominio:</label>
+				<select id="impactoDomainSelect" class="form-select form-select-sm" style="max-width: 280px;">
+					<option value="">Todos los dominios</option>
+				</select>
+				<span class="small-text text-muted" id="impactoCobertura"></span>
+			</div>
+
+			<div class="row g-2">
+
+				<!-- ✅ RANKING -->
+				<div class="col-md-6">
+					<div class="panel" style="height: 360px;">
+						<h5 class="panel-title">Ranking de Impacto</h5>
+						<canvas id="impactoRankingChart"></canvas>
+					</div>
+				</div>
+
+				<!-- ✅ MATRIZ -->
+				<div class="col-md-6">
+					<div class="panel" style="height: 360px;">
+						<h5 class="panel-title">Matriz de Impacto (servicio × dominio)</h5>
+						<div style="overflow: auto; max-height: 290px;">
+							<table class="table table-sm table-bordered" style="color:#111;">
+								<thead id="impactoMatrixHead"></thead>
+								<tbody id="impactoMatrixBody"></tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- ✅ GRAFO -->
+			<div class="row g-2 mt-2">
+				<div class="col-12">
+					<div class="panel">
+						<h5 class="panel-title">Grafo de Dependencias</h5>
+						<div id="impactoGraph"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	<!-- /tab-impacto -->
+
+	</div>
+	<!-- /tab-content -->
+
 
 	<!-- ✅ Swagger -->
 	<div id="swaggerPanel" class="panel"
@@ -429,6 +578,41 @@
 						</thead>
 						<tbody id="historyTable"></tbody>
 					</table>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+	<!-- MODAL DETALLE SERVICIO (IMPACTO) -->
+	<div class="modal fade" id="impactoModal" tabindex="-1">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<h5 id="impactoModalName">Servicio</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+				</div>
+
+				<div class="modal-body">
+
+					<p>
+						<strong>Endpoint:</strong> <span id="impactoModalEndpoint"></span>
+					</p>
+					<p>
+						<strong>Dominios dependientes:</strong> <span id="impactoModalDomains"></span>
+					</p>
+					<p>
+						<strong>Cantidad de dominios:</strong> <span id="impactoModalCantidad"></span>
+					</p>
+					<p>
+						<strong>% Afectación:</strong> <span id="impactoModalPct"></span>%
+					</p>
+					<p>
+						<strong>Criticidad:</strong> <span id="impactoModalCriticidad" class="badge"></span>
+					</p>
 
 				</div>
 
@@ -998,6 +1182,264 @@ function updateCards() {
         .catch(err => console.error("Error cards:", err));
 }
 
+
+// ======================================================
+// ✅ IMPACTO / DEPENDENCIAS
+// ======================================================
+let impactoLoaded = false;
+let impactoRankingChart = null;
+let impactoNetwork = null;
+let impactoAllServicios = [];
+let impactoDominios = [];
+
+function criticidadColor(criticidad) {
+    if (criticidad === 'Crítica') return '#dc3545';
+    if (criticidad === 'Alta') return '#fd7e14';
+    if (criticidad === 'Media') return '#ffc107';
+    return '#28a745';
+}
+
+function criticidadHeatClass(criticidad) {
+    if (criticidad === 'Crítica' || criticidad === 'Alta') return 'heat-alta';
+    if (criticidad === 'Media') return 'heat-media';
+    return 'heat-baja';
+}
+
+function loadImpactoDashboard() {
+
+    fetch('/api/impacto/dashboard')
+        .then(res => res.json())
+        .then(data => {
+
+            document.getElementById("kpiDominios").innerText = data.totalDominiosAnalizados;
+            document.getElementById("kpiServicios").innerText = data.totalServiciosRestservices;
+            document.getElementById("kpiDependencias").innerText = data.totalServiciosConCoincidencia;
+            document.getElementById("kpiCriticos").innerText = (data.serviciosCriticos + data.serviciosAltos);
+            document.getElementById("kpiSpof").innerText = data.spofDetectados;
+            document.getElementById("impactoCobertura").innerText =
+                "Cobertura por nombre: " + data.coberturaPct + "%";
+
+            document.getElementById("impactoFallbackAlert").style.display =
+                data.usandoDatosFallback ? "block" : "none";
+
+            impactoDominios = data.dominios || [];
+
+            let select = document.getElementById("impactoDomainSelect");
+            select.innerHTML = '<option value="">Todos los dominios</option>';
+
+            impactoDominios.forEach(dom => {
+                let opt = document.createElement("option");
+                opt.value = dom;
+                opt.textContent = dom;
+                select.appendChild(opt);
+            });
+        })
+        .catch(err => console.error("Error cargando dashboard de impacto:", err));
+}
+
+function loadImpactoServicios() {
+
+    fetch('/api/impacto/servicios')
+        .then(res => res.json())
+        .then(data => {
+            impactoAllServicios = data;
+            renderImpactoVistas(impactoAllServicios);
+        })
+        .catch(err => console.error("Error cargando servicios de impacto:", err));
+}
+
+function filterImpactoByDomain(dominio) {
+
+    if (!dominio) {
+        renderImpactoVistas(impactoAllServicios);
+        return;
+    }
+
+    let filtrados = impactoAllServicios.filter(s => (s.domains || []).includes(dominio));
+    renderImpactoVistas(filtrados);
+}
+
+function renderImpactoVistas(servicios) {
+    renderImpactoRanking(servicios);
+    renderImpactoMatrix(servicios);
+    renderImpactoGraph(servicios);
+}
+
+function renderImpactoRanking(servicios) {
+
+    let conImpacto = servicios.filter(s => s.cantidad > 0)
+        .sort((a, b) => b.pct - a.pct);
+
+    const ctx = document.getElementById("impactoRankingChart");
+
+    if (impactoRankingChart) impactoRankingChart.destroy();
+
+    if (conImpacto.length === 0) {
+        return;
+    }
+
+    impactoRankingChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: conImpacto.map(s => s.name),
+            datasets: [{
+                label: '% Afectación',
+                data: conImpacto.map(s => s.pct),
+                backgroundColor: conImpacto.map(s => criticidadColor(s.criticidad))
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: { x: { min: 0, max: 100 } },
+            onClick: (evt, elements) => {
+                if (elements.length > 0) {
+                    showImpactoDetail(conImpacto[elements[0].index].name);
+                }
+            }
+        }
+    });
+}
+
+function renderImpactoMatrix(servicios) {
+
+    let conImpacto = servicios.filter(s => s.cantidad > 0)
+        .sort((a, b) => b.pct - a.pct);
+
+    let head = document.getElementById("impactoMatrixHead");
+    let body = document.getElementById("impactoMatrixBody");
+
+    let headerCols = '<th>Servicio</th>' +
+        impactoDominios.map(d => '<th>' + d + '</th>').join('') +
+        '<th>%</th><th>Criticidad</th>';
+
+    head.innerHTML = '<tr>' + headerCols + '</tr>';
+
+    if (conImpacto.length === 0) {
+        body.innerHTML = '<tr><td colspan="' + (impactoDominios.length + 3) +
+            '" class="text-center text-muted">Sin dependencias para este filtro</td></tr>';
+        return;
+    }
+
+    body.innerHTML = conImpacto.map(s => {
+
+        let cells = impactoDominios.map(dom => {
+            let afecta = (s.domains || []).includes(dom);
+            let cls = afecta ? criticidadHeatClass(s.criticidad) : '';
+            return '<td class="' + cls + ' text-center">' + (afecta ? '●' : '') + '</td>';
+        }).join('');
+
+        return '<tr style="cursor:pointer" onclick="showImpactoDetail(\'' + s.name + '\')">' +
+            '<td>' + s.name + '</td>' + cells +
+            '<td class="text-center">' + s.pct + '%</td>' +
+            '<td class="text-center">' +
+            '<span class="badge" style="background-color:' + criticidadColor(s.criticidad) + '">' +
+            s.criticidad + '</span></td></tr>';
+    }).join('');
+}
+
+function renderImpactoGraph(servicios) {
+
+    let container = document.getElementById("impactoGraph");
+
+    if (impactoNetwork) {
+        impactoNetwork.destroy();
+        impactoNetwork = null;
+    }
+
+    let conImpacto = servicios.filter(s => s.cantidad > 0);
+
+    let nodes = [{ id: 'osba', label: 'osba', shape: 'box', color: '#0b4ea2', font: { color: '#fff' } }];
+    let edges = [];
+    let dominiosEnGrafo = new Set();
+
+    conImpacto.forEach(s => {
+        (s.domains || []).forEach(dom => dominiosEnGrafo.add(dom));
+    });
+
+    dominiosEnGrafo.forEach(dom => {
+        nodes.push({ id: 'dom-' + dom, label: dom, shape: 'ellipse', color: '#6366f1', font: { color: '#fff' } });
+        edges.push({ from: 'osba', to: 'dom-' + dom });
+    });
+
+    conImpacto.forEach(s => {
+
+        nodes.push({
+            id: 'srv-' + s.name,
+            label: s.name,
+            shape: 'box',
+            color: criticidadColor(s.criticidad),
+            font: { color: '#fff', size: 11 }
+        });
+
+        (s.domains || []).forEach(dom => {
+            edges.push({ from: 'srv-' + s.name, to: 'dom-' + dom });
+        });
+    });
+
+    impactoNetwork = new vis.Network(container, { nodes: nodes, edges: edges }, {
+        physics: { stabilization: true },
+        interaction: { hover: true },
+        nodes: { margin: 8 }
+    });
+
+    impactoNetwork.on('click', params => {
+
+        if (params.nodes.length === 0) return;
+
+        let id = params.nodes[0];
+
+        if (id.startsWith('srv-')) {
+            showImpactoDetail(id.substring('srv-'.length));
+        } else if (id.startsWith('dom-')) {
+            let dom = id.substring('dom-'.length);
+            document.getElementById("impactoDomainSelect").value = dom;
+            filterImpactoByDomain(dom);
+        }
+    });
+}
+
+function showImpactoDetail(name) {
+
+    fetch('/api/impacto/servicio/' + encodeURIComponent(name))
+        .then(res => {
+            if (!res.ok) throw new Error('No encontrado');
+            return res.json();
+        })
+        .then(s => {
+
+            document.getElementById("impactoModalName").innerText = s.name;
+            document.getElementById("impactoModalEndpoint").innerText = s.endpoint || '—';
+            document.getElementById("impactoModalDomains").innerText =
+                (s.domains && s.domains.length > 0) ? s.domains.join(', ') : 'Ninguno';
+            document.getElementById("impactoModalCantidad").innerText = s.cantidad;
+            document.getElementById("impactoModalPct").innerText = s.pct;
+
+            let badge = document.getElementById("impactoModalCriticidad");
+            badge.innerText = s.criticidad;
+            badge.style.backgroundColor = criticidadColor(s.criticidad);
+
+            new bootstrap.Modal(document.getElementById('impactoModal')).show();
+        })
+        .catch(err => console.error("Error cargando detalle de servicio:", err));
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.getElementById("tab-impacto-btn").addEventListener("shown.bs.tab", function () {
+        if (!impactoLoaded) {
+            impactoLoaded = true;
+            loadImpactoDashboard();
+            loadImpactoServicios();
+        }
+    });
+
+    document.getElementById("impactoDomainSelect").addEventListener("change", function () {
+        filterImpactoByDomain(this.value);
+    });
+});
 
 </script>
 

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+
+    <service
+        name="consultar-telefonos-detallado"
+        canales="[Persona]"
+        cantidadCanales="1"
+        porcentajeAfectacion="50"
+        criticidad="Alta"/>
+
+    <service
+        name="consultar-localizacion-nacional-compactada"
+        canales="[Persona]"
+        cantidadCanales="1"
+        porcentajeAfectacion="50"
+        criticidad="Alta"/>
+
+    <service
+        name="ingresar-datos-sociodemograficos"
+        canales="[Persona]"
+        cantidadCanales="1"
+        porcentajeAfectacion="50"
+        criticidad="Alta"/>
+
+    <service
+        name="ingresar-localizacion-nacional-compactada"
+        canales="[Persona]"
+        cantidadCanales="1"
+        porcentajeAfectacion="50"
+        criticidad="Alta"/>
+
+    <service
+        name="ingresar-telefonos-cliente"
+        canales="[Persona]"
+        cantidadCanales="1"
+        porcentajeAfectacion="50"
+        criticidad="Alta"/>
+
+    <service
+        name="ingresar-autorizaciones-cliente"
+        canales="[Persona]"
+        cantidadCanales="1"
+        porcentajeAfectacion="50"
+        criticidad="Alta"/>
+
+    <service
+        name="actualizar-telefono-cliente"
+        canales="[Persona]"
+        cantidadCanales="1"
+        porcentajeAfectacion="50"
+        criticidad="Alta"/>
+
+</root>

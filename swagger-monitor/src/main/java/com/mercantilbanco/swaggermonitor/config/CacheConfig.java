@@ -12,7 +12,7 @@ public class CacheConfig {
 
     @Bean
     public CacheManager cacheManager() {
-        CaffeineCacheManager manager = new CaffeineCacheManager("serverStatus");
+        CaffeineCacheManager manager = new CaffeineCacheManager("serverStatus", "impactoData");
 
         manager.setCaffeine(
                 Caffeine.newBuilder()
