@@ -67,16 +67,17 @@ exactamente un dominio (cantidad == 1) y
  *       ese dominio es el único canal que lo resuelve.</li>
  *   <li>El cruce ya NO es solo por {@code name}: un servicio de
 restservices.xml también se considera
- *       dependiente de un dominio si el último segmento de su
-{@code endpoint} (el identificador de
- *       programa/transacción backend, p. ej. "...-gipw106x") coincide
-con el de algún servicio de ese
- *       dominio, igual que la evidencia secundaria descrita en la
-sección 7 del informe de impacto. Para
- *       evitar falsos positivos con segmentos genéricos (p. ej.
-"payment", "companies"), solo se usa como
- *       evidencia un segmento de al menos {@value #SUFIJO_MIN_LENGTH}
-caracteres.</li>
+ *       dependiente de un dominio si su "recurso" (el {@code endpoint}
+sin el esquema+host+puerto,
+ *       p. ej. quitando "http://10.0.60.213:8080", o sin el placeholder
+de host con el que a veces
+ *       aparece en services.xml, p. ej. "${server_zos_conect}")
+coincide EXACTO con el recurso de algún
+ *       servicio de ese dominio. Es la misma idea que la evidencia
+secundaria descrita en la sección 7
+ *       del informe de impacto, pero comparando la ruta completa (no
+solo el último segmento) para
+ *       reducir falsos positivos.</li>
  * </ul>
  *
  * @author <strong>JOSE GUERRA</strong>
@@ -98,7 +99,7 @@ LogManager.getLogger(ImpactoService.class);
     private static final String ATTR_NAME = "name";
     private static final String ATTR_ENDPOINT = "endpoint";
     private static final String FALLBACK_RESOURCE = "impacto-fallback.json";
-    private static final int SUFIJO_MIN_LENGTH = 12;
+    private static final int RECURSO_MIN_LENGTH = 3;
 
     @Value("${impacto.dominios-excluidos:}")
     private List<String> dominiosExcluidos;
@@ -237,7 +238,7 @@ restservicesFile, Map<String, DomainIndex> dominios)
 
             String nombre = name.trim();
             String endpoint = el.getAttribute(ATTR_ENDPOINT);
-            String sufijo = extraerSufijoEndpoint(endpoint);
+            String recurso = extraerRecurso(endpoint);
 
             ServiceImpact si = new ServiceImpact();
             si.setName(nombre);
@@ -247,10 +248,10 @@ restservicesFile, Map<String, DomainIndex> dominios)
 
                 DomainIndex indice = dominio.getValue();
                 boolean coincideNombre = indice.getNombres().contains(nombre);
-                boolean coincideSufijo = sufijo != null &&
-indice.getSufijos().contains(sufijo);
+                boolean coincideRecurso = recurso != null &&
+indice.getRecursos().contains(recurso);
 
-                if (coincideNombre || coincideSufijo) {
+                if (coincideNombre || coincideRecurso) {
                     si.getDomains().add(dominio.getKey());
                 }
             }
@@ -280,10 +281,10 @@ indice.getSufijos().contains(sufijo);
                 index.incrementarTotalServicios();
             }
 
-            String sufijo = extraerSufijoEndpoint(endpoint);
+            String recurso = extraerRecurso(endpoint);
 
-            if (sufijo != null) {
-                index.getSufijos().add(sufijo);
+            if (recurso != null) {
+                index.getRecursos().add(recurso);
             }
         }
 
@@ -291,16 +292,17 @@ indice.getSufijos().contains(sufijo);
     }
 
     /**
-     * Extrae el último segmento de la ruta del endpoint (el
-     * identificador de programa/transacción backend, p. ej.
-     * "consultarTelefonosDetallado-gipw106x"), en minúsculas para
-     * comparación case-insensitive. Devuelve null si el endpoint es
-     * vacío o si el segmento es demasiado corto/genérico (menos de
-     * {@value #SUFIJO_MIN_LENGTH} caracteres) para servir de evidencia
-     * confiable, igual que la advertencia de falsos positivos del
-     * informe de impacto (p. ej. "payment", "companies").
+     * Extrae el "recurso" del endpoint: la ruta que queda después de
+     * quitarle el esquema+host+puerto (p. ej. "http://10.0.60.213:8080")
+     * cuando el endpoint es una URL completa, o el placeholder de host
+     * con el que a veces se expresa en services.xml (p. ej.
+     * "${server_zos_conect}", o cualquier otro "${...}" al inicio).
+     * Se compara la ruta completa (no solo el último segmento) para
+     * que el cruce sea más confiable que comparar un único segmento.
+     * Devuelve null si no queda ningún recurso utilizable (endpoint
+     * vacío, o solo quedan 1-2 caracteres tras quitar host/placeholder).
      */
-    private String extraerSufijoEndpoint(String endpoint) {
+    private String extraerRecurso(String endpoint) {
 
         if (endpoint == null || endpoint.trim().isEmpty()) {
             return null;
@@ -313,18 +315,33 @@ indice.getSufijos().contains(sufijo);
             limpio = limpio.substring(0, queryIdx);
         }
 
+        String lower = limpio.toLowerCase();
+
+        if (lower.startsWith("http://") || lower.startsWith("https://")) {
+
+            int schemeEnd = limpio.indexOf("://") + 3;
+            int pathStart = limpio.indexOf('/', schemeEnd);
+            limpio = (pathStart >= 0) ? limpio.substring(pathStart) : "";
+
+        } else if (limpio.startsWith("${")) {
+
+            int closeIdx = limpio.indexOf('}');
+            limpio = (closeIdx >= 0) ? limpio.substring(closeIdx + 1) : "";
+        }
+
+        while (limpio.startsWith("/")) {
+            limpio = limpio.substring(1);
+        }
+
         while (limpio.endsWith("/")) {
             limpio = limpio.substring(0, limpio.length() - 1);
         }
 
-        int slashIdx = limpio.lastIndexOf('/');
-        String segmento = (slashIdx >= 0) ? limpio.substring(slashIdx + 1) : limpio;
-
-        if (segmento.length() < SUFIJO_MIN_LENGTH) {
+        if (limpio.length() < RECURSO_MIN_LENGTH) {
             return null;
         }
 
-        return segmento.toLowerCase();
+        return limpio.toLowerCase();
     }
 
     private Document parseXml(File file) throws Exception {
@@ -534,23 +551,23 @@ Map<String, DomainIndex> dominios, boolean fallback) {
     }
 
     /**
-     * Índice de un dominio de negocio: nombres de servicio y sufijos de
-     * endpoint (ver {@link #extraerSufijoEndpoint(String)}) usados para
-     * el cruce con restservices.xml, más el total de servicios propios
+     * Índice de un dominio de negocio: nombres de servicio y recursos de
+     * endpoint (ver {@link #extraerRecurso(String)}) usados para el
+     * cruce con restservices.xml, más el total de servicios propios
      * del dominio (para la vista "por dominio").
      */
     private static final class DomainIndex {
 
         private final Set<String> nombres = new LinkedHashSet<>();
-        private final Set<String> sufijos = new LinkedHashSet<>();
+        private final Set<String> recursos = new LinkedHashSet<>();
         private int totalServicios;
 
         private Set<String> getNombres() {
             return nombres;
         }
 
-        private Set<String> getSufijos() {
-            return sufijos;
+        private Set<String> getRecursos() {
+            return recursos;
         }
 
         private int getTotalServicios() {
