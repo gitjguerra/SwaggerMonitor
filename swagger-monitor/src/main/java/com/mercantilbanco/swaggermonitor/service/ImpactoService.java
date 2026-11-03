@@ -65,6 +65,18 @@ Baja, 21-40% Media, 41-60% Alta, 61-100%
  *   <li>Un servicio se considera SPOF potencial cuando depende de
 exactamente un dominio (cantidad == 1) y
  *       ese dominio es el único canal que lo resuelve.</li>
+ *   <li>El cruce ya NO es solo por {@code name}: un servicio de
+restservices.xml también se considera
+ *       dependiente de un dominio si el último segmento de su
+{@code endpoint} (el identificador de
+ *       programa/transacción backend, p. ej. "...-gipw106x") coincide
+con el de algún servicio de ese
+ *       dominio, igual que la evidencia secundaria descrita en la
+sección 7 del informe de impacto. Para
+ *       evitar falsos positivos con segmentos genéricos (p. ej.
+"payment", "companies"), solo se usa como
+ *       evidencia un segmento de al menos {@value #SUFIJO_MIN_LENGTH}
+caracteres.</li>
  * </ul>
  *
  * @author <strong>JOSE GUERRA</strong>
@@ -86,6 +98,7 @@ LogManager.getLogger(ImpactoService.class);
     private static final String ATTR_NAME = "name";
     private static final String ATTR_ENDPOINT = "endpoint";
     private static final String FALLBACK_RESOURCE = "impacto-fallback.json";
+    private static final int SUFIJO_MIN_LENGTH = 12;
 
     @Value("${impacto.dominios-excluidos:}")
     private List<String> dominiosExcluidos;
@@ -147,7 +160,7 @@ bmHome.trim();
     private ImpactoResult analizarDesdeFilesystem(File applDir, File
 restservicesFile) throws Exception {
 
-        Map<String, Set<String>> dominioToServiceNames = new LinkedHashMap<>();
+        Map<String, DomainIndex> dominioIndex = new LinkedHashMap<>();
 
         File[] carpetas = applDir.listFiles(File::isDirectory);
 
@@ -169,16 +182,16 @@ CONFIG_DIR), SERVICES_FILE);
                     continue;
                 }
 
-                Set<String> nombres = extraerAtributo(servicesXml, ATTR_NAME);
+                DomainIndex index = construirIndiceDominio(servicesXml);
 
-dominioToServiceNames.put(toDomainName(carpeta.getName()), nombres);
+                dominioIndex.put(toDomainName(carpeta.getName()), index);
             }
         }
 
         List<ServiceImpact> servicios =
-cruzarRestservices(restservicesFile, dominioToServiceNames);
+cruzarRestservices(restservicesFile, dominioIndex);
 
-        return new ImpactoResult(servicios, dominioToServiceNames, false);
+        return new ImpactoResult(servicios, dominioIndex, false);
     }
 
     private String toDomainName(String folderName) {
@@ -205,7 +218,7 @@ value.substring(1).toLowerCase();
     }
 
     private List<ServiceImpact> cruzarRestservices(File
-restservicesFile, Map<String, Set<String>> dominios)
+restservicesFile, Map<String, DomainIndex> dominios)
             throws Exception {
 
         Document doc = parseXml(restservicesFile);
@@ -222,12 +235,22 @@ restservicesFile, Map<String, Set<String>> dominios)
                 continue;
             }
 
-            ServiceImpact si = new ServiceImpact();
-            si.setName(name.trim());
-            si.setEndpoint(el.getAttribute(ATTR_ENDPOINT));
+            String nombre = name.trim();
+            String endpoint = el.getAttribute(ATTR_ENDPOINT);
+            String sufijo = extraerSufijoEndpoint(endpoint);
 
-            for (Map.Entry<String, Set<String>> dominio : dominios.entrySet()) {
-                if (dominio.getValue().contains(name.trim())) {
+            ServiceImpact si = new ServiceImpact();
+            si.setName(nombre);
+            si.setEndpoint(endpoint);
+
+            for (Map.Entry<String, DomainIndex> dominio : dominios.entrySet()) {
+
+                DomainIndex indice = dominio.getValue();
+                boolean coincideNombre = indice.getNombres().contains(nombre);
+                boolean coincideSufijo = sufijo != null &&
+indice.getSufijos().contains(sufijo);
+
+                if (coincideNombre || coincideSufijo) {
                     si.getDomains().add(dominio.getKey());
                 }
             }
@@ -239,25 +262,69 @@ restservicesFile, Map<String, Set<String>> dominios)
         return servicios;
     }
 
-    private Set<String> extraerAtributo(File xmlFile, String attr)
-throws Exception {
+    private DomainIndex construirIndiceDominio(File xmlFile) throws Exception {
 
         Document doc = parseXml(xmlFile);
         NodeList nodes = doc.getElementsByTagName(TAG_SERVICE);
 
-        Set<String> valores = new LinkedHashSet<>();
+        DomainIndex index = new DomainIndex();
 
         for (int i = 0; i < nodes.getLength(); i++) {
 
             Element el = (Element) nodes.item(i);
-            String value = el.getAttribute(attr);
+            String name = el.getAttribute(ATTR_NAME);
+            String endpoint = el.getAttribute(ATTR_ENDPOINT);
 
-            if (value != null && !value.trim().isEmpty()) {
-                valores.add(value.trim());
+            if (name != null && !name.trim().isEmpty()) {
+                index.getNombres().add(name.trim());
+                index.incrementarTotalServicios();
+            }
+
+            String sufijo = extraerSufijoEndpoint(endpoint);
+
+            if (sufijo != null) {
+                index.getSufijos().add(sufijo);
             }
         }
 
-        return valores;
+        return index;
+    }
+
+    /**
+     * Extrae el último segmento de la ruta del endpoint (el
+     * identificador de programa/transacción backend, p. ej.
+     * "consultarTelefonosDetallado-gipw106x"), en minúsculas para
+     * comparación case-insensitive. Devuelve null si el endpoint es
+     * vacío o si el segmento es demasiado corto/genérico (menos de
+     * {@value #SUFIJO_MIN_LENGTH} caracteres) para servir de evidencia
+     * confiable, igual que la advertencia de falsos positivos del
+     * informe de impacto (p. ej. "payment", "companies").
+     */
+    private String extraerSufijoEndpoint(String endpoint) {
+
+        if (endpoint == null || endpoint.trim().isEmpty()) {
+            return null;
+        }
+
+        String limpio = endpoint.trim();
+
+        int queryIdx = limpio.indexOf('?');
+        if (queryIdx >= 0) {
+            limpio = limpio.substring(0, queryIdx);
+        }
+
+        while (limpio.endsWith("/")) {
+            limpio = limpio.substring(0, limpio.length() - 1);
+        }
+
+        int slashIdx = limpio.lastIndexOf('/');
+        String segmento = (slashIdx >= 0) ? limpio.substring(slashIdx + 1) : limpio;
+
+        if (segmento.length() < SUFIJO_MIN_LENGTH) {
+            return null;
+        }
+
+        return segmento.toLowerCase();
     }
 
     private Document parseXml(File file) throws Exception {
@@ -287,10 +354,10 @@ FALLBACK_RESOURCE + " en el classpath");
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(json);
 
-            Map<String, Set<String>> dominios = new LinkedHashMap<>();
+            Map<String, DomainIndex> dominios = new LinkedHashMap<>();
 
             for (JsonNode dominioNode : root.path("dominios")) {
-                dominios.put(dominioNode.asText(), new LinkedHashSet<>());
+                dominios.put(dominioNode.asText(), new DomainIndex());
             }
 
             List<ServiceImpact> servicios = new ArrayList<>();
@@ -413,7 +480,7 @@ ArrayList<>(analizar().getServicios());
 
         ImpactoResult result = analizar();
 
-        Map.Entry<String, Set<String>> dominioEntry =
+        Map.Entry<String, DomainIndex> dominioEntry =
 result.getDominios().entrySet().stream()
                 .filter(e -> e.getKey().equalsIgnoreCase(nombre))
                 .findFirst()
@@ -425,7 +492,7 @@ result.getDominios().entrySet().stream()
 
         DomainImpact di = new DomainImpact();
         di.setName(dominioEntry.getKey());
-        di.setTotalServiciosDominio(dominioEntry.getValue().size());
+        di.setTotalServiciosDominio(dominioEntry.getValue().getTotalServicios());
 
         for (ServiceImpact si : result.getServicios()) {
             if (si.getDomains().stream().anyMatch(d ->
@@ -443,11 +510,11 @@ d.equalsIgnoreCase(nombre))) {
     public static final class ImpactoResult {
 
         private final List<ServiceImpact> servicios;
-        private final Map<String, Set<String>> dominios;
+        private final Map<String, DomainIndex> dominios;
         private final boolean fallback;
 
         public ImpactoResult(List<ServiceImpact> servicios,
-Map<String, Set<String>> dominios, boolean fallback) {
+Map<String, DomainIndex> dominios, boolean fallback) {
             this.servicios = servicios;
             this.dominios = dominios;
             this.fallback = fallback;
@@ -457,12 +524,41 @@ Map<String, Set<String>> dominios, boolean fallback) {
             return servicios;
         }
 
-        public Map<String, Set<String>> getDominios() {
+        public Map<String, DomainIndex> getDominios() {
             return dominios;
         }
 
         public boolean isFallback() {
             return fallback;
+        }
+    }
+
+    /**
+     * Índice de un dominio de negocio: nombres de servicio y sufijos de
+     * endpoint (ver {@link #extraerSufijoEndpoint(String)}) usados para
+     * el cruce con restservices.xml, más el total de servicios propios
+     * del dominio (para la vista "por dominio").
+     */
+    private static final class DomainIndex {
+
+        private final Set<String> nombres = new LinkedHashSet<>();
+        private final Set<String> sufijos = new LinkedHashSet<>();
+        private int totalServicios;
+
+        private Set<String> getNombres() {
+            return nombres;
+        }
+
+        private Set<String> getSufijos() {
+            return sufijos;
+        }
+
+        private int getTotalServicios() {
+            return totalServicios;
+        }
+
+        private void incrementarTotalServicios() {
+            totalServicios++;
         }
     }
 }
