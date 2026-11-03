@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -37,10 +38,10 @@ public class ServerMonitorService {
 	private Map<String, List<ServerInfo>> servers = new HashMap<>();
 
 	// ✅ HISTÓRICO
-	private Map<String, List<ServerHistory>> historyMap = new HashMap<>();
+	private Map<String, List<ServerHistory>> historyMap = new ConcurrentHashMap<>();
 
 	// ✅ TIEMPO CAÍDO
-	private Map<String, Date> downSince = new HashMap<>();
+	private Map<String, Date> downSince = new ConcurrentHashMap<>();
 
 	private ExecutorService executor = Executors.newFixedThreadPool(10);
 
