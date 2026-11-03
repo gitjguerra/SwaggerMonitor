@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -156,7 +157,7 @@ public class ServerMonitorService {
 		h.setResponseTime(time);
 		h.setTimestamp(new Date());
 
-		historyMap.computeIfAbsent(s.getName(), k -> new ArrayList<>());
+		historyMap.computeIfAbsent(s.getName(), k -> new CopyOnWriteArrayList<>());
 		historyMap.get(s.getName()).add(h);
 
 		if (historyMap.get(s.getName()).size() > 50) {
