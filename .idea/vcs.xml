@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
-    <mapping directory="$PROJECT_DIR$/bm-commons" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bm-creditos" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bm-fideicomiso" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bm-inversiones" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bm-mad" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bm-mele" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bm-melp" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bm-mia" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bm-mme" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bm-mmp" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bm-notifications" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bm-onboarding" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bm-parent-pom" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bm-persona" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bm-safe" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bm-security" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bm-simf" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bm-site" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bm-swift" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/bm-tarjeta" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
 </project>

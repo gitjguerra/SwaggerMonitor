@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * CLASE ENCARGADA DE: <strong>KPIs ejecutivos del análisis de impacto / dependencias</strong>.
+ * CLASE ENCARGADA DE: <strong>KPIs ejecutivos del analisis de impacto / dependencias</strong>.
  * @author <strong>JOSE GUERRA</strong>
  * <hr><code>Copyright 02/11/2026. Banco Mercantil, All rights reserved.</code>
  */
