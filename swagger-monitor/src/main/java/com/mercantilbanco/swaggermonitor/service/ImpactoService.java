@@ -54,6 +54,11 @@ appl/ quitando el prefijo "api-" y
 excluye de la lista de dominios: su
  *       services.xml es su integración legacy SOAP/CICS, no un
 dominio de negocio.</li>
+ *   <li>Carpetas adicionales a excluir del escaneo de dominios (p. ej.
+"swagger-generator") se configuran
+ *       vía la propiedad {@code impacto.dominios-excluidos} en
+application.yaml (lista separada por comas),
+ *       no están hardcodeadas en el código.</li>
  *   <li>Escala de criticidad por % de afectación: 0% Baja, 1-20%
 Baja, 21-40% Media, 41-60% Alta, 61-100%
  *       Crítica (igual a las bandas descritas en el informe de impacto).</li>
@@ -150,10 +155,6 @@ restservicesFile) throws Exception {
             for (File carpeta : carpetas) {
 
                 if (MICROSERVICIO.equalsIgnoreCase(carpeta.getName())) {
-                    continue;
-                }
-
-                if (carpeta.getName().equalsIgnoreCase("swagger-generator")) {
                     continue;
                 }
 
