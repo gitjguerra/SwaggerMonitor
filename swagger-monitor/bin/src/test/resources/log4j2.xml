@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration xmlns="http://logging.apache.org/log4j/2.0/configuration"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://logging.apache.org/log4j/2.0/configuration http://logging.apache.org/log4j/2.0/log4j-configuration.xsd"
+               status="warn">
+    <Properties>
+        <Property name="basePath">${env:BM_HOME}/appl/swagger-monitor/logs</Property>
+		<Property name="LOG_PATTERN">[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%X{guid}] [%F:%L] - %msg%n</Property>
+    </Properties>
+    <Appenders>
+        <!-- Console Appender -->
+        <Console name="console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+        <!-- Rolling File Appender -->
+        <RollingFile name="fileLogger" fileName="${basePath}/swagger-monitor.log" filePattern="${basePath}/swagger-monitor-%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.zaxxer.hikari" level="info" additivity="false">
+            <appender-ref ref="console"/>
+            <appender-ref ref="fileLogger"/>
+        </Logger>
+        <Logger name="com.mercantilbanco.osba" level="info" additivity="false">
+            <appender-ref ref="console"/>
+            <appender-ref ref="fileLogger"/>
+        </Logger>
+        <Root level="info">
+            <appender-ref ref="console"/>
+            <appender-ref ref="fileLogger"/>
+        </Root>
+    </Loggers>
+</Configuration>

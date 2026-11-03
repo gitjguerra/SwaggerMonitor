@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+
+<properties>
+
+    <comment>Swagger Monitor</comment>
+
+    <!-- ENTORNO -->
+    <entry key="testEnvironment">true</entry>
+
+    <!-- LOG -->
+    <entry key="pathLog4jFile">${BM_HOME}/appl/swagger-monitor/config/log4j2.xml</entry>
+
+    <!-- SWAGGER OUTPUT (FUENTE DE LOS JSON) -->
+    <entry key="pathSwaggerOutput">C:/SwaggerGenerator/openapi-json-files</entry>
+
+    <!-- SERVERS -->
+    <entry key="pathServersFile">${BM_HOME}/appl/swagger-monitor/config/servers.xml</entry>
+
+    <!-- REFRESH -->
+    <entry key="monitorRefresh">10</entry>
+
+    <!-- SLACK -->
+    <entry key="slackEnabled">true</entry>
+
+</properties>

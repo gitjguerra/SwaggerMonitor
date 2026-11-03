@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>📊 Monitor de Swagger - Manual</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #f5f7fb;
+    color: #333;
+}
+
+h1 {
+    color: #0a3d91;
+}
+
+h2 {
+    border-bottom: 2px solid #0a3d91;
+    padding-bottom: 5px;
+}
+
+.section {
+    background: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+}
+
+.code {
+    background: #1e1e1e;
+    color: #00ff9f;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+.icon {
+    font-weight: bold;
+    margin-right: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>📊 Monitor de Swagger</h1>
+
+<div class="section">
+<h2>🧩 ¿Qué es?</h2>
+<p>
+El Monitor es una aplicación que permite visualizar en tiempo real:
+</p>
+<ul>
+<li>📡 Estado de servidores</li>
+<li>📄 Documentación Swagger/OpenAPI</li>
+<li>⚡ Métricas (latencia, uptime, downtime)</li>
+<li>🚨 Alertas automáticas</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>⚙️ Configuración</h2>
+
+<p><b>application.yaml</b></p>
+
+<div class="code">
+monitor:
+  swagger:
+    external-dir: C:/DevEnvironment/src/java/monitor-workspace/swagger
+</div>
+
+<p>
+📌 Aquí se almacenan los archivos Swagger generados por el SwaggerGenerator.
+</p>
+</div>
+
+<div class="section">
+<h2>👀 Swagger Watcher</h2>
+
+<p>
+El servicio <b>SwaggerWatcherService</b> monitorea cambios en archivos Swagger:
+</p>
+
+<ul>
+<li>✅ Creación (CREATE)</li>
+<li>✅ Modificación (MODIFY)</li>
+<li>✅ Eliminación (DELETE)</li>
+</ul>
+
+<div class="code">
+🔥 Cambio detectado: ENTRY_MODIFY → simf.json
+</div>
+
+<p>
+📌 Permite actualización en tiempo real sin reiniciar el sistema.
+</p>
+</div>
+
+<div class="section">
+<h2>🌐 Endpoints Swagger</h2>
+
+<h3>📦 Lista de Swagger</h3>
+
+<div class="code">
+GET /api/swagger/files
+</div>
+
+<h3>📄 Obtener Swagger</h3>
+
+<div class="code">
+GET /swagger/{name}.json
+</div>
+
+<p>Ejemplo:</p>
+
+<div class="code">
+/swagger/simf.json
+</div>
+
+<ul>
+<li>✅ Busca primero en carpeta externa</li>
+<li>✅ Luego en classpath</li>
+<li>✅ Soporte case-insensitive</li>
+</ul>
+
+</div>
+
+<div class="section">
+<h2>📊 Dashboard</h2>
+
+<div class="code">
+GET /
+</div>
+
+<ul>
+<li>📈 Estado de servidores</li>
+<li>⏱️ Tiempo de respuesta</li>
+<li>📉 Históricos</li>
+<li>🚨 Alertas</li>
+</ul>
+
+</div>
+
+<div class="section">
+<h2>🚨 Alertas</h2>
+
+<div class="code">
+GET /api/alerts
+</div>
+
+<table border="1" cellpadding="5">
+<tr><th>Tipo</th><th>Descripción</th></tr>
+<tr><td>DOWN</td><td>Servidor caído</td></tr>
+<tr><td>SLOW</td><td>Respuesta lenta (&gt; 1000 ms)</td></tr>
+<tr><td>ERROR</td><td>Falla detectada</td></tr>
+</table>
+
+</div>
+
+<div class="section">
+<h2>📊 Métricas</h2>
+
+<div class="code">
+GET /api/metrics/{name}
+</div>
+
+<div class="code">
+{
+  "uptime": 98,
+  "downtime": 2
+}
+</div>
+
+</div>
+
+<div class="section">
+<h2>📈 Eventos</h2>
+
+<div class="code">
+GET /api/events
+</div>
+
+<ul>
+<li>🔴 DOWN</li>
+<li>🟡 SLOW</li>
+<li>🟢 RECOVER</li>
+</ul>
+
+</div>
+
+<div class="section">
+<h2>🔁 Flujo Completo</h2>
+
+<div class="code">
+SwaggerGenerator → genera JSON
+        ↓
+Carpeta externa
+        ↓
+SwaggerWatcherService detecta cambios
+        ↓
+MonitorController sirve el Swagger
+        ↓
+Swagger UI lo renderiza
+</div>
+
+</div>
+
+<div class="section">
+<h2>✅ Buenas Prácticas</h2>
+
+<ul>
+<li>✔ Definir carpeta externa correctamente</li>
+<li>✔ Mantener nombres consistentes (simf.json)</li>
+<li>✔ Validar JSON generado</li>
+<li>✔ Evitar cache en desarrollo</li>
+</ul>
+
+</div>
+
+</body>
+</html>

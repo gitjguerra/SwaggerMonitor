@@ -1,0 +1,441 @@
+{
+  "totalDominiosAnalizados": 2,
+  "dominios": [
+    "Pagos",
+    "Persona"
+  ],
+  "totalServiciosRestservices": 52,
+  "totalServiciosConCoincidencia": 7,
+  "servicios": [
+    {
+      "name": "Google-reCaptcha",
+      "endpoint": "https://www.google.comrecaptcha/api/siteverify",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "jwt-generate",
+      "endpoint": "https://10.2.21.198:3048/create",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "jwt-validate",
+      "endpoint": "https://10.2.21.198:3048/validate",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "validate-prospect",
+      "endpoint": "http://10.0.1.59:7090/datosclientenatural-gip/v1/validarAceptacionProspecto-gipw148x",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "validate-economic-activity",
+      "endpoint": "http://10.0.4.10:7080/datosclientenatural-gip/v1/validarActividadEconomicaDeRiesgo-gipw147x",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "ingresar-data-sociodemograficos",
+      "endpoint": "http://10.0.4.10:7080/datosclientenatural-gip/v1/ingresarDatosSociodemograficos-gipw022x",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "create-new-accounts",
+      "endpoint": "http://10.0.4.10:7080/solicitudes-bsf/v1/crearCuentasNuevas-bsf5186p",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "send-webhook-notification",
+      "endpoint": "http://10.2.21.198:26000/",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "inclusion-account-gip-pr",
+      "endpoint": "http://10.0.4.10:7080/datosclientenatural-gip/v1/ingresarProducto-gipw052x",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "create-references-relationship",
+      "endpoint": "http://10.0.4.10:7080/datosclientenatural-gip/v1/insertarReferencia-gipw125x",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "create-source-income-relationship",
+      "endpoint": "http://10.0.4.10:7080/datosclientenatural-gip/v1/insertarFuenteDeIngreso-gipw117x",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "consult-offices-table",
+      "endpoint": "http://10.0.4.10:7080/tablaspersonanatural-gip/v1/consultarTablaOficinas-buo0001z",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "update-source-income-relationship",
+      "endpoint": "http://10.0.4.10:7080/datosclientenatural-gip/v1/actualizarFuenteDeIngreso-gipw118x",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "update-references-relationship",
+      "endpoint": "http://10.0.4.10:7080/datosclientenatural-gip/v1/actualizarReferencia-gipw126x",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "update-client-data-product",
+      "endpoint": "http://10.0.4.10:7080/datosclientenatural-gip/v1/actualizarDatosProductoCliente-gipwd53x",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "consult-detailed-phone",
+      "endpoint": "http://10.0.4.10:7080/datosclientenatural-gip/v1/consultarTelefonosDetallado-gipw106x",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "consult-reference",
+      "endpoint": "http://10.0.4.10:7080/datosclientenatural-gip/v1/consultarReferencia-gipw127x",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "consult-source-income",
+      "endpoint": "http://10.0.4.10:7080/datosclientenatural-gip/v1/consultarFuenteDeIngreso-gipw119x",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "consult-person-contact",
+      "endpoint": "http://10.0.4.10:7080/datosclientenatural-gip/v1/consultarPersonaContacto-gipw110x",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "update-person-contact",
+      "endpoint": "http://10.0.4.10:7080/datosclientenatural-gip/v1/actualizarPersonaContacto-gipw112x",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "consult-client-product-data",
+      "endpoint": "http://10.0.4.10:7080/datosclientenatural-gip/v1/consultarDatosProductoCliente-gipwd52x",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "delete-source-income",
+      "endpoint": "http://10.0.4.10:7080/datosclientenatural-gip/v1/eliminarFuenteDeIngreso-gipw124x",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "delete-reference",
+      "endpoint": "http://10.0.4.10:7080/datosclientenatural-gip/v1/eliminarReferencia-gipw128x",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "delete-contact-person",
+      "endpoint": "http://10.0.4.10:7080/datosclientenatural-gip/v1/eliminarPersonaContacto-gipw113x",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "delete-structured-national-location",
+      "endpoint": "http://10.0.4.10:7080/datosclientenatural-gip/v1/eliminarLocalizacionNacionalEstructurada-gipwe39x",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "consultar-condicion-tarjeta-marca-compartida",
+      "endpoint": "http://10.7.0.123:30101/tarjeta/consultar/condicion-tarjeta-marca-compartida",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "consultar-marca",
+      "endpoint": "http://10.7.0.123:30101/tarjeta/consultar/marca",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "consultar-telefonos-detallado",
+      "endpoint": "http://10.7.0.123:30101/persona/consultar/telefonos-detallado",
+      "domains": [
+        "Persona"
+      ],
+      "cantidad": 1,
+      "pct": 50,
+      "criticidad": "Alta"
+    },
+    {
+      "name": "consultar-localizacion-nacional-compactada",
+      "endpoint": "http://10.7.0.123:30101/persona/consultar/localizacion-nacional-compactada",
+      "domains": [
+        "Persona"
+      ],
+      "cantidad": 1,
+      "pct": 50,
+      "criticidad": "Alta"
+    },
+    {
+      "name": "ingresar-datos-sociodemograficos",
+      "endpoint": "http://10.7.0.123:30101/persona/ingresar/datos-sociodemograficos",
+      "domains": [
+        "Persona"
+      ],
+      "cantidad": 1,
+      "pct": 50,
+      "criticidad": "Alta"
+    },
+    {
+      "name": "ingresar-localizacion-nacional-compactada",
+      "endpoint": "http://10.7.0.123:30101/persona/ingresar/localizacion-nacional-compactada",
+      "domains": [
+        "Persona"
+      ],
+      "cantidad": 1,
+      "pct": 50,
+      "criticidad": "Alta"
+    },
+    {
+      "name": "ingresar-telefonos-cliente",
+      "endpoint": "http://10.7.0.123:30101/persona/ingresar/telefonos-cliente",
+      "domains": [
+        "Persona"
+      ],
+      "cantidad": 1,
+      "pct": 50,
+      "criticidad": "Alta"
+    },
+    {
+      "name": "ingresar-autorizaciones-cliente",
+      "endpoint": "http://10.7.0.123:30101/persona/ingresar/autorizaciones-cliente",
+      "domains": [
+        "Persona"
+      ],
+      "cantidad": 1,
+      "pct": 50,
+      "criticidad": "Alta"
+    },
+    {
+      "name": "activar-tarjeta-marca-compartida",
+      "endpoint": "http://10.7.0.123:30101/tarjeta/insertar/activar-tarjeta-marca-compartida",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "actualizar-clave-tarjeta-debito-credito",
+      "endpoint": "http://10.7.0.123:30101/safe/actualizar/clave-tarjeta-debito-credito",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "afiliar-servicios-ampliados",
+      "endpoint": "http://10.7.0.123:30101/safe/afiliar/servicios-ampliados",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "actualizar-telefono-cliente",
+      "endpoint": "http://10.7.0.123:30101/persona/actualizar/telefono-cliente",
+      "domains": [
+        "Persona"
+      ],
+      "cantidad": 1,
+      "pct": 50,
+      "criticidad": "Alta"
+    },
+    {
+      "name": "modificar-localizacion-nacional-compactada",
+      "endpoint": "http://10.7.0.123:30101/persona/actualizar/localizacion-nacional-compactadae",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "autorizar-jumio",
+      "endpoint": "http://10.7.0.123:20001/security/jumio/autenticar",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "crear-cuenta-jumio",
+      "endpoint": "http://10.7.0.123:20001/security/jumio/crear-cuenta",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "actualizar-cuenta-jumio",
+      "endpoint": "http://10.7.0.123:20001/security/jumio/actualizar-cuenta",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "recuperar-flujo-jumio",
+      "endpoint": "http://10.7.0.123:20001/security/jumio/recuperar-flujos",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "recuperar-imagen-jumio",
+      "endpoint": "http://10.7.0.123:20001/security/jumio/recuperar-imagen",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "consult-balance-email-simplefiber",
+      "endpoint": "http://10.7.0.123:30101/pagos/consultar/simple/fibra/balance-email",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "consult-balance-id-simplefiber",
+      "endpoint": "http://10.7.0.123:30101/pagos/consultar/simple/fibra/balance-id",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "consult-limit-pay-simplefiber",
+      "endpoint": "http://10.7.0.123:30101/pagos/consultar/simple/fibra/limites-pago",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "notify-pay-simplefiber",
+      "endpoint": "http://10.7.0.123:30101/pagos/notificar/simple/fibra/pago",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "consult-debt-customer-thundernet",
+      "endpoint": "http://10.7.0.123:30101/pagos/consultar/thundernet/deuda-cliente",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "consult-pay-thundernet",
+      "endpoint": "http://10.7.0.123:30101/consult/payment",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "consult-locations-thundernet",
+      "endpoint": "http://10.7.0.123:30101/get/companies",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "register-pay-thundernet",
+      "endpoint": "http://10.7.0.123:30101/make/payment",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    },
+    {
+      "name": "reverse-pay-thundernet",
+      "endpoint": "http://10.7.0.123:30101/revert/payment",
+      "domains": [],
+      "cantidad": 0,
+      "pct": 0,
+      "criticidad": "Baja"
+    }
+  ]
+}
