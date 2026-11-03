@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
@@ -8,257 +7,263 @@
 
 <title>Monitor</title>
 
-	<link rel="stylesheet" href="/swagger-ui/swagger-ui.css">
+<link rel="stylesheet" href="/swagger-ui/swagger-ui.css">
 
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+rel="stylesheet">
 
 <style>
-	/* HEADER */
-	.header {
-		background-color: #0b4ea2;
-		color: white;
-		padding: 12px 20px;
-		display: flex;
-		align-items: center;
-		height: 60px;
-	}
-	
-	.header img {
-		height: 40px;
-		margin-right: 10px;
-	}
-	
-	.header h5 {
-		margin: 0;
-	}
-	
-	body {
-		background-color: #eef2f7;
-	}
-	
-	/* CARD */
-	.card {
-		margin: 5px 0;
-		border-radius: 10px;
-		border: none;
-		background: white;
-		box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
-		padding: 8px; /* ⬅️ menos padding */
-		transition: 0.2s;
-		font-size: 12px; /* ⬅️ texto más pequeño */
-	}
-	
-	.card:hover {
-		transform: translateY(-2px);
-	}
-	
-	.card-warning {
-		border-left: 4px solid #facc15;
-	}
-	
-	.card button {
-		pointer-events: auto;
-		z-index: 2;
-	}
-	
-	/* ESTADO */
-	.status-up {
-		color: #28a745;
-		font-size: 22px;
-	}
-	
-	.status-down {
-		color: #dc3545;
-		font-size: 22px;
-	}
-	
-	.status-label {
-		font-size: 11px;
-	}
-	
-	.status-warning {
-		color: #facc15;
-		font-size: 26px;
-	}
-	
-	.env-title {
-		color: #0b4ea2;
-		font-weight: 600;
-		margin-top: 25px;
-	}
-	
-	.small-text {
-		font-size: 10px;
-	}
-	
-	/* ALERTA VISUAL SI CAE */
-	.down-alert {
-	    border: 2px solid #dc3545;
-	    background-color: #ffe5e5;
-	    animation: blink 0.8s infinite;
-	}
-	
-	@keyframes blink { 0% {
-		background: #fff;
-	}
-	
-	50%
-	{
-		background:#ffe5e5;
-	}
-	100%
-	{
-		background:#fff;
-		}
-	}
-	
-	/* BADGES */
-	.badge {
-		font-size: 13px;
-	}
-	
-	/* TABLA HISTORICA */
-	.table {
-		color: #e5e7eb;
-	}
-	
-	/* DASHBOARD GRID */
-	.dashboard {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-auto-rows: minmax(250px, auto);
-		gap: 10px;
-		padding: 10px;
-	}
-	
-	/* PANEL */
-	.panel {
-		background: white;
-		border-radius: 12px;
-		padding: 12px;
-		border: 1px solid #d1d5db; /* ✅ borde visible */
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* ✅ sombra */
-		overflow-y: auto;
-		overflow-x: hidden;
-	}
-	/* TITULO */
-	.panel-title {
-		font-weight: bold;
-		color: #0b4ea2;
-		border-bottom: 2px solid #e5e7eb; /* ✅ separador */
-		padding-bottom: 5px;
-		margin-bottom: 10px;
-	}
-	
-	.panel-servers {
-		grid-column: 1;
-		grid-row: 1;
-	}
-	
-	/* GRÁFICA (arriba derecha) */
-	.panel:nth-of-type(2) {
-		grid-column: 2;
-		grid-row: 1;
-	}
-	/* LOGS (abajo izquierda) */
-	.panel:nth-of-type(3) {
-		grid-column: 1;
-		grid-row: 2;
-	}
-	/* ALERTAS (abajo derecha) */
-	.panel:nth-of-type(4) {
-		grid-column: 2;
-		grid-row: 2;
-	}
-	
-	/* TIMELINE */
-	.timeline {
-		position: relative;
-		padding-left: 30px;
-	}
-	
-	.timeline::before {
-		content: '';
-		position: absolute;
-		left: 10px;
-		top: 0;
-		bottom: 0;
-		width: 2px;
-		background: #d1d5db;
-	}
-	
-	/* ITEM */
-	.timeline-item {
-		animation: fadeIn 0.3s ease;
-	}
-	
-	@keyframes fadeIn {from { opacity:0;
-		transform: translateY(5px);
-	}
-	
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-	
-	}
-	
-	/* DOT */
-	.timeline-dot {
-		position: absolute;
-		left: -1px;
-		top: 5px;
-		width: 20px;
-		height: 20px;
-		border-radius: 50%;
-	}
-	
-	/* COLORS */
-	.dot-danger {
-		background: #dc3545;
-	} /* rojo */
-	.dot-warning {
-		background: #facc15;
-	} /* amarillo */
-	.dot-success {
-		background: #28a745;
-	} /* verde */
-	
-	/* CONTENIDO */
-	.timeline-content {
-		padding-left: 15px;
-	}
-	
-	canvas {
-		max-height: 250px;
-	}
-	
-	.server-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-		gap: 8px;
-	}
-	
-	#swaggerFrame {
-		height: 400px;
-	}
-	
-	.highlight {
-		animation: highlightFlash 1s ease;
-	}
-	
-	@keyframes highlightFlash { 0% {
-		background-color: #fff3cd;
-	}
-	100%
-	{
-		background-color:white;
-		}
-	}
-		
-	.swagger-ui {
-	    color-scheme: light;
-	}
+/* HEADER */
+.header {
+background-color: #0b4ea2;
+color: white;
+padding: 12px 20px;
+display: flex;
+align-items: center;
+height: 60px;
+}
+
+.header img {
+height: 40px;
+margin-right: 10px;
+}
+
+.header h5 {
+margin: 0;
+}
+
+body {
+background-color: #eef2f7;
+}
+
+/* CARD */
+.card {
+margin: 5px 0;
+border-radius: 10px;
+border: none;
+background: white;
+box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+padding: 8px; /* ⬅️ menos padding */
+transition: 0.2s;
+font-size: 12px; /* ⬅️ texto más pequeño */
+}
+
+.card:hover {
+transform: translateY(-2px);
+}
+
+.card-warning {
+border-left: 4px solid #facc15;
+}
+
+.card button {
+pointer-events: auto;
+z-index: 2;
+}
+
+/* ESTADO */
+.status-up {
+color: #28a745;
+font-size: 22px;
+}
+
+.status-down {
+color: #dc3545;
+font-size: 22px;
+}
+
+.status-label {
+font-size: 11px;
+}
+
+.status-warning {
+color: #facc15;
+font-size: 26px;
+}
+
+.env-title {
+color: #0b4ea2;
+font-weight: 600;
+margin-top: 25px;
+}
+
+.small-text {
+font-size: 10px;
+}
+
+/* ALERTA VISUAL SI CAE */
+.down-alert {
+   border: 2px solid #dc3545;
+   background-color: #ffe5e5;
+   animation: blink 0.8s infinite;
+}
+
+@keyframes blink { 0% {
+background: #fff;
+}
+
+50%
+{
+background:#ffe5e5;
+}
+100%
+{
+background:#fff;
+}
+}
+
+/* BADGES */
+.badge {
+font-size: 13px;
+}
+
+/* TABLA HISTORICA */
+.table {
+color: #e5e7eb;
+}
+
+/* DASHBOARD GRID */
+.dashboard {
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-auto-rows: minmax(250px, auto);
+gap: 10px;
+padding: 10px;
+}
+
+/* PANEL */
+.panel {
+background: white;
+border-radius: 12px;
+padding: 12px;
+border: 1px solid #d1d5db; /* ✅ borde visible */
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* ✅ sombra */
+overflow-y: auto;
+overflow-x: hidden;
+}
+/* TITULO */
+.panel-title {
+font-weight: bold;
+color: #0b4ea2;
+border-bottom: 2px solid #e5e7eb; /* ✅ separador */
+padding-bottom: 5px;
+margin-bottom: 10px;
+}
+
+.panel-servers {
+grid-column: 1;
+grid-row: 1;
+}
+
+/* GRÁFICA (arriba derecha) */
+.panel:nth-of-type(2) {
+grid-column: 2;
+grid-row: 1;
+}
+/* LOGS (abajo izquierda) */
+.panel:nth-of-type(3) {
+grid-column: 1;
+grid-row: 2;
+}
+/* ALERTAS (abajo derecha) */
+.panel:nth-of-type(4) {
+grid-column: 2;
+grid-row: 2;
+}
+
+/* TIMELINE */
+.timeline {
+position: relative;
+padding-left: 30px;
+}
+
+.timeline::before {
+content: '';
+position: absolute;
+left: 10px;
+top: 0;
+bottom: 0;
+width: 2px;
+background: #d1d5db;
+}
+
+/* ITEM */
+.timeline-item {
+animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {from { opacity:0;
+transform: translateY(5px);
+}
+
+to {
+opacity: 1;
+transform: translateY(0);
+}
+
+}
+
+/* DOT */
+.timeline-dot {
+position: absolute;
+left: -1px;
+top: 5px;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+}
+
+/* COLORS */
+.dot-danger {
+background: #dc3545;
+} /* rojo */
+.dot-warning {
+background: #facc15;
+} /* amarillo */
+.dot-success {
+background: #28a745;
+} /* verde */
+
+/* CONTENIDO */
+.timeline-content {
+padding-left: 15px;
+}
+
+#responseChart {
+   max-height: 250px;
+}
+
+.server-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+gap: 8px;
+}
+
+#swaggerFrame {
+height: 400px;
+}
+
+.highlight {
+animation: highlightFlash 1s ease;
+}
+
+@keyframes highlightFlash { 0% {
+background-color: #fff3cd;
+}
+100%
+{
+background-color:white;
+}
+}
+
+.swagger-ui {
+   color-scheme: light;
+}
+
+.vis-navigation {
+   transform: scale(0.70);
+   transform-origin: bottom left;
+}
 
 </style>
 
@@ -266,367 +271,384 @@
 <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
 
 <style>
-	/* IMPACTO / DEPENDENCIAS */
-	.kpi-card .kpi-value {
-		font-size: 26px;
-		font-weight: bold;
-		color: #0b4ea2;
-	}
+    /* =====================================================
+     * IMPACTO / DEPENDENCIAS
+     * ===================================================== */
 
-	.kpi-card .kpi-label {
-		font-size: 11px;
-		color: #6b7280;
-	}
+    .kpi-card .kpi-value {
+        font-size: 26px;
+        font-weight: bold;
+        color: #0b4ea2;
+    }
 
-	.heat-baja {
-		background-color: #d4edda !important;
-	}
+    .kpi-card .kpi-label {
+        font-size: 11px;
+        color: #6b7280;
+    }
 
-	.heat-media {
-		background-color: #fff3cd !important;
-	}
+    .heat-baja {
+        background-color: #d4edda !important;
+    }
 
-	.heat-alta, .heat-critica {
-		background-color: #f8d7da !important;
-	}
+    .heat-media {
+        background-color: #fff3cd !important;
+    }
 
-	#impactoGraph {
-		height: 420px;
-		border: 1px solid #d1d5db;
-		border-radius: 8px;
-	}
+    .heat-alta,
+    .heat-critica {
+        background-color: #f8d7da !important;
+    }
 
-	.nav-tabs {
-		margin: 10px 10px 0 10px;
-	}
+    /* =====================================================
+     * GRAFO DE DEPENDENCIAS
+     * ===================================================== */
+
+    #impactoGraph {
+        height: 600px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+    }
+
+    .nav-tabs {
+        margin: 10px 10px 0 10px;
+    }
+
 </style>
 
 </head>
 
 <body>
 
-	<!-- HEADER -->
-
-	<div class="header d-flex align-items-center px-3">
-
-		<img th:src="@{/images/mercantil.png}" alt="Servidores"
-			style="height: 40px;" />
-
-		<!-- ✅ NUEVO -->
-		<button class="btn btn-light btn-sm" onclick="openSwaggerPanel()">
-			📘 Ver documentación de los Microservicios Zconnect</button>
-
-	</div>
-
-
-	<!-- ✅ PESTAÑAS -->
-	<ul class="nav nav-tabs" id="mainTabs" role="tablist">
-		<li class="nav-item" role="presentation">
-			<button class="nav-link active" id="tab-monitoreo-btn" data-bs-toggle="tab"
-				data-bs-target="#tab-monitoreo" type="button" role="tab">Monitoreo</button>
-		</li>
-		<li class="nav-item" role="presentation">
-			<button class="nav-link" id="tab-impacto-btn" data-bs-toggle="tab"
-				data-bs-target="#tab-impacto" type="button" role="tab">Impacto / Dependencias</button>
-		</li>
-	</ul>
-
-	<div class="tab-content">
-	<div class="tab-pane fade show active" id="tab-monitoreo" role="tabpanel">
-
-	<div class="dashboard">
-
-		<!-- ✅ IZQUIERDA -->
-		<div class="panel panel-servers">
-			<h5 class="panel-title">Servidores</h5>
-
-			<div class="container-fluid">
-
-				<div th:each="env : ${data}">
-					<h6 class="env-title" th:text="${env.key}"></h6>
-
-					<div class="server-grid">
-
-						<div th:each="srv : ${env.value}">
-														
-							<div class="card text-center"
-							     th:attr="onclick=|showDetails('${srv.name}', '${srv.host}', '${srv.port}', '${srv.up}', '${srv.responseTime}', '${srv.error}')|,
-							              id=|card-${srv.name}|"
-
-								style="cursor: pointer;">
-
-								<h6 th:text="${srv.name}"></h6>
-
-								<p class="small-text" th:text="${srv.host} + ':' + ${srv.port}">
-								</p>
-
-								<div
-									th:classappend="
-						        ${srv.up} ? 
-						            (${srv.responseTime > 1000} ? 'status-warning' : 'status-up')
-						            : 'status-down'
-						    ">
-									<span
-										th:text="
-						            ${srv.up} ? 
-						                (${srv.responseTime > 1000} ? '🟡' : '🟢') 
-						                : '🔴'
-						        "></span>
-								</div>
-
-								<div class="status-label mt-1"
-									th:text="
-						             ${srv.up} ? 
-						                 (${srv.responseTime > 1000} ? 'LENTO' : 'UP')
-						                 : 'DOWN'
-						         ">
-								</div>
-
-								<div class="small-text"
-									th:text="'Tiempo: ' + ${srv.responseTime} + ' ms'"></div>
-							</div>
-
-						</div>
-
-					</div>
-				</div>
-
-			</div>
-			<!-- ✅ cerrar -->
-		</div>
-
-		<!-- ✅ DERECHA ARRIBA -->
-		<div class="panel">
-			<h5 class="panel-title">Gráficas</h5>
-			<div class="mb-2">
-				<select id="serverSelect" class="form-select form-select-sm"
-					multiple></select>
-			</div>
-			<canvas id="responseChart"></canvas>
-		</div>
-
-		<!-- ✅ DERECHA MEDIO -->
-		<div class="panel">
-			<h5 class="panel-title">Logs / Eventos</h5>
-			<div id="eventsContainer" class="timeline"></div>
-		</div>
-
-		<!-- ✅ DERECHA ABAJO -->
-		<div class="panel">
-			<h5 class="panel-title">Alertas</h5>
-			<div id="alertsContainer"></div>
-		</div>
-
-	</div>
-
-	</div>
-	<!-- /tab-monitoreo -->
-
-	<div class="tab-pane fade" id="tab-impacto" role="tabpanel">
-
-		<div class="container-fluid" style="padding: 10px;">
-
-			<div id="impactoFallbackAlert" class="alert alert-warning small-text" style="display:none;">
-				⚠️ BM_HOME no está configurado o no se encontró <code>appl/osba/config/restservices.xml</code>;
-				mostrando el último análisis de respaldo embebido.
-			</div>
-
-			<!-- ✅ KPIs -->
-			<div class="row g-2 mb-2">
-				<div class="col">
-					<div class="card text-center kpi-card">
-						<div class="kpi-value" id="kpiDominios">-</div>
-						<div class="kpi-label">Dominios analizados</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="card text-center kpi-card">
-						<div class="kpi-value" id="kpiServicios">-</div>
-						<div class="kpi-label">Servicios totales (restservices)</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="card text-center kpi-card">
-						<div class="kpi-value" id="kpiDependencias">-</div>
-						<div class="kpi-label">Dependencias identificadas</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="card text-center kpi-card">
-						<div class="kpi-value" id="kpiCriticos">-</div>
-						<div class="kpi-label">Servicios críticos / altos</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="card text-center kpi-card">
-						<div class="kpi-value" id="kpiSpof">-</div>
-						<div class="kpi-label">Posibles SPOF</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- ✅ SELECTOR DE DOMINIO -->
-			<div class="mb-2 d-flex align-items-center gap-2">
-				<label class="small-text mb-0">Vista por dominio:</label>
-				<select id="impactoDomainSelect" class="form-select form-select-sm" style="max-width: 280px;">
-					<option value="">Todos los dominios</option>
-				</select>
-				<span class="small-text text-muted" id="impactoCobertura"></span>
-			</div>
-
-			<div class="row g-2">
-
-				<!-- ✅ RANKING -->
-				<div class="col-md-6">
-					<div class="panel" style="height: 360px;">
-						<h5 class="panel-title">Ranking de Impacto</h5>
-						<canvas id="impactoRankingChart"></canvas>
-					</div>
-				</div>
-
-				<!-- ✅ MATRIZ -->
-				<div class="col-md-6">
-					<div class="panel" style="height: 360px;">
-						<h5 class="panel-title">Matriz de Impacto (servicio × dominio)</h5>
-						<div style="overflow: auto; max-height: 290px;">
-							<table class="table table-sm table-bordered" style="color:#111;">
-								<thead id="impactoMatrixHead"></thead>
-								<tbody id="impactoMatrixBody"></tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- ✅ GRAFO -->
-			<div class="row g-2 mt-2">
-				<div class="col-12">
-					<div class="panel">
-						<h5 class="panel-title">Grafo de Dependencias</h5>
-						<div id="impactoGraph"></div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-
-	</div>
-	<!-- /tab-impacto -->
-
-	</div>
-	<!-- /tab-content -->
-
-
-	<!-- ✅ Swagger -->
-	<div id="swaggerPanel" class="panel"
-		style="margin: 10px; display: none;">
-
-		<select id="apiSelect" class="form-select mb-2"></select>
-
-		<div id="swaggerUI" style="height: 600px;"></div>
-
-	</div>
-
-	<!-- MODAL -->
-	<div class="modal fade" id="detailModal" tabindex="-1">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-
-				<div class="modal-header">
-					<h5 id="modalName">Servidor</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-				</div>
-
-				<div class="modal-body">
-
-					<p>
-						<strong>Host:</strong> <span id="modalHost"></span>
-					</p>
-					<p>
-						<strong>Puerto:</strong> <span id="modalPort"></span>
-					</p>
-					<p>
-						<strong>Estado:</strong> <span id="modalStatus" class="badge"></span>
-					</p>
-					<p>
-						<strong>Tiempo:</strong> <span id="modalTime"></span> ms
-					</p>
-
-					<hr>
-
-					<p>
-						<strong>Uptime:</strong> <span id="modalUptime"></span>
-					</p>
-					<p>
-						<strong>Tiempo caído:</strong> <span id="modalDownTime"></span>
-					</p>
-					<p>
-						<strong>Error:</strong> <span id="modalError"></span>
-					</p>
-
-					<hr>
-
-					<h6>Histórico</h6>
-
-					<table class="table table-sm">
-						<thead>
-							<tr>
-								<th>Hora</th>
-								<th>Estado</th>
-								<th>Tiempo</th>
-							</tr>
-						</thead>
-						<tbody id="historyTable"></tbody>
-					</table>
-
-				</div>
-
-			</div>
-		</div>
-	</div>
-
-
-	<!-- MODAL DETALLE SERVICIO (IMPACTO) -->
-	<div class="modal fade" id="impactoModal" tabindex="-1">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-
-				<div class="modal-header">
-					<h5 id="impactoModalName">Servicio</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-				</div>
-
-				<div class="modal-body">
-
-					<p>
-						<strong>Endpoint:</strong> <span id="impactoModalEndpoint"></span>
-					</p>
-					<p>
-						<strong>Dominios dependientes:</strong> <span id="impactoModalDomains"></span>
-					</p>
-					<p>
-						<strong>Cantidad de dominios:</strong> <span id="impactoModalCantidad"></span>
-					</p>
-					<p>
-						<strong>% Afectación:</strong> <span id="impactoModalPct"></span>%
-					</p>
-					<p>
-						<strong>Criticidad:</strong> <span id="impactoModalCriticidad" class="badge"></span>
-					</p>
-
-				</div>
-
-			</div>
-		</div>
-	</div>
-
-
-	<!-- Bootstrap JS -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-	<!-- JS -->
-	<script>
+<!-- HEADER -->
+
+<div class="header d-flex align-items-center px-3">
+
+<img th:src="@{/images/mercantil.png}" alt="Servidores"
+style="height: 40px;" />
+
+<!-- ✅ NUEVO -->
+<button class="btn btn-light btn-sm" onclick="openSwaggerPanel()">
+📘 Ver documentación de los Microservicios Zconnect</button>
+
+</div>
+
+
+<!-- ✅ PESTAÑAS -->
+<ul class="nav nav-tabs" id="mainTabs" role="tablist">
+<li class="nav-item" role="presentation">
+<button class="nav-link active" id="tab-monitoreo-btn" data-bs-toggle="tab"
+data-bs-target="#tab-monitoreo" type="button" role="tab">Monitoreo</button>
+</li>
+<li class="nav-item" role="presentation">
+<button class="nav-link" id="tab-impacto-btn" data-bs-toggle="tab"
+data-bs-target="#tab-impacto" type="button" role="tab">Impacto /
+Dependencias</button>
+</li>
+</ul>
+
+<div class="tab-content">
+<div class="tab-pane fade show active" id="tab-monitoreo" role="tabpanel">
+
+<div class="dashboard">
+
+<!-- ✅ IZQUIERDA -->
+<div class="panel panel-servers">
+<h5 class="panel-title">Servidores</h5>
+
+<div class="container-fluid">
+
+<div th:each="env : ${data}">
+<h6 class="env-title" th:text="${env.key}"></h6>
+
+<div class="server-grid">
+
+<div th:each="srv : ${env.value}">
+
+<div class="card text-center"
+    th:attr="onclick=|showDetails('${srv.name}', '${srv.host}',
+'${srv.port}', '${srv.up}', '${srv.responseTime}', '${srv.error}')|,
+             id=|card-${srv.name}|"
+
+style="cursor: pointer;">
+
+<h6 th:text="${srv.name}"></h6>
+
+<p class="small-text" th:text="${srv.host} + ':' + ${srv.port}">
+</p>
+
+<div
+th:classappend="
+       ${srv.up} ?
+           (${srv.responseTime > 1000} ? 'status-warning' : 'status-up')
+           : 'status-down'
+   ">
+<span
+th:text="
+           ${srv.up} ?
+               (${srv.responseTime > 1000} ? '🟡' : '🟢')
+               : '🔴'
+       "></span>
+</div>
+
+<div class="status-label mt-1"
+th:text="
+            ${srv.up} ?
+                (${srv.responseTime > 1000} ? 'LENTO' : 'UP')
+                : 'DOWN'
+        ">
+</div>
+
+<div class="small-text"
+th:text="'Tiempo: ' + ${srv.responseTime} + ' ms'"></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<!-- ✅ cerrar -->
+</div>
+
+<!-- ✅ DERECHA ARRIBA -->
+<div class="panel">
+<h5 class="panel-title">Gráficas</h5>
+<div class="mb-2">
+<select id="serverSelect" class="form-select form-select-sm"
+multiple></select>
+</div>
+<canvas id="responseChart"></canvas>
+</div>
+
+<!-- ✅ DERECHA MEDIO -->
+<div class="panel">
+<h5 class="panel-title">Logs / Eventos</h5>
+<div id="eventsContainer" class="timeline"></div>
+</div>
+
+<!-- ✅ DERECHA ABAJO -->
+<div class="panel">
+<h5 class="panel-title">Alertas</h5>
+<div id="alertsContainer"></div>
+</div>
+
+</div>
+
+</div>
+<!-- /tab-monitoreo -->
+
+<div class="tab-pane fade" id="tab-impacto" role="tabpanel">
+
+<div class="container-fluid" style="padding: 10px;">
+
+<div id="impactoFallbackAlert" class="alert alert-warning small-text"
+style="display:none;">
+⚠️ BM_HOME no está configurado o no se encontró
+<code>appl/osba/config/restservices.xml</code>;
+mostrando el último análisis de respaldo embebido.
+</div>
+
+<!-- ✅ KPIs -->
+<div class="row g-2 mb-2">
+<div class="col">
+<div class="card text-center kpi-card">
+<div class="kpi-value" id="kpiDominios">-</div>
+<div class="kpi-label">Dominios analizados</div>
+</div>
+</div>
+<div class="col">
+<div class="card text-center kpi-card">
+<div class="kpi-value" id="kpiServicios">-</div>
+<div class="kpi-label">Servicios totales (restservices)</div>
+</div>
+</div>
+<div class="col">
+<div class="card text-center kpi-card">
+<div class="kpi-value" id="kpiDependencias">-</div>
+<div class="kpi-label">Dependencias identificadas</div>
+</div>
+</div>
+<div class="col">
+<div class="card text-center kpi-card">
+<div class="kpi-value" id="kpiCriticos">-</div>
+<div class="kpi-label">Servicios críticos / altos</div>
+</div>
+</div>
+
+  <!-- <div class="col">
+<div class="card text-center kpi-card">
+<div class="kpi-value" id="kpiSpof">-</div>
+<div class="kpi-label">Posibles SPOF</div>
+</div>
+</div> -->
+
+</div>
+
+<!-- ✅ SELECTOR DE DOMINIO -->
+<div class="mb-2 d-flex align-items-center gap-2">
+<label class="small-text mb-0">Vista por dominio:</label>
+<select id="impactoDomainSelect" class="form-select form-select-sm"
+style="max-width: 280px;">
+<option value="">Todos los dominios</option>
+</select>
+<span class="small-text text-muted" id="impactoCobertura"></span>
+</div>
+
+<div class="row g-2">
+
+<!-- ✅ RANKING -->
+<div class="col-md-6">
+<div class="panel" style="height: 360px;">
+<h5 class="panel-title">Ranking de Impacto</h5>
+<canvas id="impactoRankingChart"></canvas>
+</div>
+</div>
+
+<!-- ✅ MATRIZ -->
+<div class="col-md-6">
+<div class="panel" style="height: 360px;">
+<h5 class="panel-title">Matriz de Impacto (servicio × dominio)</h5>
+<div style="overflow: auto; max-height: 290px;">
+<table class="table table-sm table-bordered" style="color:#111;">
+<thead id="impactoMatrixHead"></thead>
+<tbody id="impactoMatrixBody"></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ✅ GRAFO -->
+<div class="row g-2 mt-2">
+<div class="col-12">
+<div class="panel">
+<h5 class="panel-title">Grafo de Dependencias</h5>
+<div id="impactoGraph"></div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+<!-- /tab-impacto -->
+
+</div>
+<!-- /tab-content -->
+
+
+<!-- ✅ Swagger -->
+<div id="swaggerPanel" class="panel"
+style="margin: 10px; display: none;">
+
+<select id="apiSelect" class="form-select mb-2"></select>
+
+<div id="swaggerUI" style="height: 600px;"></div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal fade" id="detailModal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+
+<div class="modal-header">
+<h5 id="modalName">Servidor</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<p>
+<strong>Host:</strong> <span id="modalHost"></span>
+</p>
+<p>
+<strong>Puerto:</strong> <span id="modalPort"></span>
+</p>
+<p>
+<strong>Estado:</strong> <span id="modalStatus" class="badge"></span>
+</p>
+<p>
+<strong>Tiempo:</strong> <span id="modalTime"></span> ms
+</p>
+
+<hr>
+
+<p>
+<strong>Uptime:</strong> <span id="modalUptime"></span>
+</p>
+<p>
+<strong>Tiempo caído:</strong> <span id="modalDownTime"></span>
+</p>
+<p>
+<strong>Error:</strong> <span id="modalError"></span>
+</p>
+
+<hr>
+
+<h6>Histórico</h6>
+
+<table class="table table-sm">
+<thead>
+<tr>
+<th>Hora</th>
+<th>Estado</th>
+<th>Tiempo</th>
+</tr>
+</thead>
+<tbody id="historyTable"></tbody>
+</table>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- MODAL DETALLE SERVICIO (IMPACTO) -->
+<div class="modal fade" id="impactoModal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+
+<div class="modal-header">
+<h5 id="impactoModalName">Servicio</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<p>
+<strong>Endpoint:</strong> <span id="impactoModalEndpoint"></span>
+</p>
+<p>
+<strong>Dominios dependientes:</strong> <span id="impactoModalDomains"></span>
+</p>
+<p>
+<strong>Cantidad de dominios:</strong> <span id="impactoModalCantidad"></span>
+</p>
+<p>
+<strong>% Afectación:</strong> <span id="impactoModalPct"></span>%
+</p>
+<p>
+<strong>Criticidad:</strong> <span id="impactoModalCriticidad"
+class="badge"></span>
+</p>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- Bootstrap JS -->
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- JS -->
+<script>
 
 // ======================================================
 // ✅ MODAL DETALLE SERVIDOR
@@ -637,7 +659,8 @@ window.showDetails = function(name, host, port, up, time, error) {
     document.getElementById("modalHost").innerText = host;
     document.getElementById("modalPort").innerText = port;
     document.getElementById("modalTime").innerText = time;
-    document.getElementById("modalError").innerText = error ? error : "Sin error";
+    document.getElementById("modalError").innerText = error ? error :
+"Sin error";
 
     let statusElement = document.getElementById("modalStatus");
 
@@ -659,7 +682,8 @@ window.showDetails = function(name, host, port, up, time, error) {
         .then(res => res.json())
         .then(data => {
             if (data.uptime >= 99.9) {
-                document.getElementById("modalUptime").innerText = "100% (estable)";
+                document.getElementById("modalUptime").innerText =
+"100% (estable)";
             } else if (data.uptime === 0) {
                 document.getElementById("modalUptime").innerText = "0% (caído)";
             } else {
@@ -687,7 +711,8 @@ window.showDetails = function(name, host, port, up, time, error) {
                     <tr>
                         <td>${time}</td>
                         <td>
-                            <span class="badge ${h.up ? 'bg-success' : 'bg-danger'}">
+                            <span class="badge ${h.up ? 'bg-success' :
+'bg-danger'}">
                                 ${h.up ? 'UP' : 'DOWN'}
                             </span>
                         </td>
@@ -730,7 +755,8 @@ function loadAlerts() {
                     <div class="card mb-2 border-${color}">
                         <div class="card-body p-2">
                             <strong>${alert.server}</strong>
-                            <span class="badge bg-${color}">${alert.level}</span>
+                            <span class="badge
+bg-${color}">${alert.level}</span>
                             <div class="small-text">${alert.message}</div>
                             <div class="small-text">${time}</div>
                         </div>
@@ -793,141 +819,141 @@ function loadEvents() {
 // ✅ GRÁFICA MULTI SERVIDOR
 // ======================================================
 
-	let chart = null;
-	let historyData = {};   // ✅ persistente
-	const MAX_POINTS = 20;
+let chart = null;
+let historyData = {};   // ✅ persistente
+const MAX_POINTS = 20;
 
-	// 🎨 paleta fija de colores
-	const COLORS = [
-	    "#3b82f6", // azul
-	    "#ef4444", // rojo
-	    "#10b981", // verde
-	    "#f59e0b", // naranja
-	    "#8b5cf6", // morado
-	    "#14b8a6", // teal
-	    "#e11d48", // rosado
-	    "#6366f1", // índigo
-	    "#84cc16", // lima
-	    "#f97316"  // naranja fuerte
-	];
+// 🎨 paleta fija de colores
+const COLORS = [
+   "#3b82f6", // azul
+   "#ef4444", // rojo
+   "#10b981", // verde
+   "#f59e0b", // naranja
+   "#8b5cf6", // morado
+   "#14b8a6", // teal
+   "#e11d48", // rosado
+   "#6366f1", // índigo
+   "#84cc16", // lima
+   "#f97316"  // naranja fuerte
+];
 
-	function loadChartMulti() {
+function loadChartMulti() {
 
-	    const select = document.getElementById("serverSelect");
-	    const selected = Array.from(select.selectedOptions).map(o => o.value);
+   const select = document.getElementById("serverSelect");
+   const selected = Array.from(select.selectedOptions).map(o => o.value);
 
-	    if (selected.length === 0) return;
+   if (selected.length === 0) return;
 
-	    Promise.all(
-	        selected.map(name =>
-	            fetch('/api/chart/' + name).then(r => r.json())
-	        )
-	    )
-	    .then(results => {
+   Promise.all(
+       selected.map(name =>
+           fetch('/api/chart/' + name).then(r => r.json())
+       )
+   )
+   .then(results => {
 
-	        const ctx = document.getElementById("responseChart");
+       const ctx = document.getElementById("responseChart");
 
-	        if (chart) chart.destroy();
+       if (chart) chart.destroy();
 
-	        let labels = [];
-	        let datasets = [];
+       let labels = [];
+       let datasets = [];
 
-	        results.forEach((res, idx) => {
+       results.forEach((res, idx) => {
 
-	            const name = selected[idx];
+           const name = selected[idx];
 
-	            if (!historyData[name]) {
-	                historyData[name] = [];
-	            }
+           if (!historyData[name]) {
+               historyData[name] = [];
+           }
 
-	            let value = 0;
+           let value = 0;
 
-	            if (res.values && res.values.length > 0) {
-	                value = res.values[res.values.length - 1];
-	            }
+           if (res.values && res.values.length > 0) {
+               value = res.values[res.values.length - 1];
+           }
 
-	            const base = idx * 2;   // 👈 altura del carril
+           const base = idx * 2;   // 👈 altura del carril
 
-	            const isDown = value >= 1700;
-	            const isSlow = value > 1000 && value < 1700;
+           const isDown = value >= 1700;
+           const isSlow = value > 1000 && value < 1700;
 
-	            let scaledValue;
+           let scaledValue;
 
-	            if (isDown) {
-	                scaledValue = base;          // 🔴 abajo
-	            } else if (isSlow) {
-	                scaledValue = base + 0.5;    // 🟡 medio
-	            } else {
-	                scaledValue = base + 1;      // 🟢 arriba
-	            }
+           if (isDown) {
+               scaledValue = base;          // 🔴 abajo
+           } else if (isSlow) {
+               scaledValue = base + 0.5;    // 🟡 medio
+           } else {
+               scaledValue = base + 1;      // 🟢 arriba
+           }
 
-	            historyData[name].push(scaledValue);
+           historyData[name].push(scaledValue);
 
-	            // mantener tamaño fijo
-	            if (historyData[name].length > MAX_POINTS) {
-	                historyData[name].shift();
-	            }
+           // mantener tamaño fijo
+           if (historyData[name].length > MAX_POINTS) {
+               historyData[name].shift();
+           }
 
-	            // eje X simple (0..n)
-	            labels = historyData[name].map((_, i) => i);
+           // eje X simple (0..n)
+           labels = historyData[name].map((_, i) => i);
 
-	            let color = COLORS[idx % COLORS.length];
+           let color = COLORS[idx % COLORS.length];
 
-	            datasets.push({
-	                label: name,
-	                data: historyData[name],
-	                borderColor: color,
-	                fill: false,
-	                tension: 0.2,
-	                pointRadius: 2
-	            });
+           datasets.push({
+               label: name,
+               data: historyData[name],
+               borderColor: color,
+               fill: false,
+               tension: 0.2,
+               pointRadius: 2
+           });
 
-	        });
+       });
 
-	        chart = new Chart(ctx, {
-	            type: 'line',
-	            data: {
-	                labels: labels,
-	                datasets: datasets
-	            },
-	            options: {
-	                animation: false,
-	                responsive: true,
-	                maintainAspectRatio: false,
-	                scales: {
-	                	y: {
-	                	    min: 0,
-	                	    max: selected.length * 2,
-	                	    ticks: {
-	                	        stepSize: 1,
-	                	        callback: function(value) {
+       chart = new Chart(ctx, {
+           type: 'line',
+           data: {
+               labels: labels,
+               datasets: datasets
+           },
+           options: {
+               animation: false,
+               responsive: true,
+               maintainAspectRatio: false,
+               scales: {
+                y: {
+                   min: 0,
+                   max: selected.length * 2,
+                   ticks: {
+                       stepSize: 1,
+                       callback: function(value) {
 
-	                	            const index = Math.floor(value / 2);
+                           const index = Math.floor(value / 2);
 
-	                	            if (index >= selected.length) return "";
+                           if (index >= selected.length) return "";
 
-	                	            const serverName = selected[index];
+                           const serverName = selected[index];
 
-	                	            return value % 2 === 1 
-	                	                ? serverName + " ↑"   // UP
-	                	                : serverName + " ↓";  // DOWN
-	                	        }
-	                	    },
-	                	    grid: {   // ✅ fuera de ticks
-	                	        color: ctx => {
-	                	            return ctx.tick.value % 2 === 0 
-	                	                ? "#e5e7eb"
-	                	                : "#ffffff";
-	                	        }
-	                	    }
-	                	}
-	                }
-	            }
-	        });
+                           return value % 2 === 1
+                               ? serverName + " ↑"   // UP
+                               : serverName + " ↓";  // DOWN
+                       }
+                   },
+                   grid: {   // ✅ fuera de ticks
+                       color: ctx => {
+                           return ctx.tick.value % 2 === 0
+                               ? "#e5e7eb"
+                               : "#ffffff";
+                       }
+                   }
+                }
+               }
+           }
+       });
 
-	    })
-	    .catch(err => console.error("Chart error", err));
-	}
+   })
+   .catch(err => console.error("Chart error", err));
+}
 
 // ======================================================
 // ✅ SELECTOR SERVIDORES
@@ -982,7 +1008,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(loadAlerts, 5000);
     setInterval(loadChartMulti, 5000);
     setInterval(updateCards, 5000);
-    
+
     document.getElementById("serverSelect")
         .addEventListener("change", loadChartMulti);
 
@@ -1069,7 +1095,8 @@ function loadSwaggerUI(apiName) {
     // ✅ OPCIONAL: reforzar recarga (AHORA SÍ correcto)
     setTimeout(() => {
         try {
-            ui.getSystem().specActions.updateUrl(`/swagger/${apiName}.json?` + noCache());
+            ui.getSystem().specActions.updateUrl(`/swagger/${apiName}.json?`
++ noCache());
             ui.getSystem().specActions.download();
         } catch (e) {
             console.warn("Swagger reload fallback:", e);
@@ -1090,7 +1117,7 @@ function loadSwaggerUI(apiName) {
             logoContainer.style.marginRight = "20px";
 
             logoContainer.innerHTML = `
-                <img src="/images/mercantil.png" 
+                <img src="/images/mercantil.png"
                      style="height:30px; margin-right:10px;" />
                 <span style="color:white; font-weight:bold;">
                     BANCO MERCANTIL API EXPLORER
@@ -1111,7 +1138,7 @@ function loadSwaggerUI(apiName) {
 async function loadSwaggerApis() {
 
     try {
-    	const res = await fetch('/api/swagger/files', { cache: "no-store" });
+    const res = await fetch('/api/swagger/files', { cache: "no-store" });
         const data = await res.json();
 
         console.log("📘 swaggerApis RAW:", data);
@@ -1143,7 +1170,8 @@ function updateCards() {
                 if (!card) return;
 
                 // ✅ eliminar clases previas
-                card.classList.remove("card-up", "card-down", "card-warning", "down-alert");
+                card.classList.remove("card-up", "card-down",
+"card-warning", "down-alert");
 
                 // ✅ aplicar estado nuevo
                 if (!srv.up) {
@@ -1172,7 +1200,8 @@ function updateCards() {
                 let statusLabel = card.querySelector(".status-label");
                 if (statusLabel) {
                     if (!srv.up) statusLabel.innerText = "DOWN";
-                    else if (srv.responseTime > 1000) statusLabel.innerText = "LENTO";
+                    else if (srv.responseTime > 1000)
+statusLabel.innerText = "LENTO";
                     else statusLabel.innerText = "UP";
                 }
 
@@ -1211,11 +1240,15 @@ function loadImpactoDashboard() {
         .then(res => res.json())
         .then(data => {
 
-            document.getElementById("kpiDominios").innerText = data.totalDominiosAnalizados;
-            document.getElementById("kpiServicios").innerText = data.totalServiciosRestservices;
-            document.getElementById("kpiDependencias").innerText = data.totalServiciosConCoincidencia;
-            document.getElementById("kpiCriticos").innerText = (data.serviciosCriticos + data.serviciosAltos);
-            document.getElementById("kpiSpof").innerText = data.spofDetectados;
+            document.getElementById("kpiDominios").innerText =
+data.totalDominiosAnalizados;
+            document.getElementById("kpiServicios").innerText =
+data.totalServiciosRestservices;
+            document.getElementById("kpiDependencias").innerText =
+data.totalServiciosConCoincidencia;
+            document.getElementById("kpiCriticos").innerText =
+(data.serviciosCriticos + data.serviciosAltos);
+            //document.getElementById("kpiSpof").innerText = data.spofDetectados;
             document.getElementById("impactoCobertura").innerText =
                 "Cobertura por nombre: " + data.coberturaPct + "%";
 
@@ -1255,7 +1288,8 @@ function filterImpactoByDomain(dominio) {
         return;
     }
 
-    let filtrados = impactoAllServicios.filter(s => (s.domains || []).includes(dominio));
+    let filtrados = impactoAllServicios.filter(s => (s.domains ||
+[]).includes(dominio));
     renderImpactoVistas(filtrados);
 }
 
@@ -1285,7 +1319,8 @@ function renderImpactoRanking(servicios) {
             datasets: [{
                 label: '% Afectación',
                 data: conImpacto.map(s => s.pct),
-                backgroundColor: conImpacto.map(s => criticidadColor(s.criticidad))
+                backgroundColor: conImpacto.map(s =>
+criticidadColor(s.criticidad))
             }]
         },
         options: {
@@ -1328,14 +1363,16 @@ function renderImpactoMatrix(servicios) {
         let cells = impactoDominios.map(dom => {
             let afecta = (s.domains || []).includes(dom);
             let cls = afecta ? criticidadHeatClass(s.criticidad) : '';
-            return '<td class="' + cls + ' text-center">' + (afecta ? '●' : '') + '</td>';
+            return '<td class="' + cls + ' text-center">' + (afecta ?
+'●' : '') + '</td>';
         }).join('');
 
         return '<tr style="cursor:pointer" onclick="showImpactoDetail(\'' + s.name + '\')">' +
             '<td>' + s.name + '</td>' + cells +
             '<td class="text-center">' + s.pct + '%</td>' +
             '<td class="text-center">' +
-            '<span class="badge" style="background-color:' + criticidadColor(s.criticidad) + '">' +
+            '<span class="badge" style="background-color:' +
+criticidadColor(s.criticidad) + '">' +
             s.criticidad + '</span></td></tr>';
     }).join('');
 }
@@ -1351,7 +1388,8 @@ function renderImpactoGraph(servicios) {
 
     let conImpacto = servicios.filter(s => s.cantidad > 0);
 
-    let nodes = [{ id: 'osba', label: 'osba', shape: 'box', color: '#0b4ea2', font: { color: '#fff' } }];
+    let nodes = [{ id: 'osba', label: 'osba', shape: 'box', color:
+'#0b4ea2', font: { color: '#fff' } }];
     let edges = [];
     let dominiosEnGrafo = new Set();
 
@@ -1360,7 +1398,8 @@ function renderImpactoGraph(servicios) {
     });
 
     dominiosEnGrafo.forEach(dom => {
-        nodes.push({ id: 'dom-' + dom, label: dom, shape: 'ellipse', color: '#6366f1', font: { color: '#fff' } });
+        nodes.push({ id: 'dom-' + dom, label: dom, shape: 'ellipse',
+color: '#6366f1', font: { color: '#fff' } });
         edges.push({ from: 'osba', to: 'dom-' + dom });
     });
 
@@ -1379,10 +1418,34 @@ function renderImpactoGraph(servicios) {
         });
     });
 
-    impactoNetwork = new vis.Network(container, { nodes: nodes, edges: edges }, {
-        physics: { stabilization: true },
-        interaction: { hover: true },
-        nodes: { margin: 8 }
+    impactoNetwork = new vis.Network(
+       container,
+       {
+           nodes: nodes,
+           edges: edges
+       },
+       {
+           physics: {
+               stabilization: true
+           },
+
+           interaction: {
+               hover: true,
+               navigationButtons: false,
+               zoomView: true,
+               dragView: true
+           },
+
+           nodes: {
+               margin: 8
+           }
+       }
+    );
+
+    impactoNetwork.once("stabilized", function () {
+        impactoNetwork.fit({
+            animation: true
+        });
     });
 
     impactoNetwork.on('click', params => {
@@ -1411,10 +1474,13 @@ function showImpactoDetail(name) {
         .then(s => {
 
             document.getElementById("impactoModalName").innerText = s.name;
-            document.getElementById("impactoModalEndpoint").innerText = s.endpoint || '—';
+            document.getElementById("impactoModalEndpoint").innerText
+= s.endpoint || '—';
             document.getElementById("impactoModalDomains").innerText =
-                (s.domains && s.domains.length > 0) ? s.domains.join(', ') : 'Ninguno';
-            document.getElementById("impactoModalCantidad").innerText = s.cantidad;
+                (s.domains && s.domains.length > 0) ?
+s.domains.join(', ') : 'Ninguno';
+            document.getElementById("impactoModalCantidad").innerText
+= s.cantidad;
             document.getElementById("impactoModalPct").innerText = s.pct;
 
             let badge = document.getElementById("impactoModalCriticidad");
@@ -1428,7 +1494,8 @@ function showImpactoDetail(name) {
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    document.getElementById("tab-impacto-btn").addEventListener("shown.bs.tab", function () {
+    document.getElementById("tab-impacto-btn").addEventListener("shown.bs.tab",
+function () {
         if (!impactoLoaded) {
             impactoLoaded = true;
             loadImpactoDashboard();
@@ -1436,15 +1503,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    document.getElementById("impactoDomainSelect").addEventListener("change", function () {
+    document.getElementById("impactoDomainSelect").addEventListener("change",
+function () {
         filterImpactoByDomain(this.value);
     });
 });
 
 </script>
 
-	<script src="/swagger-ui/swagger-ui-bundle.js"></script>
-	<script src="/swagger-ui/swagger-ui-standalone-preset.js"></script>
+<script src="/swagger-ui/swagger-ui-bundle.js"></script>
+<script src="/swagger-ui/swagger-ui-standalone-preset.js"></script>
 
 </body>
 </html>
