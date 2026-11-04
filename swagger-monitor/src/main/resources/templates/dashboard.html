@@ -7,7 +7,7 @@
 
 <title>Monitor</title>
 
-<link rel="stylesheet" href="/swagger-ui/swagger-ui.css">
+<link rel="stylesheet" th:href="@{/swagger-ui/swagger-ui.css}">
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 rel="stylesheet">
@@ -669,6 +669,18 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.j
 <!-- JS -->
 <script>
 
+//======================================================
+//CONTEXTO DINÁMICO
+//======================================================
+
+const BASE_PATH = window.location.pathname.startsWith('/swagger-monitor')
+ ? '/swagger-monitor'
+ : '';
+
+function api(path) {
+ return BASE_PATH + path;
+}
+
 // ======================================================
 // ✅ MODAL DETALLE SERVIDOR
 // ======================================================
@@ -696,7 +708,7 @@ window.showDetails = function(name, host, port, up, time, error) {
     }
 
     // ✅ MÉTRICAS
-    fetch('/api/metrics/' + name)
+    fetch(api('/api/metrics/') + name)
         .then(res => res.json())
         .then(data => {
             if (data.uptime >= 99.9) {
@@ -712,7 +724,7 @@ window.showDetails = function(name, host, port, up, time, error) {
         });
 
     // ✅ HISTÓRICO
-    fetch('/api/history/' + name)
+    fetch(api('/api/history/') + name)
         .then(res => res.json())
         .then(data => {
 
@@ -747,7 +759,7 @@ window.showDetails = function(name, host, port, up, time, error) {
 // ======================================================
 function loadAlerts() {
 
-    fetch('/api/alerts')
+	fetch(api('/api/alerts'))
         .then(res => res.json())
         .then(data => {
 
@@ -787,7 +799,7 @@ function loadAlerts() {
 // ======================================================
 function loadEvents() {
 
-    fetch('/api/events')
+    fetch(api('/api/events'))
         .then(res => res.json())
         .then(data => {
 
@@ -862,7 +874,7 @@ function loadChartMulti() {
 
    Promise.all(
        selected.map(name =>
-           fetch('/api/chart/' + name).then(r => r.json())
+           fetch(api('/api/chart/') + name).then(r => r.json())
        )
    )
    .then(results => {
@@ -976,7 +988,7 @@ function loadChartMulti() {
 // ======================================================
 function loadServerSelector() {
 
-    fetch('/api/servers', { cache: "no-store" })
+    fetch(api('/api/servers'), { cache: "no-store" })
         .then(res => res.json())
         .then(data => {
 
@@ -1081,7 +1093,7 @@ function loadSwaggerUI(apiName) {
     // ✅ crear instancia correctamente
     const ui = SwaggerUIBundle({
 
-        url: `/swagger/${apiName}.json?` + noCache(),
+    	url: api(`/swagger/${apiName}.json`) + '?' + noCache(),
         configUrl: null,
 
         dom_id: '#swaggerUI',
@@ -1111,7 +1123,7 @@ function loadSwaggerUI(apiName) {
     // ✅ OPCIONAL: reforzar recarga (AHORA SÍ correcto)
     setTimeout(() => {
         try {
-            ui.getSystem().specActions.updateUrl(`/swagger/${apiName}.json?` + noCache());
+            ui.getSystem().specActions.updateUrl(api(`/swagger/${apiName}.json?` + noCache()));
             ui.getSystem().specActions.download();
         } catch (e) {
             console.warn("Swagger reload fallback:", e);
@@ -1132,7 +1144,7 @@ function loadSwaggerUI(apiName) {
             logoContainer.style.marginRight = "20px";
 
             logoContainer.innerHTML = `
-                <img src="/images/mercantil.png"
+            	<img src="${api('/images/mercantil.png')}"
                      style="height:30px; margin-right:10px;" />
                 <span style="color:white; font-weight:bold;">
                     BANCO MERCANTIL API EXPLORER
@@ -1153,7 +1165,7 @@ function loadSwaggerUI(apiName) {
 async function loadSwaggerApis() {
 
     try {
-    const res = await fetch('/api/swagger/files', { cache: "no-store" });
+    const res = await fetch(api('/api/swagger/files'), { cache: "no-store" });
         const data = await res.json();
 
         console.log("📘 swaggerApis RAW:", data);
@@ -1175,7 +1187,7 @@ async function loadSwaggerApis() {
 
 function updateCards() {
 
-    fetch('/api/servers/status') // 🔥 endpoint ligero
+    fetch(api('/api/servers/status')) // 🔥 endpoint ligero
         .then(res => res.json())
         .then(data => {
 
@@ -1250,7 +1262,7 @@ function criticidadHeatClass(criticidad) {
 
 function loadImpactoDashboard() {
 
-    fetch('/api/impacto/dashboard')
+    fetch(api('/api/impacto/dashboard'))
         .then(res => res.json())
         .then(data => {
 
@@ -1281,7 +1293,7 @@ function loadImpactoDashboard() {
 
 function loadImpactoServicios() {
 
-    fetch('/api/impacto/servicios')
+    fetch(api('/api/impacto/servicios'))
         .then(res => res.json())
         .then(data => {
             impactoAllServicios = data;
@@ -1393,8 +1405,7 @@ function renderImpactoGraph(servicios) {
 
     let conImpacto = servicios.filter(s => s.cantidad > 0);
 
-    let nodes = [{ id: 'osba', label: 'osba', shape: 'box', color:
-'#0b4ea2', font: { color: '#fff' } }];
+    let nodes = [{ id: 'osba', label: 'osba', shape: 'box', color: '#0b4ea2', font: { color: '#fff' } }];
     let edges = [];
     let dominiosEnGrafo = new Set();
 
@@ -1470,7 +1481,7 @@ function renderImpactoGraph(servicios) {
 
 function showImpactoDetail(name) {
 
-    fetch('/api/impacto/servicio/' + encodeURIComponent(name))
+    fetch(api('/api/impacto/servicio/') + encodeURIComponent(name))
         .then(res => {
             if (!res.ok) throw new Error('No encontrado');
             return res.json();
@@ -1600,8 +1611,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </script>
 
-<script src="/swagger-ui/swagger-ui-bundle.js"></script>
-<script src="/swagger-ui/swagger-ui-standalone-preset.js"></script>
+<script th:src="@{/swagger-ui/swagger-ui-bundle.js}"></script>
+<script th:src="@{/swagger-ui/swagger-ui-standalone-preset.js}"></script>
 
 </body>
 </html>
