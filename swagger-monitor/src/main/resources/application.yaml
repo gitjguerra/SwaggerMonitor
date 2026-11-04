@@ -2,9 +2,9 @@ spring:
   application:
     name: swagger-monitor
 
+# Carpetas bajo %BM_HOME%\appl que NO deben tratarse como dominios
+# de negocio en el analisis de Impacto/Dependencias (ademas de la
+# propia carpeta del microservicio objetivo, "osba", que siempre se
+# excluye). Lista separada por comas.
 impacto:
-  # Carpetas bajo %BM_HOME%\appl que NO deben tratarse como dominios
-  # de negocio en el analisis de Impacto/Dependencias (ademas de la
-  # propia carpeta del microservicio objetivo, "osba", que siempre se
-  # excluye). Lista separada por comas.
-  dominios-excluidos: swagger-generator
+  dominios-excluidos: swagger-generator,swagger-monitor

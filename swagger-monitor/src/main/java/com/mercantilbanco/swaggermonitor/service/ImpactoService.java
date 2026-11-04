@@ -10,23 +10,20 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import javax.xml.parsers.DocumentBuilderFactory;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.cache.annotation.Cacheable;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mercantilbanco.swaggermonitor.model.DomainImpact;
 import com.mercantilbanco.swaggermonitor.model.ImpactoDashboard;
 import com.mercantilbanco.swaggermonitor.model.ServiceImpact;
-import org.springframework.beans.factory.annotation.Value;
+
 
 /**
  * CLASE ENCARGADA DE: <strong>analizar el impacto/dependencias del
@@ -100,10 +97,11 @@ LogManager.getLogger(ImpactoService.class);
     private static final String FALLBACK_RESOURCE = "impacto-fallback.json";
     private static final int SUFIJO_MIN_LENGTH = 12;
 
-    @Value("${impacto.dominios-excluidos:}")
+    // Servicios o directorios en el BM_HOME que deben ser excluidos
+    @Value("#{'${impacto.dominios-excluidos:}'.split(',')}")
     private List<String> dominiosExcluidos;
-
-    @Cacheable("impactoData")
+    
+    //@Cacheable("impactoData")
     public ImpactoResult analizar() {
 
         String bmHome = resolveBmHome();
@@ -111,8 +109,7 @@ LogManager.getLogger(ImpactoService.class);
         if (bmHome != null) {
 
             File applDir = new File(bmHome, APPL_DIR);
-            File restservicesFile = new File(new File(new
-File(applDir, MICROSERVICIO), CONFIG_DIR), RESTSERVICES_FILE);
+            File restservicesFile = new File(new File(new File(applDir, MICROSERVICIO), CONFIG_DIR), RESTSERVICES_FILE);
 
             if (applDir.isDirectory() && restservicesFile.isFile()) {
 
@@ -134,12 +131,20 @@ File(applDir, MICROSERVICIO), CONFIG_DIR), RESTSERVICES_FILE);
 
     private boolean dominioExcluido(String folderName) {
 
-        if (dominiosExcluidos == null) {
+        if (dominiosExcluidos == null || dominiosExcluidos.isEmpty()) {
             return false;
         }
 
+        String normalized = folderName
+                .replaceFirst("^api-", "")
+                .trim()
+                .toLowerCase();
+
         return dominiosExcluidos.stream()
-                .anyMatch(d -> d.equalsIgnoreCase(folderName));
+                .filter(d -> d != null)
+                .map(String::trim)
+                .map(String::toLowerCase)
+                .anyMatch(normalized::equals);
     }
 
     private String resolveBmHome() {
@@ -150,8 +155,7 @@ File(applDir, MICROSERVICIO), CONFIG_DIR), RESTSERVICES_FILE);
             bmHome = System.getProperty("BM_HOME");
         }
 
-        return (bmHome == null || bmHome.trim().isEmpty()) ? null :
-bmHome.trim();
+        return (bmHome == null || bmHome.trim().isEmpty()) ? null : bmHome.trim();
     }
 
     // =========================================================
@@ -175,8 +179,7 @@ restservicesFile) throws Exception {
                     continue;
                 }
 
-                File servicesXml = new File(new File(carpeta,
-CONFIG_DIR), SERVICES_FILE);
+                File servicesXml = new File(new File(carpeta, CONFIG_DIR), SERVICES_FILE);
 
                 if (!servicesXml.isFile()) {
                     continue;
@@ -188,8 +191,7 @@ CONFIG_DIR), SERVICES_FILE);
             }
         }
 
-        List<ServiceImpact> servicios =
-cruzarRestservices(restservicesFile, dominioIndex);
+        List<ServiceImpact> servicios = cruzarRestservices(restservicesFile, dominioIndex);
 
         return new ImpactoResult(servicios, dominioIndex, false);
     }
@@ -198,8 +200,7 @@ cruzarRestservices(restservicesFile, dominioIndex);
 
         String lower = folderName.toLowerCase();
 
-        if (lower.startsWith(DOMAIN_PREFIX) && lower.length() >
-DOMAIN_PREFIX.length()) {
+        if (lower.startsWith(DOMAIN_PREFIX) && lower.length() > DOMAIN_PREFIX.length()) {
             String resto = folderName.substring(DOMAIN_PREFIX.length());
             return capitalize(resto);
         }
@@ -213,13 +214,10 @@ DOMAIN_PREFIX.length()) {
             return value;
         }
 
-        return value.substring(0, 1).toUpperCase() +
-value.substring(1).toLowerCase();
+        return value.substring(0, 1).toUpperCase() + value.substring(1).toLowerCase();
     }
 
-    private List<ServiceImpact> cruzarRestservices(File
-restservicesFile, Map<String, DomainIndex> dominios)
-            throws Exception {
+    private List<ServiceImpact> cruzarRestservices(File restservicesFile, Map<String, DomainIndex> dominios) throws Exception {
 
         Document doc = parseXml(restservicesFile);
         NodeList nodes = doc.getElementsByTagName(TAG_SERVICE);
@@ -247,8 +245,7 @@ restservicesFile, Map<String, DomainIndex> dominios)
 
                 DomainIndex indice = dominio.getValue();
                 boolean coincideNombre = indice.getNombres().contains(nombre);
-                boolean coincideSufijo = sufijo != null &&
-indice.getSufijos().contains(sufijo);
+                boolean coincideSufijo = sufijo != null && indice.getSufijos().contains(sufijo);
 
                 if (coincideNombre || coincideSufijo) {
                     si.getDomains().add(dominio.getKey());
@@ -329,10 +326,8 @@ indice.getSufijos().contains(sufijo);
 
     private Document parseXml(File file) throws Exception {
 
-        try (InputStream is =
-java.nio.file.Files.newInputStream(file.toPath())) {
-            return
-DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(is);
+        try (InputStream is = java.nio.file.Files.newInputStream(file.toPath())) {
+            return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(is);
         }
     }
 
@@ -341,12 +336,10 @@ DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(is);
     // =========================================================
     private ImpactoResult analizarDesdeFallback() {
 
-        try (InputStream is =
-getClass().getClassLoader().getResourceAsStream(FALLBACK_RESOURCE)) {
+        try (InputStream is = getClass().getClassLoader().getResourceAsStream(FALLBACK_RESOURCE)) {
 
             if (is == null) {
-                throw new IllegalStateException("No se encontró " +
-FALLBACK_RESOURCE + " en el classpath");
+                throw new IllegalStateException("No se encontró " + FALLBACK_RESOURCE + " en el classpath");
             }
 
             String json = new String(readAll(is), StandardCharsets.UTF_8);
@@ -380,15 +373,13 @@ FALLBACK_RESOURCE + " en el classpath");
 
         } catch (Exception e) {
             log.error("❌ No se pudo cargar el respaldo embebido de impacto/dependencias", e);
-            return new ImpactoResult(new ArrayList<>(), new
-LinkedHashMap<>(), true);
+            return new ImpactoResult(new ArrayList<>(), new LinkedHashMap<>(), true);
         }
     }
 
     private byte[] readAll(InputStream is) throws Exception {
 
-        java.io.ByteArrayOutputStream buffer = new
-java.io.ByteArrayOutputStream();
+        java.io.ByteArrayOutputStream buffer = new java.io.ByteArrayOutputStream();
         byte[] data = new byte[4096];
         int read;
 
@@ -402,8 +393,7 @@ java.io.ByteArrayOutputStream();
     private void aplicarCalculos(ServiceImpact si, int totalDominios) {
 
         int cantidad = si.getDomains().size();
-        int pct = (totalDominios == 0) ? 0 : (int)
-Math.round((cantidad * 100.0) / totalDominios);
+        int pct = (totalDominios == 0) ? 0 : (int) Math.round((cantidad * 100.0) / totalDominios);
 
         si.setCantidad(cantidad);
         si.setPct(pct);
@@ -439,18 +429,13 @@ Math.round((cantidad * 100.0) / totalDominios);
         dashboard.setTotalServiciosRestservices(servicios.size());
         dashboard.setUsandoDatosFallback(result.isFallback());
 
-        long conCoincidencia = servicios.stream().filter(s ->
-s.getCantidad() > 0).count();
-        long criticos = servicios.stream().filter(s ->
-"Crítica".equals(s.getCriticidad())).count();
-        long altos = servicios.stream().filter(s ->
-"Alta".equals(s.getCriticidad())).count();
-        long spof = servicios.stream().filter(s -> s.getCantidad() ==
-1).count();
+        long conCoincidencia = servicios.stream().filter(s -> s.getCantidad() > 0).count();
+        long criticos = servicios.stream().filter(s -> "Crítica".equals(s.getCriticidad())).count();
+        long altos = servicios.stream().filter(s -> "Alta".equals(s.getCriticidad())).count();
+        long spof = servicios.stream().filter(s -> s.getCantidad() == 1).count();
 
         dashboard.setTotalServiciosConCoincidencia((int) conCoincidencia);
-        dashboard.setCoberturaPct(servicios.isEmpty() ? 0 :
-Math.round((conCoincidencia * 1000.0) / servicios.size()) / 10.0);
+        dashboard.setCoberturaPct(servicios.isEmpty() ? 0 : Math.round((conCoincidencia * 1000.0) / servicios.size()) / 10.0);
         dashboard.setServiciosCriticos((int) criticos);
         dashboard.setServiciosAltos((int) altos);
         dashboard.setSpofDetectados((int) spof);
@@ -460,10 +445,8 @@ Math.round((conCoincidencia * 1000.0) / servicios.size()) / 10.0);
 
     public List<ServiceImpact> getRanking() {
 
-        List<ServiceImpact> servicios = new
-ArrayList<>(analizar().getServicios());
-        servicios.sort(Comparator.comparingInt(ServiceImpact::getPct).reversed()
-                .thenComparing(ServiceImpact::getName));
+        List<ServiceImpact> servicios = new ArrayList<>(analizar().getServicios());
+        servicios.sort(Comparator.comparingInt(ServiceImpact::getPct).reversed().thenComparing(ServiceImpact::getName));
 
         return servicios;
     }
@@ -480,8 +463,7 @@ ArrayList<>(analizar().getServicios());
 
         ImpactoResult result = analizar();
 
-        Map.Entry<String, DomainIndex> dominioEntry =
-result.getDominios().entrySet().stream()
+        Map.Entry<String, DomainIndex> dominioEntry = result.getDominios().entrySet().stream()
                 .filter(e -> e.getKey().equalsIgnoreCase(nombre))
                 .findFirst()
                 .orElse(null);
@@ -495,8 +477,7 @@ result.getDominios().entrySet().stream()
         di.setTotalServiciosDominio(dominioEntry.getValue().getTotalServicios());
 
         for (ServiceImpact si : result.getServicios()) {
-            if (si.getDomains().stream().anyMatch(d ->
-d.equalsIgnoreCase(nombre))) {
+            if (si.getDomains().stream().anyMatch(d -> d.equalsIgnoreCase(nombre))) {
                 di.getServiciosDependientes().add(si);
             }
         }
@@ -513,8 +494,7 @@ d.equalsIgnoreCase(nombre))) {
         private final Map<String, DomainIndex> dominios;
         private final boolean fallback;
 
-        public ImpactoResult(List<ServiceImpact> servicios,
-Map<String, DomainIndex> dominios, boolean fallback) {
+        public ImpactoResult(List<ServiceImpact> servicios, Map<String, DomainIndex> dominios, boolean fallback) {
             this.servicios = servicios;
             this.dominios = dominios;
             this.fallback = fallback;

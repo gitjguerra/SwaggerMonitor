@@ -14,8 +14,7 @@ import com.mercantilbanco.swaggermonitor.exception.ExceptionFile;
 
 public class InitEnvironment {
 
-    private static final Logger log =
-            LogManager.getLogger(InitEnvironment.class);
+    private static final Logger log = LogManager.getLogger(InitEnvironment.class);
 
     private InitEnvironment() {}
 
@@ -33,9 +32,7 @@ public class InitEnvironment {
             // =================================================
             // ✅ CONFIG FILE
             // =================================================
-            pathFile = Utils.getFileAppConfig(
-                    BusinessCard.APP.getValue()
-            );
+            pathFile = Utils.getFileAppConfig(BusinessCard.APP.getValue());
 
             try (InputStream is = new FileInputStream(pathFile)) {
 
@@ -44,51 +41,38 @@ public class InitEnvironment {
                 // =================================================
                 // ✅ ENTORNO
                 // =================================================
-                Utils.setListtags(
-                        Paths.get(pathFile).getParent(),
-                        Boolean.parseBoolean(
-                                props.getProperty(BusinessCard.TEST_ENVIRONMENT.getValue())
-                        )
-                );
+                Utils.setListtags(Paths.get(pathFile).getParent(), Boolean.parseBoolean(props.getProperty(BusinessCard.TEST_ENVIRONMENT.getValue())));
 
                 // =================================================
                 // ✅ PATHS
                 // =================================================
-                pathLog = Utils.resolvePath(
-                        props.getProperty(BusinessCard.LOG4J.getValue())
-                );
+                pathLog = Utils.resolvePath(props.getProperty(BusinessCard.LOG4J.getValue()));
 
-                pathSwagger = Utils.resolvePath(
-                        props.getProperty(BusinessCard.SWAGGER_OUTPUT.getValue())
-                );
+                pathSwagger = Utils.resolvePath(props.getProperty(BusinessCard.SWAGGER_OUTPUT.getValue()));
 
-                pathServers = Utils.resolvePath(
-                        props.getProperty(BusinessCard.SERVERS_FILE.getValue())
-                );
+                pathServers = Utils.resolvePath(props.getProperty(BusinessCard.SERVERS_FILE.getValue()));
 
                 // =================================================
                 // ✅ SYSTEM PROPERTIES
                 // =================================================
-                System.setProperty(
-                        BusinessCard.SWAGGER_OUTPUT.getValue(),
-                        pathSwagger
-                );
+                System.setProperty(BusinessCard.SWAGGER_OUTPUT.getValue(), pathSwagger);
 
-                System.setProperty(
-                        BusinessCard.SERVERS_FILE.getValue(),
-                        pathServers
-                );
+                System.setProperty(BusinessCard.SERVERS_FILE.getValue(), pathServers);
 
                 // =================================================
                 // ✅ VALIDACIONES
                 // =================================================
-                FileUtility.validatePaths(
-                        pathFile,
-                        pathLog,
-                        pathSwagger,
-                        pathServers
-                );
+                FileUtility.validatePaths(pathFile, pathLog, pathSwagger, pathServers);
 
+                // =================================================
+	            // ✅ BM_HOME PARA LOG4J
+	            // =================================================
+	            String bmHome = System.getenv("BM_HOME");
+	
+	            if (bmHome != null && !bmHome.trim().isEmpty()) {
+	                System.setProperty("BM_HOME", bmHome);
+	            }
+	             
                 // =================================================
                 // ✅ LOG4J
                 // =================================================
@@ -97,8 +81,7 @@ public class InitEnvironment {
                 // =================================================
                 // ✅ LOG FINAL
                 // =================================================
-                log.info("APLICACION [{}] CONFIGURADA EXITOSAMENTE",
-                        BusinessCard.APP.getValue());
+                log.info("APLICACION [{}] CONFIGURADA EXITOSAMENTE", BusinessCard.APP.getValue());
 
             }
 

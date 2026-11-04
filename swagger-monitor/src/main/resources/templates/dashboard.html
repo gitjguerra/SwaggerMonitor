@@ -678,8 +678,7 @@ window.showDetails = function(name, host, port, up, time, error) {
     document.getElementById("modalHost").innerText = host;
     document.getElementById("modalPort").innerText = port;
     document.getElementById("modalTime").innerText = time;
-    document.getElementById("modalError").innerText = error ? error :
-"Sin error";
+    document.getElementById("modalError").innerText = error ? error : "Sin error";
 
     let statusElement = document.getElementById("modalStatus");
 
@@ -701,8 +700,7 @@ window.showDetails = function(name, host, port, up, time, error) {
         .then(res => res.json())
         .then(data => {
             if (data.uptime >= 99.9) {
-                document.getElementById("modalUptime").innerText =
-"100% (estable)";
+                document.getElementById("modalUptime").innerText = "100% (estable)";
             } else if (data.uptime === 0) {
                 document.getElementById("modalUptime").innerText = "0% (caído)";
             } else {
@@ -774,8 +772,7 @@ function loadAlerts() {
                     <div class="card mb-2 border-${color}">
                         <div class="card-body p-2">
                             <strong>${alert.server}</strong>
-                            <span class="badge
-bg-${color}">${alert.level}</span>
+                            <span class="badge bg-${color}">${alert.level}</span>
                             <div class="small-text">${alert.message}</div>
                             <div class="small-text">${time}</div>
                         </div>
@@ -1114,8 +1111,7 @@ function loadSwaggerUI(apiName) {
     // ✅ OPCIONAL: reforzar recarga (AHORA SÍ correcto)
     setTimeout(() => {
         try {
-            ui.getSystem().specActions.updateUrl(`/swagger/${apiName}.json?`
-+ noCache());
+            ui.getSystem().specActions.updateUrl(`/swagger/${apiName}.json?` + noCache());
             ui.getSystem().specActions.download();
         } catch (e) {
             console.warn("Swagger reload fallback:", e);
@@ -1219,8 +1215,7 @@ function updateCards() {
                 let statusLabel = card.querySelector(".status-label");
                 if (statusLabel) {
                     if (!srv.up) statusLabel.innerText = "DOWN";
-                    else if (srv.responseTime > 1000)
-statusLabel.innerText = "LENTO";
+                    else if (srv.responseTime > 1000) statusLabel.innerText = "LENTO";
                     else statusLabel.innerText = "UP";
                 }
 
@@ -1259,20 +1254,15 @@ function loadImpactoDashboard() {
         .then(res => res.json())
         .then(data => {
 
-            document.getElementById("kpiDominios").innerText =
-data.totalDominiosAnalizados;
-            document.getElementById("kpiServicios").innerText =
-data.totalServiciosRestservices;
-            document.getElementById("kpiDependencias").innerText =
-data.totalServiciosConCoincidencia;
-            document.getElementById("kpiCriticos").innerText =
-(data.serviciosCriticos + data.serviciosAltos);
+            document.getElementById("kpiDominios").innerText = data.totalDominiosAnalizados;
+            document.getElementById("kpiServicios").innerText = data.totalServiciosRestservices;
+            document.getElementById("kpiDependencias").innerText = data.totalServiciosConCoincidencia;
+            document.getElementById("kpiCriticos").innerText = (data.serviciosCriticos + data.serviciosAltos);
             //document.getElementById("kpiSpof").innerText = data.spofDetectados;
             document.getElementById("impactoCobertura").innerText =
                 "Cobertura (nombre + sufijo de endpoint): " + data.coberturaPct + "%";
 
-            document.getElementById("impactoFallbackAlert").style.display =
-                data.usandoDatosFallback ? "block" : "none";
+            document.getElementById("impactoFallbackAlert").style.display = data.usandoDatosFallback ? "block" : "none";
 
             impactoDominios = data.dominios || [];
 
@@ -1338,8 +1328,7 @@ function renderImpactoRanking(servicios) {
             datasets: [{
                 label: '% Afectación',
                 data: conImpacto.map(s => s.pct),
-                backgroundColor: conImpacto.map(s =>
-criticidadColor(s.criticidad))
+                backgroundColor: conImpacto.map(s => criticidadColor(s.criticidad))
             }]
         },
         options: {
@@ -1359,8 +1348,7 @@ criticidadColor(s.criticidad))
 
 function renderImpactoMatrix(servicios) {
 
-    let conImpacto = servicios.filter(s => s.cantidad > 0)
-        .sort((a, b) => b.pct - a.pct);
+    let conImpacto = servicios.filter(s => s.cantidad > 0).sort((a, b) => b.pct - a.pct);
 
     let head = document.getElementById("impactoMatrixHead");
     let body = document.getElementById("impactoMatrixBody");
@@ -1382,16 +1370,14 @@ function renderImpactoMatrix(servicios) {
         let cells = impactoDominios.map(dom => {
             let afecta = (s.domains || []).includes(dom);
             let cls = afecta ? criticidadHeatClass(s.criticidad) : '';
-            return '<td class="' + cls + ' text-center">' + (afecta ?
-'●' : '') + '</td>';
+            return '<td class="' + cls + ' text-center">' + (afecta ? '●' : '') + '</td>';
         }).join('');
 
         return '<tr style="cursor:pointer" onclick="showImpactoDetail(\'' + s.name + '\')">' +
             '<td>' + s.name + '</td>' + cells +
             '<td class="text-center">' + s.pct + '%</td>' +
             '<td class="text-center">' +
-            '<span class="badge" style="background-color:' +
-criticidadColor(s.criticidad) + '">' +
+            '<span class="badge" style="background-color:' + criticidadColor(s.criticidad) + '">' +
             s.criticidad + '</span></td></tr>';
     }).join('');
 }
@@ -1417,8 +1403,7 @@ function renderImpactoGraph(servicios) {
     });
 
     dominiosEnGrafo.forEach(dom => {
-        nodes.push({ id: 'dom-' + dom, label: dom, shape: 'ellipse',
-color: '#6366f1', font: { color: '#fff' } });
+        nodes.push({ id: 'dom-' + dom, label: dom, shape: 'ellipse', color: '#6366f1', font: { color: '#fff' } });
         edges.push({ from: 'osba', to: 'dom-' + dom });
     });
 
@@ -1493,13 +1478,9 @@ function showImpactoDetail(name) {
         .then(s => {
 
             document.getElementById("impactoModalName").innerText = s.name;
-            document.getElementById("impactoModalEndpoint").innerText
-= s.endpoint || '—';
-            document.getElementById("impactoModalDomains").innerText =
-                (s.domains && s.domains.length > 0) ?
-s.domains.join(', ') : 'Ninguno';
-            document.getElementById("impactoModalCantidad").innerText
-= s.cantidad;
+            document.getElementById("impactoModalEndpoint").innerText = s.endpoint || '—';
+            document.getElementById("impactoModalDomains").innerText = (s.domains && s.domains.length > 0) ? s.domains.join(', ') : 'Ninguno';
+            document.getElementById("impactoModalCantidad").innerText = s.cantidad;
             document.getElementById("impactoModalPct").innerText = s.pct;
 
             let badge = document.getElementById("impactoModalCriticidad");
@@ -1604,8 +1585,7 @@ function kpiCriticosClick() {
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    document.getElementById("tab-impacto-btn").addEventListener("shown.bs.tab",
-function () {
+    document.getElementById("tab-impacto-btn").addEventListener("shown.bs.tab", function () {
         if (!impactoLoaded) {
             impactoLoaded = true;
             loadImpactoDashboard();
@@ -1613,8 +1593,7 @@ function () {
         }
     });
 
-    document.getElementById("impactoDomainSelect").addEventListener("change",
-function () {
+    document.getElementById("impactoDomainSelect").addEventListener("change", function () {
         filterImpactoByDomain(this.value);
     });
 });
