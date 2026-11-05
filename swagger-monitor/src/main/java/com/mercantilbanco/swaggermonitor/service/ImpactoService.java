@@ -436,13 +436,11 @@ public class ImpactoService {
         long conCoincidencia = servicios.stream().filter(s -> s.getCantidad() > 0).count();
         long criticos = servicios.stream().filter(s -> "Crítica".equals(s.getCriticidad())).count();
         long altos = servicios.stream().filter(s -> "Alta".equals(s.getCriticidad())).count();
-        long spof = servicios.stream().filter(s -> s.getCantidad() == 1).count();
 
         dashboard.setTotalServiciosConCoincidencia((int) conCoincidencia);
         dashboard.setCoberturaPct(servicios.isEmpty() ? 0 : Math.round((conCoincidencia * 1000.0) / servicios.size()) / 10.0);
         dashboard.setServiciosCriticos((int) criticos);
         dashboard.setServiciosAltos((int) altos);
-        dashboard.setSpofDetectados((int) spof);
 
         return dashboard;
     }

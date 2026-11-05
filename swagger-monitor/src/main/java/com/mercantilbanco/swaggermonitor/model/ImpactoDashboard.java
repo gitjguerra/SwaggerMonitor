@@ -22,6 +22,5 @@ public class ImpactoDashboard {
     private double coberturaPct;
     private int serviciosCriticos;
     private int serviciosAltos;
-    private int spofDetectados;
     private boolean usandoDatosFallback;
 }

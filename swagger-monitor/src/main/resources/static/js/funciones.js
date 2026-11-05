@@ -544,9 +544,8 @@ function loadImpactoDashboard() {
             document.getElementById("kpiServicios").innerText = data.totalServiciosRestservices;
             document.getElementById("kpiDependencias").innerText = data.totalServiciosConCoincidencia;
             document.getElementById("kpiCriticos").innerText = (data.serviciosCriticos + data.serviciosAltos);
-            document.getElementById("kpiSpof").innerText = data.spofDetectados;
             document.getElementById("impactoCobertura").innerText =
-                "Cobertura por nombre: " + data.coberturaPct + "%";
+                "Cobertura (nombre y nombre de programa): " + data.coberturaPct + "%";
 
             document.getElementById("impactoFallbackAlert").style.display =
                 data.usandoDatosFallback ? "block" : "none";
