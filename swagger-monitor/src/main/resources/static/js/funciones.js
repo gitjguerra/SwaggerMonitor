@@ -708,34 +708,40 @@ function renderImpactoGraph(servicios) {
         });
     });
 
+    // Layout jerarquico en vez de fisica: las posiciones se calculan
+    // de forma determinista y sincrona (osba arriba, dominios en medio,
+    // servicios abajo), sin simulacion que vaya moviendo los nodos.
+    // Esto evita de raiz el bug por el que fit() se calculaba sobre
+    // posiciones iniciales (dispersas al azar) cuando el evento
+    // "stabilized" de la fisica no llegaba a disparar a tiempo,
+    // dejando la vista (zoom/paneo) desincronizada de donde realmente
+    // terminaban los nodos -- esto es lo que se veia como una franja
+    // en blanco tapando parte del grafo (p. ej. el nodo "osba" cortado
+    // a la mitad) y contenido que aparecia "fuera" del area visible al
+    // arrastrar.
     impactoNetwork = new vis.Network(container, { nodes: nodes, edges: edges }, {
-        physics: { stabilization: true },
+        physics: false,
+        layout: {
+            hierarchical: {
+                enabled: true,
+                direction: 'UD',
+                sortMethod: 'directed',
+                levelSeparation: 120,
+                nodeSpacing: 150
+            }
+        },
         interaction: { hover: true, navigationButtons: false, zoomView: true, dragView: true },
         nodes: { margin: 8 }
     });
 
-    // El buffer interno del <canvas> de vis-network puede quedar
-    // desincronizado del tamaño visible del contenedor (se ve una
-    // franja en blanco tapando parte del grafo, como si el dibujo
-    // real fuera mas chico que el área visible). Pasar '100%' deja
-    // que vis-network mida el contenedor por su cuenta (en vez de un
-    // valor en pixeles calculado de forma sincrona, que puede quedar
-    // obsoleto), y requestAnimationFrame difiere la llamada hasta
-    // que el navegador termine el layout del tab recien mostrado.
-    function ajustarTamanoGrafo() {
-        if (!impactoNetwork) return;
+    // Con layout jerarquico las posiciones ya estan calculadas de
+    // forma sincrona al crear la red, asi que no hace falta esperar
+    // ningun evento de estabilizacion: alcanza con diferir el fit()
+    // un frame para que el navegador termine el layout del tab.
+    requestAnimationFrame(function () {
         impactoNetwork.setSize('100%', '100%');
         impactoNetwork.redraw();
         impactoNetwork.fit();
-    }
-
-    requestAnimationFrame(ajustarTamanoGrafo);
-
-    impactoNetwork.once("stabilized", function () {
-        requestAnimationFrame(function () {
-            ajustarTamanoGrafo();
-            impactoNetwork.fit({ animation: true });
-        });
     });
 
     impactoNetwork.on('click', params => {
