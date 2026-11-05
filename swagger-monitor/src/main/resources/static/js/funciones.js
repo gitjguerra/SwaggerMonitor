@@ -710,8 +710,12 @@ function renderImpactoGraph(servicios) {
 
     impactoNetwork = new vis.Network(container, { nodes: nodes, edges: edges }, {
         physics: { stabilization: true },
-        interaction: { hover: true },
+        interaction: { hover: true, navigationButtons: false, zoomView: true, dragView: true },
         nodes: { margin: 8 }
+    });
+
+    impactoNetwork.once("stabilized", function () {
+        impactoNetwork.fit({ animation: true });
     });
 
     impactoNetwork.on('click', params => {
@@ -871,6 +875,97 @@ function showImpactoDetail(name) {
                 err
             );
         });
+}
+
+// ======================================================
+// ✅ MODAL LISTA GENERICA (KPIs)
+// ======================================================
+function showImpactoList(titulo, items, onItemClick) {
+
+    document.getElementById("impactoListModalTitle").innerText = titulo;
+
+    let body = document.getElementById("impactoListModalBody");
+    body.innerHTML = "";
+
+    if (!items || items.length === 0) {
+        body.innerHTML = '<li class="list-group-item text-muted">Sin elementos</li>';
+    } else {
+
+        items.forEach(function (item) {
+
+            let li = document.createElement("li");
+            li.className = "list-group-item d-flex justify-content-between align-items-center";
+            li.style.cursor = "pointer";
+            li.innerText = item.label;
+
+            if (item.badge) {
+                let badge = document.createElement("span");
+                badge.className = "badge";
+                badge.style.backgroundColor = item.badgeColor || "#6c757d";
+                badge.innerText = item.badge;
+                li.appendChild(badge);
+            }
+
+            li.addEventListener("click", function () {
+                bootstrap.Modal.getInstance(document.getElementById('impactoListModal')).hide();
+                if (onItemClick) onItemClick(item);
+            });
+
+            body.appendChild(li);
+        });
+    }
+
+    new bootstrap.Modal(document.getElementById('impactoListModal')).show();
+}
+
+function kpiDominiosClick() {
+
+    let items = impactoDominios.map(d => ({ label: d }));
+
+    showImpactoList("Dominios analizados (" + impactoDominios.length + ")", items, function (item) {
+        document.getElementById("impactoDomainSelect").value = item.label;
+        filterImpactoByDomain(item.label);
+    });
+}
+
+function kpiServiciosClick() {
+
+    let items = impactoAllServicios
+        .slice()
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map(s => ({
+            label: s.name,
+            badge: s.cantidad > 0 ? s.criticidad : null,
+            badgeColor: criticidadColor(s.criticidad)
+        }));
+
+    showImpactoList("Servicios totales (" + items.length + ")", items, function (item) {
+        showImpactoDetail(item.label);
+    });
+}
+
+function kpiDependenciasClick() {
+
+    let items = impactoAllServicios
+        .filter(s => s.cantidad > 0)
+        .sort((a, b) => b.pct - a.pct)
+        .map(s => ({ label: s.name, badge: s.criticidad, badgeColor: criticidadColor(s.criticidad) }));
+
+    showImpactoList("Dependencias identificadas (" + items.length + ")", items, function (item) {
+        showImpactoDetail(item.label);
+    });
+}
+
+function kpiCriticosClick() {
+
+    let items = impactoAllServicios
+        .filter(s => s.criticidad === 'Alta' || s.criticidad === 'Crítica')
+        .sort((a, b) => b.pct - a.pct)
+        .map(s => ({ label: s.name, badge: s.criticidad, badgeColor: criticidadColor(s.criticidad) }));
+
+    showImpactoList("Servicios críticos / altos (" + items.length + ")", items, function (item) {
+        showImpactoDetail(item.label);
+    });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
