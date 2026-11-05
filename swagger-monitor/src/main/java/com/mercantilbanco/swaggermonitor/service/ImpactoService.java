@@ -13,7 +13,9 @@ import java.util.Set;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -100,7 +102,10 @@ public class ImpactoService {
     // Servicios o directorios en el BM_HOME que deben ser excluidos
     @Value("#{'${impacto.dominios-excluidos:}'.split(',')}")
     private List<String> dominiosExcluidos;
-    
+
+    @Autowired
+    private Environment environment;
+
     //@Cacheable("impactoData")
     public ImpactoResult analizar() {
 
@@ -562,7 +567,6 @@ public class ImpactoService {
         ficha.setCobertura(
                 servicio.getCantidad() > 0 ? "100%" : "0%");
 
-        // Temporales
         ficha.setVersion("N/D");
         ficha.setDominio(
         	    servicio.getDomains().isEmpty()
@@ -575,10 +579,8 @@ public class ImpactoService {
         	    servicio.getDomains().size()
         	);
 
-        ficha.setJavaVersion("N/D");
-        ficha.setSpringBootVersion("N/D");
-        ficha.setArtifactId("N/D");
-        ficha.setPackaging("N/D");
+        String dominioPrincipal = servicio.getDomains().isEmpty() ? null : servicio.getDomains().get(0);
+        completarDatosTecnicos(ficha, dominioPrincipal);
 
         ficha.setSwaggerUrl(
                 "/swagger/" +
@@ -597,7 +599,157 @@ public class ImpactoService {
         }
 
         ficha.setConsume(consume);
-        
+
         return ficha;
+    }
+
+    /**
+     * Completa javaVersion/springBootVersion/artifactId/packaging (y
+     * version, si el pom la trae) leyendo el {@code pom.xml} real del
+     * microservicio dueño del dominio, cuya ruta se configura en
+     * application.yaml bajo {@code impacto.pom-paths.<Dominio>} (ver
+     * ejemplo comentado en el archivo). Si el dominio es null, no hay
+     * ruta configurada para él, o el archivo no se puede leer, deja
+     * "N/D" en los 4 campos sin lanzar error.
+     */
+    private void completarDatosTecnicos(ServiceFichaDTO ficha, String dominio) {
+
+        ficha.setJavaVersion("N/D");
+        ficha.setSpringBootVersion("N/D");
+        ficha.setArtifactId("N/D");
+        ficha.setPackaging("N/D");
+
+        if (dominio == null) {
+            return;
+        }
+
+        String pomPath = environment.getProperty("impacto.pom-paths." + dominio);
+
+        if (pomPath == null || pomPath.trim().isEmpty()) {
+            return;
+        }
+
+        File pomFile = new File(pomPath.trim());
+
+        if (!pomFile.isFile()) {
+            log.warn("⚠️ No se encontró el pom.xml configurado para el dominio {} en {}", dominio, pomPath);
+            return;
+        }
+
+        try {
+
+            PomInfo info = leerPom(pomFile);
+
+            if (info.artifactId != null) {
+                ficha.setArtifactId(info.artifactId);
+            }
+            if (info.packaging != null) {
+                ficha.setPackaging(info.packaging);
+            }
+            if (info.javaVersion != null) {
+                ficha.setJavaVersion(info.javaVersion);
+            }
+            if (info.springBootVersion != null) {
+                ficha.setSpringBootVersion(info.springBootVersion);
+            }
+            if (info.version != null) {
+                ficha.setVersion(info.version);
+            }
+
+        } catch (Exception e) {
+            log.error("❌ Error leyendo pom.xml del dominio {} ({})", dominio, pomPath, e);
+        }
+    }
+
+    private PomInfo leerPom(File pomFile) throws Exception {
+
+        Document doc = parseXml(pomFile);
+        Element root = doc.getDocumentElement();
+
+        PomInfo info = new PomInfo();
+
+        info.artifactId = textoHijoDirecto(root, "artifactId");
+        info.version = textoHijoDirecto(root, "version");
+        info.packaging = textoHijoDirecto(root, "packaging");
+
+        if (info.packaging == null || info.packaging.trim().isEmpty()) {
+            info.packaging = "jar";
+        }
+
+        Element parent = primerHijo(root, "parent");
+
+        if (parent != null) {
+
+            String parentArtifact = textoHijoDirecto(parent, "artifactId");
+
+            if (info.version == null) {
+                info.version = textoHijoDirecto(parent, "version");
+            }
+
+            if (parentArtifact != null && parentArtifact.toLowerCase().contains("spring-boot")) {
+                info.springBootVersion = textoHijoDirecto(parent, "version");
+            }
+        }
+
+        Element properties = primerHijo(root, "properties");
+
+        if (properties != null) {
+
+            info.javaVersion = textoHijoDirecto(properties, "java.version");
+
+            if (info.javaVersion == null) {
+                info.javaVersion = textoHijoDirecto(properties, "maven.compiler.source");
+            }
+        }
+
+        return info;
+    }
+
+    private Element primerHijo(Element padre, String tagName) {
+
+        NodeList hijos = padre.getChildNodes();
+
+        for (int i = 0; i < hijos.getLength(); i++) {
+
+            if (hijos.item(i) instanceof Element) {
+
+                Element el = (Element) hijos.item(i);
+
+                if (tagName.equals(el.getTagName())) {
+                    return el;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    private String textoHijoDirecto(Element padre, String tagName) {
+
+        Element hijo = primerHijo(padre, tagName);
+
+        if (hijo == null) {
+            return null;
+        }
+
+        String texto = hijo.getTextContent();
+
+        return (texto == null || texto.trim().isEmpty()) ? null : texto.trim();
+    }
+
+    /**
+     * Datos leídos directamente de un pom.xml ({@link #leerPom(File)}),
+     * mirando solo los hijos directos de {@code <project>} (no usa
+     * {@code getElementsByTagName} sobre todo el documento para no
+     * confundirse con, por ejemplo, el {@code <version>} de una
+     * dependencia).
+     */
+    private static final class PomInfo {
+
+        private String artifactId;
+        private String version;
+        private String packaging;
+        private String javaVersion;
+        private String springBootVersion;
     }
 }

@@ -8,3 +8,16 @@ spring:
 # excluye). Lista separada por comas.
 impacto:
   dominios-excluidos: swagger-generator,swagger-monitor
+
+  # Ruta al pom.xml del microservicio dueno de cada dominio, para
+  # completar la "Informacion Tecnica" de la ficha tecnica (Java,
+  # Spring Boot, artifactId, packaging). La clave debe ser el nombre
+  # de dominio EXACTO tal como aparece en la pestana Impacto/
+  # Dependencias (ej. "Persona", "Pagos" - con mayuscula inicial).
+  # Si un dominio no tiene ruta configurada, o el archivo no existe,
+  # esos campos quedan en "N/D" sin romper nada.
+  #
+  # Ejemplo (descomentar y ajustar la ruta real por cada dominio):
+  # pom-paths:
+  #   Persona: C:/Developer/api-persona/pom.xml
+  #   Pagos: C:/Developer/api-pagos/pom.xml
