@@ -607,39 +607,208 @@ style="margin: 10px; display: none;">
 </div>
 
 
-<!-- MODAL DETALLE SERVICIO (IMPACTO) -->
+<!-- ====================================================== -->
+<!-- FICHA TECNICA DEL SERVICIO -->
+<!-- ====================================================== -->
 <div class="modal fade" id="impactoModal" tabindex="-1">
-<div class="modal-dialog modal-lg">
-<div class="modal-content">
 
-<div class="modal-header">
-<h5 id="impactoModalName">Servicio</h5>
-<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-</div>
+    <div class="modal-dialog modal-xl">
 
-<div class="modal-body">
+        <div class="modal-content">
 
-<p>
-<strong>Endpoint:</strong> <span id="impactoModalEndpoint"></span>
-</p>
-<p>
-<strong>Dominios dependientes:</strong> <span id="impactoModalDomains"></span>
-</p>
-<p>
-<strong>Cantidad de dominios:</strong> <span id="impactoModalCantidad"></span>
-</p>
-<p>
-<strong>% Afectación:</strong> <span id="impactoModalPct"></span>%
-</p>
-<p>
-<strong>Criticidad:</strong> <span id="impactoModalCriticidad"
-class="badge"></span>
-</p>
+            <div class="modal-header bg-primary text-white">
 
-</div>
+                <h5 id="impactoModalName" class="modal-title">
+                    Ficha Técnica
+                </h5>
 
-</div>
-</div>
+                <button
+                        type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div class="card mb-3">
+
+                    <div class="card-header fw-bold">
+                        Información General
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <strong>Servicio</strong><br>
+                                <span id="fichaServicio">-</span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <strong>Versión</strong><br>
+                                <span id="fichaVersion">-</span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <strong>Dominio</strong><br>
+                                <span id="fichaDominio">-</span>
+                            </div>
+
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+
+                            <div class="col-md-3">
+                                <strong>Endpoints</strong><br>
+                                <span id="fichaEndpoints">-</span>
+                            </div>
+
+                            <div class="col-md-3">
+                                <strong>Consumidores</strong><br>
+                                <span id="fichaConsumidores">-</span>
+                            </div>
+
+                            <div class="col-md-3">
+                                <strong>Dependencias</strong><br>
+                                <span id="fichaDependencias">-</span>
+                            </div>
+
+                            <div class="col-md-3">
+                                <strong>Criticidad</strong><br>
+                                <span id="fichaCriticidad" class="badge"></span>
+                            </div>
+
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <strong>Impacto</strong><br>
+                                <span id="fichaImpacto">-</span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <strong>Cobertura</strong><br>
+                                <span id="fichaCobertura">-</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="card mb-3">
+
+                    <div class="card-header fw-bold">
+                        Información Técnica
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="row">
+
+                            <div class="col-md-3">
+                                <strong>Java</strong><br>
+                                <span id="fichaJava">-</span>
+                            </div>
+
+                            <div class="col-md-3">
+                                <strong>Spring Boot</strong><br>
+                                <span id="fichaSpring">-</span>
+                            </div>
+
+                            <div class="col-md-3">
+                                <strong>ArtifactId</strong><br>
+                                <span id="fichaArtifact">-</span>
+                            </div>
+
+                            <div class="col-md-3">
+                                <strong>Packaging</strong><br>
+                                <span id="fichaPackaging">-</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="card mb-3">
+
+                    <div class="card-header fw-bold">
+                        Swagger
+                    </div>
+
+                    <div class="card-body">
+
+                        <strong>URL Swagger</strong><br>
+
+                        <code id="fichaSwaggerUrl">
+                            -
+                        </code>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <div class="card">
+
+                            <div class="card-header fw-bold text-danger">
+                                Dependencias
+                            </div>
+
+                            <div class="card-body">
+
+                                <ul id="fichaDependenciasList"
+                                    class="list-group">
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="card">
+
+                            <div class="card-header fw-bold text-success">
+                                Dominios Impactados
+                            </div>
+
+                            <div class="card-body">
+
+                                <ul id="fichaImpactadosList"
+                                    class="list-group">
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 
 
@@ -1481,26 +1650,127 @@ function renderImpactoGraph(servicios) {
 
 function showImpactoDetail(name) {
 
-    fetch(api('/api/impacto/servicio/') + encodeURIComponent(name))
+    fetch(api('/api/impacto/ficha/') + encodeURIComponent(name))
         .then(res => {
-            if (!res.ok) throw new Error('No encontrado');
+
+            if (!res.ok) {
+                throw new Error('Ficha no encontrada');
+            }
+
             return res.json();
         })
-        .then(s => {
+        .then(ficha => {
 
-            document.getElementById("impactoModalName").innerText = s.name;
-            document.getElementById("impactoModalEndpoint").innerText = s.endpoint || '—';
-            document.getElementById("impactoModalDomains").innerText = (s.domains && s.domains.length > 0) ? s.domains.join(', ') : 'Ninguno';
-            document.getElementById("impactoModalCantidad").innerText = s.cantidad;
-            document.getElementById("impactoModalPct").innerText = s.pct;
+            document.getElementById("impactoModalName").innerText =
+                ficha.servicio || "-";
 
-            let badge = document.getElementById("impactoModalCriticidad");
-            badge.innerText = s.criticidad;
-            badge.style.backgroundColor = criticidadColor(s.criticidad);
+            document.getElementById("fichaServicio").innerText =
+                ficha.servicio || "-";
 
-            new bootstrap.Modal(document.getElementById('impactoModal')).show();
+            document.getElementById("fichaVersion").innerText =
+                ficha.version || "-";
+
+            document.getElementById("fichaDominio").innerText =
+                ficha.dominio || "-";
+
+            document.getElementById("fichaEndpoints").innerText =
+                ficha.endpoints || 0;
+
+            document.getElementById("fichaConsumidores").innerText =
+                ficha.consumidores || 0;
+
+            document.getElementById("fichaDependencias").innerText =
+                ficha.dependencias || 0;
+
+            document.getElementById("fichaImpacto").innerText =
+                (ficha.impactoPct || 0) + "%";
+
+            document.getElementById("fichaCobertura").innerText =
+                ficha.cobertura || "-";
+
+            document.getElementById("fichaJava").innerText =
+                ficha.javaVersion || "-";
+
+            document.getElementById("fichaSpring").innerText =
+                ficha.springBootVersion || "-";
+
+            document.getElementById("fichaArtifact").innerText =
+                ficha.artifactId || "-";
+
+            document.getElementById("fichaPackaging").innerText =
+                ficha.packaging || "-";
+
+            document.getElementById("fichaSwaggerUrl").innerText =
+                ficha.swaggerUrl || "-";
+
+            let criticidad =
+                document.getElementById("fichaCriticidad");
+
+            criticidad.innerText =
+                ficha.criticidad || "-";
+
+            criticidad.style.backgroundColor =
+                criticidadColor(ficha.criticidad);
+
+            criticidad.style.color = "#fff";
+
+            let deps =
+                document.getElementById("fichaDependenciasList");
+
+            deps.innerHTML = "";
+
+            if (!ficha.consume || ficha.consume.length === 0) {
+
+                deps.innerHTML =
+                    '<li class="list-group-item text-muted">Sin dependencias</li>';
+
+            } else {
+
+                ficha.consume.forEach(dep => {
+
+                    deps.innerHTML +=
+                        `<li class="list-group-item">${dep}</li>`;
+
+                });
+            }
+
+            let impactados =
+                document.getElementById("fichaImpactadosList");
+
+            impactados.innerHTML = "";
+
+            if (!ficha.impactados ||
+                ficha.impactados.length === 0) {
+
+                impactados.innerHTML =
+                    '<li class="list-group-item text-muted">Sin dominios impactados</li>';
+
+            } else {
+
+                ficha.impactados.forEach(dom => {
+
+                    impactados.innerHTML +=
+                        `<li class="list-group-item">${dom}</li>`;
+
+                });
+            }
+
+            new bootstrap.Modal(
+                document.getElementById("impactoModal")
+            ).show();
+
         })
-        .catch(err => console.error("Error cargando detalle de servicio:", err));
+        .catch(err => {
+
+            console.error(
+                "Error cargando ficha técnica:",
+                err
+            );
+
+            alert(
+                "Error cargando ficha técnica. Revise la consola."
+            );
+        });
 }
 
 // ======================================================

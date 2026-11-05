@@ -22,6 +22,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mercantilbanco.swaggermonitor.model.DomainImpact;
 import com.mercantilbanco.swaggermonitor.model.ImpactoDashboard;
+import com.mercantilbanco.swaggermonitor.model.ServiceFichaDTO;
 import com.mercantilbanco.swaggermonitor.model.ServiceImpact;
 
 
@@ -82,8 +83,7 @@ caracteres.</li>
 @Service
 public class ImpactoService {
 
-    private static final Logger log =
-LogManager.getLogger(ImpactoService.class);
+    private static final Logger log = LogManager.getLogger(ImpactoService.class);
 
     private static final String MICROSERVICIO = "osba";
     private static final String APPL_DIR = "appl";
@@ -161,8 +161,7 @@ LogManager.getLogger(ImpactoService.class);
     // =========================================================
     // ✅ ANÁLISIS DESDE FILESYSTEM (BM_HOME real)
     // =========================================================
-    private ImpactoResult analizarDesdeFilesystem(File applDir, File
-restservicesFile) throws Exception {
+    private ImpactoResult analizarDesdeFilesystem(File applDir, File restservicesFile) throws Exception {
 
         Map<String, DomainIndex> dominioIndex = new LinkedHashMap<>();
 
@@ -540,5 +539,65 @@ restservicesFile) throws Exception {
         private void incrementarTotalServicios() {
             totalServicios++;
         }
+    }
+    
+    public ServiceFichaDTO getFichaTecnica(String nombre) {
+
+        ServiceImpact servicio = getServicio(nombre);
+
+        if (servicio == null) {
+            return null;
+        }
+
+        ServiceFichaDTO ficha = new ServiceFichaDTO();
+
+        ficha.setServicio(servicio.getName());
+
+        ficha.setImpactoPct(servicio.getPct());
+
+        ficha.setCriticidad(servicio.getCriticidad());
+
+        ficha.setDependencias(servicio.getCantidad());
+
+        ficha.setCobertura(
+                servicio.getCantidad() > 0 ? "100%" : "0%");
+
+        // Temporales
+        ficha.setVersion("N/D");
+        ficha.setDominio(
+        	    servicio.getDomains().isEmpty()
+        	        ? "N/D"
+        	        : String.join(", ", servicio.getDomains())
+        	);
+
+        ficha.setEndpoints(0);
+    	ficha.setConsumidores(
+        	    servicio.getDomains().size()
+        	);
+
+        ficha.setJavaVersion("N/D");
+        ficha.setSpringBootVersion("N/D");
+        ficha.setArtifactId("N/D");
+        ficha.setPackaging("N/D");
+
+        ficha.setSwaggerUrl(
+                "/swagger/" +
+                servicio.getName().toUpperCase() +
+                ".json");
+
+        ficha.setImpactados(
+                new ArrayList<>(servicio.getDomains()));
+
+        List<String> consume = new ArrayList<>();
+
+        if (servicio.getEndpoint() != null &&
+            !servicio.getEndpoint().trim().isEmpty()) {
+
+            consume.add(servicio.getEndpoint());
+        }
+
+        ficha.setConsume(consume);
+        
+        return ficha;
     }
 }

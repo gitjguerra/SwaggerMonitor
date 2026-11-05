@@ -17,6 +17,7 @@
     <artifactId>swagger-monitor</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <!-- <packaging>war</packaging> -->
 
     <properties>
         <java.version>1.8</java.version>
@@ -55,11 +56,11 @@
         </dependency>
 		-->
 
-		<!-- TOMCAT PROVIDED PARA JAR -->
+		<!-- TOMCAT PROVIDED PARA JAR --> 
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-tomcat</artifactId>
-		</dependency>
+		</dependency>		
 
         <!-- THYMELEAF -->
         <dependency>
