@@ -680,27 +680,38 @@ function renderImpactoGraph(servicios) {
 
     let conImpacto = servicios.filter(s => s.cantidad > 0);
 
-    let nodes = [{ id: 'osba', label: 'osba', shape: 'box', color: '#0b4ea2', font: { color: '#fff' } }];
+    let nodes = [{ id: 'osba', label: 'osba', shape: 'box', color: '#0b4ea2', font: { color: '#fff' }, x: 0, y: -220, fixed: false }];
     let edges = [];
-    let dominiosEnGrafo = new Set();
+    let dominiosEnGrafo = Array.from(new Set(
+        conImpacto.flatMap(s => s.domains || [])
+    ));
 
-    conImpacto.forEach(s => {
-        (s.domains || []).forEach(dom => dominiosEnGrafo.add(dom));
-    });
+    const ESPACIADO_DOMINIO = 220;
+    const ESPACIADO_SERVICIO = 160;
 
-    dominiosEnGrafo.forEach(dom => {
-        nodes.push({ id: 'dom-' + dom, label: dom, shape: 'ellipse', color: '#6366f1', font: { color: '#fff' } });
+    dominiosEnGrafo.forEach((dom, idx) => {
+
+        let x = (idx - (dominiosEnGrafo.length - 1) / 2) * ESPACIADO_DOMINIO;
+
+        nodes.push({
+            id: 'dom-' + dom, label: dom, shape: 'ellipse', color: '#6366f1', font: { color: '#fff' },
+            x: x, y: 0, fixed: false
+        });
+
         edges.push({ from: 'osba', to: 'dom-' + dom });
     });
 
-    conImpacto.forEach(s => {
+    conImpacto.forEach((s, idx) => {
+
+        let x = (idx - (conImpacto.length - 1) / 2) * ESPACIADO_SERVICIO;
 
         nodes.push({
             id: 'srv-' + s.name,
             label: s.name,
             shape: 'box',
             color: criticidadColor(s.criticidad),
-            font: { color: '#fff', size: 11 }
+            font: { color: '#fff', size: 11 },
+            x: x, y: 220, fixed: false
         });
 
         (s.domains || []).forEach(dom => {
@@ -708,29 +719,17 @@ function renderImpactoGraph(servicios) {
         });
     });
 
-    // Layout jerarquico en vez de fisica: las posiciones se calculan
-    // de forma determinista y sincrona (osba arriba, dominios en medio,
-    // servicios abajo), sin simulacion que vaya moviendo los nodos.
-    // Esto evita de raiz el bug por el que fit() se calculaba sobre
-    // posiciones iniciales (dispersas al azar) cuando el evento
-    // "stabilized" de la fisica no llegaba a disparar a tiempo,
-    // dejando la vista (zoom/paneo) desincronizada de donde realmente
-    // terminaban los nodos -- esto es lo que se veia como una franja
-    // en blanco tapando parte del grafo (p. ej. el nodo "osba" cortado
-    // a la mitad) y contenido que aparecia "fuera" del area visible al
-    // arrastrar.
+    // Se calculan las posiciones iniciales a mano (osba arriba,
+    // dominios en medio, servicios abajo) en vez de usar un layout
+    // jerarquico: ese modo bloquea cada nodo a su nivel vertical,
+    // permitiendo arrastrar solo de lado a lado. Con posiciones
+    // propias + physics:false, los nodos quedan libres para moverse
+    // en cualquier direccion (como antes), sin el problema original
+    // de fit() calculandose sobre posiciones que la fisica todavia
+    // iba a mover.
     impactoNetwork = new vis.Network(container, { nodes: nodes, edges: edges }, {
         physics: false,
-        layout: {
-            hierarchical: {
-                enabled: true,
-                direction: 'UD',
-                sortMethod: 'directed',
-                levelSeparation: 120,
-                nodeSpacing: 150
-            }
-        },
-        interaction: { hover: true, navigationButtons: false, zoomView: true, dragView: true },
+        interaction: { hover: true, navigationButtons: false, zoomView: true, dragView: true, dragNodes: true },
         nodes: { margin: 8 }
     });
 
