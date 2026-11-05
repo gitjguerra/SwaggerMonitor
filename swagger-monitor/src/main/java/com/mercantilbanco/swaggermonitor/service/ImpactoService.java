@@ -13,7 +13,9 @@ import java.util.Set;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -22,6 +24,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mercantilbanco.swaggermonitor.model.DomainImpact;
 import com.mercantilbanco.swaggermonitor.model.ImpactoDashboard;
+import com.mercantilbanco.swaggermonitor.model.ServiceFichaDTO;
 import com.mercantilbanco.swaggermonitor.model.ServiceImpact;
 
 
@@ -82,8 +85,7 @@ caracteres.</li>
 @Service
 public class ImpactoService {
 
-    private static final Logger log =
-LogManager.getLogger(ImpactoService.class);
+    private static final Logger log = LogManager.getLogger(ImpactoService.class);
 
     private static final String MICROSERVICIO = "osba";
     private static final String APPL_DIR = "appl";
@@ -100,7 +102,10 @@ LogManager.getLogger(ImpactoService.class);
     // Servicios o directorios en el BM_HOME que deben ser excluidos
     @Value("#{'${impacto.dominios-excluidos:}'.split(',')}")
     private List<String> dominiosExcluidos;
-    
+
+    @Autowired
+    private Environment environment;
+
     //@Cacheable("impactoData")
     public ImpactoResult analizar() {
 
@@ -161,8 +166,7 @@ LogManager.getLogger(ImpactoService.class);
     // =========================================================
     // ✅ ANÁLISIS DESDE FILESYSTEM (BM_HOME real)
     // =========================================================
-    private ImpactoResult analizarDesdeFilesystem(File applDir, File
-restservicesFile) throws Exception {
+    private ImpactoResult analizarDesdeFilesystem(File applDir, File restservicesFile) throws Exception {
 
         Map<String, DomainIndex> dominioIndex = new LinkedHashMap<>();
 
@@ -540,5 +544,296 @@ restservicesFile) throws Exception {
         private void incrementarTotalServicios() {
             totalServicios++;
         }
+    }
+    
+    public ServiceFichaDTO getFichaTecnica(String nombre) {
+
+        ServiceImpact servicio = getServicio(nombre);
+
+        if (servicio == null) {
+            return null;
+        }
+
+        ServiceFichaDTO ficha = new ServiceFichaDTO();
+
+        ficha.setServicio(servicio.getName());
+
+        ficha.setImpactoPct(servicio.getPct());
+
+        ficha.setCriticidad(servicio.getCriticidad());
+
+        ficha.setDependencias(servicio.getCantidad());
+
+        ficha.setCobertura(
+                servicio.getCantidad() > 0 ? "100%" : "0%");
+
+        ficha.setVersion("N/D");
+        ficha.setDominio(
+        	    servicio.getDomains().isEmpty()
+        	        ? "N/D"
+        	        : String.join(", ", servicio.getDomains())
+        	);
+
+        ficha.setEndpoints(0);
+    	ficha.setConsumidores(
+        	    servicio.getDomains().size()
+        	);
+
+        String dominioPrincipal = servicio.getDomains().isEmpty() ? null : servicio.getDomains().get(0);
+        completarDatosTecnicos(ficha, dominioPrincipal);
+
+        ficha.setSwaggerUrl(
+                "/swagger/" +
+                servicio.getName().toUpperCase() +
+                ".json");
+
+        ficha.setImpactados(
+                new ArrayList<>(servicio.getDomains()));
+
+        List<String> consume = new ArrayList<>();
+
+        if (servicio.getEndpoint() != null &&
+            !servicio.getEndpoint().trim().isEmpty()) {
+
+            consume.add(servicio.getEndpoint());
+        }
+
+        ficha.setConsume(consume);
+
+        return ficha;
+    }
+
+    /**
+     * Completa javaVersion/springBootVersion/artifactId/packaging (y
+     * version, si se encuentra) leyendo el artefacto real del
+     * microservicio dueño del dominio, cuya ruta se configura en
+     * application.yaml bajo {@code impacto.pom-paths.<Dominio>} (ver
+     * ejemplo comentado en el archivo). La ruta puede apuntar a un
+     * {@code pom.xml} suelto (si hay acceso a fuentes) o, el caso más
+     * común en un servidor sin fuentes, directamente a un {@code .jar}
+     * o {@code .war} ya compilado: en ese caso se lee el {@code pom.xml}
+     * que Maven embebe por defecto en
+     * {@code META-INF/maven/<groupId>/<artifactId>/pom.xml} dentro del
+     * propio archivo, y además {@code META-INF/MANIFEST.MF} (de donde
+     * se toma {@code Spring-Boot-Version} si el jar es un ejecutable de
+     * Spring Boot, más confiable que inferirla del {@code <parent>}).
+     * Si el dominio es null, no hay ruta configurada para él, o el
+     * archivo no se puede leer, deja "N/D" en los 4 campos sin lanzar
+     * error.
+     */
+    private void completarDatosTecnicos(ServiceFichaDTO ficha, String dominio) {
+
+        ficha.setJavaVersion("N/D");
+        ficha.setSpringBootVersion("N/D");
+        ficha.setArtifactId("N/D");
+        ficha.setPackaging("N/D");
+
+        if (dominio == null) {
+            return;
+        }
+
+        String rutaConfigurada = environment.getProperty("impacto.pom-paths." + dominio);
+
+        if (rutaConfigurada == null || rutaConfigurada.trim().isEmpty()) {
+            return;
+        }
+
+        File archivo = new File(rutaConfigurada.trim());
+
+        if (!archivo.isFile()) {
+            log.warn("⚠️ No se encontró el pom.xml/jar/war configurado para el dominio {} en {}", dominio, rutaConfigurada);
+            return;
+        }
+
+        try {
+
+            String nombreArchivo = archivo.getName().toLowerCase();
+            boolean esArchivoComprimido = nombreArchivo.endsWith(".jar") || nombreArchivo.endsWith(".war");
+
+            PomInfo info = esArchivoComprimido ? leerPomDesdeArchivoComprimido(archivo) : leerPom(archivo);
+
+            if (info.artifactId != null) {
+                ficha.setArtifactId(info.artifactId);
+            }
+            if (info.packaging != null) {
+                ficha.setPackaging(info.packaging);
+            }
+            if (info.javaVersion != null) {
+                ficha.setJavaVersion(info.javaVersion);
+            }
+            if (info.springBootVersion != null) {
+                ficha.setSpringBootVersion(info.springBootVersion);
+            }
+            if (info.version != null) {
+                ficha.setVersion(info.version);
+            }
+
+        } catch (Exception e) {
+            log.error("❌ Error leyendo datos tecnicos del dominio {} ({})", dominio, rutaConfigurada, e);
+        }
+    }
+
+    private PomInfo leerPom(File pomFile) throws Exception {
+
+        Document doc = parseXml(pomFile);
+        return extraerPomInfo(doc.getDocumentElement());
+    }
+
+    /**
+     * Busca dentro del jar/war la entrada
+     * {@code META-INF/maven/<groupId>/<artifactId>/pom.xml} que Maven
+     * embebe por defecto (sin recorrer los jars de dependencias
+     * anidados en BOOT-INF/lib o WEB-INF/lib, que son archivos aparte,
+     * no entradas de este zip), y complementa/corrige el resultado con
+     * {@code META-INF/MANIFEST.MF} cuando está disponible.
+     */
+    private PomInfo leerPomDesdeArchivoComprimido(File archivo) throws Exception {
+
+        PomInfo info = null;
+        String springBootVersionManifest = null;
+        String implementationVersionManifest = null;
+
+        try (java.util.zip.ZipFile zip = new java.util.zip.ZipFile(archivo)) {
+
+            java.util.zip.ZipEntry pomEntry = null;
+            java.util.zip.ZipEntry manifestEntry = null;
+
+            java.util.Enumeration<? extends java.util.zip.ZipEntry> entradas = zip.entries();
+
+            while (entradas.hasMoreElements()) {
+
+                java.util.zip.ZipEntry entrada = entradas.nextElement();
+                String nombre = entrada.getName();
+
+                if (pomEntry == null && nombre.startsWith("META-INF/maven/") && nombre.endsWith("/pom.xml")) {
+                    pomEntry = entrada;
+                }
+
+                if ("META-INF/MANIFEST.MF".equals(nombre)) {
+                    manifestEntry = entrada;
+                }
+            }
+
+            if (pomEntry != null) {
+                try (InputStream is = zip.getInputStream(pomEntry)) {
+                    Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(is);
+                    info = extraerPomInfo(doc.getDocumentElement());
+                }
+            }
+
+            if (manifestEntry != null) {
+                try (InputStream is = zip.getInputStream(manifestEntry)) {
+
+                    java.util.jar.Manifest manifest = new java.util.jar.Manifest(is);
+                    java.util.jar.Attributes attrs = manifest.getMainAttributes();
+
+                    springBootVersionManifest = attrs.getValue("Spring-Boot-Version");
+                    implementationVersionManifest = attrs.getValue("Implementation-Version");
+                }
+            }
+        }
+
+        if (info == null) {
+            info = new PomInfo();
+        }
+
+        if (springBootVersionManifest != null) {
+            info.springBootVersion = springBootVersionManifest;
+        }
+
+        if (info.version == null && implementationVersionManifest != null) {
+            info.version = implementationVersionManifest;
+        }
+
+        return info;
+    }
+
+    private PomInfo extraerPomInfo(Element root) {
+
+        PomInfo info = new PomInfo();
+
+        info.artifactId = textoHijoDirecto(root, "artifactId");
+        info.version = textoHijoDirecto(root, "version");
+        info.packaging = textoHijoDirecto(root, "packaging");
+
+        if (info.packaging == null || info.packaging.trim().isEmpty()) {
+            info.packaging = "jar";
+        }
+
+        Element parent = primerHijo(root, "parent");
+
+        if (parent != null) {
+
+            String parentArtifact = textoHijoDirecto(parent, "artifactId");
+
+            if (info.version == null) {
+                info.version = textoHijoDirecto(parent, "version");
+            }
+
+            if (parentArtifact != null && parentArtifact.toLowerCase().contains("spring-boot")) {
+                info.springBootVersion = textoHijoDirecto(parent, "version");
+            }
+        }
+
+        Element properties = primerHijo(root, "properties");
+
+        if (properties != null) {
+
+            info.javaVersion = textoHijoDirecto(properties, "java.version");
+
+            if (info.javaVersion == null) {
+                info.javaVersion = textoHijoDirecto(properties, "maven.compiler.source");
+            }
+        }
+
+        return info;
+    }
+
+    private Element primerHijo(Element padre, String tagName) {
+
+        NodeList hijos = padre.getChildNodes();
+
+        for (int i = 0; i < hijos.getLength(); i++) {
+
+            if (hijos.item(i) instanceof Element) {
+
+                Element el = (Element) hijos.item(i);
+
+                if (tagName.equals(el.getTagName())) {
+                    return el;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    private String textoHijoDirecto(Element padre, String tagName) {
+
+        Element hijo = primerHijo(padre, tagName);
+
+        if (hijo == null) {
+            return null;
+        }
+
+        String texto = hijo.getTextContent();
+
+        return (texto == null || texto.trim().isEmpty()) ? null : texto.trim();
+    }
+
+    /**
+     * Datos leídos directamente de un pom.xml ({@link #leerPom(File)}),
+     * mirando solo los hijos directos de {@code <project>} (no usa
+     * {@code getElementsByTagName} sobre todo el documento para no
+     * confundirse con, por ejemplo, el {@code <version>} de una
+     * dependencia).
+     */
+    private static final class PomInfo {
+
+        private String artifactId;
+        private String version;
+        private String packaging;
+        private String javaVersion;
+        private String springBootVersion;
     }
 }
