@@ -831,8 +831,9 @@ function showImpactoDetail(name) {
             // ============================
             // SWAGGER
             // ============================
-            document.getElementById("fichaSwaggerUrl").innerText =
-                ficha.swaggerUrl || "-";
+            let swaggerLink = document.getElementById("fichaSwaggerUrl");
+            swaggerLink.innerText = ficha.swaggerUrl || "-";
+            swaggerLink.href = ficha.swaggerUrl || "#";
 
             // ============================
             // DEPENDENCIAS
