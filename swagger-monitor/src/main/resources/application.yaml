@@ -9,15 +9,18 @@ spring:
 impacto:
   dominios-excluidos: swagger-generator,swagger-monitor
 
-  # Ruta al pom.xml del microservicio dueno de cada dominio, para
+  # Ruta al artefacto del microservicio dueno de cada dominio, para
   # completar la "Informacion Tecnica" de la ficha tecnica (Java,
-  # Spring Boot, artifactId, packaging). La clave debe ser el nombre
-  # de dominio EXACTO tal como aparece en la pestana Impacto/
-  # Dependencias (ej. "Persona", "Pagos" - con mayuscula inicial).
-  # Si un dominio no tiene ruta configurada, o el archivo no existe,
-  # esos campos quedan en "N/D" sin romper nada.
+  # Spring Boot, artifactId, packaging). Puede ser un pom.xml suelto
+  # (si hay acceso a fuentes) o, el caso mas comun en un servidor sin
+  # fuentes, el .jar o .war ya compilado: ahi se lee el pom.xml y el
+  # MANIFEST.MF que Maven/Spring Boot embeben dentro del artefacto.
+  # La clave debe ser el nombre de dominio EXACTO tal como aparece en
+  # la pestana Impacto/Dependencias (ej. "Persona", "Pagos" - con
+  # mayuscula inicial). Si un dominio no tiene ruta configurada, o el
+  # archivo no existe, esos campos quedan en "N/D" sin romper nada.
   #
   # Ejemplo (descomentar y ajustar la ruta real por cada dominio):
   # pom-paths:
-  #   Persona: C:/Developer/api-persona/pom.xml
-  #   Pagos: C:/Developer/api-pagos/pom.xml
+  #   Persona: C:/deploy/api-persona/api-persona-1.3.0.jar
+  #   Pagos: C:/deploy/api-pagos/api-pagos.war
