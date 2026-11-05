@@ -275,6 +275,12 @@
 		border-radius: 8px;
 	}
 
+	/* Oculta los controles de navegacion de vis-network (flechas/zoom)
+	   que tapaban parte del grafo, sin depender de la config JS */
+	#impactoGraph .vis-navigation {
+		display: none !important;
+	}
+
 	.nav-tabs {
 		margin: 10px 10px 0 10px;
 	}
