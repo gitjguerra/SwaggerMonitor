@@ -406,7 +406,7 @@ function loadSwaggerUI(apiName) {
 	
     const swaggerUrl =
         window.location.origin +
-        "/swagger-monitor/swagger/" +
+        "/swagger/" +
         apiName +
         ".json";
 
