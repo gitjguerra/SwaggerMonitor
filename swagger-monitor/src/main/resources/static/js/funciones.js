@@ -829,13 +829,6 @@ function showImpactoDetail(name) {
                 ficha.packaging || "-";
 
             // ============================
-            // SWAGGER
-            // ============================
-            let swaggerLink = document.getElementById("fichaSwaggerUrl");
-            swaggerLink.innerText = ficha.swaggerUrl || "-";
-            swaggerLink.href = ficha.swaggerUrl || "#";
-
-            // ============================
             // DEPENDENCIAS
             // ============================
             let deps =

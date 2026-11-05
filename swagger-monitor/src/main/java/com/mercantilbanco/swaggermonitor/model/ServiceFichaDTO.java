@@ -33,9 +33,6 @@ public class ServiceFichaDTO {
     private String artifactId;
     private String packaging;
 
-    // Swagger
-    private String swaggerUrl;
-
     // Relaciones
     private List<String> consume = new ArrayList<>();
     private List<String> impactados = new ArrayList<>();

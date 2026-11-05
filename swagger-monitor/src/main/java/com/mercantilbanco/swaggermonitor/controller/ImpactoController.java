@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.mercantilbanco.swaggermonitor.model.DomainImpact;
 import com.mercantilbanco.swaggermonitor.model.ImpactoDashboard;
 import com.mercantilbanco.swaggermonitor.model.ServiceFichaDTO;
@@ -59,11 +58,6 @@ public class ImpactoController {
 
         if (ficha == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-
-        if (ficha.getSwaggerUrl() != null) {
-            String baseUrl = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString();
-            ficha.setSwaggerUrl(baseUrl + ficha.getSwaggerUrl());
         }
 
         return ResponseEntity.ok(ficha);

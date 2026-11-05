@@ -580,8 +580,6 @@ public class ImpactoService {
         String dominioPrincipal = servicio.getDomains().isEmpty() ? null : servicio.getDomains().get(0);
         completarDatosTecnicos(ficha, dominioPrincipal);
 
-        ficha.setSwaggerUrl(resolverSwaggerUrl());
-
         ficha.setImpactados(
                 new ArrayList<>(servicio.getDomains()));
 
@@ -596,49 +594,6 @@ public class ImpactoService {
         ficha.setConsume(consume);
 
         return ficha;
-    }
-
-    /**
-     * Busca, en la misma carpeta {@code pathSwaggerOutput} que usa el
-     * botón "Ver documentación de los Microservicios Zconnect" de la
-     * pestaña Monitoreo (y el endpoint {@code /api/swagger/files}),
-     * el archivo cuyo nombre (sin extensión, sin distinguir
-     * mayúsculas) coincide con el microservicio analizado
-     * ({@value #MICROSERVICIO}). Devuelve la ruta relativa real de
-     * ese archivo ({@code /swagger/<NOMBRE-REAL>.json}, con el
-     * nombre tal como está en disco) o null si {@code pathSwaggerOutput}
-     * no está configurado o no se encuentra el archivo.
-     */
-    private String resolverSwaggerUrl() {
-
-        String swaggerDir = System.getProperty("pathSwaggerOutput");
-
-        if (swaggerDir == null || swaggerDir.trim().isEmpty()) {
-            return null;
-        }
-
-        File carpeta = new File(swaggerDir.trim());
-
-        if (!carpeta.isDirectory()) {
-            return null;
-        }
-
-        File[] archivos = carpeta.listFiles();
-
-        if (archivos == null) {
-            return null;
-        }
-
-        String nombreBuscado = MICROSERVICIO + ".json";
-
-        for (File archivo : archivos) {
-
-            if (archivo.getName().equalsIgnoreCase(nombreBuscado)) {
-                return "/swagger/" + archivo.getName();
-            }
-        }
-
-        return null;
     }
 
     /**
