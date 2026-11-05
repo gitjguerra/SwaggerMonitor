@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
@@ -7,1882 +8,525 @@
 
 <title>Monitor</title>
 
-<link rel="stylesheet" th:href="@{/swagger-ui/swagger-ui.css}">
+	<link rel="stylesheet" th:href="@{/swagger-ui/swagger-ui.css}">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<style>
-/* HEADER */
-.header {
-background-color: #0b4ea2;
-color: white;
-padding: 12px 20px;
-display: flex;
-align-items: center;
-height: 60px;
-}
-
-.header img {
-height: 40px;
-margin-right: 10px;
-}
-
-.header h5 {
-margin: 0;
-}
-
-body {
-background-color: #eef2f7;
-}
-
-/* CARD */
-.card {
-margin: 5px 0;
-border-radius: 10px;
-border: none;
-background: white;
-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
-padding: 8px; /* ⬅️ menos padding */
-transition: 0.2s;
-font-size: 12px; /* ⬅️ texto más pequeño */
-}
-
-.card:hover {
-transform: translateY(-2px);
-}
-
-.card-warning {
-border-left: 4px solid #facc15;
-}
-
-.card button {
-pointer-events: auto;
-z-index: 2;
-}
-
-/* ESTADO */
-.status-up {
-color: #28a745;
-font-size: 22px;
-}
-
-.status-down {
-color: #dc3545;
-font-size: 22px;
-}
-
-.status-label {
-font-size: 11px;
-}
-
-.status-warning {
-color: #facc15;
-font-size: 26px;
-}
-
-.env-title {
-color: #0b4ea2;
-font-weight: 600;
-margin-top: 25px;
-}
-
-.small-text {
-font-size: 10px;
-}
-
-/* ALERTA VISUAL SI CAE */
-.down-alert {
-   border: 2px solid #dc3545;
-   background-color: #ffe5e5;
-   animation: blink 0.8s infinite;
-}
-
-@keyframes blink { 0% {
-background: #fff;
-}
-
-50%
-{
-background:#ffe5e5;
-}
-100%
-{
-background:#fff;
-}
-}
-
-/* BADGES */
-.badge {
-font-size: 13px;
-}
-
-/* TABLA HISTORICA */
-.table {
-color: #e5e7eb;
-}
-
-/* DASHBOARD GRID */
-.dashboard {
-display: grid;
-grid-template-columns: 1fr 1fr;
-grid-auto-rows: minmax(250px, auto);
-gap: 10px;
-padding: 10px;
-}
-
-/* PANEL */
-.panel {
-background: white;
-border-radius: 12px;
-padding: 12px;
-border: 1px solid #d1d5db; /* ✅ borde visible */
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* ✅ sombra */
-overflow-y: auto;
-overflow-x: hidden;
-}
-/* TITULO */
-.panel-title {
-font-weight: bold;
-color: #0b4ea2;
-border-bottom: 2px solid #e5e7eb; /* ✅ separador */
-padding-bottom: 5px;
-margin-bottom: 10px;
-}
-
-.panel-servers {
-grid-column: 1;
-grid-row: 1;
-}
-
-/* GRÁFICA (arriba derecha) */
-.panel:nth-of-type(2) {
-grid-column: 2;
-grid-row: 1;
-}
-/* LOGS (abajo izquierda) */
-.panel:nth-of-type(3) {
-grid-column: 1;
-grid-row: 2;
-}
-/* ALERTAS (abajo derecha) */
-.panel:nth-of-type(4) {
-grid-column: 2;
-grid-row: 2;
-}
-
-/* TIMELINE */
-.timeline {
-position: relative;
-padding-left: 30px;
-}
-
-.timeline::before {
-content: '';
-position: absolute;
-left: 10px;
-top: 0;
-bottom: 0;
-width: 2px;
-background: #d1d5db;
-}
-
-/* ITEM */
-.timeline-item {
-animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {from { opacity:0;
-transform: translateY(5px);
-}
-
-to {
-opacity: 1;
-transform: translateY(0);
-}
-
-}
-
-/* DOT */
-.timeline-dot {
-position: absolute;
-left: -1px;
-top: 5px;
-width: 20px;
-height: 20px;
-border-radius: 50%;
-}
-
-/* COLORS */
-.dot-danger {
-background: #dc3545;
-} /* rojo */
-.dot-warning {
-background: #facc15;
-} /* amarillo */
-.dot-success {
-background: #28a745;
-} /* verde */
-
-/* CONTENIDO */
-.timeline-content {
-padding-left: 15px;
-}
-
-#responseChart {
-   max-height: 250px;
-}
-
-.server-grid {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-gap: 8px;
-}
-
-#swaggerFrame {
-height: 400px;
-}
-
-.highlight {
-animation: highlightFlash 1s ease;
-}
-
-@keyframes highlightFlash { 0% {
-background-color: #fff3cd;
-}
-100%
-{
-background-color:white;
-}
-}
-
-.swagger-ui {
-   color-scheme: light;
-}
-
-.vis-navigation {
-   transform: scale(0.70);
-   transform-origin: bottom left;
-}
-
-</style>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
-
-<style>
-    /* =====================================================
-     * IMPACTO / DEPENDENCIAS
-     * ===================================================== */
-
-    .kpi-card .kpi-value {
-        font-size: 26px;
-        font-weight: bold;
-        color: #0b4ea2;
-    }
-
-    .kpi-card .kpi-label {
-        font-size: 11px;
-        color: #6b7280;
-    }
-
-    .heat-baja {
-        background-color: #d4edda !important;
-    }
-
-    .heat-media {
-        background-color: #fff3cd !important;
-    }
-
-    .heat-alta,
-    .heat-critica {
-        background-color: #f8d7da !important;
-    }
-
-    /* =====================================================
-     * GRAFO DE DEPENDENCIAS
-     * ===================================================== */
-
-    #impactoGraph {
-        height: 600px;
-        border: 1px solid #d1d5db;
-        border-radius: 8px;
-    }
-
-    .nav-tabs {
-        margin: 10px 10px 0 10px;
-    }
-
-</style>
+	<link rel="stylesheet" href="/styles.css">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
 
 </head>
 
 <body>
 
-<!-- HEADER -->
-
-<div class="header d-flex align-items-center px-3">
-
-<img th:src="@{/images/mercantil.png}" alt="Servidores"
-style="height: 40px;" />
-
-<!-- ✅ NUEVO -->
-<button class="btn btn-light btn-sm" onclick="openSwaggerPanel()">
-📘 Ver documentación de los Microservicios Zconnect</button>
-
-</div>
-
-
-<!-- ✅ PESTAÑAS -->
-<ul class="nav nav-tabs" id="mainTabs" role="tablist">
-<li class="nav-item" role="presentation">
-<button class="nav-link active" id="tab-monitoreo-btn" data-bs-toggle="tab"
-data-bs-target="#tab-monitoreo" type="button" role="tab">Monitoreo</button>
-</li>
-<li class="nav-item" role="presentation">
-<button class="nav-link" id="tab-impacto-btn" data-bs-toggle="tab"
-data-bs-target="#tab-impacto" type="button" role="tab">Impacto /
-Dependencias</button>
-</li>
-</ul>
-
-<div class="tab-content">
-<div class="tab-pane fade show active" id="tab-monitoreo" role="tabpanel">
-
-<div class="dashboard">
-
-<!-- ✅ IZQUIERDA -->
-<div class="panel panel-servers">
-<h5 class="panel-title">Servidores</h5>
-
-<div class="container-fluid">
-
-<div th:each="env : ${data}">
-<h6 class="env-title" th:text="${env.key}"></h6>
-
-<div class="server-grid">
-
-<div th:each="srv : ${env.value}">
-
-<div class="card text-center"
-    th:attr="onclick=|showDetails('${srv.name}', '${srv.host}',
-'${srv.port}', '${srv.up}', '${srv.responseTime}', '${srv.error}')|,
-             id=|card-${srv.name}|"
-
-style="cursor: pointer;">
-
-<h6 th:text="${srv.name}"></h6>
-
-<p class="small-text" th:text="${srv.host} + ':' + ${srv.port}">
-</p>
-
-<div
-th:classappend="
-       ${srv.up} ?
-           (${srv.responseTime > 1000} ? 'status-warning' : 'status-up')
-           : 'status-down'
-   ">
-<span
-th:text="
-           ${srv.up} ?
-               (${srv.responseTime > 1000} ? '🟡' : '🟢')
-               : '🔴'
-       "></span>
-</div>
-
-<div class="status-label mt-1"
-th:text="
-            ${srv.up} ?
-                (${srv.responseTime > 1000} ? 'LENTO' : 'UP')
-                : 'DOWN'
-        ">
-</div>
-
-<div class="small-text"
-th:text="'Tiempo: ' + ${srv.responseTime} + ' ms'"></div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<!-- ✅ cerrar -->
-</div>
-
-<!-- ✅ DERECHA ARRIBA -->
-<div class="panel">
-<h5 class="panel-title">Gráficas</h5>
-<div class="mb-2">
-<select id="serverSelect" class="form-select form-select-sm"
-multiple></select>
-</div>
-<canvas id="responseChart"></canvas>
-</div>
-
-<!-- ✅ DERECHA MEDIO -->
-<div class="panel">
-<h5 class="panel-title">Logs / Eventos</h5>
-<div id="eventsContainer" class="timeline"></div>
-</div>
-
-<!-- ✅ DERECHA ABAJO -->
-<div class="panel">
-<h5 class="panel-title">Alertas</h5>
-<div id="alertsContainer"></div>
-</div>
-
-</div>
-
-</div>
-<!-- /tab-monitoreo -->
-
-<div class="tab-pane fade" id="tab-impacto" role="tabpanel">
-
-<div class="container-fluid" style="padding: 10px;">
-
-<div id="impactoFallbackAlert" class="alert alert-warning small-text"
-style="display:none;">
-⚠️ BM_HOME no está configurado o no se encontró
-<code>appl/osba/config/restservices.xml</code>;
-mostrando el último análisis de respaldo embebido.
-</div>
-
-<!-- ✅ KPIs -->
-<div class="row g-2 mb-2">
-<div class="col">
-<div class="card text-center kpi-card" style="cursor:pointer" onclick="kpiDominiosClick()">
-<div class="kpi-value" id="kpiDominios">-</div>
-<div class="kpi-label">Dominios analizados</div>
-</div>
-</div>
-<div class="col">
-<div class="card text-center kpi-card" style="cursor:pointer" onclick="kpiServiciosClick()">
-<div class="kpi-value" id="kpiServicios">-</div>
-<div class="kpi-label">Servicios totales (restservices)</div>
-</div>
-</div>
-<div class="col">
-<div class="card text-center kpi-card" style="cursor:pointer" onclick="kpiDependenciasClick()">
-<div class="kpi-value" id="kpiDependencias">-</div>
-<div class="kpi-label">Dependencias identificadas</div>
-</div>
-</div>
-<div class="col">
-<div class="card text-center kpi-card" style="cursor:pointer" onclick="kpiCriticosClick()">
-<div class="kpi-value" id="kpiCriticos">-</div>
-<div class="kpi-label">Servicios críticos / altos</div>
-</div>
-</div>
-
-  <!-- <div class="col">
-<div class="card text-center kpi-card">
-<div class="kpi-value" id="kpiSpof">-</div>
-<div class="kpi-label">Posibles SPOF</div>
-</div>
-</div> -->
-
-</div>
-
-<!-- ✅ SELECTOR DE DOMINIO -->
-<div class="mb-2 d-flex align-items-center gap-2">
-<label class="small-text mb-0">Vista por dominio:</label>
-<select id="impactoDomainSelect" class="form-select form-select-sm"
-style="max-width: 280px;">
-<option value="">Todos los dominios</option>
-</select>
-<span class="small-text text-muted" id="impactoCobertura"></span>
-</div>
-
-<div class="row g-2">
-
-<!-- ✅ RANKING -->
-<div class="col-md-6">
-<div class="panel" style="height: 360px;">
-<h5 class="panel-title">Ranking de Impacto</h5>
-<canvas id="impactoRankingChart"></canvas>
-</div>
-</div>
-
-<!-- ✅ MATRIZ -->
-<div class="col-md-6">
-<div class="panel" style="height: 360px;">
-<h5 class="panel-title">Matriz de Impacto (servicio × dominio)</h5>
-<div style="overflow: auto; max-height: 290px;">
-<table class="table table-sm table-bordered" style="color:#111;">
-<thead id="impactoMatrixHead"></thead>
-<tbody id="impactoMatrixBody"></tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-
-<!-- ✅ GRAFO -->
-<div class="row g-2 mt-2">
-<div class="col-12">
-<div class="panel">
-<h5 class="panel-title">Grafo de Dependencias</h5>
-<div id="impactoGraph"></div>
-</div>
-</div>
-</div>
-
-</div>
-
-</div>
-<!-- /tab-impacto -->
-
-</div>
-<!-- /tab-content -->
-
-
-<!-- ✅ Swagger -->
-<div id="swaggerPanel" class="panel"
-style="margin: 10px; display: none;">
-
-<select id="apiSelect" class="form-select mb-2"></select>
-
-<div id="swaggerUI" style="height: 600px;"></div>
-
-</div>
-
-<!-- MODAL -->
-<div class="modal fade" id="detailModal" tabindex="-1">
-<div class="modal-dialog modal-lg">
-<div class="modal-content">
-
-<div class="modal-header">
-<h5 id="modalName">Servidor</h5>
-<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-</div>
-
-<div class="modal-body">
-
-<p>
-<strong>Host:</strong> <span id="modalHost"></span>
-</p>
-<p>
-<strong>Puerto:</strong> <span id="modalPort"></span>
-</p>
-<p>
-<strong>Estado:</strong> <span id="modalStatus" class="badge"></span>
-</p>
-<p>
-<strong>Tiempo:</strong> <span id="modalTime"></span> ms
-</p>
-
-<hr>
-
-<p>
-<strong>Uptime:</strong> <span id="modalUptime"></span>
-</p>
-<p>
-<strong>Tiempo caído:</strong> <span id="modalDownTime"></span>
-</p>
-<p>
-<strong>Error:</strong> <span id="modalError"></span>
-</p>
-
-<hr>
-
-<h6>Histórico</h6>
-
-<table class="table table-sm">
-<thead>
-<tr>
-<th>Hora</th>
-<th>Estado</th>
-<th>Tiempo</th>
-</tr>
-</thead>
-<tbody id="historyTable"></tbody>
-</table>
-
-</div>
-
-</div>
-</div>
-</div>
-
-
-<!-- ====================================================== -->
-<!-- FICHA TECNICA DEL SERVICIO -->
-<!-- ====================================================== -->
-<div class="modal fade" id="impactoModal" tabindex="-1">
-
-    <div class="modal-dialog modal-xl">
-
-        <div class="modal-content">
-
-            <div class="modal-header bg-primary text-white">
-
-                <h5 id="impactoModalName" class="modal-title">
-                    Ficha Técnica
-                </h5>
-
-                <button
-                        type="button"
-                        class="btn-close btn-close-white"
-                        data-bs-dismiss="modal">
-                </button>
-
-            </div>
-
-            <div class="modal-body">
-
-                <div class="card mb-3">
-
-                    <div class="card-header fw-bold">
-                        Información General
-                    </div>
-
-                    <div class="card-body">
-
-                        <div class="row">
-
-                            <div class="col-md-4">
-                                <strong>Servicio</strong><br>
-                                <span id="fichaServicio">-</span>
-                            </div>
-
-                            <div class="col-md-4">
-                                <strong>Versión</strong><br>
-                                <span id="fichaVersion">-</span>
-                            </div>
-
-                            <div class="col-md-4">
-                                <strong>Dominio</strong><br>
-                                <span id="fichaDominio">-</span>
-                            </div>
-
-                        </div>
-
-                        <hr>
-
-                        <div class="row">
-
-                            <div class="col-md-3">
-                                <strong>Endpoints</strong><br>
-                                <span id="fichaEndpoints">-</span>
-                            </div>
-
-                            <div class="col-md-3">
-                                <strong>Consumidores</strong><br>
-                                <span id="fichaConsumidores">-</span>
-                            </div>
-
-                            <div class="col-md-3">
-                                <strong>Dependencias</strong><br>
-                                <span id="fichaDependencias">-</span>
-                            </div>
-
-                            <div class="col-md-3">
-                                <strong>Criticidad</strong><br>
-                                <span id="fichaCriticidad" class="badge"></span>
-                            </div>
-
-                        </div>
-
-                        <hr>
-
-                        <div class="row">
-
-                            <div class="col-md-6">
-                                <strong>Impacto</strong><br>
-                                <span id="fichaImpacto">-</span>
-                            </div>
-
-                            <div class="col-md-6">
-                                <strong>Cobertura</strong><br>
-                                <span id="fichaCobertura">-</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="card mb-3">
-
-                    <div class="card-header fw-bold">
-                        Información Técnica
-                    </div>
-
-                    <div class="card-body">
-
-                        <div class="row">
-
-                            <div class="col-md-3">
-                                <strong>Java</strong><br>
-                                <span id="fichaJava">-</span>
-                            </div>
-
-                            <div class="col-md-3">
-                                <strong>Spring Boot</strong><br>
-                                <span id="fichaSpring">-</span>
-                            </div>
-
-                            <div class="col-md-3">
-                                <strong>ArtifactId</strong><br>
-                                <span id="fichaArtifact">-</span>
-                            </div>
-
-                            <div class="col-md-3">
-                                <strong>Packaging</strong><br>
-                                <span id="fichaPackaging">-</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="card mb-3">
-
-                    <div class="card-header fw-bold">
-                        Swagger
-                    </div>
-
-                    <div class="card-body">
-
-                        <strong>URL Swagger</strong><br>
-
-                        <code id="fichaSwaggerUrl">
-                            -
-                        </code>
-
-                    </div>
-
-                </div>
-
-                <div class="row">
-
-                    <div class="col-md-6">
-
-                        <div class="card">
-
-                            <div class="card-header fw-bold text-danger">
-                                Dependencias
-                            </div>
-
-                            <div class="card-body">
-
-                                <ul id="fichaDependenciasList"
-                                    class="list-group">
-                                </ul>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-6">
-
-                        <div class="card">
-
-                            <div class="card-header fw-bold text-success">
-                                Dominios Impactados
-                            </div>
-
-                            <div class="card-body">
-
-                                <ul id="fichaImpactadosList"
-                                    class="list-group">
-                                </ul>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- MODAL LISTA GENERICA (KPIs IMPACTO) -->
-<div class="modal fade" id="impactoListModal" tabindex="-1">
-<div class="modal-dialog modal-dialog-scrollable">
-<div class="modal-content">
-
-<div class="modal-header">
-<h5 id="impactoListModalTitle">Lista</h5>
-<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-</div>
-
-<div class="modal-body">
-<ul class="list-group" id="impactoListModalBody"></ul>
-</div>
-
-</div>
-</div>
-</div>
-
-
-<!-- Bootstrap JS -->
-<script
-src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- JS -->
-<script>
-
-//======================================================
-//CONTEXTO DINÁMICO
-//======================================================
-
-const BASE_PATH = window.location.pathname.startsWith('/swagger-monitor')
- ? '/swagger-monitor'
- : '';
-
-function api(path) {
- return BASE_PATH + path;
-}
-
-// ======================================================
-// ✅ MODAL DETALLE SERVIDOR
-// ======================================================
-window.showDetails = function(name, host, port, up, time, error) {
-
-    document.getElementById("modalName").innerText = name;
-    document.getElementById("modalHost").innerText = host;
-    document.getElementById("modalPort").innerText = port;
-    document.getElementById("modalTime").innerText = time;
-    document.getElementById("modalError").innerText = error ? error : "Sin error";
-
-    let statusElement = document.getElementById("modalStatus");
-
-    if (up === 'true') {
-        if (time > 1000) {
-            statusElement.innerText = 'LENTO';
-            statusElement.className = 'badge bg-warning';
-        } else {
-            statusElement.innerText = 'ACTIVO';
-            statusElement.className = 'badge bg-success';
-        }
-    } else {
-        statusElement.innerText = 'INACTIVO';
-        statusElement.className = 'badge bg-danger';
-    }
-
-    // ✅ MÉTRICAS
-    fetch(api('/api/metrics/') + name)
-        .then(res => res.json())
-        .then(data => {
-            if (data.uptime >= 99.9) {
-                document.getElementById("modalUptime").innerText = "100% (estable)";
-            } else if (data.uptime === 0) {
-                document.getElementById("modalUptime").innerText = "0% (caído)";
-            } else {
-                document.getElementById("modalUptime").innerText =
-                    data.uptime.toFixed(2) + "%";
-            }
-
-            document.getElementById("modalDownTime").innerText = data.downtime;
-        });
-
-    // ✅ HISTÓRICO
-    fetch(api('/api/history/') + name)
-        .then(res => res.json())
-        .then(data => {
-
-            let table = document.getElementById("historyTable");
-            table.innerHTML = "";
-
-            data.slice(-10).reverse().forEach(h => {
-
-                let d = new Date(h.timestamp);
-                let time = isNaN(d) ? h.timestamp : d.toLocaleTimeString();
-
-                table.innerHTML += `
-                    <tr>
-                        <td>${time}</td>
-                        <td>
-                            <span class="badge ${h.up ? 'bg-success' :
-'bg-danger'}">
-                                ${h.up ? 'UP' : 'DOWN'}
-                            </span>
-                        </td>
-                        <td>${h.responseTime} ms</td>
-                    </tr>
-                `;
-            });
-        });
-
-    new bootstrap.Modal(document.getElementById('detailModal')).show();
-};
-
-// ======================================================
-// ✅ ALERTAS
-// ======================================================
-function loadAlerts() {
-
-	fetch(api('/api/alerts'))
-        .then(res => res.json())
-        .then(data => {
-
-            let container = document.getElementById("alertsContainer");
-            container.innerHTML = "";
-
-            if (data.length === 0) {
-                container.innerHTML = "<p class='text-success'>✅ Sin alertas</p>";
-                return;
-            }
-
-            data.forEach(alert => {
-
-                let color = "secondary";
-                if (alert.level === "DOWN") color = "danger";
-                if (alert.level === "SLOW") color = "warning";
-                if (alert.level === "ERROR") color = "dark";
-
-                let time = new Date(alert.timestamp).toLocaleTimeString();
-
-                container.innerHTML += `
-                    <div class="card mb-2 border-${color}">
-                        <div class="card-body p-2">
-                            <strong>${alert.server}</strong>
-                            <span class="badge bg-${color}">${alert.level}</span>
-                            <div class="small-text">${alert.message}</div>
-                            <div class="small-text">${time}</div>
-                        </div>
-                    </div>
-                `;
-            });
-        });
-}
-
-// ======================================================
-// ✅ EVENTOS (TIMELINE)
-// ======================================================
-function loadEvents() {
-
-    fetch(api('/api/events'))
-        .then(res => res.json())
-        .then(data => {
-
-            let container = document.getElementById("eventsContainer");
-            container.innerHTML = "";
-
-            if (data.length === 0) {
-                container.innerHTML = "<p>Sin eventos</p>";
-                return;
-            }
-
-            data.slice(-15).reverse().forEach(e => {
-
-                let colorClass = "dot-secondary";
-                let icon = "ℹ️";
-
-                if (e.type === "DOWN") {
-                    colorClass = "dot-danger";
-                    icon = "🔴";
-                } else if (e.type === "SLOW") {
-                    colorClass = "dot-warning";
-                    icon = "🟡";
-                } else if (e.type === "RECOVER") {
-                    colorClass = "dot-success";
-                    icon = "✅";
-                }
-
-                let time = new Date(e.time).toLocaleTimeString();
-
-                container.innerHTML += `
-                    <div class="timeline-item">
-                        <div class="timeline-dot ${colorClass}"></div>
-                        <div class="timeline-content">
-                            <strong>${icon} ${e.server}</strong>
-                            <div class="small-text">${e.message}</div>
-                            <div class="small-text">${time}</div>
-                        </div>
-                    </div>
-                `;
-            });
-        });
-}
-
-// ======================================================
-// ✅ GRÁFICA MULTI SERVIDOR
-// ======================================================
-
-let chart = null;
-let historyData = {};   // ✅ persistente
-const MAX_POINTS = 20;
-
-// 🎨 paleta fija de colores
-const COLORS = [
-   "#3b82f6", // azul
-   "#ef4444", // rojo
-   "#10b981", // verde
-   "#f59e0b", // naranja
-   "#8b5cf6", // morado
-   "#14b8a6", // teal
-   "#e11d48", // rosado
-   "#6366f1", // índigo
-   "#84cc16", // lima
-   "#f97316"  // naranja fuerte
-];
-
-function loadChartMulti() {
-
-   const select = document.getElementById("serverSelect");
-   const selected = Array.from(select.selectedOptions).map(o => o.value);
-
-   if (selected.length === 0) return;
-
-   Promise.all(
-       selected.map(name =>
-           fetch(api('/api/chart/') + name).then(r => r.json())
-       )
-   )
-   .then(results => {
-
-       const ctx = document.getElementById("responseChart");
-
-       if (chart) chart.destroy();
-
-       let labels = [];
-       let datasets = [];
-
-       results.forEach((res, idx) => {
-
-           const name = selected[idx];
-
-           if (!historyData[name]) {
-               historyData[name] = [];
-           }
-
-           let value = 0;
-
-           if (res.values && res.values.length > 0) {
-               value = res.values[res.values.length - 1];
-           }
-
-           const base = idx * 2;   // 👈 altura del carril
-
-           const isDown = value >= 1700;
-           const isSlow = value > 1000 && value < 1700;
-
-           let scaledValue;
-
-           if (isDown) {
-               scaledValue = base;          // 🔴 abajo
-           } else if (isSlow) {
-               scaledValue = base + 0.5;    // 🟡 medio
-           } else {
-               scaledValue = base + 1;      // 🟢 arriba
-           }
-
-           historyData[name].push(scaledValue);
-
-           // mantener tamaño fijo
-           if (historyData[name].length > MAX_POINTS) {
-               historyData[name].shift();
-           }
-
-           // eje X simple (0..n)
-           labels = historyData[name].map((_, i) => i);
-
-           let color = COLORS[idx % COLORS.length];
-
-           datasets.push({
-               label: name,
-               data: historyData[name],
-               borderColor: color,
-               fill: false,
-               tension: 0.2,
-               pointRadius: 2
-           });
-
-       });
-
-       chart = new Chart(ctx, {
-           type: 'line',
-           data: {
-               labels: labels,
-               datasets: datasets
-           },
-           options: {
-               animation: false,
-               responsive: true,
-               maintainAspectRatio: false,
-               scales: {
-                y: {
-                   min: 0,
-                   max: selected.length * 2,
-                   ticks: {
-                       stepSize: 1,
-                       callback: function(value) {
-
-                           const index = Math.floor(value / 2);
-
-                           if (index >= selected.length) return "";
-
-                           const serverName = selected[index];
-
-                           return value % 2 === 1
-                               ? serverName + " ↑"   // UP
-                               : serverName + " ↓";  // DOWN
-                       }
-                   },
-                   grid: {   // ✅ fuera de ticks
-                       color: ctx => {
-                           return ctx.tick.value % 2 === 0
-                               ? "#e5e7eb"
-                               : "#ffffff";
-                       }
-                   }
-                }
-               }
-           }
-       });
-
-   })
-   .catch(err => console.error("Chart error", err));
-}
-
-// ======================================================
-// ✅ SELECTOR SERVIDORES
-// ======================================================
-function loadServerSelector() {
-
-    fetch(api('/api/servers'), { cache: "no-store" })
-        .then(res => res.json())
-        .then(data => {
-
-            let select = document.getElementById("serverSelect");
-            select.innerHTML = "";
-
-            data.forEach(name => {
-                let option = document.createElement("option");
-                option.value = name;
-                option.textContent = name;
-                select.appendChild(option);
-            });
-
-            // seleccionar por defecto
-            for (let i = 0; i < Math.min(2, select.options.length); i++) {
-                select.options[i].selected = true;
-            }
-
-            loadChartMulti();
-        });
-}
-
-// ======================================================
-// ✅ DASHBOARD REFRESH
-// ======================================================
-function refreshDashboard() {
-    location.reload();   // 🔥 fuerza actualización total
-}
-
-
-// ======================================================
-// ✅ INIT
-// ======================================================
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    loadServerSelector();
-
-    // ✅ ✅ ESTA ES LA SOLUCIÓN
-    loadEvents();
-    loadAlerts();
-
-    // ✅ REFRESH AUTOMÁTICO (recomendado)
-    setInterval(loadEvents, 5000);
-    setInterval(loadAlerts, 5000);
-    setInterval(loadChartMulti, 5000);
-    setInterval(updateCards, 5000);
-
-    document.getElementById("serverSelect")
-        .addEventListener("change", loadChartMulti);
-
-});
-
-
-//======================================================
-//✅ SWAGGER
-//======================================================
-async function openSwaggerPanel() {
-
-    const panel = document.getElementById("swaggerPanel");
-    panel.style.display = "block";
-
-    let select = document.getElementById("apiSelect");
-    select.innerHTML = "";
-
-    // ✅ cargar dinámicamente
-    const swaggerApis = await loadSwaggerApis();
-
-    if (swaggerApis.length === 0) {
-        select.innerHTML = "<option>No hay archivos</option>";
-        return;
-    }
-
-    swaggerApis.forEach(api => {
-        let opt = document.createElement("option");
-        opt.value = api;
-        opt.textContent = api.toUpperCase();
-        select.appendChild(opt);
-    });
-
-    select.onchange = function () {
-        loadSwaggerUI(this.value);
-    };
-
-    // ✅ cargar primero automáticamente
-    loadSwaggerUI(swaggerApis[0]);
-
-    panel.scrollIntoView({ behavior: "smooth" });
-}
-
-
-function loadSwaggerUI(apiName) {
-
-    localStorage.removeItem("swagger-ui-theme");
-    localStorage.setItem("swagger-ui-theme", "light");
-
-    const noCache = () => `ts=${Date.now()}&r=${Math.random()}`;
-
-    // ✅ limpiar contenedor (correcto)
-    document.getElementById("swaggerUI").innerHTML = "";
-
-    // ✅ crear instancia correctamente
-    const ui = SwaggerUIBundle({
-
-    	url: api(`/swagger/${apiName}.json`) + '?' + noCache(),
-        configUrl: null,
-
-        dom_id: '#swaggerUI',
-
-        requestInterceptor: (req) => {
-            req.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate';
-            req.headers['Pragma'] = 'no-cache';
-            req.headers['Expires'] = '0';
-            return req;
-        },
-
-        deepLinking: true,
-        displayRequestDuration: true,
-        showExtensions: true,
-        showCommonExtensions: true,
-
-        supportedSubmitMethods: [],
-
-        presets: [
-            SwaggerUIBundle.presets.apis,
-            SwaggerUIStandalonePreset
-        ],
-
-        layout: "StandaloneLayout"
-    });
-
-    // ✅ OPCIONAL: reforzar recarga (AHORA SÍ correcto)
-    setTimeout(() => {
-        try {
-            ui.getSystem().specActions.updateUrl(api(`/swagger/${apiName}.json?` + noCache()));
-            ui.getSystem().specActions.download();
-        } catch (e) {
-            console.warn("Swagger reload fallback:", e);
-        }
-    }, 100);
-
-    // ✅ logo (lo dejas igual)
-    setTimeout(() => {
-
-        const topbar = document.querySelector(".swagger-ui .topbar");
-
-        if (topbar) {
-
-            const logoContainer = document.createElement("div");
-
-            logoContainer.style.display = "flex";
-            logoContainer.style.alignItems = "center";
-            logoContainer.style.marginRight = "20px";
-
-            logoContainer.innerHTML = `
-            	<img src="${api('/images/mercantil.png')}"
-                     style="height:30px; margin-right:10px;" />
-                <span style="color:white; font-weight:bold;">
-                    BANCO MERCANTIL API EXPLORER
-                </span>
-                <br><br>
-            `;
-
-            topbar.insertBefore(logoContainer, topbar.firstChild);
-            topbar.style.backgroundColor = "#0b4ea2";
-        }
-
-    }, 300);
-}
-
-
-
-
-async function loadSwaggerApis() {
-
-    try {
-    const res = await fetch(api('/api/swagger/files'), { cache: "no-store" });
-        const data = await res.json();
-
-        console.log("📘 swaggerApis RAW:", data);
-
-        // ✅ FIX CRÍTICO
-        if (!Array.isArray(data)) {
-            console.error("❌ No es array:", data);
-            return [];
-        }
-
-        return data;
-
-    } catch (e) {
-        console.error("Error cargando APIs:", e);
-        return [];
-    }
-}
-
-
-function updateCards() {
-
-    fetch(api('/api/servers/status')) // 🔥 endpoint ligero
-        .then(res => res.json())
-        .then(data => {
-
-            data.forEach(srv => {
-
-                let card = document.getElementById("card-" + srv.name);
-                if (!card) return;
-
-                // ✅ eliminar clases previas
-                card.classList.remove("card-up", "card-down",
-"card-warning", "down-alert");
-
-                // ✅ aplicar estado nuevo
-                if (!srv.up) {
-                    card.classList.add("card-down", "down-alert");
-                } else if (srv.responseTime > 1000) {
-                    card.classList.add("card-warning");
-                } else {
-                    card.classList.add("card-up");
-                }
-
-                // ✅ actualizar tiempo
-                let timeText = card.querySelector(".small-text:last-child");
-                if (timeText) {
-                    timeText.innerText = "Tiempo: " + srv.responseTime + " ms";
-                }
-
-                // ✅ actualizar icono
-                let icon = card.querySelector("span");
-                if (icon) {
-                    if (!srv.up) icon.innerText = "🔴";
-                    else if (srv.responseTime > 1000) icon.innerText = "🟡";
-                    else icon.innerText = "🟢";
-                }
-
-                // ✅ actualizar estado texto
-                let statusLabel = card.querySelector(".status-label");
-                if (statusLabel) {
-                    if (!srv.up) statusLabel.innerText = "DOWN";
-                    else if (srv.responseTime > 1000) statusLabel.innerText = "LENTO";
-                    else statusLabel.innerText = "UP";
-                }
-
-            });
-
-        })
-        .catch(err => console.error("Error cards:", err));
-}
-
-
-// ======================================================
-// ✅ IMPACTO / DEPENDENCIAS
-// ======================================================
-let impactoLoaded = false;
-let impactoRankingChart = null;
-let impactoNetwork = null;
-let impactoAllServicios = [];
-let impactoDominios = [];
-
-function criticidadColor(criticidad) {
-    if (criticidad === 'Crítica') return '#dc3545';
-    if (criticidad === 'Alta') return '#fd7e14';
-    if (criticidad === 'Media') return '#ffc107';
-    return '#28a745';
-}
-
-function criticidadHeatClass(criticidad) {
-    if (criticidad === 'Crítica' || criticidad === 'Alta') return 'heat-alta';
-    if (criticidad === 'Media') return 'heat-media';
-    return 'heat-baja';
-}
-
-function loadImpactoDashboard() {
-
-    fetch(api('/api/impacto/dashboard'))
-        .then(res => res.json())
-        .then(data => {
-
-            document.getElementById("kpiDominios").innerText = data.totalDominiosAnalizados;
-            document.getElementById("kpiServicios").innerText = data.totalServiciosRestservices;
-            document.getElementById("kpiDependencias").innerText = data.totalServiciosConCoincidencia;
-            document.getElementById("kpiCriticos").innerText = (data.serviciosCriticos + data.serviciosAltos);
-            //document.getElementById("kpiSpof").innerText = data.spofDetectados;
-            document.getElementById("impactoCobertura").innerText =
-                "Cobertura (nombre + sufijo de endpoint): " + data.coberturaPct + "%";
-
-            document.getElementById("impactoFallbackAlert").style.display = data.usandoDatosFallback ? "block" : "none";
-
-            impactoDominios = data.dominios || [];
-
-            let select = document.getElementById("impactoDomainSelect");
-            select.innerHTML = '<option value="">Todos los dominios</option>';
-
-            impactoDominios.forEach(dom => {
-                let opt = document.createElement("option");
-                opt.value = dom;
-                opt.textContent = dom;
-                select.appendChild(opt);
-            });
-        })
-        .catch(err => console.error("Error cargando dashboard de impacto:", err));
-}
-
-function loadImpactoServicios() {
-
-    fetch(api('/api/impacto/servicios'))
-        .then(res => res.json())
-        .then(data => {
-            impactoAllServicios = data;
-            renderImpactoVistas(impactoAllServicios);
-        })
-        .catch(err => console.error("Error cargando servicios de impacto:", err));
-}
-
-function filterImpactoByDomain(dominio) {
-
-    if (!dominio) {
-        renderImpactoVistas(impactoAllServicios);
-        return;
-    }
-
-    let filtrados = impactoAllServicios.filter(s => (s.domains ||
-[]).includes(dominio));
-    renderImpactoVistas(filtrados);
-}
-
-function renderImpactoVistas(servicios) {
-    renderImpactoRanking(servicios);
-    renderImpactoMatrix(servicios);
-    renderImpactoGraph(servicios);
-}
-
-function renderImpactoRanking(servicios) {
-
-    let conImpacto = servicios.filter(s => s.cantidad > 0)
-        .sort((a, b) => b.pct - a.pct);
-
-    const ctx = document.getElementById("impactoRankingChart");
-
-    if (impactoRankingChart) impactoRankingChart.destroy();
-
-    if (conImpacto.length === 0) {
-        return;
-    }
-
-    impactoRankingChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: conImpacto.map(s => s.name),
-            datasets: [{
-                label: '% Afectación',
-                data: conImpacto.map(s => s.pct),
-                backgroundColor: conImpacto.map(s => criticidadColor(s.criticidad))
-            }]
-        },
-        options: {
-            indexAxis: 'y',
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
-            scales: { x: { min: 0, max: 100 } },
-            onClick: (evt, elements) => {
-                if (elements.length > 0) {
-                    showImpactoDetail(conImpacto[elements[0].index].name);
-                }
-            }
-        }
-    });
-}
-
-function renderImpactoMatrix(servicios) {
-
-    let conImpacto = servicios.filter(s => s.cantidad > 0).sort((a, b) => b.pct - a.pct);
-
-    let head = document.getElementById("impactoMatrixHead");
-    let body = document.getElementById("impactoMatrixBody");
-
-    let headerCols = '<th>Servicio</th>' +
-        impactoDominios.map(d => '<th>' + d + '</th>').join('') +
-        '<th>%</th><th>Criticidad</th>';
-
-    head.innerHTML = '<tr>' + headerCols + '</tr>';
-
-    if (conImpacto.length === 0) {
-        body.innerHTML = '<tr><td colspan="' + (impactoDominios.length + 3) +
-            '" class="text-center text-muted">Sin dependencias para este filtro</td></tr>';
-        return;
-    }
-
-    body.innerHTML = conImpacto.map(s => {
-
-        let cells = impactoDominios.map(dom => {
-            let afecta = (s.domains || []).includes(dom);
-            let cls = afecta ? criticidadHeatClass(s.criticidad) : '';
-            return '<td class="' + cls + ' text-center">' + (afecta ? '●' : '') + '</td>';
-        }).join('');
-
-        return '<tr style="cursor:pointer" onclick="showImpactoDetail(\'' + s.name + '\')">' +
-            '<td>' + s.name + '</td>' + cells +
-            '<td class="text-center">' + s.pct + '%</td>' +
-            '<td class="text-center">' +
-            '<span class="badge" style="background-color:' + criticidadColor(s.criticidad) + '">' +
-            s.criticidad + '</span></td></tr>';
-    }).join('');
-}
-
-function renderImpactoGraph(servicios) {
-
-    let container = document.getElementById("impactoGraph");
-
-    if (impactoNetwork) {
-        impactoNetwork.destroy();
-        impactoNetwork = null;
-    }
-
-    let conImpacto = servicios.filter(s => s.cantidad > 0);
-
-    let nodes = [{ id: 'osba', label: 'osba', shape: 'box', color: '#0b4ea2', font: { color: '#fff' } }];
-    let edges = [];
-    let dominiosEnGrafo = new Set();
-
-    conImpacto.forEach(s => {
-        (s.domains || []).forEach(dom => dominiosEnGrafo.add(dom));
-    });
-
-    dominiosEnGrafo.forEach(dom => {
-        nodes.push({ id: 'dom-' + dom, label: dom, shape: 'ellipse', color: '#6366f1', font: { color: '#fff' } });
-        edges.push({ from: 'osba', to: 'dom-' + dom });
-    });
-
-    conImpacto.forEach(s => {
-
-        nodes.push({
-            id: 'srv-' + s.name,
-            label: s.name,
-            shape: 'box',
-            color: criticidadColor(s.criticidad),
-            font: { color: '#fff', size: 11 }
-        });
-
-        (s.domains || []).forEach(dom => {
-            edges.push({ from: 'srv-' + s.name, to: 'dom-' + dom });
-        });
-    });
-
-    impactoNetwork = new vis.Network(
-       container,
-       {
-           nodes: nodes,
-           edges: edges
-       },
-       {
-           physics: {
-               stabilization: true
-           },
-
-           interaction: {
-               hover: true,
-               navigationButtons: false,
-               zoomView: true,
-               dragView: true
-           },
-
-           nodes: {
-               margin: 8
-           }
-       }
-    );
-
-    impactoNetwork.once("stabilized", function () {
-        impactoNetwork.fit({
-            animation: true
-        });
-    });
-
-    impactoNetwork.on('click', params => {
-
-        if (params.nodes.length === 0) return;
-
-        let id = params.nodes[0];
-
-        if (id.startsWith('srv-')) {
-            showImpactoDetail(id.substring('srv-'.length));
-        } else if (id.startsWith('dom-')) {
-            let dom = id.substring('dom-'.length);
-            document.getElementById("impactoDomainSelect").value = dom;
-            filterImpactoByDomain(dom);
-        }
-    });
-}
-
-function showImpactoDetail(name) {
-
-    fetch(api('/api/impacto/ficha/') + encodeURIComponent(name))
-        .then(res => {
-
-            if (!res.ok) {
-                throw new Error('Ficha no encontrada');
-            }
-
-            return res.json();
-        })
-        .then(ficha => {
-
-            document.getElementById("impactoModalName").innerText =
-                ficha.servicio || "-";
-
-            document.getElementById("fichaServicio").innerText =
-                ficha.servicio || "-";
-
-            document.getElementById("fichaVersion").innerText =
-                ficha.version || "-";
-
-            document.getElementById("fichaDominio").innerText =
-                ficha.dominio || "-";
-
-            document.getElementById("fichaEndpoints").innerText =
-                ficha.endpoints || 0;
-
-            document.getElementById("fichaConsumidores").innerText =
-                ficha.consumidores || 0;
-
-            document.getElementById("fichaDependencias").innerText =
-                ficha.dependencias || 0;
-
-            document.getElementById("fichaImpacto").innerText =
-                (ficha.impactoPct || 0) + "%";
-
-            document.getElementById("fichaCobertura").innerText =
-                ficha.cobertura || "-";
-
-            document.getElementById("fichaJava").innerText =
-                ficha.javaVersion || "-";
-
-            document.getElementById("fichaSpring").innerText =
-                ficha.springBootVersion || "-";
-
-            document.getElementById("fichaArtifact").innerText =
-                ficha.artifactId || "-";
-
-            document.getElementById("fichaPackaging").innerText =
-                ficha.packaging || "-";
-
-            document.getElementById("fichaSwaggerUrl").innerText =
-                ficha.swaggerUrl || "-";
-
-            let criticidad =
-                document.getElementById("fichaCriticidad");
-
-            criticidad.innerText =
-                ficha.criticidad || "-";
-
-            criticidad.style.backgroundColor =
-                criticidadColor(ficha.criticidad);
-
-            criticidad.style.color = "#fff";
-
-            let deps =
-                document.getElementById("fichaDependenciasList");
-
-            deps.innerHTML = "";
-
-            if (!ficha.consume || ficha.consume.length === 0) {
-
-                deps.innerHTML =
-                    '<li class="list-group-item text-muted">Sin dependencias</li>';
-
-            } else {
-
-                ficha.consume.forEach(dep => {
-
-                    deps.innerHTML +=
-                        `<li class="list-group-item">${dep}</li>`;
-
-                });
-            }
-
-            let impactados =
-                document.getElementById("fichaImpactadosList");
-
-            impactados.innerHTML = "";
-
-            if (!ficha.impactados ||
-                ficha.impactados.length === 0) {
-
-                impactados.innerHTML =
-                    '<li class="list-group-item text-muted">Sin dominios impactados</li>';
-
-            } else {
-
-                ficha.impactados.forEach(dom => {
-
-                    impactados.innerHTML +=
-                        `<li class="list-group-item">${dom}</li>`;
-
-                });
-            }
-
-            new bootstrap.Modal(
-                document.getElementById("impactoModal")
-            ).show();
-
-        })
-        .catch(err => {
-
-            console.error(
-                "Error cargando ficha técnica:",
-                err
-            );
-
-            alert(
-                "Error cargando ficha técnica. Revise la consola."
-            );
-        });
-}
-
-// ======================================================
-// ✅ MODAL LISTA GENERICA (KPIs)
-// ======================================================
-function showImpactoList(titulo, items, onItemClick) {
-
-    document.getElementById("impactoListModalTitle").innerText = titulo;
-
-    let body = document.getElementById("impactoListModalBody");
-    body.innerHTML = "";
-
-    if (!items || items.length === 0) {
-        body.innerHTML = '<li class="list-group-item text-muted">Sin elementos</li>';
-    } else {
-
-        items.forEach(function (item) {
-
-            let li = document.createElement("li");
-            li.className = "list-group-item d-flex justify-content-between align-items-center";
-            li.style.cursor = "pointer";
-            li.innerText = item.label;
-
-            if (item.badge) {
-                let badge = document.createElement("span");
-                badge.className = "badge";
-                badge.style.backgroundColor = item.badgeColor || "#6c757d";
-                badge.innerText = item.badge;
-                li.appendChild(badge);
-            }
-
-            li.addEventListener("click", function () {
-                bootstrap.Modal.getInstance(document.getElementById('impactoListModal')).hide();
-                if (onItemClick) onItemClick(item);
-            });
-
-            body.appendChild(li);
-        });
-    }
-
-    new bootstrap.Modal(document.getElementById('impactoListModal')).show();
-}
-
-function kpiDominiosClick() {
-
-    let items = impactoDominios.map(d => ({ label: d }));
-
-    showImpactoList("Dominios analizados (" + impactoDominios.length + ")", items, function (item) {
-        document.getElementById("impactoDomainSelect").value = item.label;
-        filterImpactoByDomain(item.label);
-    });
-}
-
-function kpiServiciosClick() {
-
-    let items = impactoAllServicios
-        .slice()
-        .sort((a, b) => a.name.localeCompare(b.name))
-        .map(s => ({
-            label: s.name,
-            badge: s.cantidad > 0 ? s.criticidad : null,
-            badgeColor: criticidadColor(s.criticidad)
-        }));
-
-    showImpactoList("Servicios totales (" + items.length + ")", items, function (item) {
-        showImpactoDetail(item.label);
-    });
-}
-
-function kpiDependenciasClick() {
-
-    let items = impactoAllServicios
-        .filter(s => s.cantidad > 0)
-        .sort((a, b) => b.pct - a.pct)
-        .map(s => ({ label: s.name, badge: s.criticidad, badgeColor: criticidadColor(s.criticidad) }));
-
-    showImpactoList("Dependencias identificadas (" + items.length + ")", items, function (item) {
-        showImpactoDetail(item.label);
-    });
-}
-
-function kpiCriticosClick() {
-
-    let items = impactoAllServicios
-        .filter(s => s.criticidad === 'Alta' || s.criticidad === 'Crítica')
-        .sort((a, b) => b.pct - a.pct)
-        .map(s => ({ label: s.name, badge: s.criticidad, badgeColor: criticidadColor(s.criticidad) }));
-
-    showImpactoList("Servicios críticos / altos (" + items.length + ")", items, function (item) {
-        showImpactoDetail(item.label);
-    });
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    document.getElementById("tab-impacto-btn").addEventListener("shown.bs.tab", function () {
-        if (!impactoLoaded) {
-            impactoLoaded = true;
-            loadImpactoDashboard();
-            loadImpactoServicios();
-        }
-    });
-
-    document.getElementById("impactoDomainSelect").addEventListener("change", function () {
-        filterImpactoByDomain(this.value);
-    });
-});
-
-</script>
-
-<script th:src="@{/swagger-ui/swagger-ui-bundle.js}"></script>
-<script th:src="@{/swagger-ui/swagger-ui-standalone-preset.js}"></script>
+	<!-- HEADER -->
+
+	<div class="header d-flex align-items-center px-3">
+
+		<img th:src="@{/images/mercantil.png}" alt="Servidores"
+			style="height: 40px;" />
+
+		<!-- ✅ NUEVO -->
+		<button class="btn btn-light btn-sm" onclick="openSwaggerPanel()">
+			📘 Ver documentación de los Microservicios Zconnect</button>
+
+	</div>
+
+
+	<!-- ✅ PESTAÑAS -->
+	<ul class="nav nav-tabs" id="mainTabs" role="tablist">
+		<li class="nav-item" role="presentation">
+			<button class="nav-link active" id="tab-monitoreo-btn" data-bs-toggle="tab"
+				data-bs-target="#tab-monitoreo" type="button" role="tab">Monitoreo</button>
+		</li>
+		<li class="nav-item" role="presentation">
+			<button class="nav-link" id="tab-impacto-btn" data-bs-toggle="tab"
+				data-bs-target="#tab-impacto" type="button" role="tab">Impacto / Dependencias</button>
+		</li>
+	</ul>
+
+	<div class="tab-content">
+	<div class="tab-pane fade show active" id="tab-monitoreo" role="tabpanel">
+
+	<div class="dashboard">
+
+		<!-- ✅ IZQUIERDA -->
+		<div class="panel panel-servers">
+			<h5 class="panel-title">Servidores</h5>
+
+			<div class="container-fluid">
+
+				<div th:each="env : ${data}">
+					<h6 class="env-title" th:text="${env.key}"></h6>
+
+					<div class="server-grid">
+
+						<div th:each="srv : ${env.value}">
+														
+							<div class="card text-center"
+							     th:attr="onclick=|showDetails('${srv.name}', '${srv.host}', '${srv.port}', '${srv.up}', '${srv.responseTime}', '${srv.error}')|,
+							              id=|card-${srv.name}|"
+
+								style="cursor: pointer;">
+
+								<h6 th:text="${srv.name}"></h6>
+
+								<p class="small-text" th:text="${srv.host} + ':' + ${srv.port}">
+								</p>
+
+								<div
+									th:classappend="
+						        ${srv.up} ? 
+						            (${srv.responseTime > 1000} ? 'status-warning' : 'status-up')
+						            : 'status-down'
+						    ">
+									<span
+										th:text="
+						            ${srv.up} ? 
+						                (${srv.responseTime > 1000} ? '🟡' : '🟢') 
+						                : '🔴'
+						        "></span>
+								</div>
+
+								<div class="status-label mt-1"
+									th:text="
+						             ${srv.up} ? 
+						                 (${srv.responseTime > 1000} ? 'LENTO' : 'UP')
+						                 : 'DOWN'
+						         ">
+								</div>
+
+								<div class="small-text"
+									th:text="'Tiempo: ' + ${srv.responseTime} + ' ms'"></div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+			<!-- ✅ cerrar -->
+		</div>
+
+		<!-- ✅ DERECHA ARRIBA -->
+		<div class="panel">
+			<h5 class="panel-title">Gráficas</h5>
+			<div class="mb-2">
+				<select id="serverSelect" class="form-select form-select-sm"
+					multiple></select>
+			</div>
+			<canvas id="responseChart"></canvas>
+		</div>
+
+		<!-- ✅ DERECHA MEDIO -->
+		<div class="panel">
+			<h5 class="panel-title">Logs / Eventos</h5>
+			<div id="eventsContainer" class="timeline"></div>
+		</div>
+
+		<!-- ✅ DERECHA ABAJO -->
+		<div class="panel">
+			<h5 class="panel-title">Alertas</h5>
+			<div id="alertsContainer"></div>
+		</div>
+
+	</div>
+
+	</div>
+	<!-- /tab-monitoreo -->
+
+	<div class="tab-pane fade" id="tab-impacto" role="tabpanel">
+
+		<div class="container-fluid" style="padding: 10px;">
+
+			<div id="impactoFallbackAlert" class="alert alert-warning small-text" style="display:none;">
+				⚠️ BM_HOME no está configurado o no se encontró <code>appl/osba/config/restservices.xml</code>;
+				mostrando el último análisis de respaldo embebido.
+			</div>
+
+			<!-- ✅ KPIs -->
+			<div class="row g-2 mb-2">
+				<div class="col">
+					<div class="card text-center kpi-card">
+						<div class="kpi-value" id="kpiDominios">-</div>
+						<div class="kpi-label">Dominios analizados</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card text-center kpi-card">
+						<div class="kpi-value" id="kpiServicios">-</div>
+						<div class="kpi-label">Servicios totales (restservices)</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card text-center kpi-card">
+						<div class="kpi-value" id="kpiDependencias">-</div>
+						<div class="kpi-label">Dependencias identificadas</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card text-center kpi-card">
+						<div class="kpi-value" id="kpiCriticos">-</div>
+						<div class="kpi-label">Servicios críticos / altos</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card text-center kpi-card">
+						<div class="kpi-value" id="kpiSpof">-</div>
+						<div class="kpi-label">Posibles SPOF</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- ✅ SELECTOR DE DOMINIO -->
+			<div class="mb-2 d-flex align-items-center gap-2">
+				<label class="small-text mb-0">Vista por dominio:</label>
+				<select id="impactoDomainSelect" class="form-select form-select-sm" style="max-width: 280px;">
+					<option value="">Todos los dominios</option>
+				</select>
+				<span class="small-text text-muted" id="impactoCobertura"></span>
+			</div>
+
+			<div class="row g-2">
+
+				<!-- ✅ RANKING -->
+				<div class="col-md-6">
+					<div class="panel" style="height: 360px;">
+						<h5 class="panel-title">Ranking de Impacto</h5>
+						<canvas id="impactoRankingChart"></canvas>
+					</div>
+				</div>
+
+				<!-- ✅ MATRIZ -->
+				<div class="col-md-6">
+					<div class="panel" style="height: 360px;">
+						<h5 class="panel-title">Matriz de Impacto (servicio × dominio)</h5>
+						<div style="overflow: auto; max-height: 290px;">
+							<table class="table table-sm table-bordered" style="color:#111;">
+								<thead id="impactoMatrixHead"></thead>
+								<tbody id="impactoMatrixBody"></tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- ✅ GRAFO -->
+			<div class="row g-2 mt-2">
+				<div class="col-12">
+					<div class="panel">
+						<h5 class="panel-title">Grafo de Dependencias</h5>
+						<div id="impactoGraph"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	<!-- /tab-impacto -->
+
+	</div>
+	<!-- /tab-content -->
+
+
+	<!-- ✅ Swagger -->
+	<div id="swaggerPanel" class="panel"
+		style="margin: 10px; display: none;">
+
+		<select id="apiSelect" class="form-select mb-2"></select>
+
+		<div id="swaggerUI" style="height: 600px;"></div>
+
+	</div>
+
+	<!-- MODAL -->
+	<div class="modal fade" id="detailModal" tabindex="-1">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<h5 id="modalName">Servidor</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+				</div>
+
+				<div class="modal-body">
+
+					<p>
+						<strong>Host:</strong> <span id="modalHost"></span>
+					</p>
+					<p>
+						<strong>Puerto:</strong> <span id="modalPort"></span>
+					</p>
+					<p>
+						<strong>Estado:</strong> <span id="modalStatus" class="badge"></span>
+					</p>
+					<p>
+						<strong>Tiempo:</strong> <span id="modalTime"></span> ms
+					</p>
+
+					<hr>
+
+					<p>
+						<strong>Uptime:</strong> <span id="modalUptime"></span>
+					</p>
+					<p>
+						<strong>Tiempo caído:</strong> <span id="modalDownTime"></span>
+					</p>
+					<p>
+						<strong>Error:</strong> <span id="modalError"></span>
+					</p>
+
+					<hr>
+
+					<h6>Histórico</h6>
+
+					<table class="table table-sm">
+						<thead>
+							<tr>
+								<th>Hora</th>
+								<th>Estado</th>
+								<th>Tiempo</th>
+							</tr>
+						</thead>
+						<tbody id="historyTable"></tbody>
+					</table>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+	<!-- ====================================================== -->
+	<!-- FICHA TECNICA DEL SERVICIO -->
+	<!-- ====================================================== -->
+	<div class="modal fade" id="impactoModal" tabindex="-1">
+	    <div class="modal-dialog modal-xl">
+	        <div class="modal-content">
+	
+	            <div class="modal-header bg-primary text-white">
+	                <h5 id="impactoModalName" class="modal-title">
+	                    Ficha Técnica
+	                </h5>
+	
+	                <button type="button"
+	                        class="btn-close btn-close-white"
+	                        data-bs-dismiss="modal">
+	                </button>
+	            </div>
+	
+	            <div class="modal-body">
+	
+	                <!-- ===================================== -->
+	                <!-- INFORMACION GENERAL -->
+	                <!-- ===================================== -->
+	
+	                <div class="card mb-3">
+	                    <div class="card-header fw-bold">
+	                        Información General
+	                    </div>
+	
+	                    <div class="card-body">
+	
+	                        <div class="row">
+	
+	                            <div class="col-md-4">
+	                                <strong>Servicio</strong><br>
+	                                <span id="fichaServicio">-</span>
+	                            </div>
+	
+	                            <div class="col-md-4">
+	                                <strong>Versión</strong><br>
+	                                <span id="fichaVersion">-</span>
+	                            </div>
+	
+	                            <div class="col-md-4">
+	                                <strong>Dominio</strong><br>
+	                                <span id="fichaDominio">-</span>
+	                            </div>
+	
+	                        </div>
+	
+	                        <hr>
+	
+	                        <div class="row">
+	
+	                            <div class="col-md-3">
+	                                <strong>Endpoints</strong><br>
+	                                <span id="fichaEndpoints">-</span>
+	                            </div>
+	
+	                            <div class="col-md-3">
+	                                <strong>Consumidores</strong><br>
+	                                <span id="fichaConsumidores">-</span>
+	                            </div>
+	
+	                            <div class="col-md-3">
+	                                <strong>Dependencias</strong><br>
+	                                <span id="fichaDependencias">-</span>
+	                            </div>
+	
+	                            <div class="col-md-3">
+	                                <strong>Criticidad</strong><br>
+	                                <span id="fichaCriticidad"
+	                                      class="badge">
+	                                </span>
+	                            </div>
+	
+	                        </div>
+	
+	                        <hr>
+	
+	                        <div class="row">
+	
+	                            <div class="col-md-6">
+	                                <strong>Impacto</strong><br>
+	                                <span id="fichaImpacto">-</span>
+	                            </div>
+	
+	                            <div class="col-md-6">
+	                                <strong>Cobertura</strong><br>
+	                                <span id="fichaCobertura">-</span>
+	                            </div>
+	
+	                        </div>
+	
+	                    </div>
+	                </div>
+	
+	                <!-- ===================================== -->
+	                <!-- INFORMACION TECNICA -->
+	                <!-- ===================================== -->
+	
+	                <div class="card mb-3">
+	
+	                    <div class="card-header fw-bold">
+	                        Información Técnica
+	                    </div>
+	
+	                    <div class="card-body">
+	
+	                        <div class="row">
+	
+	                            <div class="col-md-3">
+	                                <strong>Java</strong><br>
+	                                <span id="fichaJava">-</span>
+	                            </div>
+	
+	                            <div class="col-md-3">
+	                                <strong>Spring Boot</strong><br>
+	                                <span id="fichaSpring">-</span>
+	                            </div>
+	
+	                            <div class="col-md-3">
+	                                <strong>ArtifactId</strong><br>
+	                                <span id="fichaArtifact">-</span>
+	                            </div>
+	
+	                            <div class="col-md-3">
+	                                <strong>Packaging</strong><br>
+	                                <span id="fichaPackaging">-</span>
+	                            </div>
+	
+	                        </div>
+	
+	                    </div>
+	
+	                </div>
+	
+	                <!-- ===================================== -->
+	                <!-- SWAGGER -->
+	                <!-- ===================================== -->
+	
+	                <div class="card mb-3">
+	
+	                    <div class="card-header fw-bold">
+	                        Swagger
+	                    </div>
+	
+	                    <div class="card-body">
+	
+	                        <div class="row">
+	
+	                            <div class="col-md-12">
+	                                <strong>URL Swagger</strong><br>
+	                                <code id="fichaSwaggerUrl">-</code>
+	                            </div>
+	
+	                        </div>
+	
+	                    </div>
+	
+	                </div>
+	
+	                <!-- ===================================== -->
+	                <!-- IMPACTO -->
+	                <!-- ===================================== -->
+	
+	                <div class="row">
+	
+	                    <div class="col-md-6">
+	
+	                        <div class="card">
+	
+	                            <div class="card-header fw-bold text-danger">
+	                                Dependencias
+	                            </div>
+	
+	                            <div class="card-body">
+	
+	                                <ul id="fichaDependenciasList"
+	                                    class="list-group">
+	                                </ul>
+	
+	                            </div>
+	
+	                        </div>
+	
+	                    </div>
+	
+	                    <div class="col-md-6">
+	
+	                        <div class="card">
+	
+	                            <div class="card-header fw-bold text-success">
+	                                Dominios Impactados
+	                            </div>
+	
+	                            <div class="card-body">
+	
+	                                <ul id="fichaImpactadosList"
+	                                    class="list-group">
+	                                </ul>
+	
+	                            </div>
+	
+	                        </div>
+	
+	                    </div>
+	
+	                </div>
+	
+	            </div>
+	
+	        </div>
+	    </div>
+	</div>
+
+
+	<!-- Bootstrap JS -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- JS -->
+	<script src="/funciones.js"></script>
+
+	<script th:src="@{/swagger-ui/swagger-ui-bundle.js}"></script>
+	<script th:src="@{/swagger-ui/swagger-ui-standalone-preset.js}"></script>
 
 </body>
 </html>
