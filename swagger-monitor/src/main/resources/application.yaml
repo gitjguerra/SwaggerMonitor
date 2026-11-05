@@ -19,8 +19,21 @@ impacto:
   # la pestana Impacto/Dependencias (ej. "Persona", "Pagos" - con
   # mayuscula inicial). Si un dominio no tiene ruta configurada, o el
   # archivo no existe, esos campos quedan en "N/D" sin romper nada.
+  #pom-paths:
+  # Persona: C:/deploy/api-persona/api-persona-1.3.0.jar
+  # Pagos: C:/deploy/api-pagos/api-pagos.war
   #
   pom-paths:
-    Persona: C:/deploy/api-persona/api-persona-1.3.0.jar
-    Pagos: C:/deploy/api-pagos/api-pagos.war
-    Tarjeta: C:/deploy/api-tarjeta/pagos.pom
+    Creditos: C:\DevEnvironment\src\java\bm-workspace\bm-creditos\pom.xml
+    Inversiones: C:\DevEnvironment\src\java\bm-workspace\bm-inversiones\pom.xml
+    Ita: C:\DevEnvironment\src\java\bm-workspace\bm-ita\pom.xml
+    Mia: C:\DevEnvironment\src\java\bm-workspace\bm-mia\pom.xml
+    Notifications: C:\DevEnvironment\src\java\bm-workspace\bm-notifications\pom.xml
+    Onboarding: C:\DevEnvironment\src\java\bm-workspace\bm-onboarding\pom.xml
+    Pagos: C:\DevEnvironment\src\java\bm-workspace\bm-pagos\pom.xml
+    Panama: C:\DevEnvironment\src\java\bm-workspace\bm-panama\pom.xml
+    Persona: C:\DevEnvironment\src\java\bm-workspace\bm-persona\pom.xml
+    Safe: C:\DevEnvironment\src\java\bm-workspace\bm-safe\pom.xml
+    Security: C:\DevEnvironment\src\java\bm-workspace\bm-security\pom.xml
+    Simf: C:\DevEnvironment\src\java\bm-workspace\bm-simf\pom.xml
+    Tarjeta: C:\DevEnvironment\src\java\bm-workspace\bm-tarjeta\pom.xml
