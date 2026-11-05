@@ -679,6 +679,9 @@ public class ImpactoService {
         return extraerPomInfo(doc.getDocumentElement());
     }
 
+    private static final java.util.regex.Pattern SPRING_BOOT_LIB_PATTERN =
+            java.util.regex.Pattern.compile(".*/spring-boot-(\\d+\\.\\d+\\.\\d+(?:[.-][A-Za-z0-9]+)?)\\.jar$");
+
     /**
      * Busca dentro del jar/war la entrada
      * {@code META-INF/maven/<groupId>/<artifactId>/pom.xml} que Maven
@@ -686,17 +689,35 @@ public class ImpactoService {
      * anidados en BOOT-INF/lib o WEB-INF/lib, que son archivos aparte,
      * no entradas de este zip), y complementa/corrige el resultado con
      * {@code META-INF/MANIFEST.MF} cuando está disponible.
+     *
+     * Si aun asi falta javaVersion o springBootVersion (pom sin
+     * {@code <properties><java.version>}, o con un parent/BOM propio
+     * del banco en vez de {@code spring-boot-starter-parent}), se
+     * toman del artefacto real en vez de quedar en "N/D":
+     * <ul>
+     *   <li>javaVersion: del "major version" del bytecode de cualquier
+     *       {@code .class} dentro del archivo (el JDK real con el que
+     *       se compilo, que es con el que realmente corre).</li>
+     *   <li>springBootVersion: si es un jar/war empaquetado con
+     *       Spring Boot, el propio {@code spring-boot-<version>.jar}
+     *       viene embebido en {@code BOOT-INF/lib/} o
+     *       {@code WEB-INF/lib/}; se toma la version de ese nombre de
+     *       archivo.</li>
+     * </ul>
      */
     private PomInfo leerPomDesdeArchivoComprimido(File archivo) throws Exception {
 
         PomInfo info = null;
         String springBootVersionManifest = null;
         String implementationVersionManifest = null;
+        String springBootVersionLib = null;
+        Integer claseMajorVersion = null;
 
         try (java.util.zip.ZipFile zip = new java.util.zip.ZipFile(archivo)) {
 
             java.util.zip.ZipEntry pomEntry = null;
             java.util.zip.ZipEntry manifestEntry = null;
+            java.util.zip.ZipEntry claseEntry = null;
 
             java.util.Enumeration<? extends java.util.zip.ZipEntry> entradas = zip.entries();
 
@@ -711,6 +732,20 @@ public class ImpactoService {
 
                 if ("META-INF/MANIFEST.MF".equals(nombre)) {
                     manifestEntry = entrada;
+                }
+
+                if (claseEntry == null && !entrada.isDirectory() && nombre.endsWith(".class")
+                        && !nombre.endsWith("module-info.class")) {
+                    claseEntry = entrada;
+                }
+
+                if (springBootVersionLib == null) {
+
+                    java.util.regex.Matcher m = SPRING_BOOT_LIB_PATTERN.matcher(nombre);
+
+                    if (m.matches()) {
+                        springBootVersionLib = m.group(1);
+                    }
                 }
             }
 
@@ -731,6 +766,12 @@ public class ImpactoService {
                     implementationVersionManifest = attrs.getValue("Implementation-Version");
                 }
             }
+
+            if (claseEntry != null) {
+                try (InputStream is = zip.getInputStream(claseEntry)) {
+                    claseMajorVersion = leerMajorVersionClase(is);
+                }
+            }
         }
 
         if (info == null) {
@@ -739,13 +780,61 @@ public class ImpactoService {
 
         if (springBootVersionManifest != null) {
             info.springBootVersion = springBootVersionManifest;
+        } else if (info.springBootVersion == null && springBootVersionLib != null) {
+            info.springBootVersion = springBootVersionLib;
         }
 
         if (info.version == null && implementationVersionManifest != null) {
             info.version = implementationVersionManifest;
         }
 
+        if (info.javaVersion == null && claseMajorVersion != null) {
+            info.javaVersion = mapearMajorVersionAJava(claseMajorVersion);
+        }
+
         return info;
+    }
+
+    private Integer leerMajorVersionClase(InputStream is) throws Exception {
+
+        byte[] cabecera = new byte[8];
+        int leidos = 0;
+
+        while (leidos < cabecera.length) {
+
+            int r = is.read(cabecera, leidos, cabecera.length - leidos);
+
+            if (r == -1) {
+                break;
+            }
+
+            leidos += r;
+        }
+
+        if (leidos < cabecera.length) {
+            return null;
+        }
+
+        return ((cabecera[6] & 0xFF) << 8) | (cabecera[7] & 0xFF);
+    }
+
+    private String mapearMajorVersionAJava(int major) {
+
+        if (major >= 53) {
+            return String.valueOf(major - 44);
+        }
+
+        switch (major) {
+            case 52: return "1.8";
+            case 51: return "1.7";
+            case 50: return "1.6";
+            case 49: return "1.5";
+            case 48: return "1.4";
+            case 47: return "1.3";
+            case 46: return "1.2";
+            case 45: return "1.1";
+            default: return null;
+        }
     }
 
     private PomInfo extraerPomInfo(Element root) {
