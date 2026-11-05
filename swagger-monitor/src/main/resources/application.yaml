@@ -20,7 +20,7 @@ impacto:
   # mayuscula inicial). Si un dominio no tiene ruta configurada, o el
   # archivo no existe, esos campos quedan en "N/D" sin romper nada.
   #
-  # Ejemplo (descomentar y ajustar la ruta real por cada dominio):
-  # pom-paths:
-  #   Persona: C:/deploy/api-persona/api-persona-1.3.0.jar
-  #   Pagos: C:/deploy/api-pagos/api-pagos.war
+  pom-paths:
+    Persona: C:/deploy/api-persona/api-persona-1.3.0.jar
+    Pagos: C:/deploy/api-pagos/api-pagos.war
+    Tarjeta: C:/deploy/api-tarjeta/pagos.pom
