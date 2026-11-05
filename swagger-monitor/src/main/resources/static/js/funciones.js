@@ -732,8 +732,6 @@ function renderImpactoGraph(servicios) {
 
 function showImpactoDetail(name) {
 
-	alert("FICHA NUEVA");
-	
     fetch('/swagger-monitor/api/impacto/ficha/' + encodeURIComponent(name))
         .then(res => {
             if (!res.ok) {
