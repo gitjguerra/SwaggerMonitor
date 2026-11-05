@@ -149,25 +149,25 @@
 			<!-- ✅ KPIs -->
 			<div class="row g-2 mb-2">
 				<div class="col">
-					<div class="card text-center kpi-card">
+					<div class="card text-center kpi-card" style="cursor:pointer" onclick="kpiDominiosClick()">
 						<div class="kpi-value" id="kpiDominios">-</div>
 						<div class="kpi-label">Dominios analizados</div>
 					</div>
 				</div>
 				<div class="col">
-					<div class="card text-center kpi-card">
+					<div class="card text-center kpi-card" style="cursor:pointer" onclick="kpiServiciosClick()">
 						<div class="kpi-value" id="kpiServicios">-</div>
 						<div class="kpi-label">Servicios totales (restservices)</div>
 					</div>
 				</div>
 				<div class="col">
-					<div class="card text-center kpi-card">
+					<div class="card text-center kpi-card" style="cursor:pointer" onclick="kpiDependenciasClick()">
 						<div class="kpi-value" id="kpiDependencias">-</div>
 						<div class="kpi-label">Dependencias identificadas</div>
 					</div>
 				</div>
 				<div class="col">
-					<div class="card text-center kpi-card">
+					<div class="card text-center kpi-card" style="cursor:pointer" onclick="kpiCriticosClick()">
 						<div class="kpi-value" id="kpiCriticos">-</div>
 						<div class="kpi-label">Servicios críticos / altos</div>
 					</div>
@@ -515,6 +515,25 @@
 	
 	        </div>
 	    </div>
+	</div>
+
+
+	<!-- MODAL LISTA GENERICA (KPIs IMPACTO) -->
+	<div class="modal fade" id="impactoListModal" tabindex="-1">
+	<div class="modal-dialog modal-dialog-scrollable">
+	<div class="modal-content">
+
+	<div class="modal-header">
+	<h5 id="impactoListModalTitle">Lista</h5>
+	<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+	</div>
+
+	<div class="modal-body">
+	<ul class="list-group" id="impactoListModalBody"></ul>
+	</div>
+
+	</div>
+	</div>
 	</div>
 
 

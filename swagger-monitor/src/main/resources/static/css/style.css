@@ -214,7 +214,7 @@
 		padding-left: 15px;
 	}
 	
-	canvas {
+	#responseChart {
 		max-height: 250px;
 	}
 	
@@ -273,6 +273,12 @@
 		height: 420px;
 		border: 1px solid #d1d5db;
 		border-radius: 8px;
+	}
+
+	/* Oculta los controles de navegacion de vis-network (flechas/zoom)
+	   que tapaban parte del grafo, sin depender de la config JS */
+	#impactoGraph .vis-navigation {
+		display: none !important;
 	}
 
 	.nav-tabs {

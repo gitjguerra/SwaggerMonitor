@@ -708,10 +708,40 @@ function renderImpactoGraph(servicios) {
         });
     });
 
+    // Layout jerarquico en vez de fisica: las posiciones se calculan
+    // de forma determinista y sincrona (osba arriba, dominios en medio,
+    // servicios abajo), sin simulacion que vaya moviendo los nodos.
+    // Esto evita de raiz el bug por el que fit() se calculaba sobre
+    // posiciones iniciales (dispersas al azar) cuando el evento
+    // "stabilized" de la fisica no llegaba a disparar a tiempo,
+    // dejando la vista (zoom/paneo) desincronizada de donde realmente
+    // terminaban los nodos -- esto es lo que se veia como una franja
+    // en blanco tapando parte del grafo (p. ej. el nodo "osba" cortado
+    // a la mitad) y contenido que aparecia "fuera" del area visible al
+    // arrastrar.
     impactoNetwork = new vis.Network(container, { nodes: nodes, edges: edges }, {
-        physics: { stabilization: true },
-        interaction: { hover: true },
+        physics: false,
+        layout: {
+            hierarchical: {
+                enabled: true,
+                direction: 'UD',
+                sortMethod: 'directed',
+                levelSeparation: 120,
+                nodeSpacing: 150
+            }
+        },
+        interaction: { hover: true, navigationButtons: false, zoomView: true, dragView: true },
         nodes: { margin: 8 }
+    });
+
+    // Con layout jerarquico las posiciones ya estan calculadas de
+    // forma sincrona al crear la red, asi que no hace falta esperar
+    // ningun evento de estabilizacion: alcanza con diferir el fit()
+    // un frame para que el navegador termine el layout del tab.
+    requestAnimationFrame(function () {
+        impactoNetwork.setSize('100%', '100%');
+        impactoNetwork.redraw();
+        impactoNetwork.fit();
     });
 
     impactoNetwork.on('click', params => {
@@ -871,6 +901,97 @@ function showImpactoDetail(name) {
                 err
             );
         });
+}
+
+// ======================================================
+// ✅ MODAL LISTA GENERICA (KPIs)
+// ======================================================
+function showImpactoList(titulo, items, onItemClick) {
+
+    document.getElementById("impactoListModalTitle").innerText = titulo;
+
+    let body = document.getElementById("impactoListModalBody");
+    body.innerHTML = "";
+
+    if (!items || items.length === 0) {
+        body.innerHTML = '<li class="list-group-item text-muted">Sin elementos</li>';
+    } else {
+
+        items.forEach(function (item) {
+
+            let li = document.createElement("li");
+            li.className = "list-group-item d-flex justify-content-between align-items-center";
+            li.style.cursor = "pointer";
+            li.innerText = item.label;
+
+            if (item.badge) {
+                let badge = document.createElement("span");
+                badge.className = "badge";
+                badge.style.backgroundColor = item.badgeColor || "#6c757d";
+                badge.innerText = item.badge;
+                li.appendChild(badge);
+            }
+
+            li.addEventListener("click", function () {
+                bootstrap.Modal.getInstance(document.getElementById('impactoListModal')).hide();
+                if (onItemClick) onItemClick(item);
+            });
+
+            body.appendChild(li);
+        });
+    }
+
+    new bootstrap.Modal(document.getElementById('impactoListModal')).show();
+}
+
+function kpiDominiosClick() {
+
+    let items = impactoDominios.map(d => ({ label: d }));
+
+    showImpactoList("Dominios analizados (" + impactoDominios.length + ")", items, function (item) {
+        document.getElementById("impactoDomainSelect").value = item.label;
+        filterImpactoByDomain(item.label);
+    });
+}
+
+function kpiServiciosClick() {
+
+    let items = impactoAllServicios
+        .slice()
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map(s => ({
+            label: s.name,
+            badge: s.cantidad > 0 ? s.criticidad : null,
+            badgeColor: criticidadColor(s.criticidad)
+        }));
+
+    showImpactoList("Servicios totales (" + items.length + ")", items, function (item) {
+        showImpactoDetail(item.label);
+    });
+}
+
+function kpiDependenciasClick() {
+
+    let items = impactoAllServicios
+        .filter(s => s.cantidad > 0)
+        .sort((a, b) => b.pct - a.pct)
+        .map(s => ({ label: s.name, badge: s.criticidad, badgeColor: criticidadColor(s.criticidad) }));
+
+    showImpactoList("Dependencias identificadas (" + items.length + ")", items, function (item) {
+        showImpactoDetail(item.label);
+    });
+}
+
+function kpiCriticosClick() {
+
+    let items = impactoAllServicios
+        .filter(s => s.criticidad === 'Alta' || s.criticidad === 'Crítica')
+        .sort((a, b) => b.pct - a.pct)
+        .map(s => ({ label: s.name, badge: s.criticidad, badgeColor: criticidadColor(s.criticidad) }));
+
+    showImpactoList("Servicios críticos / altos (" + items.length + ")", items, function (item) {
+        showImpactoDetail(item.label);
+    });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
