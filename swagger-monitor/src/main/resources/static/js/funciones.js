@@ -714,23 +714,28 @@ function renderImpactoGraph(servicios) {
         nodes: { margin: 8 }
     });
 
-    // El canvas interno de vis-network a veces mide el contenedor antes
-    // de que el layout termine de asentarse (sobre todo al mostrarse
-    // dentro de un tab recien activado), quedando con un tamaño/offset
-    // incorrecto. Se fuerza el tamaño real del contenedor y un redraw
-    // explicito, en vez de confiar en que vis-network lo detecte solo.
+    // El buffer interno del <canvas> de vis-network puede quedar
+    // desincronizado del tamaño visible del contenedor (se ve una
+    // franja en blanco tapando parte del grafo, como si el dibujo
+    // real fuera mas chico que el área visible). Pasar '100%' deja
+    // que vis-network mida el contenedor por su cuenta (en vez de un
+    // valor en pixeles calculado de forma sincrona, que puede quedar
+    // obsoleto), y requestAnimationFrame difiere la llamada hasta
+    // que el navegador termine el layout del tab recien mostrado.
     function ajustarTamanoGrafo() {
         if (!impactoNetwork) return;
-        impactoNetwork.setSize(container.clientWidth + 'px', container.clientHeight + 'px');
+        impactoNetwork.setSize('100%', '100%');
         impactoNetwork.redraw();
         impactoNetwork.fit();
     }
 
-    ajustarTamanoGrafo();
+    requestAnimationFrame(ajustarTamanoGrafo);
 
     impactoNetwork.once("stabilized", function () {
-        ajustarTamanoGrafo();
-        impactoNetwork.fit({ animation: true });
+        requestAnimationFrame(function () {
+            ajustarTamanoGrafo();
+            impactoNetwork.fit({ animation: true });
+        });
     });
 
     impactoNetwork.on('click', params => {
