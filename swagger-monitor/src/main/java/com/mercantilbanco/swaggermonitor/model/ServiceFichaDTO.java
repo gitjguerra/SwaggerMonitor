@@ -20,7 +20,6 @@ public class ServiceFichaDTO {
     private String version;
 
     // Impacto
-    private int endpoints;
     private int consumidores;
     private int dependencias;
     private int impactoPct;

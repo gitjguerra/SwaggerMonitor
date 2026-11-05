@@ -787,9 +787,6 @@ function showImpactoDetail(name) {
             document.getElementById("fichaDominio").innerText =
                 ficha.dominio || "-";
 
-            document.getElementById("fichaEndpoints").innerText =
-                ficha.endpoints || 0;
-
             document.getElementById("fichaConsumidores").innerText =
                 ficha.consumidores || 0;
 

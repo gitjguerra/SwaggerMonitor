@@ -572,7 +572,6 @@ public class ImpactoService {
         	        : String.join(", ", servicio.getDomains())
         	);
 
-        ficha.setEndpoints(0);
     	ficha.setConsumidores(
         	    servicio.getDomains().size()
         	);
