@@ -214,7 +214,7 @@
 		padding-left: 15px;
 	}
 	
-	canvas {
+	#responseChart {
 		max-height: 250px;
 	}
 	
