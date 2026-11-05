@@ -61,8 +61,10 @@ public class ImpactoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
 
-        String baseUrl = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString();
-        ficha.setSwaggerUrl(baseUrl + ficha.getSwaggerUrl());
+        if (ficha.getSwaggerUrl() != null) {
+            String baseUrl = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString();
+            ficha.setSwaggerUrl(baseUrl + ficha.getSwaggerUrl());
+        }
 
         return ResponseEntity.ok(ficha);
     }
