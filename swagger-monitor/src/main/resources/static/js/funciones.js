@@ -714,7 +714,22 @@ function renderImpactoGraph(servicios) {
         nodes: { margin: 8 }
     });
 
+    // El canvas interno de vis-network a veces mide el contenedor antes
+    // de que el layout termine de asentarse (sobre todo al mostrarse
+    // dentro de un tab recien activado), quedando con un tamaño/offset
+    // incorrecto. Se fuerza el tamaño real del contenedor y un redraw
+    // explicito, en vez de confiar en que vis-network lo detecte solo.
+    function ajustarTamanoGrafo() {
+        if (!impactoNetwork) return;
+        impactoNetwork.setSize(container.clientWidth + 'px', container.clientHeight + 'px');
+        impactoNetwork.redraw();
+        impactoNetwork.fit();
+    }
+
+    ajustarTamanoGrafo();
+
     impactoNetwork.once("stabilized", function () {
+        ajustarTamanoGrafo();
         impactoNetwork.fit({ animation: true });
     });
 
