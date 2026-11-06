@@ -816,9 +816,6 @@ function showImpactoDetail(name) {
             document.getElementById("fichaJava").innerText =
                 ficha.javaVersion || "-";
 
-            document.getElementById("fichaSpring").innerText =
-                ficha.springBootVersion || "-";
-
             document.getElementById("fichaArtifact").innerText =
                 ficha.artifactId || "-";
 

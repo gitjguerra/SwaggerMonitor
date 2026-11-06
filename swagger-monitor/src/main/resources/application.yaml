@@ -29,10 +29,10 @@ impacto:
     Ita: C:\DevEnvironment\src\java\bm-workspace\bm-ita\pom.xml
     Mia: C:\DevEnvironment\src\java\bm-workspace\bm-mia\pom.xml
     Notifications: C:\DevEnvironment\src\java\bm-workspace\bm-notifications\pom.xml
-    Onboarding: C:\DevEnvironment\src\java\bm-workspace\bm-onboarding\pom.xml
+    Onboarding: C:\DevEnvironment\src\java\bm-workspace\bm-onboarding\ws-onboarding\target\api-onboarding-admin-1.0.0-SNAPSHOT.jar
     Pagos: C:\DevEnvironment\src\java\bm-workspace\bm-pagos\pom.xml
     Panama: C:\DevEnvironment\src\java\bm-workspace\bm-panama\pom.xml
-    Persona: C:\DevEnvironment\src\java\bm-workspace\bm-persona\pom.xml
+    Persona: C:\DevEnvironment\src\java\bm-workspace\bm-persona\ws-persona\target\ws-persona-2.3.0-RC1.jar
     Safe: C:\DevEnvironment\src\java\bm-workspace\bm-safe\pom.xml
     Security: C:\DevEnvironment\src\java\bm-workspace\bm-security\pom.xml
     Simf: C:\DevEnvironment\src\java\bm-workspace\bm-simf\pom.xml
