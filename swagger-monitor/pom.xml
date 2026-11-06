@@ -16,7 +16,8 @@
     <groupId>com.mercantilbanco.swaggermonitor</groupId>
     <artifactId>swagger-monitor</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <!-- <packaging>war</packaging> -->
+    <packaging>jar</packaging>
 
     <properties>
         <java.version>1.8</java.version>
@@ -37,21 +38,30 @@
                     <artifactId>spring-boot-starter-logging</artifactId>
                 </exclusion>
 
-                <!-- Excluir Tomcat embebido -->
+                <!--
                 <exclusion>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-tomcat</artifactId>
                 </exclusion>
+                -->
 
             </exclusions>
 
         </dependency>
 
-        <!-- TOMCAT PROVIDED PARA WAR -->
+        <!--
+        TOMCAT PROVIDED PARA WAR (externo)
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <scope>provided</scope>
+        </dependency>
+        -->
+
+        <!-- TOMCAT EMBEBIDO PARA JAR -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
         </dependency>
 
         <!-- THYMELEAF -->
@@ -129,12 +139,13 @@
                 </configuration>
             </plugin>
 
-            <!-- WAR -->
+            <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.4.0</version>
             </plugin>
+            -->
 
             <!-- SPRING BOOT -->
             <plugin>
