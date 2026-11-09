@@ -24,16 +24,16 @@ impacto:
   # Pagos: C:/deploy/api-pagos/api-pagos.war
   #
   pom-paths:
-    Creditos: C:\DevEnvironment\src\java\bm-workspace\bm-creditos\pom.xml
-    Inversiones: C:\DevEnvironment\src\java\bm-workspace\bm-inversiones\pom.xml
-    Ita: C:\DevEnvironment\src\java\bm-workspace\bm-ita\pom.xml
-    Mia: C:\DevEnvironment\src\java\bm-workspace\bm-mia\pom.xml
-    Notifications: C:\DevEnvironment\src\java\bm-workspace\bm-notifications\pom.xml
-    Onboarding: C:\DevEnvironment\src\java\bm-workspace\bm-onboarding\ws-onboarding\target\api-onboarding-admin-1.0.0-SNAPSHOT.jar
-    Pagos: C:\DevEnvironment\src\java\bm-workspace\bm-pagos\pom.xml
-    Panama: C:\DevEnvironment\src\java\bm-workspace\bm-panama\pom.xml
-    Persona: C:\DevEnvironment\src\java\bm-workspace\bm-persona\ws-persona\target\ws-persona-2.3.0-RC1.jar
-    Safe: C:\DevEnvironment\src\java\bm-workspace\bm-safe\pom.xml
-    Security: C:\DevEnvironment\src\java\bm-workspace\bm-security\pom.xml
-    Simf: C:\DevEnvironment\src\java\bm-workspace\bm-simf\pom.xml
-    Tarjeta: C:\DevEnvironment\src\java\bm-workspace\bm-tarjeta\pom.xml
+    creditos: C:\DevEnvironment\src\java\bm-workspace\bm-creditos\pom.xml
+    inversiones: C:\DevEnvironment\src\java\bm-workspace\bm-inversiones\pom.xml
+    ita: C:\DevEnvironment\src\java\bm-workspace\bm-ita\pom.xml
+    mia: C:\DevEnvironment\src\java\bm-workspace\bm-mia\pom.xml
+    notifications: C:\DevEnvironment\src\java\bm-workspace\bm-notifications\pom.xml
+    onboarding: C:\DevEnvironment\src\java\bm-workspace\bm-onboarding\ws-onboarding\target
+    pagos: C:\DevEnvironment\src\java\bm-workspace\bm-pagos\pom.xml
+    panama: C:\DevEnvironment\src\java\bm-workspace\bm-panama\pom.xml
+    persona: C:\DevEnvironment\src\java\bm-workspace\bm-persona\ws-persona\target
+    safe: C:\DevEnvironment\src\java\bm-workspace\bm-safe\pom.xml
+    security: C:\DevEnvironment\src\java\bm-workspace\bm-security\pom.xml
+    simf: C:\DevEnvironment\src\java\bm-workspace\bm-simf\pom.xml
+    tarjeta: C:\DevEnvironment\src\java\bm-workspace\bm-tarjeta\pom.xml

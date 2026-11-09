@@ -620,48 +620,101 @@ public class ImpactoService {
         ficha.setArtifactId("N/D");
         ficha.setPackaging("N/D");
 
-        if (dominio == null) {
+        if (dominio == null || dominio.trim().isEmpty()) {
             return;
         }
 
-        String rutaConfigurada = environment.getProperty("impacto.pom-paths." + dominio);
+        String key = dominio.trim().toLowerCase();
+        String rutaConfigurada = environment.getProperty("impacto.pom-paths." + key);
 
         if (rutaConfigurada == null || rutaConfigurada.trim().isEmpty()) {
+            log.warn("⚠️ No existe configuración impacto.pom-paths.{}", key);
             return;
         }
 
         File archivo = new File(rutaConfigurada.trim());
 
+        // Si se configura una carpeta, tomar el jar/war más reciente
+        if (archivo.isDirectory()) {
+
+            File[] artifacts = archivo.listFiles(f ->
+                    f.isFile()
+                            && (f.getName().toLowerCase().endsWith(".jar")
+                            || f.getName().toLowerCase().endsWith(".war")));
+
+            if (artifacts != null && artifacts.length > 0) {
+
+                java.util.Arrays.sort(
+                        artifacts,
+                        Comparator.comparingLong(File::lastModified).reversed());
+
+                archivo = artifacts[0];
+
+                log.info("✅ Artefacto seleccionado para dominio {} => {}",
+                        dominio,
+                        archivo.getAbsolutePath());
+            }
+        }
+
         if (!archivo.isFile()) {
-            log.warn("⚠️ No se encontró el pom.xml/jar/war configurado para el dominio {} en {}", dominio, rutaConfigurada);
+            log.warn(
+                    "⚠️ No se encontró pom.xml/jar/war para el dominio {} en {}",
+                    dominio,
+                    rutaConfigurada);
             return;
         }
 
         try {
 
+            log.info("📦 Leyendo datos técnicos de {}", archivo.getAbsolutePath());
+
             String nombreArchivo = archivo.getName().toLowerCase();
-            boolean esArchivoComprimido = nombreArchivo.endsWith(".jar") || nombreArchivo.endsWith(".war");
 
-            PomInfo info = esArchivoComprimido ? leerPomDesdeArchivoComprimido(archivo) : leerPom(archivo);
+            boolean esArchivoComprimido =
+                    nombreArchivo.endsWith(".jar")
+                            || nombreArchivo.endsWith(".war");
 
-            if (info.artifactId != null) {
+            PomInfo info = esArchivoComprimido
+                    ? leerPomDesdeArchivoComprimido(archivo)
+                    : leerPom(archivo);
+
+            if (info.artifactId != null && !info.artifactId.trim().isEmpty()) {
                 ficha.setArtifactId(info.artifactId);
             }
-            if (info.packaging != null) {
+
+            if (info.packaging != null && !info.packaging.trim().isEmpty()) {
                 ficha.setPackaging(info.packaging);
             }
-            if (info.javaVersion != null) {
+
+            if (info.javaVersion != null && !info.javaVersion.trim().isEmpty()) {
                 ficha.setJavaVersion(info.javaVersion);
             }
-            if (info.springBootVersion != null) {
+
+            if (info.springBootVersion != null
+                    && !info.springBootVersion.trim().isEmpty()) {
                 ficha.setSpringBootVersion(info.springBootVersion);
             }
-            if (info.version != null) {
+
+            if (info.version != null && !info.version.trim().isEmpty()) {
                 ficha.setVersion(info.version);
             }
 
+            log.info(
+                    "✅ Ficha técnica [{}] -> version={}, java={}, springBoot={}, artifactId={}, packaging={}",
+                    dominio,
+                    ficha.getVersion(),
+                    ficha.getJavaVersion(),
+                    ficha.getSpringBootVersion(),
+                    ficha.getArtifactId(),
+                    ficha.getPackaging());
+
         } catch (Exception e) {
-            log.error("❌ Error leyendo datos tecnicos del dominio {} ({})", dominio, rutaConfigurada, e);
+
+            log.error(
+                    "❌ Error leyendo datos técnicos del dominio {} ({})",
+                    dominio,
+                    rutaConfigurada,
+                    e);
         }
     }
 
