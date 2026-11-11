@@ -30,7 +30,6 @@ import com.mercantilbanco.swaggermonitor.exception.ControllerException;
 import com.mercantilbanco.swaggermonitor.model.Alert;
 import com.mercantilbanco.swaggermonitor.model.ServerHistory;
 import com.mercantilbanco.swaggermonitor.model.ServerInfo;
-import com.mercantilbanco.swaggermonitor.model.ServiceImpact;
 import com.mercantilbanco.swaggermonitor.service.ImpactoService;
 import com.mercantilbanco.swaggermonitor.service.ServerMonitorService;
 
@@ -253,7 +252,7 @@ public class SwaggerMonitorController {
 			if (file != null && file.exists()) {
 
 				String content = new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
-				content = anotarNombresDePrograma(content);
+				content = anotarNombresDePrograma(content, name);
 
 				return ResponseEntity.ok().header("Content-Type", "application/json;charset=UTF-8").body(content);
 			}
@@ -276,22 +275,21 @@ public class SwaggerMonitorController {
 	/**
 	 * Agrega al "summary" de cada operación del swagger el nombre de
 	 * programa que la implementa. El path del swagger (p. ej.
-	 * "/validate-prospect") no contiene ese dato: el nombre de
-	 * programa real vive en el atributo "endpoint" de
-	 * restservices.xml (p. ej. ".../validarAceptacionProspecto-gipw148x"),
-	 * ya calculado por {@link ImpactoService} para cada servicio (su
-	 * {@code name}, que sí coincide con el path del swagger). Por eso
-	 * se cruza cada path contra el nombre de los servicios de
-	 * Impacto/Dependencias y se reutiliza el programa ya resuelto allí,
-	 * en vez de volver a parsear el path. Si algo falla, se devuelve
-	 * el contenido original sin modificar en vez de romper la
-	 * documentación.
+	 * "/actualizar-roles") no contiene ese dato: el nombre de programa
+	 * real vive en el atributo "endpoint" del services.xml de ESE
+	 * MISMO dominio (appl/&lt;dominio&gt;/config/services.xml, p. ej.
+	 * ".../actualizarRoles-gipw043x"), bajo el mismo "name" que el
+	 * path del swagger. Por eso se cruza cada path contra el name de
+	 * ese dominio (no contra restservices.xml de osba) y se reutiliza
+	 * el programa ya resuelto por {@link ImpactoService}. Si algo
+	 * falla, se devuelve el contenido original sin modificar en vez de
+	 * romper la documentación.
 	 */
-	private String anotarNombresDePrograma(String swaggerJson) {
+	private String anotarNombresDePrograma(String swaggerJson, String dominio) {
 
 		try {
 
-			Map<String, String> programasPorNombre = construirMapaProgramasPorNombre();
+			Map<String, String> programasPorNombre = impactoService.getProgramasDominio(dominio);
 
 			ObjectMapper mapper = new ObjectMapper();
 			JsonNode root = mapper.readTree(swaggerJson);
@@ -340,20 +338,6 @@ public class SwaggerMonitorController {
 			log.warn("⚠️ No se pudo anotar el swagger con el nombre de programa, se sirve sin modificar", e);
 			return swaggerJson;
 		}
-	}
-
-	private Map<String, String> construirMapaProgramasPorNombre() {
-
-		Map<String, String> programas = new HashMap<>();
-
-		for (ServiceImpact si : impactoService.getRanking()) {
-
-			if (si.getName() != null && si.getPrograma() != null) {
-				programas.put(si.getName().toLowerCase(), si.getPrograma());
-			}
-		}
-
-		return programas;
 	}
 
 	/**

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -246,6 +247,8 @@ public class ImpactoService {
             si.setEndpoint(endpoint);
             si.setPrograma(com.mercantilbanco.swaggermonitor.util.Utils.extraerNombrePrograma(endpoint));
 
+            String programaDominio = null;
+
             for (Map.Entry<String, DomainIndex> dominio : dominios.entrySet()) {
 
                 DomainIndex indice = dominio.getValue();
@@ -253,8 +256,20 @@ public class ImpactoService {
                 boolean coincideSufijo = sufijo != null && indice.getSufijos().contains(sufijo);
 
                 if (coincideNombre || coincideSufijo) {
+
                     si.getDomains().add(dominio.getKey());
+
+                    if (programaDominio == null) {
+                        programaDominio = indice.getProgramas().get(nombre.toLowerCase());
+                    }
                 }
+            }
+
+            // El endpoint de restservices.xml (osba) puede no traer el
+            // código real de programa; el de services.xml del dominio
+            // que resuelve el servicio sí lo trae, y es el autoritativo.
+            if (programaDominio != null) {
+                si.setPrograma(programaDominio);
             }
 
             aplicarCalculos(si, dominios.size());
@@ -278,8 +293,15 @@ public class ImpactoService {
             String endpoint = el.getAttribute(ATTR_ENDPOINT);
 
             if (name != null && !name.trim().isEmpty()) {
-                index.getNombres().add(name.trim());
+
+                String nombreTrim = name.trim();
+                index.getNombres().add(nombreTrim);
                 index.incrementarTotalServicios();
+
+                String programa = com.mercantilbanco.swaggermonitor.util.Utils.extraerNombrePrograma(endpoint);
+                if (programa != null) {
+                    index.getProgramas().put(nombreTrim.toLowerCase(), programa);
+                }
             }
 
             String sufijo = extraerSufijoEndpoint(endpoint);
@@ -527,6 +549,7 @@ public class ImpactoService {
 
         private final Set<String> nombres = new LinkedHashSet<>();
         private final Set<String> sufijos = new LinkedHashSet<>();
+        private final Map<String, String> programas = new LinkedHashMap<>();
         private int totalServicios;
 
         private Set<String> getNombres() {
@@ -537,6 +560,10 @@ public class ImpactoService {
             return sufijos;
         }
 
+        private Map<String, String> getProgramas() {
+            return programas;
+        }
+
         private int getTotalServicios() {
             return totalServicios;
         }
@@ -544,6 +571,31 @@ public class ImpactoService {
         private void incrementarTotalServicios() {
             totalServicios++;
         }
+    }
+
+    /**
+     * Devuelve, para el dominio dado (p. ej. "PERSONA"), el mapa
+     * nombre-de-servicio (en minúsculas) -> nombre de programa, tal
+     * como se extrae del atributo endpoint de su propio
+     * appl/&lt;dominio&gt;/config/services.xml. Se usa para anotar el
+     * swagger de ese dominio: sus paths coinciden con el name de ese
+     * mismo services.xml, no con restservices.xml de osba.
+     */
+    public Map<String, String> getProgramasDominio(String dominio) {
+
+        if (dominio == null || dominio.trim().isEmpty()) {
+            return Collections.emptyMap();
+        }
+
+        Map<String, DomainIndex> dominios = analizar().getDominios();
+
+        for (Map.Entry<String, DomainIndex> entry : dominios.entrySet()) {
+            if (entry.getKey().equalsIgnoreCase(dominio.trim())) {
+                return entry.getValue().getProgramas();
+            }
+        }
+
+        return Collections.emptyMap();
     }
     
     public ServiceFichaDTO getFichaTecnica(String nombre) {
