@@ -315,8 +315,8 @@ public class SwaggerMonitorController {
 					String resumenActual = operacion.path("summary").asText("");
 
 					String nuevoResumen = resumenActual.trim().isEmpty()
-							? "[Programa: " + programa + "]"
-							: resumenActual + " [Programa: " + programa + "]";
+							? "programa: " + programa
+							: resumenActual + "  programa: " + programa;
 
 					operacion.put("summary", nuevoResumen);
 				}
