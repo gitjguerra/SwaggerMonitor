@@ -16,6 +16,7 @@ public class ServiceImpact {
 
     private String name;
     private String endpoint;
+    private String programa;
     private List<String> domains = new ArrayList<>();
     private int cantidad;
     private int pct;

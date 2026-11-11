@@ -75,6 +75,43 @@ public class Utils {
     }
 
     /**
+     * Extrae el "nombre de programa" de un endpoint: la última
+     * palabra del último segmento de la ruta, separada por "-"
+     * (p. ej. para ".../consultarTelefonosDetallado-gipw106x" devuelve
+     * "gipw106x"). Devuelve null si el endpoint es vacío o si el
+     * último segmento no tiene un "-" (no hay nombre de programa que
+     * extraer).
+     */
+    public static String extraerNombrePrograma(String endpoint) {
+
+        if (endpoint == null || endpoint.trim().isEmpty()) {
+            return null;
+        }
+
+        String limpio = endpoint.trim();
+
+        int queryIdx = limpio.indexOf('?');
+        if (queryIdx >= 0) {
+            limpio = limpio.substring(0, queryIdx);
+        }
+
+        while (limpio.endsWith("/")) {
+            limpio = limpio.substring(0, limpio.length() - 1);
+        }
+
+        int slashIdx = limpio.lastIndexOf('/');
+        String segmento = (slashIdx >= 0) ? limpio.substring(slashIdx + 1) : limpio;
+
+        int hyphenIdx = segmento.lastIndexOf('-');
+
+        if (hyphenIdx < 0 || hyphenIdx == segmento.length() - 1) {
+            return null;
+        }
+
+        return segmento.substring(hyphenIdx + 1);
+    }
+
+    /**
      * METODO ENCARGADO DE CONFIGURAR LOG4J.
      */
     public static void setConfigLog4j(String path) throws ExceptionFile {

@@ -7,6 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -21,11 +23,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.mercantilbanco.swaggermonitor.exception.ControllerException;
 import com.mercantilbanco.swaggermonitor.model.Alert;
 import com.mercantilbanco.swaggermonitor.model.ServerHistory;
 import com.mercantilbanco.swaggermonitor.model.ServerInfo;
 import com.mercantilbanco.swaggermonitor.service.ServerMonitorService;
+import com.mercantilbanco.swaggermonitor.util.Utils;
 
 @Controller
 public class SwaggerMonitorController {
@@ -244,6 +250,7 @@ public class SwaggerMonitorController {
 			if (file != null && file.exists()) {
 
 				String content = new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
+				content = anotarNombresDePrograma(content);
 
 				return ResponseEntity.ok().header("Content-Type", "application/json;charset=UTF-8").body(content);
 			}
@@ -253,6 +260,73 @@ public class SwaggerMonitorController {
 		} catch (Exception e) {
 			log.error("❌ Error obteniendo swagger", e);
 			throw new ControllerException("Error leyendo swagger", e);
+		}
+	}
+
+	private static final Set<String> METODOS_HTTP = new HashSet<>(java.util.Arrays.asList(
+			"get", "post", "put", "delete", "patch", "options", "head", "trace"));
+
+	/**
+	 * Agrega al "summary" de cada operación del swagger el nombre de
+	 * programa que la implementa, extraído del propio path de esa
+	 * operación de la misma forma que en Impacto/Dependencias (última
+	 * palabra del último segmento de la ruta, separada por "-"; ver
+	 * {@link Utils#extraerNombrePrograma(String)}). No depende de
+	 * cruzar nada contra services.xml: los paths del swagger ya traen
+	 * ese mismo sufijo. Si algo falla al parsear el JSON, se devuelve
+	 * el contenido original sin modificar en vez de romper la
+	 * documentación.
+	 */
+	private String anotarNombresDePrograma(String swaggerJson) {
+
+		try {
+
+			ObjectMapper mapper = new ObjectMapper();
+			JsonNode root = mapper.readTree(swaggerJson);
+			JsonNode paths = root.path("paths");
+
+			if (!paths.isObject()) {
+				return swaggerJson;
+			}
+
+			Iterator<Map.Entry<String, JsonNode>> pathFields = paths.fields();
+
+			while (pathFields.hasNext()) {
+
+				Map.Entry<String, JsonNode> pathEntry = pathFields.next();
+				String programa = Utils.extraerNombrePrograma(pathEntry.getKey());
+
+				if (programa == null || !pathEntry.getValue().isObject()) {
+					continue;
+				}
+
+				Iterator<Map.Entry<String, JsonNode>> methodFields = pathEntry.getValue().fields();
+
+				while (methodFields.hasNext()) {
+
+					Map.Entry<String, JsonNode> methodEntry = methodFields.next();
+
+					if (!METODOS_HTTP.contains(methodEntry.getKey().toLowerCase())
+							|| !methodEntry.getValue().isObject()) {
+						continue;
+					}
+
+					ObjectNode operacion = (ObjectNode) methodEntry.getValue();
+					String resumenActual = operacion.path("summary").asText("");
+
+					String nuevoResumen = resumenActual.trim().isEmpty()
+							? "[Programa: " + programa + "]"
+							: resumenActual + " [Programa: " + programa + "]";
+
+					operacion.put("summary", nuevoResumen);
+				}
+			}
+
+			return mapper.writeValueAsString(root);
+
+		} catch (Exception e) {
+			log.warn("⚠️ No se pudo anotar el swagger con el nombre de programa, se sirve sin modificar", e);
+			return swaggerJson;
 		}
 	}
 

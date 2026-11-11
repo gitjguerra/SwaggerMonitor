@@ -18,6 +18,7 @@ public class ServiceFichaDTO {
     private String servicio;
     private String dominio;
     private String version;
+    private String programa;
 
     // Impacto
     private int consumidores;

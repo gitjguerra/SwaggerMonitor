@@ -639,14 +639,14 @@ function renderImpactoMatrix(servicios) {
     let head = document.getElementById("impactoMatrixHead");
     let body = document.getElementById("impactoMatrixBody");
 
-    let headerCols = '<th>Servicio</th>' +
+    let headerCols = '<th>Servicio</th><th>Programa</th>' +
         impactoDominios.map(d => '<th>' + d + '</th>').join('') +
         '<th>%</th><th>Criticidad</th>';
 
     head.innerHTML = '<tr>' + headerCols + '</tr>';
 
     if (conImpacto.length === 0) {
-        body.innerHTML = '<tr><td colspan="' + (impactoDominios.length + 3) +
+        body.innerHTML = '<tr><td colspan="' + (impactoDominios.length + 4) +
             '" class="text-center text-muted">Sin dependencias para este filtro</td></tr>';
         return;
     }
@@ -660,7 +660,8 @@ function renderImpactoMatrix(servicios) {
         }).join('');
 
         return '<tr style="cursor:pointer" onclick="showImpactoDetail(\'' + s.name + '\')">' +
-            '<td>' + s.name + '</td>' + cells +
+            '<td>' + s.name + '</td>' +
+            '<td><code>' + (s.programa || '-') + '</code></td>' + cells +
             '<td class="text-center">' + s.pct + '%</td>' +
             '<td class="text-center">' +
             '<span class="badge" style="background-color:' + criticidadColor(s.criticidad) + '">' +
@@ -780,6 +781,9 @@ function showImpactoDetail(name) {
             // ============================
             document.getElementById("fichaServicio").innerText =
                 ficha.servicio || "-";
+
+            document.getElementById("fichaPrograma").innerText =
+                ficha.programa || "-";
 
             document.getElementById("fichaVersion").innerText =
                 ficha.version || "-";

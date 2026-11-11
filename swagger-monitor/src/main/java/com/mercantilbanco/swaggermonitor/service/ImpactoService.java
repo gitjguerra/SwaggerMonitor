@@ -244,6 +244,7 @@ public class ImpactoService {
             ServiceImpact si = new ServiceImpact();
             si.setName(nombre);
             si.setEndpoint(endpoint);
+            si.setPrograma(com.mercantilbanco.swaggermonitor.util.Utils.extraerNombrePrograma(endpoint));
 
             for (Map.Entry<String, DomainIndex> dominio : dominios.entrySet()) {
 
@@ -364,6 +365,7 @@ public class ImpactoService {
                 ServiceImpact si = new ServiceImpact();
                 si.setName(node.path(ATTR_NAME).asText());
                 si.setEndpoint(node.path(ATTR_ENDPOINT).asText(""));
+                si.setPrograma(com.mercantilbanco.swaggermonitor.util.Utils.extraerNombrePrograma(si.getEndpoint()));
 
                 for (JsonNode dominioNode : node.path("domains")) {
                     si.getDomains().add(dominioNode.asText());
@@ -566,6 +568,7 @@ public class ImpactoService {
                 servicio.getCantidad() > 0 ? "100%" : "0%");
 
         ficha.setVersion("N/D");
+        ficha.setPrograma(servicio.getPrograma() != null ? servicio.getPrograma() : "N/D");
         ficha.setDominio(
         	    servicio.getDomains().isEmpty()
         	        ? "N/D"
