@@ -30,8 +30,9 @@ import com.mercantilbanco.swaggermonitor.exception.ControllerException;
 import com.mercantilbanco.swaggermonitor.model.Alert;
 import com.mercantilbanco.swaggermonitor.model.ServerHistory;
 import com.mercantilbanco.swaggermonitor.model.ServerInfo;
+import com.mercantilbanco.swaggermonitor.model.ServiceImpact;
+import com.mercantilbanco.swaggermonitor.service.ImpactoService;
 import com.mercantilbanco.swaggermonitor.service.ServerMonitorService;
-import com.mercantilbanco.swaggermonitor.util.Utils;
 
 @Controller
 public class SwaggerMonitorController {
@@ -39,6 +40,7 @@ public class SwaggerMonitorController {
 	private static final Logger log = LogManager.getLogger(SwaggerMonitorController.class);
 
 	private final ServerMonitorService service;
+	private final ImpactoService impactoService;
 	private static final String MENSAJE = "message";
 	private static final String JSON_EXTENSION = ".json";
 	private static final String MSG_DOWN = "Servidor se cayó";
@@ -50,8 +52,9 @@ public class SwaggerMonitorController {
 	private static final String TYPE_RECOVER = "RECOVER";
 
 	// ✅ Constructor Injection
-	public SwaggerMonitorController(ServerMonitorService service) {
+	public SwaggerMonitorController(ServerMonitorService service, ImpactoService impactoService) {
 		this.service = service;
+		this.impactoService = impactoService;
 	}
 
 	@GetMapping("/")
@@ -266,20 +269,29 @@ public class SwaggerMonitorController {
 	private static final Set<String> METODOS_HTTP = new HashSet<>(java.util.Arrays.asList(
 			"get", "post", "put", "delete", "patch", "options", "head", "trace"));
 
+	// 17 espacios de separación antes de "programa: ", a pedido de negocio.
+	private static final String SEPARADOR_PROGRAMA = "                 programa: ";
+	private static final String PREFIJO_PROGRAMA = "programa: ";
+
 	/**
 	 * Agrega al "summary" de cada operación del swagger el nombre de
-	 * programa que la implementa, extraído del propio path de esa
-	 * operación de la misma forma que en Impacto/Dependencias (última
-	 * palabra del último segmento de la ruta, separada por "-"; ver
-	 * {@link Utils#extraerNombrePrograma(String)}). No depende de
-	 * cruzar nada contra services.xml: los paths del swagger ya traen
-	 * ese mismo sufijo. Si algo falla al parsear el JSON, se devuelve
+	 * programa que la implementa. El path del swagger (p. ej.
+	 * "/validate-prospect") no contiene ese dato: el nombre de
+	 * programa real vive en el atributo "endpoint" de
+	 * restservices.xml (p. ej. ".../validarAceptacionProspecto-gipw148x"),
+	 * ya calculado por {@link ImpactoService} para cada servicio (su
+	 * {@code name}, que sí coincide con el path del swagger). Por eso
+	 * se cruza cada path contra el nombre de los servicios de
+	 * Impacto/Dependencias y se reutiliza el programa ya resuelto allí,
+	 * en vez de volver a parsear el path. Si algo falla, se devuelve
 	 * el contenido original sin modificar en vez de romper la
 	 * documentación.
 	 */
 	private String anotarNombresDePrograma(String swaggerJson) {
 
 		try {
+
+			Map<String, String> programasPorNombre = construirMapaProgramasPorNombre();
 
 			ObjectMapper mapper = new ObjectMapper();
 			JsonNode root = mapper.readTree(swaggerJson);
@@ -294,7 +306,7 @@ public class SwaggerMonitorController {
 			while (pathFields.hasNext()) {
 
 				Map.Entry<String, JsonNode> pathEntry = pathFields.next();
-				String programa = Utils.extraerNombrePrograma(pathEntry.getKey());
+				String programa = buscarPrograma(pathEntry.getKey(), programasPorNombre);
 
 				if (programa == null || !pathEntry.getValue().isObject()) {
 					continue;
@@ -315,8 +327,8 @@ public class SwaggerMonitorController {
 					String resumenActual = operacion.path("summary").asText("");
 
 					String nuevoResumen = resumenActual.trim().isEmpty()
-							? "programa: " + programa
-							: resumenActual + "  programa: " + programa;
+							? PREFIJO_PROGRAMA + programa
+							: resumenActual + SEPARADOR_PROGRAMA + programa;
 
 					operacion.put("summary", nuevoResumen);
 				}
@@ -328,6 +340,53 @@ public class SwaggerMonitorController {
 			log.warn("⚠️ No se pudo anotar el swagger con el nombre de programa, se sirve sin modificar", e);
 			return swaggerJson;
 		}
+	}
+
+	private Map<String, String> construirMapaProgramasPorNombre() {
+
+		Map<String, String> programas = new HashMap<>();
+
+		for (ServiceImpact si : impactoService.getRanking()) {
+
+			if (si.getName() != null && si.getPrograma() != null) {
+				programas.put(si.getName().toLowerCase(), si.getPrograma());
+			}
+		}
+
+		return programas;
+	}
+
+	/**
+	 * Busca, entre los segmentos del path del swagger (ignorando
+	 * parámetros tipo "{id}"), uno que coincida (sin distinguir
+	 * mayúsculas/minúsculas) con el "name" de algún servicio de
+	 * restservices.xml, y devuelve su programa ya resuelto.
+	 */
+	private String buscarPrograma(String path, Map<String, String> programasPorNombre) {
+
+		if (path == null) {
+			return null;
+		}
+
+		String limpio = path.trim();
+		int queryIdx = limpio.indexOf('?');
+		if (queryIdx >= 0) {
+			limpio = limpio.substring(0, queryIdx);
+		}
+
+		for (String segmento : limpio.split("/")) {
+
+			if (segmento.isEmpty() || (segmento.startsWith("{") && segmento.endsWith("}"))) {
+				continue;
+			}
+
+			String programa = programasPorNombre.get(segmento.toLowerCase());
+			if (programa != null) {
+				return programa;
+			}
+		}
+
+		return null;
 	}
 
 	private File findSwaggerFileIgnoreCase(String dir, String name) {
