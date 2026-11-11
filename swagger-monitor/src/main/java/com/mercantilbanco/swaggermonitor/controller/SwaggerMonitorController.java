@@ -268,8 +268,10 @@ public class SwaggerMonitorController {
 	private static final Set<String> METODOS_HTTP = new HashSet<>(java.util.Arrays.asList(
 			"get", "post", "put", "delete", "patch", "options", "head", "trace"));
 
-	// 17 espacios de separación antes de "programa: ", a pedido de negocio.
-	private static final String SEPARADOR_PROGRAMA = "                 programa: ";
+	// 17 espacios de separación antes de "programa: ". Se usan espacios de no
+	// ruptura ( ) porque Swagger UI renderiza el summary como HTML y
+	// colapsa los espacios normales a uno solo.
+	private static final String SEPARADOR_PROGRAMA = "                 programa: ";
 	private static final String PREFIJO_PROGRAMA = "programa: ";
 
 	/**
