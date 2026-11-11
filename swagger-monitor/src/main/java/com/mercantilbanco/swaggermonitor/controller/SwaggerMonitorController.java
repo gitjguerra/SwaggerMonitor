@@ -341,14 +341,19 @@ public class SwaggerMonitorController {
 	}
 
 	/**
-	 * Busca, entre los segmentos del path del swagger (ignorando
-	 * parámetros tipo "{id}"), uno que coincida (sin distinguir
-	 * mayúsculas/minúsculas) con el "name" de algún servicio de
-	 * restservices.xml, y devuelve su programa ya resuelto.
+	 * Busca el "name" (p. ej. "consultar-roles") de algún servicio del
+	 * services.xml del dominio dentro del path del swagger. El REST
+	 * generado separa el name en varios segmentos de path en vez de
+	 * dejarlo como un solo segmento con guiones (p. ej.
+	 * "/persona/consultar/roles" para el name "consultar-roles"), así
+	 * que se prueba cada tramo contiguo de segmentos unido con "-"
+	 * (ignorando parámetros tipo "{id}") y se devuelve el programa del
+	 * match más largo (más específico), sin distinguir
+	 * mayúsculas/minúsculas.
 	 */
 	private String buscarPrograma(String path, Map<String, String> programasPorNombre) {
 
-		if (path == null) {
+		if (path == null || programasPorNombre.isEmpty()) {
 			return null;
 		}
 
@@ -358,19 +363,35 @@ public class SwaggerMonitorController {
 			limpio = limpio.substring(0, queryIdx);
 		}
 
+		List<String> segmentos = new ArrayList<>();
 		for (String segmento : limpio.split("/")) {
-
-			if (segmento.isEmpty() || (segmento.startsWith("{") && segmento.endsWith("}"))) {
-				continue;
-			}
-
-			String programa = programasPorNombre.get(segmento.toLowerCase());
-			if (programa != null) {
-				return programa;
+			if (!segmento.isEmpty() && !(segmento.startsWith("{") && segmento.endsWith("}"))) {
+				segmentos.add(segmento.toLowerCase());
 			}
 		}
 
-		return null;
+		String mejorPrograma = null;
+		int mejorLongitud = 0;
+
+		for (int i = 0; i < segmentos.size(); i++) {
+
+			StringBuilder candidato = new StringBuilder(segmentos.get(i));
+
+			for (int j = i; j < segmentos.size(); j++) {
+
+				if (j > i) {
+					candidato.append('-').append(segmentos.get(j));
+				}
+
+				String programa = programasPorNombre.get(candidato.toString());
+				if (programa != null && candidato.length() > mejorLongitud) {
+					mejorPrograma = programa;
+					mejorLongitud = candidato.length();
+				}
+			}
+		}
+
+		return mejorPrograma;
 	}
 
 	private File findSwaggerFileIgnoreCase(String dir, String name) {
