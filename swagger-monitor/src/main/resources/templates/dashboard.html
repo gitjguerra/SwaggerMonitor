@@ -296,200 +296,166 @@
 
 
 	<!-- ====================================================== -->
-	<!-- FICHA TECNICA DEL SERVICIO -->
-	<!-- ====================================================== -->
-	<div class="modal fade" id="impactoModal" tabindex="-1">
-	    <div class="modal-dialog modal-xl">
-	        <div class="modal-content">
-	
-	            <div class="modal-header bg-primary text-white">
-	                <h5 id="impactoModalName" class="modal-title">
-	                    Ficha Técnica
-	                </h5>
-	
-	                <button type="button"
-	                        class="btn-close btn-close-white"
-	                        data-bs-dismiss="modal">
-	                </button>
-	            </div>
-	
-	            <div class="modal-body">
-	
-	                <!-- ===================================== -->
-	                <!-- INFORMACION GENERAL -->
-	                <!-- ===================================== -->
-	
-	                <div class="card mb-3">
-	                    <div class="card-header fw-bold">
-	                        Información General
-	                    </div>
-	
-	                    <div class="card-body">
-	
-	                        <div class="row">
+<!-- FICHA TECNICA DEL SERVICIO -->
+<!-- ====================================================== -->
+<div class="modal fade" id="impactoModal" tabindex="-1">
 
-	                            <div class="col-md-3">
-	                                <strong>Servicio</strong><br>
-	                                <span id="fichaServicio">-</span>
-	                            </div>
+    <div class="modal-dialog modal-xl">
 
-	                            <div class="col-md-3">
-	                                <strong>Programa</strong><br>
-	                                <code id="fichaPrograma">-</code>
-	                            </div>
+        <div class="modal-content">
 
-	                            <div class="col-md-3">
-	                                <strong>Versión</strong><br>
-	                                <span id="fichaVersion">-</span>
-	                            </div>
+            <!-- ===================================== -->
+            <!-- CABECERA -->
+            <!-- ===================================== -->
 
-	                            <div class="col-md-3">
-	                                <strong>Dominio</strong><br>
-	                                <span id="fichaDominio">-</span>
-	                            </div>
+            <div class="modal-header bg-primary text-white">
 
-	                        </div>
-	
-	                        <hr>
-	
-	                        <div class="row">
-	
-	                            <div class="col-md-4">
-	                                <strong>Consumidores</strong><br>
-	                                <span id="fichaConsumidores">-</span>
-	                            </div>
-	
-	                            <div class="col-md-4">
-	                                <strong>Dependencias</strong><br>
-	                                <span id="fichaDependencias">-</span>
-	                            </div>
-	
-	                            <div class="col-md-4">
-	                                <strong>Criticidad</strong><br>
-	                                <span id="fichaCriticidad"
-	                                      class="badge">
-	                                </span>
-	                            </div>
-	
-	                        </div>
-	
-	                        <hr>
-	
-	                        <div class="row">
-	
-	                            <div class="col-md-6">
-	                                <strong>Impacto</strong><br>
-	                                <span id="fichaImpacto">-</span>
-	                            </div>
-	
-	                            <div class="col-md-6">
-	                                <strong>Cobertura</strong><br>
-	                                <span id="fichaCobertura">-</span>
-	                            </div>
-	
-	                        </div>
-	
-	                    </div>
-	                </div>
-	
-	                <!-- ===================================== -->
-	                <!-- INFORMACION TECNICA -->
-	                <!-- ===================================== -->
-	
-	                <div class="card mb-4">
-	
-	                    <div class="card-header fw-bold">
-	                        Información Técnica
-	                    </div>
-	
-	                    <div class="card-body">
-	
-	                        <div class="row">
-	
-	                            <div class="col-md-2">
-	                                <strong>Java</strong><br>
-	                                <span id="fichaJava">-</span>
-	                            </div>
-	
-	                            <div class="col-md-2">
-	                                <strong>Spring Framework</strong><br>
-	                                <span>5.3.18</span>
-	                            </div>
+                <h5 id="impactoModalName" class="modal-title">
+                    Ficha Técnica
+                </h5>
 
-	                            <div class="col-md-2">
-	                                <strong>Spring Boot</strong><br>
-	                                <span>2.5.4</span>
-	                            </div>
-	
-	                            <div class="col-md-3">
-	                                <strong>ArtifactId</strong><br>
-	                                <span id="fichaArtifact">-</span>
-	                            </div>
-	
-	                            <div class="col-md-3">
-	                                <strong>Packaging</strong><br>
-	                                <span id="fichaPackaging">-</span>
-	                            </div>
-	
-	                        </div>
-	
-	                    </div>
-	
-	                </div>
-	
-	                <!-- ===================================== -->
-	                <!-- IMPACTO -->
-	                <!-- ===================================== -->
-	
-	                <div class="row">
-	
-	                    <div class="col-md-6">
-	
-	                        <div class="card">
-	
-	                            <div class="card-header fw-bold text-danger">
-	                                Dependencias
-	                            </div>
-	
-	                            <div class="card-body">
-	
-	                                <ul id="fichaDependenciasList"
-	                                    class="list-group">
-	                                </ul>
-	
-	                            </div>
-	
-	                        </div>
-	
-	                    </div>
-	
-	                    <div class="col-md-6">
-	
-	                        <div class="card">
-	
-	                            <div class="card-header fw-bold text-success">
-	                                Dominios Impactados
-	                            </div>
-	
-	                            <div class="card-body">
-	
-	                                <ul id="fichaImpactadosList"
-	                                    class="list-group">
-	                                </ul>
-	
-	                            </div>
-	
-	                        </div>
-	
-	                    </div>
-	
-	                </div>
-	
-	            </div>
-	
-	        </div>
-	    </div>
-	</div>
+                <button type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <!-- ===================================== -->
+                <!-- INFORMACION GENERAL -->
+                <!-- ===================================== -->
+
+                <div class="card mb-3">
+
+                    <div class="card-header fw-bold">
+                        Información General
+                    </div>
+
+                    <div class="card-body">
+
+                        <!-- ============================ -->
+                        <!-- FILA 1 -->
+                        <!-- ============================ -->
+
+                        <div class="row">
+
+						    <div class="col-md-4">
+						        <strong>Servicio</strong><br>
+						        <span id="fichaServicio">-</span>
+						    </div>
+						
+						    <div class="col-md-4">
+						        <strong>Programa</strong><br>
+						        <code id="fichaPrograma">-</code>
+						    </div>
+						
+						    <div class="col-md-4">
+						        <strong>Versión</strong><br>
+						        <span id="fichaVersion">-</span>
+						    </div>
+						
+						</div>
+
+                        <hr>
+
+                        <!-- ============================ -->
+                        <!-- FILA 2 -->
+                        <!-- ============================ -->
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <strong>Impacto</strong><br>
+                                <span id="fichaImpacto">-</span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <strong>Criticidad</strong><br>
+                                <span id="fichaCriticidad"
+                                      class="badge">
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ===================================== -->
+                <!-- INFORMACION TECNICA -->
+                <!-- ===================================== -->
+
+                <div class="card mb-3">
+
+                    <div class="card-header fw-bold">
+                        Información Técnica
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="row">
+
+                            <div class="col-md-2">
+                                <strong>Java</strong><br>
+                                <span id="fichaJava">-</span>
+                            </div>
+
+                            <div class="col-md-3">
+                                <strong>Spring Framework</strong><br>
+                                <span>5.3.18</span>
+                            </div>
+
+                            <div class="col-md-2">
+                                <strong>Spring Boot</strong><br>
+                                <span>2.5.4</span>
+                            </div>
+
+                            <div class="col-md-3">
+                                <strong>ArtifactId</strong><br>
+                                <span id="fichaArtifact">-</span>
+                            </div>
+
+                            <div class="col-md-2">
+                                <strong>Packaging</strong><br>
+                                <span id="fichaPackaging">-</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ===================================== -->
+                <!-- DOMINIOS IMPACTADOS -->
+                <!-- ===================================== -->
+
+                <div class="card">
+
+                    <div class="card-header fw-bold text-success">
+                        Dominios Impactados
+                    </div>
+
+                    <div class="card-body">
+
+                        <ul id="fichaImpactadosList"
+                            class="list-group">
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 	<!-- MODAL LISTA GENERICA (KPIs IMPACTO) -->

@@ -267,7 +267,7 @@ public class ImpactoService {
 
             // El endpoint de restservices.xml (osba) puede no traer el
             // código real de programa; el de services.xml del dominio
-            // que resuelve el servicio sí lo trae, y es el autoritativo.
+            // que resuelve el servicio sí lo trae.
             if (programaDominio != null) {
                 si.setPrograma(programaDominio);
             }
@@ -621,31 +621,12 @@ public class ImpactoService {
 
         ficha.setVersion("N/D");
         ficha.setPrograma(servicio.getPrograma() != null ? servicio.getPrograma() : "N/D");
-        ficha.setDominio(
-        	    servicio.getDomains().isEmpty()
-        	        ? "N/D"
-        	        : String.join(", ", servicio.getDomains())
-        	);
-
-    	ficha.setConsumidores(
-        	    servicio.getDomains().size()
-        	);
+        ficha.setDominio(servicio.getDomains().isEmpty() ? "N/D" : servicio.getDomains().get(0));
 
         String dominioPrincipal = servicio.getDomains().isEmpty() ? null : servicio.getDomains().get(0);
         completarDatosTecnicos(ficha, dominioPrincipal);
 
-        ficha.setImpactados(
-                new ArrayList<>(servicio.getDomains()));
-
-        List<String> consume = new ArrayList<>();
-
-        if (servicio.getEndpoint() != null &&
-            !servicio.getEndpoint().trim().isEmpty()) {
-
-            consume.add(servicio.getEndpoint());
-        }
-
-        ficha.setConsume(consume);
+        ficha.setImpactados(new ArrayList<>(servicio.getDomains()));
 
         return ficha;
     }

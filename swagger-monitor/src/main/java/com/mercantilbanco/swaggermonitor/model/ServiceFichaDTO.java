@@ -21,7 +21,6 @@ public class ServiceFichaDTO {
     private String programa;
 
     // Impacto
-    private int consumidores;
     private int dependencias;
     private int impactoPct;
     private String criticidad;

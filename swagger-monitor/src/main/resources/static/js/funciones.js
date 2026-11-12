@@ -544,8 +544,7 @@ function loadImpactoDashboard() {
             document.getElementById("kpiServicios").innerText = data.totalServiciosRestservices;
             document.getElementById("kpiDependencias").innerText = data.totalServiciosConCoincidencia;
             document.getElementById("kpiCriticos").innerText = (data.serviciosCriticos + data.serviciosAltos);
-            document.getElementById("impactoCobertura").innerText =
-                "Cobertura (nombre y nombre de programa): " + data.coberturaPct + "%";
+            document.getElementById("impactoCobertura").innerText = "Cobertura (nombre y nombre de programa): " + data.coberturaPct + "%";
 
             document.getElementById("impactoFallbackAlert").style.display =
                 data.usandoDatosFallback ? "block" : "none";
@@ -788,20 +787,8 @@ function showImpactoDetail(name) {
             document.getElementById("fichaVersion").innerText =
                 ficha.version || "-";
 
-            document.getElementById("fichaDominio").innerText =
-                ficha.dominio || "-";
-
-            document.getElementById("fichaConsumidores").innerText =
-                ficha.consumidores || 0;
-
-            document.getElementById("fichaDependencias").innerText =
-                ficha.dependencias || 0;
-
             document.getElementById("fichaImpacto").innerText =
                 (ficha.impactoPct || 0) + "%";
-
-            document.getElementById("fichaCobertura").innerText =
-                ficha.cobertura || "-";
 
             // ============================
             // CRITICIDAD
@@ -825,31 +812,6 @@ function showImpactoDetail(name) {
 
             document.getElementById("fichaPackaging").innerText =
                 ficha.packaging || "-";
-
-            // ============================
-            // DEPENDENCIAS
-            // ============================
-            let deps =
-                document.getElementById("fichaDependenciasList");
-
-            deps.innerHTML = "";
-
-            if (!ficha.consume || ficha.consume.length === 0) {
-
-                deps.innerHTML =
-                    '<li class="list-group-item text-muted">Sin dependencias registradas</li>';
-
-            } else {
-
-                ficha.consume.forEach(dep => {
-
-                    deps.innerHTML += `
-                        <li class="list-group-item">
-                            ${dep}
-                        </li>
-                    `;
-                });
-            }
 
             // ============================
             // IMPACTADOS
